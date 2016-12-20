@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ColorCalendarApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>ColorCalendarTest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -38,6 +43,21 @@
 			<true/>
 		</dict>
 		<key>DA91953B1E05C44A00511224</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA91954F1E05C52900511224</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA9195621E05C52A00511224</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA91956D1E05C52A00511224</key>
 		<dict>
 			<key>primary</key>
 			<true/>

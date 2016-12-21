@@ -11,23 +11,28 @@ import SnapKit
 
 
 public class ColorCalendarView:UIView {
+    
+    // MARK: UIView methods
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        func createButton(withImage image:UIImage) -> UIButton {
+        func createButton(withImage image:UIImage, accessibilityIdentifier identifier:String) -> UIButton {
             let button = UIButton(type: .custom)
-            button.setImage(image, for:.normal)
+            button.setImage(image, for:.normal)            
+            button.accessibilityIdentifier = identifier
+            button.accessibilityLabel = identifier
+            
             
             return button
         }
         // This is just plain closure practice/learn closure definition and impl. Not really useful at all:
-        typealias CreateButtonClosureType = (UIImage) -> (UIButton)
-        
-        let createButtonClosure : CreateButtonClosureType = {(image) -> UIButton in
-            return createButton(withImage:image)
+        typealias CreateButtonClosureType = (UIImage, String) -> (UIButton)
+        let createButtonClosure : CreateButtonClosureType = {(image, identifier) -> UIButton in
+            return createButton(withImage: image, accessibilityIdentifier: identifier)
         }
         let createButtonConstant : CreateButtonClosureType = createButtonClosure
-        let previousMonthButton = createButtonConstant(R.image.leftArrow()!)
-        let nextMonthButton = createButtonConstant(R.image.rightArrow()!)
+        let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonth())
+        let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonth())
         
         
         self.addSubview(previousMonthButton)
@@ -45,4 +50,12 @@ public class ColorCalendarView:UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public override var isAccessibilityElement:Bool {
+        get {
+            return true
+        }
+        set {
+            super.isAccessibilityElement = newValue
+        }
+    }    
 }

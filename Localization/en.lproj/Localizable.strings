@@ -6,3 +6,4 @@
   Copyright © 2016 Kartjuba. All rights reserved.
 */
 "button.PreviousMonth" = "Previous Month Button";
+"button.NextMonth" = "Next Month Button";

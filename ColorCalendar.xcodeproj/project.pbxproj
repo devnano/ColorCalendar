@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DA5B27BC1E09E4CD00E36CE9 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA5B27BE1E0AB0D400E36CE9 /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
+		DA5B27BF1E0AB0D400E36CE9 /* ColorCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorCalendarTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DA5B27C01E0AB0D400E36CE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA7A02671DFF638300FF2EAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA7A026F1DFF638300FF2EAE;
+			remoteInfo = ColorCalendar;
+		};
 		DA7A027B1DFF638300FF2EAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DA7A02671DFF638300FF2EAE /* Project object */;
@@ -56,6 +65,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DA5B27BF1E0AB0D400E36CE9 /* ColorCalendar.framework in Embed Frameworks */,
 				DA5B27BC1E09E4CD00E36CE9 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -109,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5B27BE1E0AB0D400E36CE9 /* ColorCalendar.framework in Frameworks */,
 				DAA2F5191E09E1FB00CC6741 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +279,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DA5B27C11E0AB0D400E36CE9 /* PBXTargetDependency */,
 			);
 			name = ColorCalendarApp;
 			productName = ColorCalendarApp;
@@ -460,6 +472,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DA5B27C11E0AB0D400E36CE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA7A026F1DFF638300FF2EAE /* ColorCalendar */;
+			targetProxy = DA5B27C01E0AB0D400E36CE9 /* PBXContainerItemProxy */;
+		};
 		DA7A027C1DFF638300FF2EAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DA7A026F1DFF638300FF2EAE /* ColorCalendar */;
@@ -676,6 +693,7 @@
 		DA9195761E05C52A00511224 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEVELOPMENT_TEAM = GXB2YASNT3;
@@ -695,6 +713,7 @@
 		DA9195771E05C52A00511224 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEVELOPMENT_TEAM = GXB2YASNT3;

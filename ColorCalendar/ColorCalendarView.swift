@@ -12,9 +12,17 @@ import SnapKit
 public class ColorCalendarView:UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        let previousMonthButton = UIButton(type: .custom)
-        let image = UIImage(named: "LeftArrow", in: Bundle(for: type(of:self)), compatibleWith: nil)
-        previousMonthButton.setImage(image, for: .normal)
+        func createButton(_ imageName:String) -> UIButton {
+            let button = UIButton(type: .custom)
+            let image = UIImage(named:imageName, in:Bundle(for: type(of:self)), compatibleWith: nil)
+            button.setImage(image, for:.normal)
+            
+            return button
+        }
+        
+        let previousMonthButton = createButton("LeftArrow")
+        
+        
         self.addSubview(previousMonthButton)
         previousMonthButton.snp.makeConstraints{(make) -> Void in
             make.left.top.equalTo(previousMonthButton.superview!)

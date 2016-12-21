@@ -19,13 +19,25 @@ public class ColorCalendarView:UIView {
             
             return button
         }
+        // This is just plain closure practice/learn closure definition and impl. Not really useful at all:
+        typealias ClosureType = (String) -> (UIButton)
         
-        let previousMonthButton = createButton(withImageName:"LeftArrow")
+        let createButtonClosure : ClosureType = {(imageName) -> UIButton in
+            return createButton(withImageName:imageName)
+        }
+        let createButtonConstant : (String) -> UIButton = createButtonClosure
+        let previousMonthButton = createButtonConstant("LeftArrow")
+        let nextMonthButton = createButtonConstant("RightArrow")
         
         
         self.addSubview(previousMonthButton)
+        self.addSubview(nextMonthButton)
         previousMonthButton.snp.makeConstraints{(make) -> Void in
             make.left.top.equalTo(previousMonthButton.superview!)
+        }
+
+        nextMonthButton.snp.makeConstraints{(make) -> Void in
+            make.right.top.equalTo(nextMonthButton.superview!)
         }
     }
     

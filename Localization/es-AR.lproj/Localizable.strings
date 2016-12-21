@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  ColorCalendar
+
+  Created by Mariano Heredia on 12/21/16.
+  Copyright © 2016 Kartjuba. All rights reserved.
+*/
+"button.PreviousMonth" = "Ir al mes anterior";

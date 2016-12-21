@@ -14,6 +14,8 @@
 		DA5B27C41E0AC22A00E36CE9 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
 		DA5B27C81E0AC34400E36CE9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B27C71E0AC34400E36CE9 /* R.generated.swift */; };
 		DA5B27C91E0AC34400E36CE9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B27C71E0AC34400E36CE9 /* R.generated.swift */; };
+		DA5B27D01E0ACADC00E36CE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */; };
+		DA5B27D11E0ACADC00E36CE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorCalendarTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +82,10 @@
 /* Begin PBXFileReference section */
 		DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 		DA5B27C71E0AC34400E36CE9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		DA5B27CA1E0AC70500E36CE9 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Main.strings"; sourceTree = "<group>"; };
+		DA5B27CB1E0AC70500E36CE9 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		DA5B27D21E0ACADC00E36CE9 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DA5B27D41E0ACAE000E36CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A02731DFF638300FF2EAE /* ColorCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCalendar.h; sourceTree = "<group>"; };
 		DA7A02741DFF638300FF2EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,9 +163,18 @@
 			name = R;
 			sourceTree = "<group>";
 		};
+		DA5B27CC1E0ACA8C00E36CE9 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
+				DA5B27CC1E0ACA8C00E36CE9 /* Localization */,
 				DA5B27C61E0AC33400E36CE9 /* R */,
 				DA7A02721DFF638300FF2EAE /* ColorCalendar */,
 				DA7A027D1DFF638300FF2EAE /* ColorCalendarTests */,
@@ -253,6 +268,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA7A02841DFF638400FF2EAE /* Build configuration list for PBXNativeTarget "ColorCalendar" */;
 			buildPhases = (
+				DA5B27D71E0ACC0C00E36CE9 /* R.swift */,
 				DA7A026B1DFF638300FF2EAE /* Sources */,
 				DA7A026C1DFF638300FF2EAE /* Frameworks */,
 				DA7A026D1DFF638300FF2EAE /* Headers */,
@@ -289,7 +305,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA9195751E05C52A00511224 /* Build configuration list for PBXNativeTarget "ColorCalendarApp" */;
 			buildPhases = (
-				DA5B27C51E0AC25800E36CE9 /* R.swift */,
 				DA91954C1E05C52900511224 /* Sources */,
 				DA91954D1E05C52900511224 /* Frameworks */,
 				DA91954E1E05C52900511224 /* Resources */,
@@ -409,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */,
+				DA5B27D01E0ACADC00E36CE9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,13 +456,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5B27D11E0ACADC00E36CE9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DA5B27C51E0AC25800E36CE9 /* R.swift */ = {
+		DA5B27D71E0ACC0C00E36CE9 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -533,10 +550,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA5B27D21E0ACADC00E36CE9 /* es-AR */,
+				DA5B27D41E0ACAE000E36CE9 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		DA9195561E05C52900511224 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DA9195571E05C52900511224 /* Base */,
+				DA5B27CA1E0AC70500E36CE9 /* es-AR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -545,6 +572,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DA91955C1E05C52900511224 /* Base */,
+				DA5B27CB1E0AC70500E36CE9 /* es-AR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -556,6 +584,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -610,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

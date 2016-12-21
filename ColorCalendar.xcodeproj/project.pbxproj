@@ -10,6 +10,10 @@
 		DA5B27BC1E09E4CD00E36CE9 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DA5B27BE1E0AB0D400E36CE9 /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA5B27BF1E0AB0D400E36CE9 /* ColorCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DA5B27C31E0AC22A00E36CE9 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
+		DA5B27C41E0AC22A00E36CE9 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
+		DA5B27C81E0AC34400E36CE9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B27C71E0AC34400E36CE9 /* R.generated.swift */; };
+		DA5B27C91E0AC34400E36CE9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B27C71E0AC34400E36CE9 /* R.generated.swift */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorCalendarTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -74,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
+		DA5B27C71E0AC34400E36CE9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A02731DFF638300FF2EAE /* ColorCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCalendar.h; sourceTree = "<group>"; };
 		DA7A02741DFF638300FF2EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAA2F5161E09DF0200CC6741 /* SnapKit.framework in Frameworks */,
+				DA5B27C31E0AC22A00E36CE9 /* Rswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,15 +142,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5B27C41E0AC22A00E36CE9 /* Rswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA5B27C61E0AC33400E36CE9 /* R */ = {
+			isa = PBXGroup;
+			children = (
+				DA5B27C71E0AC34400E36CE9 /* R.generated.swift */,
+			);
+			name = R;
+			sourceTree = "<group>";
+		};
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
+				DA5B27C61E0AC33400E36CE9 /* R */,
 				DA7A02721DFF638300FF2EAE /* ColorCalendar */,
 				DA7A027D1DFF638300FF2EAE /* ColorCalendarTests */,
 				DA9195511E05C52900511224 /* ColorCalendarApp */,
@@ -151,6 +168,7 @@
 				DA9195711E05C52A00511224 /* ColorCalendarAppUITests */,
 				DA7A02711DFF638300FF2EAE /* Products */,
 				DAA2F5151E09DF0200CC6741 /* SnapKit.framework */,
+				DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,6 +289,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA9195751E05C52A00511224 /* Build configuration list for PBXNativeTarget "ColorCalendarApp" */;
 			buildPhases = (
+				DA5B27C51E0AC25800E36CE9 /* R.swift */,
 				DA91954C1E05C52900511224 /* Sources */,
 				DA91954D1E05C52900511224 /* Frameworks */,
 				DA91954E1E05C52900511224 /* Resources */,
@@ -426,12 +445,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DA5B27C51E0AC25800E36CE9 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/rswift\" \"$SRCROOT\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA7A026B1DFF638300FF2EAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */,
+				DA5B27C81E0AC34400E36CE9 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA9195731E05C52A00511224 /* ColorCalendarAppUITests.swift in Sources */,
+				DA5B27C91E0AC34400E36CE9 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +814,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEVELOPMENT_TEAM = GXB2YASNT3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ColorCalendarAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -794,6 +836,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEVELOPMENT_TEAM = GXB2YASNT3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ColorCalendarAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;

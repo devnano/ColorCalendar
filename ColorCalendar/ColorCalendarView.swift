@@ -9,25 +9,25 @@
 import UIKit
 import SnapKit
 
+
 public class ColorCalendarView:UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        func createButton(withImageName imageName:String) -> UIButton {
+        func createButton(withImage image:UIImage) -> UIButton {
             let button = UIButton(type: .custom)
-            let image = UIImage(named:imageName, in:Bundle(for: type(of:self)), compatibleWith: nil)
             button.setImage(image, for:.normal)
             
             return button
         }
         // This is just plain closure practice/learn closure definition and impl. Not really useful at all:
-        typealias ClosureType = (String) -> (UIButton)
+        typealias CreateButtonClosureType = (UIImage) -> (UIButton)
         
-        let createButtonClosure : ClosureType = {(imageName) -> UIButton in
-            return createButton(withImageName:imageName)
+        let createButtonClosure : CreateButtonClosureType = {(image) -> UIButton in
+            return createButton(withImage:image)
         }
-        let createButtonConstant : (String) -> UIButton = createButtonClosure
-        let previousMonthButton = createButtonConstant("LeftArrow")
-        let nextMonthButton = createButtonConstant("RightArrow")
+        let createButtonConstant : CreateButtonClosureType = createButtonClosure
+        let previousMonthButton = createButtonConstant(R.image.leftArrow()!)
+        let nextMonthButton = createButtonConstant(R.image.rightArrow()!)
         
         
         self.addSubview(previousMonthButton)

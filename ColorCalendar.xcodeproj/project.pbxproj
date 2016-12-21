@@ -13,7 +13,6 @@
 		DA5B27C31E0AC22A00E36CE9 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
 		DA5B27C81E0AC34400E36CE9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B27C71E0AC34400E36CE9 /* R.generated.swift */; };
 		DA5B27D01E0ACADC00E36CE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */; };
-		DA5B27D11E0ACADC00E36CE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorCalendarTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -457,7 +456,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA5B27D11E0ACADC00E36CE9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

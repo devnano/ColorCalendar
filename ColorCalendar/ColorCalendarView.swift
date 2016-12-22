@@ -16,23 +16,23 @@ public class ColorCalendarView:UIView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        func createButton(withImage image:UIImage, accessibilityIdentifier identifier:String) -> UIButton {
+        func createButton(with image:UIImage, and accessibilityLabel:String) -> UIButton {
             let button = UIButton(type: .custom)
-            button.setImage(image, for:.normal)            
-            button.accessibilityIdentifier = identifier
-            button.accessibilityLabel = identifier
-            
+            button.setImage(image, for:.normal)
+            button.accessibilityLabel = accessibilityLabel
+            button.isAccessibilityElement = true
+            button.accessibilityTraits = UIAccessibilityTraitButton
             
             return button
         }
         // This is just plain closure practice/learn closure definition and impl. Not really useful at all:
         typealias CreateButtonClosureType = (UIImage, String) -> (UIButton)
-        let createButtonClosure : CreateButtonClosureType = {(image, identifier) -> UIButton in
-            return createButton(withImage: image, accessibilityIdentifier: identifier)
+        let createButtonClosure : CreateButtonClosureType = {(image, label) -> UIButton in
+            return createButton(with: image, and: label)
         }
         let createButtonConstant : CreateButtonClosureType = createButtonClosure
-        let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonth())
-        let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonth())
+        let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccesibilityLabel())
+        let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccesibilityLabel())
         
         
         self.addSubview(previousMonthButton)
@@ -44,18 +44,22 @@ public class ColorCalendarView:UIView {
         nextMonthButton.snp.makeConstraints{(make) -> Void in
             make.right.top.equalTo(nextMonthButton.superview!)
         }
+//        
+//        self.isAccessibilityElement = true
+//        self.accessibilityLabel = "Calendar"
+//        self.accessibilityTraits = UIAccessibilityTraitSummaryElement
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override var isAccessibilityElement:Bool {
-        get {
-            return true
-        }
-        set {
-            super.isAccessibilityElement = newValue
-        }
-    }    
+//    public override var isAccessibilityElement:Bool {
+//        get {
+//            return true
+//        }
+//        set {
+//            super.isAccessibilityElement = newValue
+//        }
+//    }    
 }

@@ -32,8 +32,8 @@ class WorkRosterAppUITests: XCTestCase {
     func testPreviousMonthExists() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let count = app.buttons.count
-        NSLog("Buttons count: %d", count)
+        XCTAssert(app.buttons["Previous month"].exists)
         XCTAssert(app.buttons["Next month"].exists)
+        XCTAssert(app.staticTexts["Current month"].exists)
     }
 }

@@ -5,5 +5,6 @@
   Created by Mariano Heredia on 12/21/16.
   Copyright © 2016 Kartjuba. All rights reserved.
 */
-"button.PreviousMonth.AccesibilityLabel" = "Mes anterior";
-"button.NextMonth.AccesibilityLabel" = "Mes siguiente";
+"button.PreviousMonth.AccessibilityLabel" = "Mes anterior";
+"button.NextMonth.AccessibilityLabel" = "Mes siguiente";
+"label.CurrentMonth.AccessibilityLabel" = "Mes actual";

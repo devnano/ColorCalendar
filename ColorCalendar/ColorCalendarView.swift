@@ -29,18 +29,29 @@ public class ColorCalendarView:UIView {
             return createButton(with: image, and: label)
         }
         let createButtonConstant : CreateButtonClosureType = createButtonClosure
-        let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccesibilityLabel())
-        let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccesibilityLabel())
+        let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel())
+        let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel())
+        let currentMonthLabel = UILabel()
+        
+        currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
+        currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         
         self.addSubview(previousMonthButton)
         self.addSubview(nextMonthButton)
+        self.addSubview(currentMonthLabel)
+        
         previousMonthButton.snp.makeConstraints{(make) -> Void in
             make.left.top.equalTo(previousMonthButton.superview!)
         }
 
         nextMonthButton.snp.makeConstraints{(make) -> Void in
             make.right.top.equalTo(nextMonthButton.superview!)
+        }
+        
+        currentMonthLabel.snp.makeConstraints { (make) -> Void in
+            make.centerY.equalTo(previousMonthButton)
+            make.centerX.equalTo(currentMonthLabel.superview!)
         }
 
     }

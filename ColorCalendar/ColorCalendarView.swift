@@ -20,8 +20,6 @@ public class ColorCalendarView:UIView {
             let button = UIButton(type: .custom)
             button.setImage(image, for:.normal)
             button.accessibilityLabel = accessibilityLabel
-            button.isAccessibilityElement = true
-            button.accessibilityTraits = UIAccessibilityTraitButton
             
             return button
         }
@@ -44,22 +42,10 @@ public class ColorCalendarView:UIView {
         nextMonthButton.snp.makeConstraints{(make) -> Void in
             make.right.top.equalTo(nextMonthButton.superview!)
         }
-//        
-//        self.isAccessibilityElement = true
-//        self.accessibilityLabel = "Calendar"
-//        self.accessibilityTraits = UIAccessibilityTraitSummaryElement
+
     }
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-//    public override var isAccessibilityElement:Bool {
-//        get {
-//            return true
-//        }
-//        set {
-//            super.isAccessibilityElement = newValue
-//        }
-//    }    
+    }   
 }

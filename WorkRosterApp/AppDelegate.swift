@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ColorCalendarApp
+//  WorkRosterApp
 //
-//  Created by Mariano Heredia on 12/17/16.
+//  Created by Mariano Heredia on 12/22/16.
 //  Copyright © 2016 Kartjuba. All rights reserved.
 //
 

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA91954F1E05C52900511224"
-               BuildableName = "ColorCalendarApp.app"
-               BlueprintName = "ColorCalendarApp"
+               BlueprintIdentifier = "DAB7CD5B1E0C1DC800C94638"
+               BuildableName = "WorkRosterApp.app"
+               BlueprintName = "WorkRosterApp"
                ReferencedContainer = "container:ColorCalendar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA9195621E05C52A00511224"
-               BuildableName = "ColorCalendarAppTests.xctest"
-               BlueprintName = "ColorCalendarAppTests"
+               BlueprintIdentifier = "DAB7CD6E1E0C1DC800C94638"
+               BuildableName = "WorkRosterAppTests.xctest"
+               BlueprintName = "WorkRosterAppTests"
                ReferencedContainer = "container:ColorCalendar.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA91956D1E05C52A00511224"
-               BuildableName = "ColorCalendarAppUITests.xctest"
-               BlueprintName = "ColorCalendarAppUITests"
+               BlueprintIdentifier = "DAB7CD791E0C1DC800C94638"
+               BuildableName = "WorkRosterAppUITests.xctest"
+               BlueprintName = "WorkRosterAppUITests"
                ReferencedContainer = "container:ColorCalendar.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -52,9 +52,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA91954F1E05C52900511224"
-            BuildableName = "ColorCalendarApp.app"
-            BlueprintName = "ColorCalendarApp"
+            BlueprintIdentifier = "DAB7CD5B1E0C1DC800C94638"
+            BuildableName = "WorkRosterApp.app"
+            BlueprintName = "WorkRosterApp"
             ReferencedContainer = "container:ColorCalendar.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA91954F1E05C52900511224"
-            BuildableName = "ColorCalendarApp.app"
-            BlueprintName = "ColorCalendarApp"
+            BlueprintIdentifier = "DAB7CD5B1E0C1DC800C94638"
+            BuildableName = "WorkRosterApp.app"
+            BlueprintName = "WorkRosterApp"
             ReferencedContainer = "container:ColorCalendar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -94,9 +94,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA91954F1E05C52900511224"
-            BuildableName = "ColorCalendarApp.app"
-            BlueprintName = "ColorCalendarApp"
+            BlueprintIdentifier = "DAB7CD5B1E0C1DC800C94638"
+            BuildableName = "WorkRosterApp.app"
+            BlueprintName = "WorkRosterApp"
             ReferencedContainer = "container:ColorCalendar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

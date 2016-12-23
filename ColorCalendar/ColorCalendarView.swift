@@ -76,26 +76,28 @@ public class ColorCalendarView:UIView {
         
         // Add weekdays view
         let weekdaysSymbols = DateFormatter().veryShortWeekdaySymbols!
-        var previousWeekdayView:UIView?
+        var previousWeekdayLabel:UIView?
         
         for symbol in weekdaysSymbols {
-            let weekdayView = UILabel()
-            weekdayView.text = symbol
-            weekdaysView.addSubview(weekdayView)
+            let weekdayLabel = UILabel()
+            weekdayLabel.text = symbol
+            weekdaysView.addSubview(weekdayLabel)
+            weekdayLabel.textAlignment = .center
             
-            weekdayView.snp.makeConstraints({ (make) in
-                make.top.bottom.equalTo(weekdayView.superview!)
-                if let view = previousWeekdayView {
+            weekdayLabel.snp.makeConstraints({ (make) in
+                make.top.bottom.equalTo(weekdayLabel.superview!)
+                if let view = previousWeekdayLabel {
                     make.left.equalTo(view.snp.right)
+                    make.width.equalTo(view)
                 } else {
-                    make.left.equalTo(weekdayView.superview!)
+                    make.left.equalTo(weekdayLabel.superview!)
                 }
             })
             
-            previousWeekdayView = weekdayView
+            previousWeekdayLabel = weekdayLabel
         }
         
-        if let view = previousWeekdayView {
+        if let view = previousWeekdayLabel {
             view.snp.makeConstraints({ (make) in
                 make.right.equalTo(view.superview!)
             })

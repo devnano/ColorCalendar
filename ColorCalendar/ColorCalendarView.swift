@@ -69,7 +69,7 @@ public class ColorCalendarView:UIView {
             make.centerX.equalTo(currentMonthLabel.superview!)
         }
         
-        weekdaysView.snp.makeConstraints { (make) in
+        weekdaysView.snp.makeConstraints { (make) -> Void in
             make.left.right.equalTo(weekdaysView.superview!)
             make.top.equalTo(previousMonthButton.snp.bottom)
         }

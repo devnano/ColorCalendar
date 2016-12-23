@@ -12,10 +12,24 @@ import SnapKit
 
 public class ColorCalendarView:UIView {
     
+    // MARK: Properties
+    
     // MARK: UIView methods
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        self.createUI()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.createUI()
+    }
+    
+    
+    // MARK: Private API
+    
+    private func createUI() {
         func createButton(with image:UIImage, and accessibilityLabel:String) -> UIButton {
             let button = UIButton(type: .custom)
             button.setImage(image, for:.normal)
@@ -44,7 +58,7 @@ public class ColorCalendarView:UIView {
         previousMonthButton.snp.makeConstraints{(make) -> Void in
             make.left.top.equalTo(previousMonthButton.superview!)
         }
-
+        
         nextMonthButton.snp.makeConstraints{(make) -> Void in
             make.right.top.equalTo(nextMonthButton.superview!)
         }
@@ -53,10 +67,5 @@ public class ColorCalendarView:UIView {
             make.centerY.equalTo(previousMonthButton)
             make.centerX.equalTo(currentMonthLabel.superview!)
         }
-
     }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }   
 }

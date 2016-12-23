@@ -10,7 +10,9 @@ import UIKit
 import SnapKit
 
 
-public class ColorCalendarView:UIView {
+public class ColorCalendarView:UIView, UICollectionViewDataSource {
+    // MARK: Static constants
+    fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier"
     
     // MARK: Properties
     
@@ -46,15 +48,18 @@ public class ColorCalendarView:UIView {
         let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel())
         let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel())
         let currentMonthLabel = UILabel()
-        let weekdaysView = UIView()
+        let calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         
         currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
+        
+        calendarCollectionView.dataSource = self
+        calendarCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
        
         self.addSubview(previousMonthButton)
         self.addSubview(nextMonthButton)
         self.addSubview(currentMonthLabel)
-        self.addSubview(weekdaysView)
+        self.addSubview(calendarCollectionView)
         
         previousMonthButton.snp.makeConstraints{(make) in
             make.left.top.equalTo(previousMonthButton.superview!)
@@ -69,38 +74,34 @@ public class ColorCalendarView:UIView {
             make.centerX.equalTo(currentMonthLabel.superview!)
         }
         
-        weekdaysView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(weekdaysView.superview!)
+        calendarCollectionView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(calendarCollectionView.superview!)
             make.top.equalTo(previousMonthButton.snp.bottom)
         }
         
         // Add weekdays view
-        let weekdaysSymbols = DateFormatter().veryShortWeekdaySymbols!
-        var previousWeekdayLabel:UIView?
-        
-        for symbol in weekdaysSymbols {
-            let weekdayLabel = UILabel()
-            weekdayLabel.text = symbol
-            weekdaysView.addSubview(weekdayLabel)
-            weekdayLabel.textAlignment = .center
-            
-            weekdayLabel.snp.makeConstraints({ (make) in
-                make.top.bottom.equalTo(weekdayLabel.superview!)
-                if let view = previousWeekdayLabel {
-                    make.left.equalTo(view.snp.right)
-                    make.width.equalTo(view)
-                } else {
-                    make.left.equalTo(weekdayLabel.superview!)
-                }
-            })
-            
-            previousWeekdayLabel = weekdayLabel
-        }
-        
-        if let view = previousWeekdayLabel {
-            view.snp.makeConstraints({ (make) in
-                make.right.equalTo(view.superview!)
-            })
-        }
+        // let weekdaysSymbols = DateFormatter().veryShortWeekdaySymbols!
     }
+    
+    // MARK: UICollectionDataSource
+    
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier,
+                                                      for: indexPath)
+        cell.backgroundColor = UIColor.black
+        
+        return cell
+    }
+
 }

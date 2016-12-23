@@ -56,22 +56,49 @@ public class ColorCalendarView:UIView {
         self.addSubview(currentMonthLabel)
         self.addSubview(weekdaysView)
         
-        previousMonthButton.snp.makeConstraints{(make) -> Void in
+        previousMonthButton.snp.makeConstraints{(make) in
             make.left.top.equalTo(previousMonthButton.superview!)
         }
         
-        nextMonthButton.snp.makeConstraints{(make) -> Void in
+        nextMonthButton.snp.makeConstraints{(make) in
             make.right.top.equalTo(nextMonthButton.superview!)
         }
         
-        currentMonthLabel.snp.makeConstraints { (make) -> Void in
+        currentMonthLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(previousMonthButton)
             make.centerX.equalTo(currentMonthLabel.superview!)
         }
         
-        weekdaysView.snp.makeConstraints { (make) -> Void in
+        weekdaysView.snp.makeConstraints { (make) in
             make.left.right.equalTo(weekdaysView.superview!)
             make.top.equalTo(previousMonthButton.snp.bottom)
+        }
+        
+        // Add weekdays view
+        let weekdaysSymbols = DateFormatter().veryShortWeekdaySymbols!
+        var previousWeekdayView:UIView?
+        
+        for symbol in weekdaysSymbols {
+            let weekdayView = UILabel()
+            weekdayView.text = symbol
+            weekdaysView.addSubview(weekdayView)
+            
+            weekdayView.snp.makeConstraints({ (make) in
+                make.top.bottom.equalTo(weekdayView.superview!)
+                if let view = previousWeekdayView {
+                    make.left.equalTo(view.snp.right)
+                } else {
+                    make.left.equalTo(weekdayView.superview!)
+                }
+            })
+            
+            previousWeekdayView = weekdayView
+        }
+        
+        if let view = previousWeekdayView {
+            view.snp.makeConstraints({ (make) in
+                make.right.equalTo(view.superview!)
+            })
         }
     }
 }

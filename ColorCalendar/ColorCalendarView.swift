@@ -14,11 +14,23 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     // MARK: Static constants
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier"
     fileprivate static let calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
-    fileprivate static let calendarCellBorderWidth:CGFloat = 0.5
-    fileprivate static let nColumn:CGFloat = 7
+    fileprivate static let calendarCellBorderWidth:CGFloat = 1.0
+    fileprivate static let nColumn = 7
+    fileprivate static let nWeekRows = 5
+    fileprivate static let nOfDayCells = nColumn * nWeekRows
+    
+    // MARK: instance variables
+    
+    lazy var calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
     
     // MARK: Properties
-    lazy var calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    var rowHeight:CGFloat {
+        get {
+            let totalRow = ColorCalendarView.nWeekRows + 1
+            return (calendarCollectionView.frame.height -  (CGFloat(totalRow - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(totalRow)
+        }
+    }
     
     // MARK: UIView methods
     
@@ -32,10 +44,10 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         self.createUI()
     }
     
-//    public override func layoutSubviews() {
-//        super.layoutSubviews()
-//        
-//    }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        calendarCollectionView.performBatchUpdates(nil, completion: nil)
+    }
     
     
     // MARK: Private API
@@ -92,6 +104,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         // Add weekdays view
         // let weekdaysSymbols = DateFormatter().veryShortWeekdaySymbols!
     }
+
     
     // MARK: UICollectionDataSource
     
@@ -101,7 +114,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return ColorCalendarView.nOfDayCells
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -130,15 +143,17 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     }
     
     // MARK: UICollectionViewDelegateFlowLayout
-//    
-//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        let width = collectionView.frame.width / 7
-//        return CGSize(width:width, height:30)
-//    }
-//    
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let width = collectionView.frame.width / 7
+        
+        return CGSize(width:width, height:rowHeight)
+    }
+
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width - ((ColorCalendarView.nColumn - 1) * ColorCalendarView.calendarCellBorderWidth)) / ColorCalendarView.nColumn
-        return CGSize(width:width, height:30)
+        let width = (collectionView.frame.width -  (CGFloat(ColorCalendarView.nColumn - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(ColorCalendarView.nColumn)
+        
+        return CGSize(width:width, height:rowHeight)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

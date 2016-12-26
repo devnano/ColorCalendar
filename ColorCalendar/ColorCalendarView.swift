@@ -23,6 +23,13 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     lazy var calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    // MARK: Enums
+    
+    enum CallendarSection: Int {
+        case weekdaysNames = 0
+        case calendarDays
+    }
+    
     
     // MARK: Properties
     var rowHeight:CGFloat {
@@ -71,7 +78,6 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         let currentMonthLabel = UILabel()
         
         currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
-        currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         calendarCollectionView.dataSource = self
         calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
@@ -109,12 +115,17 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     // MARK: UICollectionDataSource
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ColorCalendarView.nOfDayCells
+        switch CallendarSection(rawValue:section)! {
+        case .weekdaysNames:
+            return ColorCalendarView.nColumn            
+        case .calendarDays:
+            return ColorCalendarView.nOfDayCells
+        }
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -129,21 +140,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         return cell
     }
     
-    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier, for: indexPath) as! ColorCalendarCollectionViewCell
-        
-        cell.text = "\(indexPath.row)"
-        
-        return cell
-    }
-    
     // MARK: UICollectionViewDelegateFlowLayout
-    
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width = collectionView.frame.width / 7
-        
-        return CGSize(width:width, height:rowHeight)
-    }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width -  (CGFloat(ColorCalendarView.nColumn - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(ColorCalendarView.nColumn)

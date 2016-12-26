@@ -10,10 +10,10 @@ import ColorCalendar
 import SnapKit
 
 class ViewController: UIViewController {
+    lazy var colorCalendar:ColorCalendarView = ColorCalendarView(frame:CGRect())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            let colorCalendar = ColorCalendarView(frame:CGRect())
             view.addSubview(colorCalendar)
     
             colorCalendar.snp.makeConstraints {(make) -> Void in
@@ -26,6 +26,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 

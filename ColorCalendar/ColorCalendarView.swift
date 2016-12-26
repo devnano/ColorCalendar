@@ -10,11 +10,15 @@ import UIKit
 import SnapKit
 
 
-public class ColorCalendarView:UIView, UICollectionViewDataSource {
+public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: Static constants
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier"
+    fileprivate static let calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
+    fileprivate static let calendarCellBorderWidth:CGFloat = 0.5
+    fileprivate static let nColumn:CGFloat = 7
     
     // MARK: Properties
+    lazy var calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     // MARK: UIView methods
     
@@ -27,6 +31,11 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource {
         super.init(coder: aDecoder)
         self.createUI()
     }
+    
+//    public override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//    }
     
     
     // MARK: Private API
@@ -48,13 +57,14 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource {
         let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel())
         let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel())
         let currentMonthLabel = UILabel()
-        let calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         
         currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         calendarCollectionView.dataSource = self
         calendarCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
+        calendarCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
+        calendarCollectionView.delegate = self
        
         self.addSubview(previousMonthButton)
         self.addSubview(nextMonthButton)
@@ -99,9 +109,47 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier,
                                                       for: indexPath)
-        cell.backgroundColor = UIColor.black
+        
+        cell.backgroundColor = UIColor.green
+        
+        let label = UILabel()
+        
+        label.text = "\(indexPath.row)"
+        
+        cell.addSubview(label)
         
         return cell
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier, for: indexPath)
+        
+        cell.backgroundColor = UIColor.red
+        
+        return cell
+    }
+    
+    // MARK: UICollectionViewDelegateFlowLayout
+//    
+//    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        let width = collectionView.frame.width / 7
+//        return CGSize(width:width, height:30)
+//    }
+//    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width - ((ColorCalendarView.nColumn - 1) * ColorCalendarView.calendarCellBorderWidth)) / ColorCalendarView.nColumn
+        return CGSize(width:width, height:30)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return ColorCalendarView.calendarCellBorderWidth
+    }
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return ColorCalendarView.calendarCellBorderWidth
     }
 
 }

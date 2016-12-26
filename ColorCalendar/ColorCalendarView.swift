@@ -74,8 +74,8 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         calendarCollectionView.dataSource = self
-        calendarCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
-        calendarCollectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
+        calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
+        calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
         calendarCollectionView.delegate = self
        
         self.addSubview(previousMonthButton)
@@ -121,23 +121,18 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier,
-                                                      for: indexPath)
+                                                      for: indexPath) as! ColorCalendarCollectionViewCell
         
-        cell.backgroundColor = UIColor.green
         
-        let label = UILabel()
-        
-        label.text = "\(indexPath.row)"
-        
-        cell.addSubview(label)
+        cell.text = "\(indexPath.row)"
         
         return cell
     }
     
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier, for: indexPath) as! ColorCalendarCollectionViewCell
         
-        cell.backgroundColor = UIColor.red
+        cell.text = "\(indexPath.row)"
         
         return cell
     }

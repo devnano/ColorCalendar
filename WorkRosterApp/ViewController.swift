@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            colorCalendar.calendar = CalendarDate(Date())
             view.addSubview(colorCalendar)
     
             colorCalendar.snp.makeConstraints {(make) -> Void in

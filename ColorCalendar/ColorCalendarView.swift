@@ -15,9 +15,9 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier"
     fileprivate static let calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
     fileprivate static let calendarCellBorderWidth:CGFloat = 1.0
-    fileprivate static let nColumn = 7
-    fileprivate static let nWeekRows = 5
-    fileprivate static let nOfDayCells = nColumn * nWeekRows
+//    fileprivate static let nColumn = 7
+//    fileprivate static let nWeekRows = 5
+//    fileprivate static let nOfDayCells = nColumn * nWeekRows
     
     // MARK: instance variables
     
@@ -32,12 +32,22 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     
     // MARK: Properties
+    
     var rowHeight:CGFloat {
         get {
-            let totalRow = ColorCalendarView.nWeekRows + 1
+            // Weeks + weekdays header
+            let totalRow = calendar!.weeksPerMonth + 1
             return (calendarCollectionView.frame.height -  (CGFloat(totalRow - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(totalRow)
         }
     }
+    
+    var nOfDayCells:Int {
+        get {
+            return calendar!.daysPerWeek * calendar!.weeksPerMonth
+        }
+    }
+    
+    public var calendar:CalendarDate?
     
     // MARK: UIView methods
     
@@ -122,9 +132,9 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch CallendarSection(rawValue:section)! {
         case .weekdaysNames:
-            return ColorCalendarView.nColumn            
+            return calendar!.daysPerWeek
         case .calendarDays:
-            return ColorCalendarView.nOfDayCells
+            return nOfDayCells
         }
     }
     
@@ -143,7 +153,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     // MARK: UICollectionViewDelegateFlowLayout
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width -  (CGFloat(ColorCalendarView.nColumn - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(ColorCalendarView.nColumn)
+        let width = (collectionView.frame.width -  (CGFloat(calendar!.daysPerWeek - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(calendar!.daysPerWeek)
         
         return CGSize(width:width, height:rowHeight)
     }

@@ -31,6 +31,20 @@ class ColorHighlightTests: XCTestCase {
         XCTAssert(calendar.daysPerWeek == 7)
     }
     
+    func testWeekdaySymbolAtWithoutOffset() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(calendar.weekdaySymbol(at: 0) == "S")
+    }
+    
+    func testWeekdaySymbolAtWithOffset() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        calendar.firstWeekdayOffset = 1
+        XCTAssert(calendar.weekdaySymbol(at: 0) == "M")
+    }
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

@@ -14,14 +14,13 @@ public class CalendarHighlights {
     
     private var calendar:NSCalendar
     private var date:Date
-   
     
     required public init(_ date:Date) {
         self.calendar = NSCalendar.current as NSCalendar
         self.date = date        
     }
     
-    // MARK: properties
+    // MARK: module internal API
     
     var daysPerWeek:Int {
         get {
@@ -37,15 +36,13 @@ public class CalendarHighlights {
         }
     }
     
-    
-    
-    // MARK: internal API
-    
-    var firstWeekdayOffset:Int = 0
-    
     func weekdaySymbol(at index:Int) -> String {
         assert(index < daysPerWeek, "Weekday index out of range")
         
         return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayOffset) % daysPerWeek]
     }
+    
+    // MARK: internal API
+    
+    public var firstWeekdayOffset:Int = 0
 }

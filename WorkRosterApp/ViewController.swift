@@ -14,8 +14,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            colorCalendar.calendar = CalendarHighlights(Date())
+            let highlight = CalendarHighlights(Date())
+            highlight.firstWeekdayOffset = 1
+        
             view.addSubview(colorCalendar)
+            colorCalendar.calendar = highlight
     
             colorCalendar.snp.makeConstraints {(make) -> Void in
                 make.left.right.bottom.equalTo(colorCalendar.superview!)

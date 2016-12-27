@@ -25,8 +25,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     enum CallendarSection: Int {
         case weekdaysNames = 0
         case calendarDays
-    }
-    
+    }    
     
     // MARK: Properties
     

@@ -19,6 +19,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     // MARK: instance variables
     
     lazy var calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var currentMonthLabel = UILabel()
     
     // MARK: Enums
     
@@ -43,7 +44,11 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         }
     }
     
-    public var calendar:CalendarHighlights!
+    public var calendar:CalendarHighlights! {
+        didSet {
+            currentMonthLabel.text = calendar.currentMonthName
+        }
+    }
     
     // MARK: UIView methods
     
@@ -81,7 +86,6 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         let createButtonConstant : CreateButtonClosureType = createButtonClosure
         let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel())
         let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel())
-        let currentMonthLabel = UILabel()
         
         currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         

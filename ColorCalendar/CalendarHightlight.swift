@@ -42,7 +42,14 @@ public class CalendarHighlights {
         return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayOffset) % daysPerWeek]
     }
     
-    // MARK: internal API
+    // MARK: public API
     
     public var firstWeekdayOffset:Int = 0
+    public var currentMonthName:String {
+        get {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM"
+            return formatter.string(from: date).capitalized
+        }
+    }
 }

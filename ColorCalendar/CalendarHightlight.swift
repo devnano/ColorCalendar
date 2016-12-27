@@ -45,11 +45,31 @@ public class CalendarHighlights {
     // MARK: public API
     
     public var firstWeekdayOffset:Int = 0
+    
     public var currentMonthName:String {
         get {
             let formatter = DateFormatter()
             formatter.dateFormat = "MMMM"
             return formatter.string(from: date).capitalized
         }
+    }
+    
+    public func dayNumber(at index:Int) -> Int {
+        var components = calendar.components([.day, .month, .year], from: date)
+        components.day = 1
+        
+        let firstDayOfCurrentMonthDate = calendar.date(from: components)!
+        let firstDayOfCurrentMonthDateComponents = calendar.components(.weekday, from:firstDayOfCurrentMonthDate)
+        let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday! - firstWeekdayOffset - 1
+        let indexOffsetFromFirstDayInMonth = index - firstDayOfCurrentMonthDateWeekday
+        
+        components = DateComponents()
+        components.day = indexOffsetFromFirstDayInMonth
+        let dateWithOffset = calendar .date(byAdding: components, to: firstDayOfCurrentMonthDate, options: NSCalendar.Options(rawValue: 0))!
+        
+        let result:Int = calendar.component(.day, from: dateWithOffset)
+
+        
+        return result
     }
 }

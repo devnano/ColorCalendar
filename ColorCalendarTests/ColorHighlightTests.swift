@@ -9,22 +9,26 @@
 import XCTest
 @testable import ColorCalendar
 
-class ColorCalendarTests: XCTestCase {
+class ColorHighlightTests: XCTestCase {
+    
+   var calendar:CalendarHighlights!
     
     override func setUp() {
         super.setUp()
+        calendar = CalendarHighlights(Date())
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        calendar = nil
     }
     
-    func testExample() {
+    func testWeekdaysCount() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssert(false)
+        XCTAssert(calendar.daysPerWeek == 7)
     }
     
     func testPerformanceExample() {

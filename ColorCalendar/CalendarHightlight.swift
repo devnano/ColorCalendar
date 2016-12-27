@@ -8,14 +8,20 @@
 
 import Foundation
 
-public class CalendarDate {
+public class CalendarHighlights {
+    
+    // MARK: private properties
+    
     private var calendar:NSCalendar
     private var date:Date
+   
     
     required public init(_ date:Date) {
         self.calendar = NSCalendar.current as NSCalendar
         self.date = date        
     }
+    
+    // MARK: properties
     
     var daysPerWeek:Int {
         get {
@@ -29,5 +35,17 @@ public class CalendarDate {
             let range = calendar.range(of: .weekOfMonth, in: .month, for: date)
             return range.length
         }
+    }
+    
+    
+    
+    // MARK: internal API
+    
+    var firstWeekdayOffset:Int = 0
+    
+    func weekdaySymbol(at index:Int) -> String {
+        assert(index < daysPerWeek, "Weekday index out of range")
+        
+        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayOffset) % daysPerWeek]
     }
 }

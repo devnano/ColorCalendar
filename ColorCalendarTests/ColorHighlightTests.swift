@@ -15,11 +15,7 @@ class ColorHighlightTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-        let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: 2016, month: 12, day: 27)
-        let date = calendar.date(from: dateComponents)!
-        
-        calendarHighlights = CalendarHighlights(date)
+        createCalendarHighlight(year: 2016, month: 12, day: 27)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -28,6 +24,18 @@ class ColorHighlightTests: XCTestCase {
         super.tearDown()
         calendarHighlights = nil
     }
+    
+    // MARK: private methods
+    
+    private func createCalendarHighlight(year:Int, month:Int, day:Int) {
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)
+        let date = calendar.date(from: dateComponents)!
+        
+        calendarHighlights = CalendarHighlights(date)
+    }
+    
+    // MARK: test methods
     
     func testWeekdaysCount() {
         // This is an example of a functional test case.
@@ -58,6 +66,22 @@ class ColorHighlightTests: XCTestCase {
     
     func testLastMonthDayNumberAtWithoutOffset() {
         XCTAssert(calendarHighlights.dayNumber(at: 34) == 31)
+    }
+    
+    func testForwardOneMonth() {
+        calendarHighlights.forwardOneMonth()
+        XCTAssert(calendarHighlights.currentMonthName == "January")
+    }
+    
+    func testForwardOneMonthOnLastDayOfTheMonth() {
+        createCalendarHighlight(year: 2016, month: 12, day: 31)
+        calendarHighlights.forwardOneMonth()
+        XCTAssert(calendarHighlights.currentMonthName == "January")
+    }
+    
+    func testBackwardOneMonth() {
+        calendarHighlights.backwardOneMonth()
+        XCTAssert(calendarHighlights.currentMonthName == "November")
     }
     
     func testPerformanceExample() {

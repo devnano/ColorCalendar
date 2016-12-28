@@ -142,8 +142,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier,
-                                                      for: indexPath) as! ColorCalendarCollectionViewCell
-        
+                                                      for: indexPath) as! ColorCalendarCollectionViewCell        
         
         switch CallendarSection(rawValue:indexPath.section)! {
         case .weekdaysNames:

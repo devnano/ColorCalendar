@@ -86,6 +86,14 @@ public class CalendarHighlights {
         }
     }
     
+    public var currentYear:Int {
+        get {
+            let year = calendar.component(.year, from: date)
+            
+            return year            
+        }
+    }
+    
     public func dayNumber(at index:Int) -> Int {
         let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate()
         let firstDayOfCurrentMonthDateComponents = calendar.components(.weekday, from:firstDayOfCurrentMonthDate)

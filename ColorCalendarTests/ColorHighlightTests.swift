@@ -70,6 +70,15 @@ class ColorHighlightTests: XCTestCase {
         XCTAssert(calendarHighlights.currentMonthName == "December")
     }
     
+    func testCurrentYear() {
+        XCTAssert(calendarHighlights.currentYear == 2016)
+    }
+    
+    func testCurrentYearAfterForwardMonth() {
+        calendarHighlights.forwardOneMonth()
+        XCTAssert(calendarHighlights.currentYear == 2017)
+    }
+    
     func testFirstMonthDayNumberAtWithoutOffset() {
         XCTAssert(calendarHighlights.dayNumber(at: 0) == 27)
     }

@@ -37,22 +37,32 @@ class ColorHighlightTests: XCTestCase {
     
     // MARK: test methods
     
+    func testWeeksCount6Weeks() {
+        createCalendarHighlight(year: 2017, month: 4, day: 1)
+        XCTAssert(calendarHighlights.weeksPerMonth == 6)
+    }
+    
+    func testWeeksCount6WeeksWithMondayAsFirstWeekDay() {
+        createCalendarHighlight(year: 2017, month: 4, day: 1)
+        calendarHighlights.firstWeekdayDay = 2
+        XCTAssert(calendarHighlights.weeksPerMonth == 6)
+    }
+    
     func testWeekdaysCount() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(calendarHighlights.daysPerWeek == 7)
+    }
+    
+    func testWeekdaysCountWhenCurrentWeekHasLessThan7DaysInMonth() {
+        createCalendarHighlight(year: 2016, month: 11, day: 1)
         XCTAssert(calendarHighlights.daysPerWeek == 7)
     }
     
     func testWeekdaySymbolAtWithoutOffset() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssert(calendarHighlights.weekdaySymbol(at: 0) == "S")
     }
     
     func testWeekdaySymbolAtWithOffset() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        calendarHighlights.firstWeekdayOffset = 1
+        calendarHighlights.firstWeekdayDay = 2
         XCTAssert(calendarHighlights.weekdaySymbol(at: 0) == "M")
     }
     

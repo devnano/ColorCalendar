@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             let highlight = CalendarHighlights(Date())
-            highlight.firstWeekdayOffset = 1
+            highlight.firstWeekdayDay = 2
         
             view.addSubview(colorCalendar)
             colorCalendar.calendar = highlight

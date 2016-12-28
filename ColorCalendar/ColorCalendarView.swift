@@ -16,19 +16,10 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     private static let calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
     private static let calendarCellBorderWidth:CGFloat = 1.0
     
-    // MARK: instance variables
+    // MARK: Properties
     
     lazy var calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     lazy var currentMonthLabel = UILabel()
-    
-    // MARK: Enums
-    
-    enum CallendarSection: Int {
-        case weekdaysNames = 0
-        case calendarDays
-    }    
-    
-    // MARK: Properties
     
     var rowHeight:CGFloat {
         get {
@@ -49,17 +40,25 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
             currentMonthLabel.text = calendar.currentMonthName
         }
     }
+
+    
+    // MARK: Enums
+    
+    enum CallendarSection: Int {
+        case weekdaysNames = 0
+        case calendarDays
+    }
     
     // MARK: UIView methods
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.createUI()
+        createUI()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.createUI()
+        createUI()
     }
     
     public override func layoutSubviews() {
@@ -71,33 +70,35 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     // MARK: Private API
     
     private func createUI() {
-        func createButton(with image:UIImage, and accessibilityLabel:String) -> UIButton {
+        func createButton(image:UIImage, accessibilityLabel:String, action:Selector) -> UIButton {
             let button = UIButton(type: .custom)
             button.setImage(image, for:.normal)
             button.accessibilityLabel = accessibilityLabel
+            button.addTarget(self, action: action, for: .touchUpInside)
             
             return button
         }
+        
         // This is just plain closure practice/learn closure definition and impl. Not really useful at all:
-        typealias CreateButtonClosureType = (UIImage, String) -> (UIButton)
-        let createButtonClosure : CreateButtonClosureType = {(image, label) -> UIButton in
-            return createButton(with: image, and: label)
+        typealias CreateButtonClosureType = (UIImage, String, Selector) -> (UIButton)
+        let createButtonClosure : CreateButtonClosureType = {(image, label, action) -> UIButton in
+            return createButton(image: image, accessibilityLabel: label, action: action)
         }
         let createButtonConstant : CreateButtonClosureType = createButtonClosure
-        let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel())
-        let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel())
+        let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel(), #selector(switchToPreviousMonth))
+        let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel(), #selector(switchToNextMonth))
         
-        currentMonthLabel.text = R.string.localizable.labelCurrentMonthAccessibilityLabel()
+        currentMonthLabel.accessibilityLabel = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         calendarCollectionView.dataSource = self
         calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
         calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
         calendarCollectionView.delegate = self
        
-        self.addSubview(previousMonthButton)
-        self.addSubview(nextMonthButton)
-        self.addSubview(currentMonthLabel)
-        self.addSubview(calendarCollectionView)
+        addSubview(previousMonthButton)
+        addSubview(nextMonthButton)
+        addSubview(currentMonthLabel)
+        addSubview(calendarCollectionView)
         
         previousMonthButton.snp.makeConstraints{(make) in
             make.left.top.equalTo(previousMonthButton.superview!)
@@ -116,18 +117,28 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
             make.left.right.bottom.equalTo(calendarCollectionView.superview!)
             make.top.equalTo(previousMonthButton.snp.bottom)
         }
-        
-        // Add weekdays view
-        // let weekdaysSymbols = DateFormatter().veryShortWeekdaySymbols!
     }
-
+    
+    private func reloadCalendar() {
+        calendarCollectionView.reloadData()
+        currentMonthLabel.text = calendar.currentMonthName
+    }
+    
+    @objc private func switchToNextMonth() {
+        calendar.forwardOneMonth()
+        reloadCalendar()
+    }
+    
+    @objc private func switchToPreviousMonth() {
+        calendar.backwardOneMonth()
+        reloadCalendar()
+    }
     
     // MARK: UICollectionDataSource
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
-    }
-    
+    }    
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch CallendarSection(rawValue:section)! {

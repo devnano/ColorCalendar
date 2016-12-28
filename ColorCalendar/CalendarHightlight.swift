@@ -43,27 +43,40 @@ public class CalendarHighlights {
     
     var daysPerWeek:Int {
         get {
-            let range = calendar.range(of: .day, in: .weekOfMonth, for: date)
-            return range.length
+//            let range = calendar.range(of: .day, in: .weekOfYear, for: date)
+//            assert(range.location != NSNotFound)
+//            return range.length
+            // NOTE: Just hardcoded by now. Our aim is 7 days per week calendar – Gregorian.
+            return 7
         }
     }
     
     var weeksPerMonth:Int {
         get {
-            let range = calendar.range(of: .weekOfMonth, in: .month, for: date)
-            return range.length
+//            let range = calendar.range(of: .weekOfMonth, in: .month, for: date)
+//            return range.length
+            // NOTE: Just hardcoded by now. Our aim is 6 weeks per mont – Like Mac Dashboard Calendar
+            return 6
         }
     }
     
     func weekdaySymbol(at index:Int) -> String {
         assert(index < daysPerWeek, "Weekday index out of range")
-        
-        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayOffset) % daysPerWeek]
+        // - 1 since .day property starts at 1 but dayNumber first index is 0
+        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayDay - 1) % daysPerWeek]
     }
     
     // MARK: public API
     
-    public var firstWeekdayOffset:Int = 0
+    public var firstWeekdayDay:Int {
+        set {
+            calendar.firstWeekday = newValue
+        }
+        
+        get {
+            return calendar.firstWeekday
+        }
+    }
     
     public var currentMonthName:String {
         get {
@@ -77,7 +90,7 @@ public class CalendarHighlights {
         let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate()
         let firstDayOfCurrentMonthDateComponents = calendar.components(.weekday, from:firstDayOfCurrentMonthDate)
         // - 1 since .day property starts at 1 but dayNumber first index is 0
-        let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday! - firstWeekdayOffset - 1
+        let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday! - 1
         let indexOffsetFromFirstDayInMonth = index - firstDayOfCurrentMonthDateWeekday
         
         var components = DateComponents()

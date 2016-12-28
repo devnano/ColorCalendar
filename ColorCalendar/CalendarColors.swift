@@ -12,6 +12,7 @@ public protocol CalendarColors {
     static var currentMonthDayTextColor: UIColor { get }
     static var otherMonthsDayTextColor: UIColor { get }
     static var weekdaySymbolTextColor: UIColor { get }
+    static var monthSwitcherBackgroundColor: UIColor { get }
 }
 
 
@@ -32,6 +33,12 @@ struct DefaultCalendarColors : CalendarColors {
     static var weekdaySymbolTextColor: UIColor {
         get {
             return R.color.defaultColorCalendarPalette.weekdaySymbolTextColor()
+        }
+    }
+    
+    static var monthSwitcherBackgroundColor: UIColor {
+        get {
+            return R.color.defaultColorCalendarPalette.monthSwitcherBackgroundColor()
         }
     }
 }

@@ -493,7 +493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/rswift\" \"$SRCROOT\"";
+			shellScript = "rm \"$SRCROOT/R/DefaultColorCalendarPalette.clr\" && ln ~/Library/Colors/DefaultColorCalendarPalette.clr \"$SRCROOT/R/DefaultColorCalendarPalette.clr\"\n\"$SRCROOT/rswift\" \"$SRCROOT\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -80,11 +80,17 @@ class ColorHighlightTests: XCTestCase {
     }
     
     func testFirstMonthDayNumberAtWithoutOffset() {
-        XCTAssert(calendarHighlights.dayNumber(at: 0) == 27)
+        let day = calendarHighlights.day(at: 0)
+        
+        XCTAssert(day.number == 27)
+        XCTAssert(!day.isCurrentMonth)
     }
     
     func testLastMonthDayNumberAtWithoutOffset() {
-        XCTAssert(calendarHighlights.dayNumber(at: 34) == 31)
+        let day = calendarHighlights.day(at: 34)
+        
+        XCTAssert(day.number == 31)
+        XCTAssert(day.isCurrentMonth)
     }
     
     func testForwardOneMonth() {

@@ -94,7 +94,7 @@ public class CalendarHighlights {
         }
     }
     
-    public func dayNumber(at index:Int) -> Int {
+    public func day(at index:Int) -> (number:Int, isCurrentMonth:Bool) {
         let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate()
         let firstDayOfCurrentMonthDateComponents = calendar.components(.weekday, from:firstDayOfCurrentMonthDate)
         // - 1 since .day property starts at 1 but dayNumber first index is 0
@@ -105,9 +105,12 @@ public class CalendarHighlights {
         components.day = indexOffsetFromFirstDayInMonth
         let dateWithOffset = calendar.date(byAdding: components, to: firstDayOfCurrentMonthDate, options: NSCalendar.Options(rawValue: 0))!
         
-        let result:Int = calendar.component(.day, from: dateWithOffset)
+        components = calendar.components([.day, .month], from: dateWithOffset)
+        let day:Int = components.day!
+        let month:Int = components.month!
+        let currentMonth:Int = calendar.component(.month, from: date)
         
-        return result
+        return (day, month == currentMonth)
     }
     
     public func forwardOneMonth() {

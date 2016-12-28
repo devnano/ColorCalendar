@@ -37,7 +37,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     public var calendar:CalendarHighlights! {
         didSet {
-            currentMonthLabel.text = calendar.currentMonthName
+            updateCurrentMonthLabel()
         }
     }
 
@@ -121,7 +121,11 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     private func reloadCalendar() {
         calendarCollectionView.reloadData()
-        currentMonthLabel.text = calendar.currentMonthName
+        updateCurrentMonthLabel()
+    }
+    
+    private func updateCurrentMonthLabel() {
+         currentMonthLabel.text = "\(calendar.currentMonthName) \(calendar.currentYear)"
     }
     
     @objc private func switchToNextMonth() {

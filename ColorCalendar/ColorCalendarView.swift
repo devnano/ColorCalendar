@@ -70,6 +70,32 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     // MARK: Private API
     
     private func createUI() {
+        
+        let monthSwitcherView = createMonthSwitcherView()
+        
+        calendarCollectionView.dataSource = self
+        calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
+        calendarCollectionView.register(ColorCalendarWeekdaySymbolCollectionViewCell.self, forCellWithReuseIdentifier:ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
+        calendarCollectionView.delegate = self
+        
+        addSubview(monthSwitcherView)
+        addSubview(calendarCollectionView)
+        
+        
+        monthSwitcherView.snp.makeConstraints { (make) in
+            make.left.top.right.equalTo(monthSwitcherView.superview!)
+        }
+        
+        calendarCollectionView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalTo(calendarCollectionView.superview!)
+            make.top.equalTo(monthSwitcherView.snp.bottom)
+        }
+    }
+    
+    private func createMonthSwitcherView() -> UIView {
+        let monthSwitcherView = UIView()
+        monthSwitcherView.backgroundColor = calendarColors.monthSwitcherBackgroundColor
+        
         func createButton(image:UIImage, accessibilityLabel:String, action:Selector) -> UIButton {
             let button = UIButton(type: .custom)
             button.setImage(image, for:.normal)
@@ -90,18 +116,12 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         
         currentMonthLabel.accessibilityLabel = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
-        calendarCollectionView.dataSource = self
-        calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
-        calendarCollectionView.register(ColorCalendarWeekdaySymbolCollectionViewCell.self, forCellWithReuseIdentifier:ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
-        calendarCollectionView.delegate = self
-       
-        addSubview(previousMonthButton)
-        addSubview(nextMonthButton)
-        addSubview(currentMonthLabel)
-        addSubview(calendarCollectionView)
+        monthSwitcherView.addSubview(previousMonthButton)
+        monthSwitcherView.addSubview(nextMonthButton)
+        monthSwitcherView.addSubview(currentMonthLabel)
         
         previousMonthButton.snp.makeConstraints{(make) in
-            make.left.top.equalTo(previousMonthButton.superview!)
+            make.left.top.bottom.equalTo(previousMonthButton.superview!)
         }
         
         nextMonthButton.snp.makeConstraints{(make) in
@@ -113,10 +133,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
             make.centerX.equalTo(currentMonthLabel.superview!)
         }
         
-        calendarCollectionView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(calendarCollectionView.superview!)
-            make.top.equalTo(previousMonthButton.snp.bottom)
-        }
+        return monthSwitcherView
     }
     
     private func reloadCalendar() {

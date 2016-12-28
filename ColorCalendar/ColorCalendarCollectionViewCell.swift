@@ -9,9 +9,11 @@
 import UIKit
 import SnapKit
 
-class ColorCalendarCollectionViewCell : UICollectionViewCell {
+
+
+class BaseColorCalendarCollectionViewCell : UICollectionViewCell {
     
-    lazy var textLabel = UILabel()
+    fileprivate lazy var textLabel = UILabel()
     var text:String? {
         set {
             textLabel.text = newValue
@@ -33,14 +35,36 @@ class ColorCalendarCollectionViewCell : UICollectionViewCell {
         createUI()
     }
     
+    
     // MARK: Private API
     
-    private func createUI() {
+    fileprivate func createUI() {
         self.addSubview(textLabel)
         self.backgroundColor = UIColor.white
         
         textLabel.snp.makeConstraints { (make) in
             make.center.equalTo(textLabel.superview!)
         }
+    }
+
+}
+
+class ColorCalendarCollectionViewCell : BaseColorCalendarCollectionViewCell {
+    
+    // MARK: internal API
+    
+    func setAsCurrentMonth() {
+        textLabel.textColor = calendarColors.currentMonthDayTextColor
+    }
+    
+    func setAsOtherMonth() {
+        textLabel.textColor = calendarColors.otherMonthsDayTextColor
+    }
+}
+
+class ColorCalendarWeekdaySymbolCollectionViewCell : BaseColorCalendarCollectionViewCell {
+    override func createUI() {
+        super.createUI()
+        textLabel.textColor = calendarColors.weekdaySymbolTextColor
     }
 }

@@ -92,7 +92,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         
         calendarCollectionView.dataSource = self
         calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
-        calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
+        calendarCollectionView.register(ColorCalendarWeekdaySymbolCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
         calendarCollectionView.delegate = self
        
         addSubview(previousMonthButton)
@@ -157,13 +157,20 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier,
-                                                      for: indexPath) as! ColorCalendarCollectionViewCell        
+                                                      for: indexPath) as! BaseColorCalendarCollectionViewCell
         
         switch CallendarSection(rawValue:indexPath.section)! {
         case .weekdaysNames:
-            cell.text = calendar.weekdaySymbol(at: indexPath.row)
+            cell.text = calendar.weekdaySymbol(at: indexPath.row)            
         case .calendarDays:
-            cell.text = "\(calendar.day(at: indexPath.row).number)"
+            let dayCell = cell as! ColorCalendarCollectionViewCell
+            let day = calendar.day(at: indexPath.row)
+            cell.text = "\(day.number)"
+            if(day.isCurrentMonth) {
+                dayCell.setAsCurrentMonth()
+            } else {
+                dayCell.setAsOtherMonth()
+            }
         }
         
         return cell

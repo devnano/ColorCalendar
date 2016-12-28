@@ -16,6 +16,7 @@
 		DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9195171E05C22300511224 /* ColorCalendarView.swift */; };
 		DAA2F5161E09DF0200CC6741 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; };
 		DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA2F5171E09E0A200CC6741 /* Assets.xcassets */; };
+		DAA702B91E145ED100911134 /* CalendarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA702B81E145ED100911134 /* CalendarColors.swift */; };
 		DAA7AD751E11B383005625E5 /* ColorCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */; };
 		DAA7AD771E11C2DB005625E5 /* CalendarHightlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7AD761E11C2DB005625E5 /* CalendarHightlight.swift */; };
 		DAB7CD5F1E0C1DC800C94638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */; };
@@ -101,6 +102,7 @@
 		DA9195171E05C22300511224 /* ColorCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarView.swift; sourceTree = "<group>"; };
 		DAA2F5151E09DF0200CC6741 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		DAA2F5171E09E0A200CC6741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAA702B81E145ED100911134 /* CalendarColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarColors.swift; sourceTree = "<group>"; };
 		DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAA7AD761E11C2DB005625E5 /* CalendarHightlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHightlight.swift; sourceTree = "<group>"; };
 		DAB7CD5C1E0C1DC800C94638 /* WorkRosterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkRosterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +218,7 @@
 				DAA2F5171E09E0A200CC6741 /* Assets.xcassets */,
 				DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */,
 				DAA7AD761E11C2DB005625E5 /* CalendarHightlight.swift */,
+				DAA702B81E145ED100911134 /* CalendarColors.swift */,
 			);
 			path = ColorCalendar;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				DAA7AD751E11B383005625E5 /* ColorCalendarCollectionViewCell.swift in Sources */,
 				DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */,
 				DA5B27C81E0AC34400E36CE9 /* R.generated.swift in Sources */,
+				DAA702B91E145ED100911134 /* CalendarColors.swift in Sources */,
 				DAA7AD771E11C2DB005625E5 /* CalendarHightlight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

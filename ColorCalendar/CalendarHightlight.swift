@@ -60,6 +60,7 @@ public class CalendarHighlights {
         
         let firstDayOfCurrentMonthDate = calendar.date(from: components)!
         let firstDayOfCurrentMonthDateComponents = calendar.components(.weekday, from:firstDayOfCurrentMonthDate)
+        // - 1 since .day property starts at 1 but dayNumber first index is 0
         let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday! - firstWeekdayOffset - 1
         let indexOffsetFromFirstDayInMonth = index - firstDayOfCurrentMonthDateWeekday
         

@@ -149,7 +149,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         case .weekdaysNames:
             cell.text = calendar.weekdaySymbol(at: indexPath.row)
         case .calendarDays:
-            cell.text = "\(indexPath.row)"
+            cell.text = "\(calendar.dayNumber(at: indexPath.row))"
         }
         
         return cell

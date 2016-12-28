@@ -44,7 +44,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     
     // MARK: Enums
     
-    enum CallendarSection: Int {
+    enum CalendarSection: Int {
         case weekdaysNames = 0
         case calendarDays
     }
@@ -92,7 +92,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         
         calendarCollectionView.dataSource = self
         calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
-        calendarCollectionView.register(ColorCalendarWeekdaySymbolCollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
+        calendarCollectionView.register(ColorCalendarWeekdaySymbolCollectionViewCell.self, forCellWithReuseIdentifier:ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
         calendarCollectionView.delegate = self
        
         addSubview(previousMonthButton)
@@ -145,7 +145,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     }    
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch CallendarSection(rawValue:section)! {
+        switch CalendarSection(rawValue:section)! {
         case .weekdaysNames:
             return calendar.daysPerWeek
         case .calendarDays:
@@ -156,10 +156,11 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier,
+        let identifier = CalendarSection(rawValue:indexPath.section) == .weekdaysNames ? ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier : ColorCalendarView.calendarCellReuseIdentifier
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
                                                       for: indexPath) as! BaseColorCalendarCollectionViewCell
         
-        switch CallendarSection(rawValue:indexPath.section)! {
+        switch CalendarSection(rawValue:indexPath.section)! {
         case .weekdaysNames:
             cell.text = calendar.weekdaySymbol(at: indexPath.row)            
         case .calendarDays:

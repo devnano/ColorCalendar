@@ -19,19 +19,19 @@ struct DefaultCalendarColors : CalendarColors {
 
     static var otherMonthsDayTextColor: UIColor {
         get {
-            return UIColor.red
+            return R.color.defaultColorCalendarPalette.otherMonthsDayTextColor()
         }
     }
 
     static var currentMonthDayTextColor: UIColor {
         get {
-            return UIColor.gray
+            return R.color.defaultColorCalendarPalette.currentMonthDayTextColor()
         }
     }
     
     static var weekdaySymbolTextColor: UIColor {
         get {
-            return UIColor.black
+            return R.color.defaultColorCalendarPalette.weekdaySymbolTextColor()
         }
     }
 }

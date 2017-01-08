@@ -25,7 +25,7 @@ class ColorHighlightTests: XCTestCase {
         calendarHighlights = nil
     }
     
-    // MARK: private methods
+    // MARK: - private methods
     
     private func createCalendarHighlight(year:Int, month:Int, day:Int) {
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
@@ -35,7 +35,7 @@ class ColorHighlightTests: XCTestCase {
         calendarHighlights = CalendarHighlights(date)
     }
     
-    // MARK: test methods
+    // MARK: - test methods
     
     func testWeeksCount6Weeks() {
         createCalendarHighlight(year: 2017, month: 4, day: 1)
@@ -80,17 +80,17 @@ class ColorHighlightTests: XCTestCase {
     }
     
     func testFirstMonthDayNumberAtWithoutOffset() {
-        let day = calendarHighlights.day(at: 0)
+        let c = calendarHighlights.dateComponents(at: 0)
         
-        XCTAssert(day.number == 27)
-        XCTAssert(!day.isCurrentMonth)
+        XCTAssert(c.components.day! == 27)
+        XCTAssert(!c.isCurrentMonth)
     }
     
     func testLastMonthDayNumberAtWithoutOffset() {
-        let day = calendarHighlights.day(at: 34)
+        let c = calendarHighlights.dateComponents(at: 34)
         
-        XCTAssert(day.number == 31)
-        XCTAssert(day.isCurrentMonth)
+        XCTAssert(c.components.day! == 31)
+        XCTAssert(c.isCurrentMonth)
     }
     
     func testForwardOneMonth() {

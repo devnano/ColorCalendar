@@ -11,9 +11,11 @@ import SnapKit
 
 
 
-class BaseColorCalendarCollectionViewCell : UICollectionViewCell {
+class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
     
     fileprivate lazy var textLabel = UILabel()
+    fileprivate lazy var containerView = UIView()
+    
     var text:String? {
         set {
             textLabel.text = newValue
@@ -23,7 +25,7 @@ class BaseColorCalendarCollectionViewCell : UICollectionViewCell {
         }
     }
     
-    // MARK: UICollectionViewCell methods
+    // MARK: - UICollectionViewCell methods
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,33 +38,37 @@ class BaseColorCalendarCollectionViewCell : UICollectionViewCell {
     }
     
     
-    // MARK: Private API
+    // MARK: - Private API
     
     fileprivate func createUI() {
-        self.addSubview(textLabel)
-        self.backgroundColor = UIColor.white
+        addSubview(containerView)
+        containerView.addSubview(textLabel)
+        
+        self.backgroundColor = .white
+        containerView.backgroundColor = .white
         
         textLabel.snp.makeConstraints { (make) in
-            make.center.equalTo(textLabel.superview!)
+            make.center.equalToSuperview()
+        }
+        
+        containerView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
     }
 
 }
 
-class ColorCalendarCollectionViewCell : BaseColorCalendarCollectionViewCell {
+class ColorCalendarCollectionViewCell: BaseColorCalendarCollectionViewCell {
     
-    // MARK: internal API
+    // MARK: - internal API
     
-    func setAsCurrentMonth() {
-        textLabel.textColor = calendarColors.currentMonthDayTextColor
-    }
-    
-    func setAsOtherMonth() {
-        textLabel.textColor = calendarColors.otherMonthsDayTextColor
+    func set(dayColors:DayColors) {
+        textLabel.textColor = dayColors.textColor
+        containerView.backgroundColor = dayColors.backgroundColor
     }
 }
 
-class ColorCalendarWeekdaySymbolCollectionViewCell : BaseColorCalendarCollectionViewCell {
+class ColorCalendarWeekdaySymbolCollectionViewCell: BaseColorCalendarCollectionViewCell {
     override func createUI() {
         super.createUI()
         textLabel.textColor = calendarColors.weekdaySymbolTextColor

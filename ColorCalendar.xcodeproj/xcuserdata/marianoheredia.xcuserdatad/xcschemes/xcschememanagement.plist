@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Roster.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>WorkRosterApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -68,6 +73,16 @@
 			<true/>
 		</dict>
 		<key>DAB7CD791E0C1DC800C94638</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAEE473F1E1D722A00086823</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DAEE47471E1D722B00086823</key>
 		<dict>
 			<key>primary</key>
 			<true/>

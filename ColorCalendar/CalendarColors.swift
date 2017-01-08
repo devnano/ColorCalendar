@@ -8,39 +8,55 @@
 
 import Foundation
 
+public struct DayColors {
+    public var textColor:UIColor
+    public var backgroundColor:UIColor
+    
+    public init(textColor:UIColor, backgroundColor:UIColor) {
+        self.textColor = textColor
+        self.backgroundColor = backgroundColor
+    }
+    
+    public func withAlphaComponent(_ alphaComponent: CGFloat) -> DayColors{
+        return DayColors(textColor: textColor.withAlphaComponent(alphaComponent), backgroundColor: backgroundColor.withAlphaComponent(alphaComponent))
+    }
+}
+
 public protocol CalendarColors {
-    static var currentMonthDayTextColor: UIColor { get }
-    static var otherMonthsDayTextColor: UIColor { get }
-    static var weekdaySymbolTextColor: UIColor { get }
-    static var monthSwitcherBackgroundColor: UIColor { get }
+    func currentMonthDayColors(forDate date:Date) -> DayColors
+    func otherMonthsDayColors(forDate date:Date) -> DayColors
+    var weekdaySymbolTextColor: UIColor { get }
+    var monthSwitcherBackgroundColor: UIColor { get }
 }
 
 
-struct DefaultCalendarColors : CalendarColors {
+open class DefaultCalendarColors: CalendarColors {
+    
+    public init() { }
 
-    static var otherMonthsDayTextColor: UIColor {
-        get {
-            return R.color.defaultColorCalendarPalette.otherMonthsDayTextColor()
-        }
+    open func currentMonthDayColors(forDate date:Date)  -> DayColors {
+        let colors = DayColors(textColor:R.color.defaultColorCalendarPalette.currentMonthDayTextColor(), backgroundColor:R.color.defaultColorCalendarPalette.currentMonthDayBackgroundColor())
+        
+        return colors
     }
 
-    static var currentMonthDayTextColor: UIColor {
-        get {
-            return R.color.defaultColorCalendarPalette.currentMonthDayTextColor()
-        }
+    open func otherMonthsDayColors(forDate date:Date) -> DayColors {
+        let colors = DayColors(textColor:R.color.defaultColorCalendarPalette.otherMonthsDayTextColor(), backgroundColor:R.color.defaultColorCalendarPalette.otherMonthsDayBackgroundColor())
+        
+        return colors
     }
     
-    static var weekdaySymbolTextColor: UIColor {
-        get {
-            return R.color.defaultColorCalendarPalette.weekdaySymbolTextColor()
-        }
+    open var weekdaySymbolTextColor: UIColor {
+        return R.color.defaultColorCalendarPalette.weekdaySymbolTextColor()
+        
     }
     
-    static var monthSwitcherBackgroundColor: UIColor {
-        get {
-            return R.color.defaultColorCalendarPalette.monthSwitcherBackgroundColor()
-        }
+    open var monthSwitcherBackgroundColor: UIColor {
+        return R.color.defaultColorCalendarPalette.monthSwitcherBackgroundColor()        
     }
 }
 
-var calendarColors = DefaultCalendarColors.self
+public func setCalendarColors(_ colors:CalendarColors) {
+    calendarColors = colors
+}
+var calendarColors:CalendarColors = DefaultCalendarColors()

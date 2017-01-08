@@ -10,29 +10,25 @@ import UIKit
 import SnapKit
 
 
-public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    // MARK: Static constants
-    private static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier"
-    private static let calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
-    private static let calendarCellBorderWidth:CGFloat = 1.0
+public class ColorCalendarView:UIView {
+    // MARK: - Static constants
+    fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier",
+                           calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
+    fileprivate static let calendarCellBorderWidth:CGFloat = 1.0
     
-    // MARK: Properties
+    // MARK: - Properties
     
-    lazy var calendarCollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var calendarCollectionView = UICollectionView(frame:.zero, collectionViewLayout: UICollectionViewFlowLayout())
     lazy var currentMonthLabel = UILabel()
     
     var rowHeight:CGFloat {
-        get {
-            // Weeks + weekdays header
-            let totalRow = calendar.weeksPerMonth + 1
-            return (calendarCollectionView.frame.height -  (CGFloat(totalRow - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(totalRow)
-        }
+        // Weeks + weekdays header
+        let totalRow = calendar.weeksPerMonth + 1
+        return (calendarCollectionView.frame.height -  (CGFloat(totalRow - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(totalRow)
     }
     
     var nOfDayCells:Int {
-        get {
-            return calendar.daysPerWeek * calendar.weeksPerMonth
-        }
+        return calendar.daysPerWeek * calendar.weeksPerMonth        
     }
     
     public var calendar:CalendarHighlights! {
@@ -42,14 +38,14 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     }
 
     
-    // MARK: Enums
+    // MARK: - Enums
     
     enum CalendarSection: Int {
         case weekdaysNames = 0
         case calendarDays
     }
     
-    // MARK: UIView methods
+    // MARK: - UIView methods
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,7 +63,7 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
     }
     
     
-    // MARK: Private API
+    // MARK: - Private API
     
     private func createUI() {
         
@@ -107,10 +103,10 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         
         // This is just plain closure practice/learn closure definition and impl. Not really useful at all:
         typealias CreateButtonClosureType = (UIImage, String, Selector) -> (UIButton)
-        let createButtonClosure : CreateButtonClosureType = {(image, label, action) -> UIButton in
+        let createButtonClosure: CreateButtonClosureType = {(image, label, action) -> UIButton in
             return createButton(image: image, accessibilityLabel: label, action: action)
         }
-        let createButtonConstant : CreateButtonClosureType = createButtonClosure
+        let createButtonConstant: CreateButtonClosureType = createButtonClosure
         let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel(), #selector(switchToPreviousMonth))
         let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel(), #selector(switchToNextMonth))
         
@@ -154,8 +150,11 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
         calendar.backwardOneMonth()
         reloadCalendar()
     }
-    
-    // MARK: UICollectionDataSource
+}
+
+extension ColorCalendarView: UICollectionViewDataSource {
+
+    // MARK: - UICollectionDataSource
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -182,19 +181,22 @@ public class ColorCalendarView:UIView, UICollectionViewDataSource, UICollectionV
             cell.text = calendar.weekdaySymbol(at: indexPath.row)            
         case .calendarDays:
             let dayCell = cell as! ColorCalendarCollectionViewCell
-            let day = calendar.day(at: indexPath.row)
-            cell.text = "\(day.number)"
-            if(day.isCurrentMonth) {
-                dayCell.setAsCurrentMonth()
-            } else {
-                dayCell.setAsOtherMonth()
-            }
+            let dateComponents = calendar.dateComponents(at: indexPath.row)
+            cell.text = "\(dateComponents.components.day!)"
+            let dayColorsFunc = dateComponents.isCurrentMonth ? calendarColors.currentMonthDayColors : calendarColors.otherMonthsDayColors;
+            let date = NSCalendar.current.date(from: dateComponents.components)!
+            let dayColors = dayColorsFunc(date)
+            
+            dayCell.set(dayColors: dayColors)            
         }
         
         return cell
     }
-    
-    // MARK: UICollectionViewDelegateFlowLayout
+}
+
+extension ColorCalendarView:  UICollectionViewDelegateFlowLayout {
+
+    // MARK: - UICollectionViewDelegateFlowLayout
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width -  (CGFloat(calendar.daysPerWeek - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(calendar.daysPerWeek)

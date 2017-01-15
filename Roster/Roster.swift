@@ -12,8 +12,8 @@ public class Roster {
     var workShiftSequence:[WorkShift]
     var firstWorkDay:Date
     
-    public init?(workShiftFormat:String, firstWorkDay:Date) {
-        let components = workShiftFormat.components(separatedBy: ",")
+    public init?(workScheme: WorkScheme, firstWorkDay: Date) {
+        let components = workScheme.format.components(separatedBy: ",")
         workShiftSequence = []
         
         for component in components {

@@ -21,7 +21,11 @@ public class WorkScheme: NSCoding {
     
     public init(name: String, format: String) {
         self.name = name
-        self.format = format
+        self.format = format.uppercased()
+    }
+    
+    public convenience init(_ format: String) {
+        self.init(name: "", format: format)
     }
     
     public func encode(with aCoder: NSCoder) {

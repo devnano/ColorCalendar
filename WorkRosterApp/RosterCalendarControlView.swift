@@ -25,11 +25,13 @@ class RosterCalendarControlView: UIView {
     lazy var schemeNameTextField: UITextField = {
         let textField = UITextField()
         let pickerView = UIPickerView()
+        let toolbar = self.createPickerToolbar(action: #selector(hideSchemeTextPicker))
         
         pickerView.delegate = self
         pickerView.dataSource = self
         
         textField.inputView = pickerView
+        textField.inputAccessoryView = toolbar
         
         return textField
     }()
@@ -47,15 +49,9 @@ class RosterCalendarControlView: UIView {
     lazy var firstWorkDayTextField:UITextField = {
         let textField = UITextField()
         textField.delegate = self
-        let toolbar = UIToolbar()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(hideDatePicker))
+        let toolbar = self.createPickerToolbar(action: #selector(hideDatePicker))
         let datePickerView = UIDatePicker()
-        
-        toolbar.snp.makeConstraints { (make) in
-            make.height.equalTo(30)
-        }
-        
-        toolbar.setItems([doneButton], animated: false)
+
         datePickerView.datePickerMode = .date
         textField.inputView = datePickerView
         textField.inputAccessoryView = toolbar
@@ -80,7 +76,7 @@ class RosterCalendarControlView: UIView {
         return view
     }()
     
-    private var schemeText: String {
+    fileprivate var schemeText: String {
         set {
             schemeTextField.text = newValue
         }
@@ -143,13 +139,27 @@ class RosterCalendarControlView: UIView {
         firstWorkDayTextField.resignFirstResponder()
     }
     
-    @objc private func showWorkSchemePicker() {
-        
+    @objc private func hideSchemeTextPicker() {
+        schemeNameTextField.resignFirstResponder()
     }
-    
-    @objc private func datePickerValueChanged(sender:UIDatePicker) {
+
+    @objc private func datePickerValueChanged(sender: UIDatePicker) {
         firstWorkDayDate = sender.date
         delegate?.controlView(self, didChangeFirstWorkDay: firstWorkDayDate)
+    }
+    
+    private func createPickerToolbar(action:Selector) -> UIToolbar {
+        let toolbar = UIToolbar()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: action)
+        
+        
+        toolbar.snp.makeConstraints { (make) in
+            make.height.equalTo(30)
+        }
+        
+        toolbar.setItems([doneButton], animated: false)
+        
+        return toolbar
     }
 }
 
@@ -160,10 +170,9 @@ extension RosterCalendarControlView: UITextFieldDelegate {
         
         return true
     }
-
     
     @objc fileprivate func schemeTextChanged() {
-        workScheme = WorkScheme(name: "", format: workScheme.format)
+        workScheme = WorkScheme(name: "", format: schemeText)
         delegate?.controlView(self, didChangeWorkScheme: workScheme)
     }
 }
@@ -180,6 +189,12 @@ extension RosterCalendarControlView: UIPickerViewDelegate, UIPickerViewDataSourc
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return workSchemeNameOrDefault(Data.allWorkSchemes[row].name)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        workScheme = Data.allWorkSchemes[row]
+        
+        delegate?.controlView(self, didChangeWorkScheme: workScheme)
     }
 }
 

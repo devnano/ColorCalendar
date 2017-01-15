@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay)!
+        let roster = Roster(workScheme: workScheme, firstWorkDay: firstWorkDay)!
         
         calendarHighlight.firstWeekdayDay = 2
         
@@ -137,7 +137,11 @@ class ViewController: UIViewController {
 
 extension ViewController: RosterCalendarControlViewDelegate {
     internal func controlView(_ controlView: RosterCalendarControlView, didChangeWorkScheme workScheme: WorkScheme) {
-        let roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay)!
+        self.workScheme = workScheme
+        guard let roster = Roster(workScheme: workScheme, firstWorkDay: firstWorkDay) else {
+            // TODO: errors
+            return
+        }
         
         set(roster:roster, reloadCalendar: true)
     }
@@ -148,7 +152,7 @@ extension ViewController: RosterCalendarControlViewDelegate {
             return
         }        
         
-        guard let roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay) else {
+        guard let roster = Roster(workScheme: workScheme, firstWorkDay: firstWorkDay) else {
             // TODO: error messages
             return
         }

@@ -27,4 +27,11 @@ class WorkSchemeTests: XCTestCase {
         XCTAssert(scheme.format == format)
     }
     
+    func testLowercaseInit() {
+        let format = "d,n,x"
+        let scheme = WorkScheme(name: "", format: format)
+        
+        XCTAssert(scheme.format == format.uppercased())
+    }
+    
 }

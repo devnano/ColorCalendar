@@ -30,7 +30,7 @@ struct Data {
     }
     
     static var allWorkSchemes:[WorkScheme] {
-        return [WorkScheme(name:"default", format:"M,D,D,D,X,E,N")]        
+        return [WorkScheme(name:"default", format:"M,D,D,D,X,E,N")]
     }
     
     // MARK: - Private Methods

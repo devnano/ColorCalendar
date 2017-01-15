@@ -24,7 +24,11 @@ public class Roster {
             workShiftSequence.append(workShift)
         }
         
-        self.firstWorkDay = firstWorkDay
+        // day is finest grain info we need:
+        let calendar = NSCalendar.current
+        let dateComponents = calendar.dateComponents([.day, .month, .year], from:firstWorkDay)        
+        
+        self.firstWorkDay = calendar.date(from: dateComponents)!
     }
     
     public func workShift(forDate date:Date) -> WorkShift {

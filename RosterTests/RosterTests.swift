@@ -20,6 +20,7 @@ class RosterTests: XCTestCase {
         components.month = 1
         components.day = 4
         components.year = 2017
+        components.hour = 8
         firstWorkDay = Calendar.current.date(from: components)
         
         roster = Roster(workShiftFormat: "M,D,D,D,X,E,N", firstWorkDay: firstWorkDay)
@@ -90,6 +91,16 @@ class RosterTests: XCTestCase {
     func testWorkShiftForSecondWorkDay() {
         // M,D,D,D,X,E,N
         let date = NSCalendar.current.date(byAdding: .day, value: 2, to: roster.firstWorkDay)!
+        let workShift = roster.workShift(forDate:date)
+        
+        XCTAssert(workShift == .day)
+    }
+    
+    func testWorkShiftForSecondWorkDayWhenThereIsLessThan24HoursOfDifference() {
+        // M,D,D,D,X,E,N
+        var components = DateComponents()
+        components.hour = 20
+        let date = NSCalendar.current.date(byAdding: components, to: firstWorkDay)!        
         let workShift = roster.workShift(forDate:date)
         
         XCTAssert(workShift == .day)

@@ -62,6 +62,12 @@ public class ColorCalendarView:UIView {
         calendarCollectionView.performBatchUpdates(nil, completion: nil)
     }
     
+    // MARK: - Public Methods    
+    
+    public func reloadCalendar() {
+        calendarCollectionView.reloadData()
+        updateCurrentMonthLabel()
+    }
     
     // MARK: - Private API
     
@@ -130,11 +136,6 @@ public class ColorCalendarView:UIView {
         }
         
         return monthSwitcherView
-    }
-    
-    private func reloadCalendar() {
-        calendarCollectionView.reloadData()
-        updateCurrentMonthLabel()
     }
     
     private func updateCurrentMonthLabel() {

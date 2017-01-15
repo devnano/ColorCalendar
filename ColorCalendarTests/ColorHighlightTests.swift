@@ -11,7 +11,7 @@ import XCTest
 
 class ColorHighlightTests: XCTestCase {
     
-   var calendarHighlights:CalendarHighlights!
+   var calendarHighlights: CalendarHighlights!
     
     override func setUp() {
         super.setUp()

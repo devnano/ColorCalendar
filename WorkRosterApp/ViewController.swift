@@ -14,29 +14,48 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     lazy var colorCalendar = ColorCalendarView(frame:CGRect())
-    lazy var controlView = RosterCalendarControlView(frame:CGRect())
-    var roster:Roster!
+    lazy var controlView: RosterCalendarControlView = {
+        let view = RosterCalendarControlView(frame:CGRect())
+        view.delegate = self
+        
+        return view
+    }()
+    
+    lazy var firstWorkDay:Date = {
+        let date = Date()
+        
+        return date
+    }()
+    
+    lazy var calendarHighlight:CalendarHighlights = {
+        
+        let highlight = CalendarHighlights(self.firstWorkDay)
+        
+        return highlight
+    }()
+    
+    lazy var workScheme = Data.currentWorkScheme
     
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let firstWorkDay = Date()
-        let highlight = CalendarHighlights(firstWorkDay)
-        let workScheme = Data.currentWorkScheme
         
-        roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay)
-        highlight.firstWeekdayDay = 2
-        setCalendarColors(RosterCalendarColors(roster:roster))
+        let roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay)!
+        
+        calendarHighlight.firstWeekdayDay = 2
+        
+        set(roster:roster)
     
         view.addSubview(colorCalendar)
         view.addSubview(controlView)
         
-        colorCalendar.calendar = highlight
+        colorCalendar.calendar = calendarHighlight
         makeCalendarConstraints(traitsCollection: self.traitCollection)
-        makeControlViewConstraints(traitsCollection: self.traitCollection)
+        makeControlViewConstraints(traitsCollection: self.traitCollection)        
         
-        controlView.schemeText = workScheme.format
+        controlView.firstWorkDayDate = firstWorkDay
+        controlView.workScheme = workScheme
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,5 +125,34 @@ class ViewController: UIViewController {
                                            regularMaker: makeCalendarVerticalCompactConstraints)(make)
             make.bottom.right.equalToSuperview()
         }
+    }
+    
+    fileprivate func set(roster: Roster, reloadCalendar reload:Bool=false) {
+        setCalendarColors(RosterCalendarColors(roster:roster))
+        if reload {
+            colorCalendar.reloadCalendar()
+        }
+    }
+}
+
+extension ViewController: RosterCalendarControlViewDelegate {
+    internal func controlView(_ controlView: RosterCalendarControlView, didChangeWorkScheme workScheme: WorkScheme) {
+        let roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay)!
+        
+        set(roster:roster, reloadCalendar: true)
+    }
+
+    internal func controlView(_ controlView: RosterCalendarControlView, didChangeFirstWorkDay firstWorkDay: Date?) {
+        guard let firstWorkDay = firstWorkDay else {
+            // TODO: error messages
+            return
+        }        
+        
+        guard let roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay) else {
+            // TODO: error messages
+            return
+        }
+        
+        set(roster:roster, reloadCalendar: true)
     }
 }

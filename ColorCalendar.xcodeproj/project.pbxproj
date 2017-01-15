@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DA5B27C31E0AC22A00E36CE9 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
-		DA5B27D01E0ACADC00E36CE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,7 +22,7 @@
 		DAB7CD641E0C1DC800C94638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD621E0C1DC800C94638 /* Main.storyboard */; };
 		DAB7CD661E0C1DC800C94638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD651E0C1DC800C94638 /* Assets.xcassets */; };
 		DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD671E0C1DC800C94638 /* LaunchScreen.storyboard */; };
-		DAB7CD741E0C1DC800C94638 /* WorkRosterAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD731E0C1DC800C94638 /* WorkRosterAppTests.swift */; };
+		DAB7CD741E0C1DC800C94638 /* RosterCalendarColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD731E0C1DC800C94638 /* RosterCalendarColorsTests.swift */; };
 		DAB7CD7F1E0C1DC800C94638 /* WorkRosterAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD7E1E0C1DC800C94638 /* WorkRosterAppUITests.swift */; };
 		DAB7CD8D1E0C1FE600C94638 /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DAB7CD8E1E0C1FE600C94638 /* ColorCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -31,6 +30,9 @@
 		DAB7CD931E0C200E00C94638 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DAB7CD941E0C202A00C94638 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
 		DAB7CD951E0C202A00C94638 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DADA93331E2528EB000C3693 /* WorkSchemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA93321E2528EB000C3693 /* WorkSchemeTests.swift */; };
+		DADA93381E252FDD000C3693 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADA93351E252FDD000C3693 /* Localizable.strings */; };
+		DADA933C1E253047000C3693 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADA933E1E253047000C3693 /* Localizable.strings */; };
 		DAEE47361E1D48F500086823 /* RosterCalendarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE47351E1D48F500086823 /* RosterCalendarColors.swift */; };
 		DAEE47491E1D722B00086823 /* Roster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEE47401E1D722A00086823 /* Roster.framework */; };
 		DAEE47501E1D722B00086823 /* RosterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE474F1E1D722B00086823 /* RosterTests.swift */; };
@@ -126,8 +128,6 @@
 
 /* Begin PBXFileReference section */
 		DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
-		DA5B27D21E0ACADC00E36CE9 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		DA5B27D41E0ACAE000E36CE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A02731DFF638300FF2EAE /* ColorCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCalendar.h; sourceTree = "<group>"; };
 		DA7A02741DFF638300FF2EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,11 +148,16 @@
 		DAB7CD681E0C1DC800C94638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB7CD6A1E0C1DC800C94638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAB7CD6F1E0C1DC800C94638 /* WorkRosterAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkRosterAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAB7CD731E0C1DC800C94638 /* WorkRosterAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRosterAppTests.swift; sourceTree = "<group>"; };
+		DAB7CD731E0C1DC800C94638 /* RosterCalendarColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterCalendarColorsTests.swift; sourceTree = "<group>"; };
 		DAB7CD751E0C1DC800C94638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAB7CD7A1E0C1DC800C94638 /* WorkRosterAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkRosterAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB7CD7E1E0C1DC800C94638 /* WorkRosterAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRosterAppUITests.swift; sourceTree = "<group>"; };
 		DAB7CD801E0C1DC800C94638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DADA93321E2528EB000C3693 /* WorkSchemeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSchemeTests.swift; sourceTree = "<group>"; };
+		DADA93361E252FDD000C3693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DADA93371E252FDD000C3693 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DADA933D1E253047000C3693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DADA933F1E25304A000C3693 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DAEE47351E1D48F500086823 /* RosterCalendarColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarColors.swift; sourceTree = "<group>"; };
 		DAEE47401E1D722A00086823 /* Roster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Roster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEE47421E1D722A00086823 /* Roster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Roster.h; sourceTree = "<group>"; };
@@ -232,18 +237,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA5B27CC1E0ACA8C00E36CE9 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
-				DA5B27CC1E0ACA8C00E36CE9 /* Localization */,
 				DA7A02721DFF638300FF2EAE /* ColorCalendar */,
 				DA7A027D1DFF638300FF2EAE /* ColorCalendarTests */,
 				DAB7CD5D1E0C1DC800C94638 /* WorkRosterApp */,
@@ -274,6 +270,7 @@
 		DA7A02721DFF638300FF2EAE /* ColorCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				DADA93341E252FDD000C3693 /* Localization */,
 				DAEE47611E1D823500086823 /* R */,
 				DA7A02731DFF638300FF2EAE /* ColorCalendar.h */,
 				DA7A02741DFF638300FF2EAE /* Info.plist */,
@@ -298,6 +295,7 @@
 		DAB7CD5D1E0C1DC800C94638 /* WorkRosterApp */ = {
 			isa = PBXGroup;
 			children = (
+				DADA93391E25302E000C3693 /* Localization */,
 				DAEE47671E1D85CA00086823 /* R */,
 				DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */,
 				DAB7CD601E0C1DC800C94638 /* ViewController.swift */,
@@ -315,7 +313,7 @@
 		DAB7CD721E0C1DC800C94638 /* WorkRosterAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				DAB7CD731E0C1DC800C94638 /* WorkRosterAppTests.swift */,
+				DAB7CD731E0C1DC800C94638 /* RosterCalendarColorsTests.swift */,
 				DAB7CD751E0C1DC800C94638 /* Info.plist */,
 			);
 			path = WorkRosterAppTests;
@@ -328,6 +326,22 @@
 				DAB7CD801E0C1DC800C94638 /* Info.plist */,
 			);
 			path = WorkRosterAppUITests;
+			sourceTree = "<group>";
+		};
+		DADA93341E252FDD000C3693 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DADA93351E252FDD000C3693 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		DADA93391E25302E000C3693 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DADA933E1E253047000C3693 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		DAEE47411E1D722A00086823 /* Roster */ = {
@@ -347,6 +361,7 @@
 			children = (
 				DAEE474F1E1D722B00086823 /* RosterTests.swift */,
 				DAEE47511E1D722B00086823 /* Info.plist */,
+				DADA93321E2528EB000C3693 /* WorkSchemeTests.swift */,
 			);
 			path = RosterTests;
 			sourceTree = "<group>";
@@ -583,6 +598,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-AR",
 			);
 			mainGroup = DA7A02661DFF638300FF2EAE;
 			productRefGroup = DA7A02711DFF638300FF2EAE /* Products */;
@@ -606,7 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */,
-				DA5B27D01E0ACADC00E36CE9 /* Localizable.strings in Resources */,
+				DADA93381E252FDD000C3693 /* Localizable.strings in Resources */,
 				DAEE47641E1D823500086823 /* DefaultColorCalendarPalette.clr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +638,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DADA933C1E253047000C3693 /* Localizable.strings in Resources */,
 				DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */,
 				DAEE476B1E1D85CA00086823 /* WorkRosterAppPalette.clr in Resources */,
 				DAB7CD661E0C1DC800C94638 /* Assets.xcassets in Resources */,
@@ -728,7 +745,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB7CD741E0C1DC800C94638 /* WorkRosterAppTests.swift in Sources */,
+				DAB7CD741E0C1DC800C94638 /* RosterCalendarColorsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +772,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEE47501E1D722B00086823 /* RosterTests.swift in Sources */,
+				DADA93331E2528EB000C3693 /* WorkSchemeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,15 +822,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DA5B27D31E0ACADC00E36CE9 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA5B27D21E0ACADC00E36CE9 /* es-AR */,
-				DA5B27D41E0ACAE000E36CE9 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		DAB7CD621E0C1DC800C94638 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -827,6 +836,24 @@
 				DAB7CD681E0C1DC800C94638 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DADA93351E252FDD000C3693 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DADA93361E252FDD000C3693 /* en */,
+				DADA93371E252FDD000C3693 /* es-AR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DADA933E1E253047000C3693 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DADA933D1E253047000C3693 /* en */,
+				DADA933F1E25304A000C3693 /* es-AR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

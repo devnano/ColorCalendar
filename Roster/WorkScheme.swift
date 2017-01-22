@@ -54,3 +54,34 @@ public class WorkScheme: NSCoding {
         aCoder.encode(name, forKey: WorkScheme.formatKey)
     }
 }
+
+typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColor: UIColor)
+
+
+public extension WorkScheme {
+    public func attributedFormat(getWorkSchemeColor: GetWorkShiftColor) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: format)
+        guard let sequence = workShiftSequence else {
+            // TODO: delegate error color too
+            let range = NSRange(location: 0, length: format.characters.count)
+            attributedString.addAttribute(NSBackgroundColorAttributeName, value:  UIColor.red, range: range)            
+            return attributedString
+        }
+        var location = 0
+        
+        for (index, workShift) in sequence.enumerated() {
+            let textColors = getWorkSchemeColor(workShift)
+            let component = components[index]
+            let length = component.characters.count
+            let range = NSRange(location: location, length: length)
+            
+            
+            
+            location = range.location + length + 1 // adding 1 because seprator ,
+            attributedString.addAttribute(NSBackgroundColorAttributeName, value: textColors.backgroundColor, range: range)
+            
+        }
+        
+        return attributedString
+    }
+}

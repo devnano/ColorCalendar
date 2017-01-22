@@ -18,7 +18,11 @@ class RosterCalendarControlView: UIView {
     var workScheme: WorkScheme {
         didSet {
             schemeName = workScheme.name
-            schemeAttributedText = workScheme.attributedFormat
+            schemeAttributedText = workScheme.attributedFormat() { (workShift) -> (textColor: UIColor, backgroundColor: UIColor) in
+                let dayColors = RosterCalendarColors.color(with: workShift)
+                
+                return (dayColors.textColor, dayColors.backgroundColor)
+            }
         }
     }
     
@@ -197,31 +201,6 @@ extension RosterCalendarControlView: UIPickerViewDelegate, UIPickerViewDataSourc
         workScheme = Data.allWorkSchemes[row]
         
         delegate?.controlView(self, didChangeWorkScheme: workScheme)
-    }
-}
-
-extension WorkScheme {
-    var attributedFormat: NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: format)
-        guard let sequence = workShiftSequence else {
-            return attributedString
-        }
-        var location = 0        
-        
-        for (index, workShift) in sequence.enumerated() {
-            let dayColors = RosterCalendarColors.color(with: workShift)
-            let component = components[index]
-            let length = component.characters.count
-            let range = NSRange(location: location, length: length)
-            
-            
-            
-            location = range.location + length + 1 // adding 1 because seprator ,
-            attributedString.addAttribute(NSBackgroundColorAttributeName, value: dayColors.backgroundColor, range: range)
-            
-        }
-        
-        return attributedString
     }
 }
 

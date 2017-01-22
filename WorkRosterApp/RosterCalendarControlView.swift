@@ -78,7 +78,9 @@ class RosterCalendarControlView: UIView {
     
     fileprivate var schemeAttributedText: NSAttributedString {
         set {
+            let selectedTextRange = schemeTextField.selectedTextRange
             schemeTextField.attributedText = newValue
+            schemeTextField.selectedTextRange = selectedTextRange
         }
         get {
             return schemeTextField.attributedText ?? NSAttributedString(string: "")

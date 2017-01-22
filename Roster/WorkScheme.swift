@@ -10,9 +10,30 @@ import Foundation
 
 public class WorkScheme: NSCoding {
     private static let nameKey = "workSchemeNameKey"
-    private static let formatKey = "workSchemeNameKey"
-    public var name:String = ""
-    public var format:String = ""
+    private static let formatKey = "workSchemeFormatKey"
+    private (set) public var format: String = ""
+    private (set) public var name: String = ""
+    
+    public lazy var components: [String] = {
+        let cs = self.format.components(separatedBy: ",")
+        
+        return cs;
+    }()
+    
+    public lazy var workShiftSequence: [WorkShift]? = {        
+        var sequence: [WorkShift] = []
+        
+        for component in self.components {
+            let trimComponent = component.trimmingCharacters(in: .whitespaces)
+            guard let workShift = WorkShift(rawValue:trimComponent) else {
+                return nil
+            }
+            sequence.append(workShift)
+        }
+        
+        return sequence
+    }()  
+    
     
     public required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: WorkScheme.nameKey) as! String

@@ -10,32 +10,63 @@ import UIKit
 import SnapKit
 
 
-public class ColorCalendarView:UIView {
+public class ColorCalendarView: UIView {
     // MARK: - Static constants
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier",
                            calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
-    fileprivate static let calendarCellBorderWidth:CGFloat = 1.0
+    fileprivate static let calendarCellBorderWidth:CGFloat = 0.0
     
     // MARK: - Properties
     
-    lazy var calendarCollectionView = UICollectionView(frame:.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var calendarCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame:.zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.dataSource = self
+        collectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
+        collectionView.register(ColorCalendarWeekdaySymbolCollectionViewCell.self, forCellWithReuseIdentifier:ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
+        collectionView.delegate = self
+        
+        self.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.monthSwitcherView.snp.bottom)
+        }
+        
+        return collectionView
+    }()
+    
+    lazy var monthSwitcherView: UIView = {
+        let switcherView = self.createMonthSwitcherView()
+        self.addSubview(switcherView)
+        switcherView.snp.makeConstraints { (make) in
+            make.left.top.right.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.15)
+        }
+        
+        return switcherView
+    }()
+    
     lazy var currentMonthLabel = UILabel()
     
-    var rowHeight:CGFloat {
+    var rowHeight: CGFloat {
         // Weeks + weekdays header
         let totalRow = calendar.weeksPerMonth + 1
         return (calendarCollectionView.frame.height -  (CGFloat(totalRow - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(totalRow)
     }
     
-    var nOfDayCells:Int {
+    var nOfDayCells: Int {
         return calendar.daysPerWeek * calendar.weeksPerMonth        
     }
     
-    public var calendar:CalendarHighlights! {
+    // MARK: - Public Properties
+    
+    public var calendar: CalendarHighlights! {
         didSet {
             updateCurrentMonthLabel()
         }
     }
+    
+    public var delegate: ColorCalendarViewDelegate?
 
     
     // MARK: - Enums
@@ -72,37 +103,20 @@ public class ColorCalendarView:UIView {
     // MARK: - Private API
     
     private func createUI() {
-        
-        let monthSwitcherView = createMonthSwitcherView()
-        
-        calendarCollectionView.dataSource = self
-        calendarCollectionView.register(ColorCalendarCollectionViewCell.self, forCellWithReuseIdentifier: ColorCalendarView.calendarCellReuseIdentifier)
-        calendarCollectionView.register(ColorCalendarWeekdaySymbolCollectionViewCell.self, forCellWithReuseIdentifier:ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier)
-        calendarCollectionView.delegate = self
-        
-        addSubview(monthSwitcherView)
-        addSubview(calendarCollectionView)
-        
-        
-        monthSwitcherView.snp.makeConstraints { (make) in
-            make.left.top.right.equalTo(monthSwitcherView.superview!)
-        }
-        
-        calendarCollectionView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalTo(calendarCollectionView.superview!)
-            make.top.equalTo(monthSwitcherView.snp.bottom)
-        }
+
     }
     
     private func createMonthSwitcherView() -> UIView {
         let monthSwitcherView = UIView()
-        monthSwitcherView.backgroundColor = calendarColors.monthSwitcherBackgroundColor
+        monthSwitcherView.backgroundColor = CalendarColors.calendarColors.monthSwitcherBackgroundColor
         
         func createButton(image:UIImage, accessibilityLabel:String, action:Selector) -> UIButton {
             let button = UIButton(type: .custom)
+            
             button.setImage(image, for:.normal)
             button.accessibilityLabel = accessibilityLabel
             button.addTarget(self, action: action, for: .touchUpInside)
+            button.imageView?.contentMode = .scaleAspectFit
             
             return button
         }
@@ -116,6 +130,8 @@ public class ColorCalendarView:UIView {
         let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel(), #selector(switchToPreviousMonth))
         let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel(), #selector(switchToNextMonth))
         
+        
+        
         currentMonthLabel.accessibilityLabel = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         monthSwitcherView.addSubview(previousMonthButton)
@@ -123,17 +139,19 @@ public class ColorCalendarView:UIView {
         monthSwitcherView.addSubview(currentMonthLabel)
         
         previousMonthButton.snp.makeConstraints{(make) in
-            make.left.top.bottom.equalTo(previousMonthButton.superview!)
+            make.left.top.bottom.equalToSuperview()
         }
         
         nextMonthButton.snp.makeConstraints{(make) in
-            make.right.top.equalTo(nextMonthButton.superview!)
+            make.right.top.bottom.equalToSuperview()
         }
         
         currentMonthLabel.snp.makeConstraints { (make) in
-            make.centerY.equalTo(previousMonthButton)
-            make.centerX.equalTo(currentMonthLabel.superview!)
+            make.center.equalToSuperview()
         }
+        
+        currentMonthLabel.minimumScaleFactor = 0.1
+        currentMonthLabel.adjustsFontSizeToFitWidth = true
         
         return monthSwitcherView
     }
@@ -145,12 +163,19 @@ public class ColorCalendarView:UIView {
     @objc private func switchToNextMonth() {
         calendar.forwardOneMonth()
         reloadCalendar()
+        delegate?.colorCalendarDidSwitchForwardOneMonth(self)
     }
     
     @objc private func switchToPreviousMonth() {
         calendar.backwardOneMonth()
         reloadCalendar()
+        delegate?.colorCalendarDidSwitchBackwardOneMonth(self)
     }
+}
+
+public protocol ColorCalendarViewDelegate {
+    func colorCalendarDidSwitchForwardOneMonth(_ calendar: ColorCalendarView)
+    func colorCalendarDidSwitchBackwardOneMonth(_ calendar: ColorCalendarView)
 }
 
 extension ColorCalendarView: UICollectionViewDataSource {
@@ -184,7 +209,7 @@ extension ColorCalendarView: UICollectionViewDataSource {
             let dayCell = cell as! ColorCalendarCollectionViewCell
             let dateComponents = calendar.dateComponents(at: indexPath.row)
             cell.text = "\(dateComponents.components.day!)"
-            let dayColorsFunc = dateComponents.isCurrentMonth ? calendarColors.currentMonthDayColors : calendarColors.otherMonthsDayColors;
+            let dayColorsFunc = dateComponents.isCurrentMonth ? CalendarColors.calendarColors.currentMonthDayColors : CalendarColors.calendarColors.otherMonthsDayColors;
             let date = NSCalendar.current.date(from: dateComponents.components)!
             let dayColors = dayColorsFunc(date)
             

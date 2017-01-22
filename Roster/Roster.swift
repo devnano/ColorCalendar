@@ -13,22 +13,18 @@ public class Roster {
     var firstWorkDay:Date
     
     public init?(workScheme: WorkScheme, firstWorkDay: Date) {
-        let components = workScheme.format.components(separatedBy: ",")
-        workShiftSequence = []
-        
-        for component in components {
-            let trimComponent = component.trimmingCharacters(in: .whitespaces)
-            guard let workShift = WorkShift(rawValue:trimComponent) else {
-                return nil
-            }
-            workShiftSequence.append(workShift)
-        }
         
         // day is finest grain info we need:
         let calendar = NSCalendar.current
         let dateComponents = calendar.dateComponents([.day, .month, .year], from:firstWorkDay)        
         
         self.firstWorkDay = calendar.date(from: dateComponents)!
+        
+        guard let sequence = workScheme.workShiftSequence else {
+            return nil
+        }
+        
+        workShiftSequence = sequence
     }
     
     public func workShift(forDate date:Date) -> WorkShift {

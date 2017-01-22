@@ -13,12 +13,42 @@ import Roster
 class ViewController: UIViewController {
     // MARK: - Properties
     
-    lazy var colorCalendar = ColorCalendarView(frame:CGRect())
-    lazy var controlView: RosterCalendarControlView = {
-        let view = RosterCalendarControlView(frame:CGRect())
-        view.delegate = self
+    lazy var colorCalendar: ColorCalendarView = {
+        let calendarView = ColorCalendarView(frame:CGRect())
+        let roster = Roster(workScheme: self.workScheme, firstWorkDay: self.firstWorkDay)!
         
-        return view
+        self.calendarHighlight.firstWeekdayDay = 2
+        
+        self.set(roster:roster)
+        
+        self.view.addSubview(calendarView)
+        
+        calendarView.calendar = self.calendarHighlight
+        
+        calendarView.delegate = self
+        
+        
+        return calendarView
+    }()
+    
+    lazy var colorCalendarImageView: UIImageView = {
+        let imageView = UIImageView()
+        self.view.addSubview(imageView)
+        imageView.backgroundColor = UIColor.red
+        
+        return imageView
+    }()
+    
+    lazy var controlView: RosterCalendarControlView = {
+        let cView = RosterCalendarControlView(frame:CGRect())
+        cView.delegate = self
+        
+        self.view.addSubview(cView)
+
+        cView.firstWorkDayDate = self.firstWorkDay
+        cView.workScheme = self.workScheme
+        
+        return cView
     }()
     
     lazy var firstWorkDay:Date = {
@@ -36,26 +66,17 @@ class ViewController: UIViewController {
     
     lazy var workScheme = Data.currentWorkScheme
     
+    var heightConstraint: Constraint?
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        makeCalendarConstraints(with: self.view.frame.size)
+        makeControlViewConstraints(with: self.view.frame.size)
         
-        let roster = Roster(workScheme: workScheme, firstWorkDay: firstWorkDay)!
-        
-        calendarHighlight.firstWeekdayDay = 2
-        
-        set(roster:roster)
-    
-        view.addSubview(colorCalendar)
-        view.addSubview(controlView)
-        
-        colorCalendar.calendar = calendarHighlight
-        makeCalendarConstraints(traitsCollection: self.traitCollection)
-        makeControlViewConstraints(traitsCollection: self.traitCollection)        
-        
-        controlView.firstWorkDayDate = firstWorkDay
-        controlView.workScheme = workScheme
+        addKeyboardObservers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,24 +84,29 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection!) {
-        makeCalendarConstraints(traitsCollection: self.traitCollection)
-        makeControlViewConstraints(traitsCollection: self.traitCollection)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        makeCalendarConstraints(with: size)
+        makeControlViewConstraints(with: size)
     }
     
     // MARK: - Private Methods
     
     typealias ConstraintMaker = (SnapKit.ConstraintMaker) -> Void
     
-    private func makeTraitsDependantConstraints(traitsCollection: UITraitCollection, compactMaker: @escaping ConstraintMaker, regularMaker: @escaping ConstraintMaker) -> ConstraintMaker {
-        if traitsCollection.verticalSizeClass == .regular {
+    private func makeTraitsDependantConstraints(with size: CGSize, compactMaker: @escaping ConstraintMaker, regularMaker: @escaping ConstraintMaker) -> ConstraintMaker {
+        if size.width < size.height {
             return compactMaker
         } else {
             return regularMaker
         }
     }
     
-    private func makeCalendarConstraints(traitsCollection: UITraitCollection) {
+    private func makeCalendarConstraints(with size: CGSize) {
+        make(calendarView: colorCalendarImageView, constraintsWith: size)
+        make(calendarView: colorCalendar, constraintsWith: size)
+    }
+    
+    private func make(calendarView: UIView, constraintsWith size: CGSize) {
         func makeCalendarHorizontalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
             make.centerX.equalToSuperview()
             make.top.equalTo(self.topLayoutGuide.snp.bottom)
@@ -88,18 +114,19 @@ class ViewController: UIViewController {
         
         func makeCalendarVerticalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
             make.left.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.top.equalTo(self.topLayoutGuide.snp.bottom)
+            //make.centerY.equalToSuperview()
         }
         
-        colorCalendar.snp.remakeConstraints {(make) -> Void in
+        calendarView.snp.remakeConstraints {(make) -> Void in
             let mediumPriority = 750
             
             // Required:
-            makeTraitsDependantConstraints(traitsCollection: traitCollection,
+            makeTraitsDependantConstraints(with: size,
                                            compactMaker: makeCalendarHorizontalCompactConstraints,
                                            regularMaker: makeCalendarVerticalCompactConstraints)(make)
 
-            make.width.equalTo(colorCalendar.snp.height)
+            make.width.equalTo(calendarView.snp.height)
             make.width.height.lessThanOrEqualToSuperview()
             
             // Nice to have:
@@ -108,30 +135,40 @@ class ViewController: UIViewController {
         }
     }
     
-    private func makeControlViewConstraints(traitsCollection: UITraitCollection) {
+    private func makeControlViewConstraints(with size: CGSize) {
         func makeCalendarHorizontalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
             make.top.equalTo(colorCalendar.snp.bottom)
-            make.left.equalToSuperview()
+            make.bottom.left.equalToSuperview()
         }
         
         func makeCalendarVerticalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
-            make.top.equalToSuperview()
-            make.left.equalTo(colorCalendar.snp.right)
+            make.top.equalTo(self.topLayoutGuide.snp.bottom)
+            make.left.equalTo(colorCalendarImageView.snp.right)
+            make.bottom.equalTo(colorCalendarImageView)
         }
         
         controlView.snp.remakeConstraints {(make) -> Void in
-            makeTraitsDependantConstraints(traitsCollection: traitCollection,
+            makeTraitsDependantConstraints(with: size,
                                            compactMaker: makeCalendarHorizontalCompactConstraints,
                                            regularMaker: makeCalendarVerticalCompactConstraints)(make)
-            make.bottom.right.equalToSuperview()
+            make.right.equalToSuperview()
         }
     }
     
     fileprivate func set(roster: Roster, reloadCalendar reload:Bool=false) {
-        setCalendarColors(RosterCalendarColors(roster:roster))
+        CalendarColors.calendarColors = RosterCalendarColors(roster:roster)
         if reload {
             colorCalendar.reloadCalendar()
         }
+        
+        updateColorCalendarImageView()
+    }
+    
+    fileprivate func updateColorCalendarImageView() {
+        DispatchQueue.main.async {
+            self.colorCalendarImageView.image = self.colorCalendar.asImage
+        }
+
     }
 }
 
@@ -158,5 +195,81 @@ extension ViewController: RosterCalendarControlViewDelegate {
         }
         
         set(roster:roster, reloadCalendar: true)
+    }
+}
+
+extension ViewController {
+    func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardDidShow(notification: NSNotification) {
+        guard let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        
+        var keyboardRect = keyboardFrame.cgRectValue
+        keyboardRect = (colorCalendar.superview?.convert(keyboardRect, to: colorCalendar.window!))!
+        let offset = colorCalendar.frame.maxY - keyboardRect.minY
+        if offset > 0 {
+            let newHeight = colorCalendar.frame.height - offset
+            heightConstraint?.deactivate()
+                
+            colorCalendarImageView.snp.makeConstraints { (make) in
+                heightConstraint = make.height.equalTo(newHeight).constraint
+            }
+            
+            animate(grow: false, withNotification: notification)
+        }
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        guard let constraint = heightConstraint else {
+            return
+        }
+        constraint.deactivate()
+        animate(grow: true, withNotification: notification)
+        heightConstraint = nil
+    }
+    
+    func animate(grow: Bool, withNotification notification: NSNotification) {
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey]  as! NSNumber
+        if !grow {
+            colorCalendar.isHidden = true
+        }
+        
+        UIView.animate(withDuration: duration.doubleValue, delay: 0, options: UIViewAnimationOptions(rawValue: curve.uintValue), animations: { () -> Void in
+            self.view.layoutIfNeeded()
+        }) { (finished) -> Void  in
+            if finished && grow {
+                self.colorCalendar.isHidden = false
+            }
+        }
+    }
+}
+
+extension ViewController: ColorCalendarViewDelegate {
+    func colorCalendarDidSwitchForwardOneMonth(_ calendar: ColorCalendarView) {
+        updateColorCalendarImageView()
+    }
+    func colorCalendarDidSwitchBackwardOneMonth(_ calendar: ColorCalendarView) {
+        updateColorCalendarImageView()
+    }
+}
+
+extension UIView {
+    
+    var asImage: UIImage{
+        let wasHidden = self.isHidden
+        self.isHidden = false
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.main.scale)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.isHidden = wasHidden
+        
+        return UIImage(cgImage: (image?.cgImage)!)
     }
 }

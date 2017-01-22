@@ -22,7 +22,7 @@ public struct DayColors {
     }
 }
 
-public protocol CalendarColors {
+public protocol CalendarColorsProvider {
     func currentMonthDayColors(forDate date:Date) -> DayColors
     func otherMonthsDayColors(forDate date:Date) -> DayColors
     var weekdaySymbolTextColor: UIColor { get }
@@ -30,7 +30,9 @@ public protocol CalendarColors {
 }
 
 
-open class DefaultCalendarColors: CalendarColors {
+
+open class CalendarColors: CalendarColorsProvider {
+    public static var calendarColors:CalendarColors = CalendarColors()
     
     public init() { }
 
@@ -56,7 +58,3 @@ open class DefaultCalendarColors: CalendarColors {
     }
 }
 
-public func setCalendarColors(_ colors:CalendarColors) {
-    calendarColors = colors
-}
-var calendarColors:CalendarColors = DefaultCalendarColors()

@@ -28,7 +28,7 @@ class RosterCalendarColorsTests: XCTestCase {
         firstWorkDay = Calendar.current.date(from: components)
         let workScheme = WorkScheme(name:"", format:"M,D,D,D,X,E,N")
         highlight = CalendarHighlights(firstWorkDay)
-        roster = Roster(workShiftFormat: workScheme.format, firstWorkDay: firstWorkDay)
+        roster = Roster(workScheme: workScheme, firstWorkDay: firstWorkDay)
         rosterCalendarColors = RosterCalendarColors(roster: roster)
     }
     

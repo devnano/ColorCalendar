@@ -18,7 +18,7 @@ class RosterCalendarControlView: UIView {
     var workScheme: WorkScheme {
         didSet {
             schemeName = workScheme.name
-            schemeText = workScheme.format
+            schemeAttributedText = workScheme.attributedFormat
         }
     }
     
@@ -66,22 +66,22 @@ class RosterCalendarControlView: UIView {
         
         view.axis = .vertical
         view.distribution = .equalSpacing
-        view.alignment = .leading
+        view.alignment = .center
         view.spacing = 10
         
         view.snp.makeConstraints({ (make) in
-            make.left.top.right.equalToSuperview()
+            make.left.right.centerY.equalToSuperview()
         })
         
         return view
     }()
     
-    fileprivate var schemeText: String {
+    fileprivate var schemeAttributedText: NSAttributedString {
         set {
-            schemeTextField.text = newValue
+            schemeTextField.attributedText = newValue
         }
         get {
-            return schemeTextField.text ?? ""
+            return schemeTextField.attributedText ?? NSAttributedString(string: "")
         }
     }
     
@@ -172,7 +172,7 @@ extension RosterCalendarControlView: UITextFieldDelegate {
     }
     
     @objc fileprivate func schemeTextChanged() {
-        workScheme = WorkScheme(name: "", format: schemeText)
+        workScheme = WorkScheme(name: "", format: schemeAttributedText.string)
         delegate?.controlView(self, didChangeWorkScheme: workScheme)
     }
 }
@@ -195,6 +195,31 @@ extension RosterCalendarControlView: UIPickerViewDelegate, UIPickerViewDataSourc
         workScheme = Data.allWorkSchemes[row]
         
         delegate?.controlView(self, didChangeWorkScheme: workScheme)
+    }
+}
+
+extension WorkScheme {
+    var attributedFormat: NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: format)
+        guard let sequence = workShiftSequence else {
+            return attributedString
+        }
+        var location = 0        
+        
+        for (index, workShift) in sequence.enumerated() {
+            let dayColors = RosterCalendarColors.color(with: workShift)
+            let component = components[index]
+            let length = component.characters.count
+            let range = NSRange(location: location, length: length)
+            
+            
+            
+            location = range.location + length + 1 // adding 1 because seprator ,
+            attributedString.addAttribute(NSBackgroundColorAttributeName, value: dayColors.backgroundColor, range: range)
+            
+        }
+        
+        return attributedString
     }
 }
 

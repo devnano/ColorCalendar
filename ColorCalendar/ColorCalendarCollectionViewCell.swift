@@ -13,8 +13,29 @@ import SnapKit
 
 class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
     
-    fileprivate lazy var textLabel = UILabel()
-    fileprivate lazy var containerView = UIView()
+    fileprivate lazy var textLabel: UILabel = {
+        let label = UILabel()        
+        
+        self.containerView.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        
+        return label
+    }()
+    
+    fileprivate lazy var containerView: UIView = {
+        let view = UIView()
+        
+        self.addSubview(view)
+        view.backgroundColor = .white
+        
+        view.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        return view
+    }()
     
     var text:String? {
         set {
@@ -41,19 +62,7 @@ class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
     // MARK: - Private API
     
     fileprivate func createUI() {
-        addSubview(containerView)
-        containerView.addSubview(textLabel)
-        
         self.backgroundColor = .white
-        containerView.backgroundColor = .white
-        
-        textLabel.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-        }
-        
-        containerView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
     }
 
 }
@@ -71,6 +80,6 @@ class ColorCalendarCollectionViewCell: BaseColorCalendarCollectionViewCell {
 class ColorCalendarWeekdaySymbolCollectionViewCell: BaseColorCalendarCollectionViewCell {
     override func createUI() {
         super.createUI()
-        textLabel.textColor = calendarColors.weekdaySymbolTextColor
+        textLabel.textColor = CalendarColors.calendarColors.weekdaySymbolTextColor
     }
 }

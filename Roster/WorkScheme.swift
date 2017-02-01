@@ -75,8 +75,6 @@ public extension WorkScheme {
             let length = component.characters.count
             let range = NSRange(location: location, length: length)
             
-            
-            
             location = range.location + length + 1 // adding 1 because seprator ,
             attributedString.addAttribute(NSBackgroundColorAttributeName, value: textColors.backgroundColor, range: range)
             

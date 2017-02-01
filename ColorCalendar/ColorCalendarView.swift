@@ -152,6 +152,7 @@ public class ColorCalendarView: UIView {
         
         currentMonthLabel.minimumScaleFactor = 0.1
         currentMonthLabel.adjustsFontSizeToFitWidth = true
+        currentMonthLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18);
         
         return monthSwitcherView
     }

@@ -13,6 +13,10 @@ import Roster
 // TODO: controls colors
 class RosterCalendarControlView: UIView {
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: Properties
     
     var workScheme: WorkScheme {
@@ -71,10 +75,10 @@ class RosterCalendarControlView: UIView {
         view.axis = .vertical
         view.distribution = .equalSpacing
         view.alignment = .center
-        view.spacing = 10
+        view.spacing = 10        
         
         view.snp.makeConstraints({ (make) in
-            make.left.right.centerY.equalToSuperview()
+            make.center.equalToSuperview()
         })
         
         return view
@@ -134,7 +138,10 @@ class RosterCalendarControlView: UIView {
     private func createUI() {
         stackView.addArrangedSubview(schemeNameTextField)
         stackView.addArrangedSubview(schemeTextField)
-        stackView.addArrangedSubview(firstWorkDayTextField)        
+        stackView.addArrangedSubview(firstWorkDayTextField)
+        
+        addKeyboardObservers()
+        addApplicationObservers()
     }
     
     fileprivate func workSchemeNameOrDefault(_ workSchemeName:String) -> String {
@@ -168,6 +175,74 @@ class RosterCalendarControlView: UIView {
         return toolbar
     }
 }
+
+extension RosterCalendarControlView {
+    
+    func addApplicationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func willResignActive(notification: NSNotification) {
+        removeKeyboardObservers()
+    }
+    
+    func didBecomeActive(notification: NSNotification) {
+        addKeyboardObservers()
+    }
+   
+    func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardDidShow(notification: Notification) {
+        var firstResponder: UIView!
+        
+        if schemeTextField.isFirstResponder {
+            firstResponder = schemeTextField
+        } else if firstWorkDayTextField.isFirstResponder {
+            firstResponder = firstWorkDayTextField
+        } else if schemeNameTextField.isFirstResponder {
+            firstResponder = schemeNameTextField
+        } else {
+            return
+        }
+
+        animate(keyboardNotification: notification) { (subview) in
+            subview.isHidden = firstResponder != subview
+            subview.alpha = firstResponder != subview ? 0.0 : 1.0;
+        }
+    }
+    
+    func keyboardDidHide(notification: Notification) {
+        animate(keyboardNotification: notification) { (subview) in
+            subview.isHidden = false
+            subview.alpha = 1.0;
+        }
+    }
+    
+    func animate(keyboardNotification notification: Notification, subviewChange: @escaping (UIView) -> Void) {
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey]  as! NSNumber
+
+        
+        UIView.animate(withDuration: duration.doubleValue, delay: 0, options: UIViewAnimationOptions(rawValue: curve.uintValue), animations: { () -> Void in
+            for subview in self.stackView.arrangedSubviews {
+                subviewChange(subview)
+            }
+            self.layoutIfNeeded()
+        }) { (finished) -> Void  in
+
+        }
+    }
+}
+
 
 extension RosterCalendarControlView: UITextFieldDelegate {
     

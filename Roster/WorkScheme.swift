@@ -61,13 +61,16 @@ typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColo
 public extension WorkScheme {
     public func attributedFormat(getWorkSchemeColor: GetWorkShiftColor) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: format)
+        let wholeStringRange = NSRange(location: 0, length: format.characters.count)
+        
         guard let sequence = workShiftSequence else {
             // TODO: delegate error color too
-            let range = NSRange(location: 0, length: format.characters.count)
-            attributedString.addAttribute(NSBackgroundColorAttributeName, value:  UIColor.red, range: range)            
+            
+            attributedString.addAttribute(NSBackgroundColorAttributeName, value:  UIColor.red, range: wholeStringRange)
             return attributedString
         }
         var location = 0
+        attributedString.addAttribute(NSBackgroundColorAttributeName, value:  UIColor.white, range: wholeStringRange)
         
         for (index, workShift) in sequence.enumerated() {
             let textColors = getWorkSchemeColor(workShift)
@@ -78,7 +81,7 @@ public extension WorkScheme {
             location = range.location + length + 1 // adding 1 because seprator ,
             attributedString.addAttribute(NSBackgroundColorAttributeName, value: textColors.backgroundColor, range: range)
             
-        }
+        }       
         
         return attributedString
     }

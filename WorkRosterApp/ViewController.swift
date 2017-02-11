@@ -11,6 +11,14 @@ import SnapKit
 import Roster
 
 class ViewController: UIViewController {
+    
+    
+    fileprivate static var minControlViewHeight: CGFloat = 40.0
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     // MARK: - Properties
     
     lazy var colorCalendar: ColorCalendarView = {
@@ -66,7 +74,9 @@ class ViewController: UIViewController {
     
     lazy var workScheme = Data.currentWorkScheme
     
-    var heightConstraint: Constraint?
+    var colorCalendarHeightConstraint: Constraint?
+    var controlBottomConstraint: Constraint!
+    var controlHeightConstraint: Constraint?
     
     // MARK: - UIViewController
     
@@ -76,6 +86,7 @@ class ViewController: UIViewController {
         makeCalendarConstraints(with: self.view.frame.size)
         makeControlViewConstraints(with: self.view.frame.size)
         
+        addApplicationObservers()
         addKeyboardObservers()
     }
 
@@ -94,13 +105,16 @@ class ViewController: UIViewController {
     typealias ConstraintMaker = (SnapKit.ConstraintMaker) -> Void
     
     private func makeTraitsDependantConstraints(with size: CGSize, compactMaker: @escaping ConstraintMaker, regularMaker: @escaping ConstraintMaker) -> ConstraintMaker {
-        if size.width < size.height {
+        if isCompactWidth(size) {
             return compactMaker
         } else {
             return regularMaker
         }
     }
     
+    fileprivate func isCompactWidth(_ size: CGSize) -> Bool {
+         return size.width < size.height
+    }
     private func makeCalendarConstraints(with size: CGSize) {
         make(calendarView: colorCalendarImageView, constraintsWith: size)
         make(calendarView: colorCalendar, constraintsWith: size)
@@ -137,14 +151,15 @@ class ViewController: UIViewController {
     
     private func makeControlViewConstraints(with size: CGSize) {
         func makeCalendarHorizontalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
-            make.top.equalTo(colorCalendar.snp.bottom)
-            make.bottom.left.equalToSuperview()
+            make.top.equalTo(colorCalendarImageView.snp.bottom)
+            controlBottomConstraint = make.bottom.equalToSuperview().constraint
+            make.left.equalToSuperview()
         }
         
         func makeCalendarVerticalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
             make.top.equalTo(self.topLayoutGuide.snp.bottom)
             make.left.equalTo(colorCalendarImageView.snp.right)
-            make.bottom.equalTo(colorCalendarImageView)
+            controlBottomConstraint = make.bottom.equalTo(colorCalendarImageView).constraint
         }
         
         controlView.snp.remakeConstraints {(make) -> Void in
@@ -199,11 +214,30 @@ extension ViewController: RosterCalendarControlViewDelegate {
 }
 
 extension ViewController {
+    
+    func addApplicationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func willResignActive(notification: NSNotification) {
+        removeKeyboardObservers()
+    }
+    
+    func didBecomeActive(notification: NSNotification) {
+        addKeyboardObservers()
+    }    
+    
     func addKeyboardObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: .UIKeyboardWillHide, object: nil)
     }
     
+    func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+
     func keyboardDidShow(notification: NSNotification) {
         guard let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
             return
@@ -211,26 +245,47 @@ extension ViewController {
         
         var keyboardRect = keyboardFrame.cgRectValue
         keyboardRect = (colorCalendar.superview?.convert(keyboardRect, to: colorCalendar.window!))!
-        let offset = colorCalendar.frame.maxY - keyboardRect.minY
+        
+        
+        var offset = colorCalendar.frame.maxY - keyboardRect.minY
+        var newControlViewHeight: CGFloat?
+        
+        if isCompactWidth(self.view.frame.size) {
+            newControlViewHeight = max(ViewController.minControlViewHeight, -offset)
+            
+            if offset < 0 {
+                offset = newControlViewHeight! + offset
+            } else {
+                offset += newControlViewHeight!
+            }
+        }
+        
+        if newControlViewHeight != nil {
+            controlBottomConstraint.deactivate()
+            controlView.snp.makeConstraints { (make) in
+                controlHeightConstraint = make.height.equalTo(newControlViewHeight!).constraint
+            }
+        }
+        
+        
         if offset > 0 {
             let newHeight = colorCalendar.frame.height - offset
-            heightConstraint?.deactivate()
+            colorCalendarHeightConstraint?.deactivate()
                 
             colorCalendarImageView.snp.makeConstraints { (make) in
-                heightConstraint = make.height.equalTo(newHeight).constraint
+                colorCalendarHeightConstraint = make.height.equalTo(newHeight).constraint
             }
-            
-            animate(grow: false, withNotification: notification)
         }
+        
+        animate(grow: false, withNotification: notification)
     }
     
-    func keyboardDidHide(notification: NSNotification) {
-        guard let constraint = heightConstraint else {
-            return
-        }
-        constraint.deactivate()
+    func keyboardDidHide(notification: NSNotification) {        
+        colorCalendarHeightConstraint?.deactivate()
+        controlHeightConstraint?.deactivate()
+        controlBottomConstraint.activate()
         animate(grow: true, withNotification: notification)
-        heightConstraint = nil
+        colorCalendarHeightConstraint = nil
     }
     
     func animate(grow: Bool, withNotification notification: NSNotification) {
@@ -238,15 +293,22 @@ extension ViewController {
         let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey]  as! NSNumber
         if !grow {
             colorCalendar.isHidden = true
+        } else {
+            // Note: this should be ideally on completion block of below animation dispatch. Comletion (with finished == true) It being executed too prematurely and here's a work-around this:
+            let deadline = DispatchTime.now() + ((duration as Double) * 1.5)
+            DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
+                self.colorCalendar.isHidden = false
+            })
         }
         
         UIView.animate(withDuration: duration.doubleValue, delay: 0, options: UIViewAnimationOptions(rawValue: curve.uintValue), animations: { () -> Void in
             self.view.layoutIfNeeded()
-        }) { (finished) -> Void  in
+        })
+        /*{ (finished) -> Void  in
             if finished && grow {
                 self.colorCalendar.isHidden = false
             }
-        }
+        }*/
     }
 }
 

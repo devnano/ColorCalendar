@@ -99,13 +99,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "506544209.557439"
+            filePath = "Roster/WorkScheme.swift"
+            timestampString = "508193456.843285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "keyboardDidHide(notification:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "attributedFormat(getWorkSchemeColor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -115,13 +115,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "506544209.557439"
+            filePath = "Roster/WorkScheme.swift"
+            timestampString = "508193442.136696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "animate(grow:withNotification:)"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "attributedFormat(getWorkSchemeColor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -131,12 +131,28 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "506543191.285212"
+            filePath = "WorkRosterApp/RosterCalendarControlView.swift"
+            timestampString = "508193027.964045"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "RosterCalendarControlView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorkRosterApp/ViewController.swift"
+            timestampString = "508454565.969127"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "viewWillTransition(to:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,12 +164,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "506549006.588164"
+            timestampString = "508454838.840024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "keyboardDidHide(notification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -163,14 +179,46 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Roster/WorkScheme.swift"
-            timestampString = "506990864.685846"
+            filePath = "WorkRosterApp/ViewController.swift"
+            timestampString = "508454875.214739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "attributedFormat(getWorkSchemeColor:)"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "animate(grow:withNotification:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkRosterApp.ViewController.animate (grow : Swift.Bool, withNotification : __ObjC.NSNotification) -&gt; ()"
+                  moduleName = "WorkRosterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marianoheredia/Kartjuba/ColorCalendar/WorkRosterApp/ViewController.swift"
+                  timestampString = "508454875.223124"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorkRosterApp.ViewController.animate (grow : Swift.Bool, withNotification : __ObjC.NSNotification) -&gt; ()"
+                  moduleName = "WorkRosterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marianoheredia/Kartjuba/ColorCalendar/WorkRosterApp/ViewController.swift"
+                  timestampString = "508454875.226351"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "1864">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

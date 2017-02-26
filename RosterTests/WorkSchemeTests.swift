@@ -34,4 +34,28 @@ class WorkSchemeTests: XCTestCase {
         XCTAssert(scheme.format == format.uppercased())
     }
     
+    func testSequenceInit() {
+        let sequence: [WorkShift] = [.day, .day, .day, .free, .empty]
+        let scheme = WorkScheme(sequence)
+        
+        XCTAssert(scheme.workShiftSequence! == sequence)
+        XCTAssert("D,D,D,X," == scheme.format)
+    }
+    
+    func testGetWorkSchemaShiftSystem() {
+        let format = "D,D,D,D,D,,"
+        let scheme = WorkScheme(name: "", format: format)
+        
+        XCTAssert(scheme.shiftSystem!.workDays == 5)
+        XCTAssert(scheme.shiftSystem!.freeDays == 2)
+    }
+    
+    func testShiftSystemMultiplier() {
+        let system = ShiftSystem(workDays: 3, freeDays: 1)
+        let systemBy2 = system * 2
+        
+        XCTAssert(systemBy2.workDays == 6)
+        XCTAssert(systemBy2.freeDays == 2)
+    }
+    
 }

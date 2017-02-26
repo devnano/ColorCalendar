@@ -11,6 +11,9 @@
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA8205AC1E631CB90096C949 /* ShiftRotaGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8205AB1E631CB90096C949 /* ShiftRotaGenerator.swift */; };
+		DA8205AE1E631DD10096C949 /* ShiftRotaGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */; };
+		DA8205B21E6327DC0096C949 /* WorkShiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */; };
 		DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9195171E05C22300511224 /* ColorCalendarView.swift */; };
 		DAA2F5161E09DF0200CC6741 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; };
 		DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA2F5171E09E0A200CC6741 /* Assets.xcassets */; };
@@ -134,6 +137,9 @@
 		DA7A02791DFF638300FF2EAE /* ColorCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHighlightTests.swift; sourceTree = "<group>"; };
 		DA7A02801DFF638300FF2EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA8205AB1E631CB90096C949 /* ShiftRotaGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRotaGenerator.swift; sourceTree = "<group>"; };
+		DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRotaGeneratorTests.swift; sourceTree = "<group>"; };
+		DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkShiftTests.swift; sourceTree = "<group>"; };
 		DA9195171E05C22300511224 /* ColorCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarView.swift; sourceTree = "<group>"; };
 		DAA2F5151E09DF0200CC6741 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		DAA2F5171E09E0A200CC6741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -352,6 +358,7 @@
 				DAEE47421E1D722A00086823 /* Roster.h */,
 				DAEE47431E1D722A00086823 /* Info.plist */,
 				DAEE476E1E1ED28100086823 /* WorkScheme.swift */,
+				DA8205AB1E631CB90096C949 /* ShiftRotaGenerator.swift */,
 			);
 			path = Roster;
 			sourceTree = "<group>";
@@ -362,6 +369,8 @@
 				DAEE474F1E1D722B00086823 /* RosterTests.swift */,
 				DAEE47511E1D722B00086823 /* Info.plist */,
 				DADA93321E2528EB000C3693 /* WorkSchemeTests.swift */,
+				DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */,
+				DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */,
 			);
 			path = RosterTests;
 			sourceTree = "<group>";
@@ -763,6 +772,7 @@
 			files = (
 				DAEE475E1E1D725300086823 /* Roster.swift in Sources */,
 				DAEE476F1E1ED28100086823 /* WorkScheme.swift in Sources */,
+				DA8205AC1E631CB90096C949 /* ShiftRotaGenerator.swift in Sources */,
 				DAEE47601E1D726D00086823 /* WorkShift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,7 +782,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEE47501E1D722B00086823 /* RosterTests.swift in Sources */,
+				DA8205AE1E631DD10096C949 /* ShiftRotaGeneratorTests.swift in Sources */,
 				DADA93331E2528EB000C3693 /* WorkSchemeTests.swift in Sources */,
+				DA8205B21E6327DC0096C949 /* WorkShiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

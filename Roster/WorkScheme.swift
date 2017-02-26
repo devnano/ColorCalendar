@@ -8,6 +8,24 @@
 
 import Foundation
 
+
+public struct ShiftSystem {
+    var workDays: Int
+    var freeDays: Int
+}
+
+extension ShiftSystem {
+    static func *(lhs: ShiftSystem, rhs: Int) -> ShiftSystem {
+        return ShiftSystem(workDays: lhs.workDays * rhs, freeDays: lhs.freeDays * rhs)
+    }
+}
+
+extension ShiftSystem: CustomStringConvertible {
+    public var description: String {
+        return "(\(workDays):\(freeDays))"
+    }
+}
+
 public class WorkScheme: NSCoding {
     private static let nameKey = "workSchemeNameKey"
     private static let formatKey = "workSchemeFormatKey"
@@ -32,8 +50,18 @@ public class WorkScheme: NSCoding {
         }
         
         return sequence
-    }()  
+    }()
     
+    public lazy var shiftSystem: ShiftSystem? = {
+        guard let sequence = self.workShiftSequence else {
+            return nil
+        }
+        
+        let workDays: Int = sequence.map({workShift in workShift.isWorkDay ? 1 : 0}).reduce(0, +)
+        let freeDays = sequence.count - workDays        
+        
+        return ShiftSystem(workDays: workDays, freeDays: freeDays)
+    }()
     
     public required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: WorkScheme.nameKey) as! String
@@ -47,6 +75,16 @@ public class WorkScheme: NSCoding {
     
     public convenience init(_ format: String) {
         self.init(name: "", format: format)
+    }
+    
+    public init(name: String, workSequence: [WorkShift]) {
+        self.name = name
+        workShiftSequence = workSequence
+        format = workSequence.map({workShift in workShift.rawValue}).joined(separator: ",")
+    }
+    
+    public convenience init(_ sequence: [WorkShift]) {
+        self.init(name: "", workSequence: sequence)
     }
     
     public func encode(with aCoder: NSCoder) {

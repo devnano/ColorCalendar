@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roster/WorkScheme.swift"
-            timestampString = "508193456.843285"
+            timestampString = "509834299.343888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "attributedFormat(getWorkSchemeColor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roster/WorkScheme.swift"
-            timestampString = "508193442.136696"
+            timestampString = "509834299.343888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "attributedFormat(getWorkSchemeColor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,12 +148,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "508454565.969127"
+            timestampString = "508536561.641874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "viewWillTransition(to:with:)"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "makeTraitsDependantConstraints(with:compactMaker:regularMaker:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -164,12 +164,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "508454838.840024"
+            timestampString = "508536561.641874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "keyboardDidHide(notification:)"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
+            landmarkName = "animate(grow:withNotification:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "508454875.214739"
+            timestampString = "508536561.641874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
             landmarkName = "animate(grow:withNotification:)"
             landmarkType = "7">
             <Locations>

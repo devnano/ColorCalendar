@@ -1,5 +1,5 @@
 //
-//  WorkSchemeTests.swift
+//  ShiftRotaTests.swift
 //  ColorCalendar
 //
 //  Created by Mariano Heredia on 1/10/17.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Roster
 
-class WorkSchemeTests: XCTestCase {
+class ShiftRotaTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,21 +22,21 @@ class WorkSchemeTests: XCTestCase {
     
     func testInit() {
         let format = "D,N,X"
-        let scheme = WorkScheme(name: "", format: format)
+        let scheme = ShiftRota(name: "", format: format)
         
         XCTAssert(scheme.format == format)
     }
     
     func testLowercaseInit() {
         let format = "d,n,x"
-        let scheme = WorkScheme(name: "", format: format)
+        let scheme = ShiftRota(name: "", format: format)
         
         XCTAssert(scheme.format == format.uppercased())
     }
     
     func testSequenceInit() {
         let sequence: [WorkShift] = [.day, .day, .day, .free, .empty]
-        let scheme = WorkScheme(sequence)
+        let scheme = ShiftRota(sequence)
         
         XCTAssert(scheme.workShiftSequence! == sequence)
         XCTAssert("D,D,D,X," == scheme.format)
@@ -44,7 +44,7 @@ class WorkSchemeTests: XCTestCase {
     
     func testGetWorkSchemaShiftSystem() {
         let format = "D,D,D,D,D,,"
-        let scheme = WorkScheme(name: "", format: format)
+        let scheme = ShiftRota(name: "", format: format)
         
         XCTAssert(scheme.shiftSystem!.workDays == 5)
         XCTAssert(scheme.shiftSystem!.freeDays == 2)

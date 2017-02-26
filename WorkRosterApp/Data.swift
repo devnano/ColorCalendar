@@ -12,31 +12,31 @@ import Roster
 struct Data {
     // MARK: - Constants
     
-    private static let currentWorkSchemeKey = "currentWorkSchemeKey"
+    private static let currentShiftRotaKey = "currentShiftRotaKey"
     
     // MARK: - Internal API
     
-    static var currentWorkScheme:WorkScheme {
+    static var currentShiftRota:ShiftRota {
         get {
-            if let workScheme = workScheme(forKey: currentWorkSchemeKey) {
-                return workScheme
+            if let shiftRota = shiftRota(forKey: currentShiftRotaKey) {
+                return shiftRota
             }
             
-            return allWorkSchemes.first!
+            return allShiftRotas.first!
         }
         set {
-            set(newValue, forkey: currentWorkSchemeKey)
+            set(newValue, forkey: currentShiftRotaKey)
         }
     }
     
-    static var allWorkSchemes:[WorkScheme] {
-        return [WorkScheme(name:"default", format:"M,D,D,D,X,E,N"), WorkScheme(name:"1 change", format:"D,")]
+    static var allShiftRotas:[ShiftRota] {
+        return [ShiftRota(name:"default", format:"M,D,D,D,X,E,N"), ShiftRota(name:"1 change", format:"D,")]
     }
     
     // MARK: - Private Methods
     
-    private static func workScheme(forKey key:String) -> WorkScheme? {
-        return object(forKey: key) as! WorkScheme?
+    private static func shiftRota(forKey key:String) -> ShiftRota? {
+        return object(forKey: key) as! ShiftRota?
     }
     
     private static func object(forKey key:String) -> Any? {

@@ -49,7 +49,7 @@
 		DAEE476A1E1D85CA00086823 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE47681E1D85CA00086823 /* R.generated.swift */; };
 		DAEE476B1E1D85CA00086823 /* WorkRosterAppPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = DAEE47691E1D85CA00086823 /* WorkRosterAppPalette.clr */; };
 		DAEE476D1E1EB6D200086823 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE476C1E1EB6D200086823 /* Data.swift */; };
-		DAEE476F1E1ED28100086823 /* WorkScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE476E1E1ED28100086823 /* WorkScheme.swift */; };
+		DAEE476F1E1ED28100086823 /* ShiftRota.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE476E1E1ED28100086823 /* ShiftRota.swift */; };
 		DAEE47711E1EDE8500086823 /* RosterCalendarControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE47701E1EDE8500086823 /* RosterCalendarControlView.swift */; };
 /* End PBXBuildFile section */
 
@@ -178,7 +178,7 @@
 		DAEE47681E1D85CA00086823 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		DAEE47691E1D85CA00086823 /* WorkRosterAppPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = WorkRosterAppPalette.clr; sourceTree = "<group>"; };
 		DAEE476C1E1EB6D200086823 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		DAEE476E1E1ED28100086823 /* WorkScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkScheme.swift; sourceTree = "<group>"; };
+		DAEE476E1E1ED28100086823 /* ShiftRota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRota.swift; sourceTree = "<group>"; };
 		DAEE47701E1EDE8500086823 /* RosterCalendarControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -357,7 +357,7 @@
 				DAEE475D1E1D725300086823 /* Roster.swift */,
 				DAEE47421E1D722A00086823 /* Roster.h */,
 				DAEE47431E1D722A00086823 /* Info.plist */,
-				DAEE476E1E1ED28100086823 /* WorkScheme.swift */,
+				DAEE476E1E1ED28100086823 /* ShiftRota.swift */,
 				DA8205AB1E631CB90096C949 /* ShiftRotaGenerator.swift */,
 			);
 			path = Roster;
@@ -771,7 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEE475E1E1D725300086823 /* Roster.swift in Sources */,
-				DAEE476F1E1ED28100086823 /* WorkScheme.swift in Sources */,
+				DAEE476F1E1ED28100086823 /* ShiftRota.swift in Sources */,
 				DA8205AC1E631CB90096C949 /* ShiftRotaGenerator.swift in Sources */,
 				DAEE47601E1D726D00086823 /* WorkShift.swift in Sources */,
 			);

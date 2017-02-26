@@ -105,7 +105,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "attributedFormat(getWorkSchemeColor:)"
+            landmarkName = "attributedFormat(getShiftRotaColor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,7 +121,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "attributedFormat(getWorkSchemeColor:)"
+            landmarkName = "attributedFormat(getShiftRotaColor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

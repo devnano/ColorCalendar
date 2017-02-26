@@ -1,5 +1,5 @@
 //
-//  WorkScheme.swift
+//  ShiftRota.swift
 //  ColorCalendar
 //
 //  Created by Mariano Heredia on 1/5/17.
@@ -26,9 +26,9 @@ extension ShiftSystem: CustomStringConvertible {
     }
 }
 
-public class WorkScheme: NSCoding {
-    private static let nameKey = "workSchemeNameKey"
-    private static let formatKey = "workSchemeFormatKey"
+public class ShiftRota: NSCoding {
+    private static let nameKey = "shiftRotaNameKey"
+    private static let formatKey = "shiftRotaFormatKey"
     private (set) public var format: String = ""
     private (set) public var name: String = ""
     
@@ -64,8 +64,8 @@ public class WorkScheme: NSCoding {
     }()
     
     public required init?(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObject(forKey: WorkScheme.nameKey) as! String
-        format = aDecoder.decodeObject(forKey: WorkScheme.formatKey) as! String
+        name = aDecoder.decodeObject(forKey: ShiftRota.nameKey) as! String
+        format = aDecoder.decodeObject(forKey: ShiftRota.formatKey) as! String
     }
     
     public init(name: String, format: String) {
@@ -88,16 +88,16 @@ public class WorkScheme: NSCoding {
     }
     
     public func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: WorkScheme.nameKey)
-        aCoder.encode(name, forKey: WorkScheme.formatKey)
+        aCoder.encode(name, forKey: ShiftRota.nameKey)
+        aCoder.encode(name, forKey: ShiftRota.formatKey)
     }
 }
 
 typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColor: UIColor)
 
 
-public extension WorkScheme {
-    public func attributedFormat(getWorkSchemeColor: GetWorkShiftColor) -> NSAttributedString {
+public extension ShiftRota {
+    public func attributedFormat(getShiftRotaColor: GetWorkShiftColor) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: format)
         let wholeStringRange = NSRange(location: 0, length: format.characters.count)
         
@@ -111,7 +111,7 @@ public extension WorkScheme {
         attributedString.addAttribute(NSBackgroundColorAttributeName, value:  UIColor.white, range: wholeStringRange)
         
         for (index, workShift) in sequence.enumerated() {
-            let textColors = getWorkSchemeColor(workShift)
+            let textColors = getShiftRotaColor(workShift)
             let component = components[index]
             let length = component.characters.count
             let range = NSRange(location: location, length: length)

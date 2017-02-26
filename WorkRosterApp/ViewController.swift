@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     lazy var colorCalendar: ColorCalendarView = {
         let calendarView = ColorCalendarView(frame:CGRect())
-        let roster = Roster(workScheme: self.workScheme, firstWorkDay: self.firstWorkDay)!
+        let roster = Roster(shiftRota: self.shiftRota, firstWorkDay: self.firstWorkDay)!
         
         self.calendarHighlight.firstWeekdayDay = 2
         
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         self.view.addSubview(cView)
 
         cView.firstWorkDayDate = self.firstWorkDay
-        cView.workScheme = self.workScheme
+        cView.shiftRota = self.shiftRota
         
         return cView
     }()
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         return highlight
     }()
     
-    lazy var workScheme = Data.currentWorkScheme
+    lazy var shiftRota = Data.currentShiftRota
     
     var colorCalendarHeightConstraint: Constraint?
     var controlBottomConstraint: Constraint!
@@ -188,9 +188,9 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: RosterCalendarControlViewDelegate {
-    internal func controlView(_ controlView: RosterCalendarControlView, didChangeWorkScheme workScheme: WorkScheme) {
-        self.workScheme = workScheme
-        guard let roster = Roster(workScheme: workScheme, firstWorkDay: firstWorkDay) else {
+    internal func controlView(_ controlView: RosterCalendarControlView, didChangeShiftRota shiftRota: ShiftRota) {
+        self.shiftRota = shiftRota
+        guard let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay) else {
             // TODO: errors
             return
         }
@@ -204,7 +204,7 @@ extension ViewController: RosterCalendarControlViewDelegate {
             return
         }        
         
-        guard let roster = Roster(workScheme: workScheme, firstWorkDay: firstWorkDay) else {
+        guard let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay) else {
             // TODO: error messages
             return
         }

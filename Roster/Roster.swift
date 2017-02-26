@@ -12,7 +12,7 @@ public class Roster {
     var workShiftSequence:[WorkShift]
     var firstWorkDay:Date
     
-    public init?(workScheme: WorkScheme, firstWorkDay: Date) {
+    public init?(shiftRota: ShiftRota, firstWorkDay: Date) {
         
         // day is finest grain info we need:
         let calendar = NSCalendar.current
@@ -20,7 +20,7 @@ public class Roster {
         
         self.firstWorkDay = calendar.date(from: dateComponents)!
         
-        guard let sequence = workScheme.workShiftSequence else {
+        guard let sequence = shiftRota.workShiftSequence else {
             return nil
         }
         

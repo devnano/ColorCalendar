@@ -19,10 +19,10 @@ class RosterCalendarControlView: UIView {
     
     // MARK: Properties
     
-    var workScheme: WorkScheme {
+    var shiftRota: ShiftRota {
         didSet {
-            schemeName = workScheme.name
-            schemeAttributedText = workScheme.attributedFormat() { (workShift) -> (textColor: UIColor, backgroundColor: UIColor) in
+            schemeName = shiftRota.name
+            schemeAttributedText = shiftRota.attributedFormat() { (workShift) -> (textColor: UIColor, backgroundColor: UIColor) in
                 let dayColors = RosterCalendarColors.color(with: workShift)
                 
                 return (dayColors.textColor, dayColors.backgroundColor)
@@ -97,7 +97,7 @@ class RosterCalendarControlView: UIView {
     
     private var schemeName: String {
         set {
-            let name = workSchemeNameOrDefault(newValue)
+            let name = shiftRotaNameOrDefault(newValue)
             schemeNameTextField.text = name
         }
         get {
@@ -121,13 +121,13 @@ class RosterCalendarControlView: UIView {
     // MARK: - UIView methods
     
     public override init(frame: CGRect) {
-        workScheme = Data.currentWorkScheme
+        shiftRota = Data.currentShiftRota
         super.init(frame: frame)
         createUI()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        workScheme = Data.currentWorkScheme
+        shiftRota = Data.currentShiftRota
         super.init(coder: aDecoder)
         createUI()
     }
@@ -144,8 +144,8 @@ class RosterCalendarControlView: UIView {
         addApplicationObservers()
     }
     
-    fileprivate func workSchemeNameOrDefault(_ workSchemeName:String) -> String {
-        return workSchemeName != "" ? workSchemeName : R.string.localizable.controlViewButtonWorkSchemeTitle()
+    fileprivate func shiftRotaNameOrDefault(_ shiftRotaName:String) -> String {
+        return shiftRotaName != "" ? shiftRotaName : R.string.localizable.controlViewButtonShiftRotaTitle()
     }
     
     @objc private func hideDatePicker() {
@@ -253,8 +253,8 @@ extension RosterCalendarControlView: UITextFieldDelegate {
     }
     
     @objc fileprivate func schemeTextChanged() {
-        workScheme = WorkScheme(name: "", format: schemeAttributedText.string)
-        delegate?.controlView(self, didChangeWorkScheme: workScheme)
+        shiftRota = ShiftRota(name: "", format: schemeAttributedText.string)
+        delegate?.controlView(self, didChangeShiftRota: shiftRota)
     }
 }
 
@@ -265,21 +265,21 @@ extension RosterCalendarControlView: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Data.allWorkSchemes.count
+        return Data.allShiftRotas.count
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return workSchemeNameOrDefault(Data.allWorkSchemes[row].name)
+        return shiftRotaNameOrDefault(Data.allShiftRotas[row].name)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        workScheme = Data.allWorkSchemes[row]
+        shiftRota = Data.allShiftRotas[row]
         
-        delegate?.controlView(self, didChangeWorkScheme: workScheme)
+        delegate?.controlView(self, didChangeShiftRota: shiftRota)
     }
 }
 
 protocol RosterCalendarControlViewDelegate {
-    func controlView(_ controlView: RosterCalendarControlView, didChangeWorkScheme workScheme: WorkScheme)
+    func controlView(_ controlView: RosterCalendarControlView, didChangeShiftRota shiftRota: ShiftRota)
     func controlView(_ controlView: RosterCalendarControlView, didChangeFirstWorkDay firstWorkDay: Date?)
 }

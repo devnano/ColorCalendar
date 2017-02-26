@@ -23,6 +23,11 @@ enum ShiftworkType {
 struct ShiftRotaGenerator {
     var shiftworkType: ShiftworkType
     var shiftSystem: ShiftSystem
-    var shiftSystemMultiplier: Int
-    var shiftsPerDay: Int
+    var shiftsPerDay: [WorkShift]
+    
+    func generate() -> [ShiftRota] {
+        let array = [ShiftRota]()
+        
+        return array
+    }
 }

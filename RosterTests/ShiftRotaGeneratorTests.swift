@@ -12,10 +12,38 @@ import XCTest
 class ShiftRotaGeneratorTests: XCTestCase {
     
     var system: ShiftSystem!
-    var generator: ShiftRotaGenerator!
+    var shiftworkType: ShiftworkType!
+    var rotatingDirection: RotatingDirection!
+    var generator: ShiftRotaGenerator!    
     
     override func setUp() {
         super.setUp()
         system = ShiftSystem(workDays: 3, freeDays: 1)
+        shiftworkType = .rotating(.clockwise(1))
+        generator = ShiftRotaGenerator(shiftworkType: shiftworkType, shiftSystem: system, shiftsPerDay: WorkShift.threeShiftsPerDay)
+    }
+    
+    func testGenerateClockwise1DayRotating3by1System3ShiftsPerDay() {
+        let rotas = generator.generate()
+        
+        XCTAssert(rotas.count > 0)
+        
+        for rota in rotas {
+            XCTAssert(rota.shiftSystem!.freeDays == 1)
+            XCTAssert(rota.shiftSystem!.workDays == 3)
+            var previousShift: WorkShift?
+            
+            for shift in rota.workShiftSequence! {
+                XCTAssert(WorkShift.threeShiftsPerDay.contains(shift) || WorkShift.freeShifts.contains(shift))
+                
+                if WorkShift.threeShiftsPerDay.contains(shift) {
+                    if previousShift != nil {
+                        let nextShift = (WorkShift.threeShiftsPerDay as NSArray).ciruclarNextElement(previousShift as Any) as! WorkShift
+                        XCTAssert(shift == nextShift)
+                    }
+                    previousShift = shift
+                }
+            }
+        }
     }
 }

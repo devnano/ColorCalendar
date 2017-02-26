@@ -18,6 +18,25 @@ public enum WorkShift: String{
     case empty = ""
     
     public var isWorkDay: Bool {
-        return self != .free && self != .empty
+        return !WorkShift.freeShifts.contains(self)
+    }
+    
+    public static let threeShiftsPerDay: [WorkShift] = [.morning, .day, .night]
+    public static let twoShiftsPerDay: [WorkShift] = [.day, .night]
+    public static let fourShiftsPerDay: [WorkShift] = [.morning, .day, .evening, .night]
+    public static let freeShifts: [WorkShift] = [.free, .empty]
+}
+
+public extension NSArray {
+    public func ciruclarNextElement(_ element: Any) -> Any? {
+        let index = self.index(of: element)
+        
+        if index == NSNotFound {
+            return nil
+        }
+        
+        let nextIndex = (index + 1) % count
+        
+        return object(at: nextIndex)        
     }
 }

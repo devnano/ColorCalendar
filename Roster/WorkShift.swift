@@ -23,6 +23,28 @@ public extension WorkShift {
         return !WorkShift.freeShifts.contains(self)
     }
     
+    public func rotationDirection(to workShift: WorkShift) -> Int {
+        var next: WorkShift = self
+        var previous: WorkShift = self
+        assert(WorkShift.allWorkShifts.contains(workShift))
+        
+        repeat {
+            next = WorkShift.allWorkShifts.ciruclarNextElement(next)!
+            
+            if next == workShift {
+                return 1
+            }
+            
+            previous = WorkShift.allWorkShifts.ciruclarPreviousElement(previous)!
+            
+            if previous == workShift {
+                return -1
+            }
+            
+            // We are sure workShift is contained in allWorkShifts array.
+        } while (true)
+    }
+    
     public static let threeShiftsPerDay: [WorkShift] = [.morning, .day, .night]
     public static let twoShiftsPerDay: [WorkShift] = [.day, .night]
     public static let fourShiftsPerDay: [WorkShift] = [.morning, .day, .evening, .night]
@@ -78,13 +100,21 @@ public extension ShiftworkType {
 
 public extension Array {
     public func ciruclarNextElement(_ element: WorkShift) -> WorkShift? {
+        return circularAccess(element) {(index) in (index + 1) % count}
+    }
+    
+    public func ciruclarPreviousElement(_ element: WorkShift) -> WorkShift? {
+        return circularAccess(element) {(index) in index - 1 < 0 ? count - 1 : index - 1}
+    }
+    
+    private func circularAccess(_ element: WorkShift, nextIndexStrategy: (Int)->Int) -> WorkShift? {
         let index = (self as NSArray).index(of: element)
         
         if index == NSNotFound {
             return nil
         }
         
-        let nextIndex = (index + 1) % count
+        let nextIndex = nextIndexStrategy(index)
         
         return (self as NSArray).object(at: nextIndex) as? WorkShift
     }

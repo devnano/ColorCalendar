@@ -19,4 +19,26 @@ class WorkShiftTests: XCTestCase {
         XCTAssert(!WorkShift.free.isWorkDay)
         XCTAssert(!WorkShift.empty.isWorkDay)
     }
+    
+    func testArrayNextCircular() {
+        let array: [WorkShift] = [.day, .night, .evening, .morning]
+        
+        XCTAssert(array.ciruclarNextElement(.day) == .night)
+        XCTAssert(array.ciruclarNextElement(.morning) == .day)
+    }
+    
+    func testArrayPreviousCircular() {
+        let array: [WorkShift] = [.day, .night, .evening, .morning]
+        
+        XCTAssert(array.ciruclarPreviousElement(.day) == .morning)
+        XCTAssert(array.ciruclarPreviousElement(.morning) == .evening)
+    }
+    
+    func testRotationDirection() {
+        XCTAssert(WorkShift.night.rotationDirection(to: .morning) == 1)
+        XCTAssert(WorkShift.morning.rotationDirection(to: .night) == -1)
+        XCTAssert(WorkShift.day.rotationDirection(to: .night) == 1)
+        XCTAssert(WorkShift.night.rotationDirection(to: .day) == 1)
+        XCTAssert(WorkShift.day.rotationDirection(to: .morning) == -1)
+    }
 }

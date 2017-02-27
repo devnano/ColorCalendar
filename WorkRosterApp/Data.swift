@@ -29,9 +29,30 @@ struct Data {
         }
     }
     
-    static var allShiftRotas:[ShiftRota] {
-        return [ShiftRota(name:"default", format:"M,D,D,D,X,E,N"), ShiftRota(name:"1 change", format:"D,")]
-    }
+    static let allShiftRotas:[ShiftRota] = {
+        var system = ShiftSystem(workDays: 5, freeDays: 2)
+        var shiftworkType: ShiftworkType = .fixed
+        var shiftsPerDay: [WorkShift] = [.day, .morning, .night]
+        var generator = ShiftRotaGenerator(shiftworkType: shiftworkType, shiftSystem: system, shiftsPerDay: shiftsPerDay)
+        var allRotas = [ShiftRota]()
+        
+        allRotas.append(contentsOf: generator.generate())
+        
+        generator.shiftworkType = .rotating(1)
+        
+        allRotas.append(contentsOf: generator.generate())
+        
+        generator.shiftworkType = .rotating(2)
+        generator.shiftSystem = generator.shiftSystem * 2
+        
+        allRotas.append(contentsOf: generator.generate())
+        
+        generator.shiftSystem = ShiftSystem(workDays: 6, freeDays: 2)
+        
+        allRotas.append(contentsOf: generator.generate())
+        
+        return allRotas
+    }()
     
     // MARK: - Private Methods
     

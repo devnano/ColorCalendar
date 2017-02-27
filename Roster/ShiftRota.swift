@@ -12,9 +12,14 @@ import Foundation
 public struct ShiftSystem {
     var workDays: Int
     var freeDays: Int
+    
+    public init(workDays: Int, freeDays: Int) {
+        self.workDays = workDays
+        self.freeDays = freeDays       
+    }
 }
 
-extension ShiftSystem {
+public extension ShiftSystem {
     static func *(lhs: ShiftSystem, rhs: Int) -> ShiftSystem {
         return ShiftSystem(workDays: lhs.workDays * rhs, freeDays: lhs.freeDays * rhs)
     }

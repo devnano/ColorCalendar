@@ -8,12 +8,18 @@
 
 import Foundation
 
-struct ShiftRotaGenerator {
-    var shiftworkType: ShiftworkType
-    var shiftSystem: ShiftSystem
-    var shiftsPerDay: [WorkShift]
+public struct ShiftRotaGenerator {
+    public var shiftworkType: ShiftworkType
+    public var shiftSystem: ShiftSystem
+    public var shiftsPerDay: [WorkShift]
     
-    func generate() -> [ShiftRota] {
+    public init(shiftworkType: ShiftworkType, shiftSystem: ShiftSystem, shiftsPerDay: [WorkShift]) {
+        self.shiftworkType = shiftworkType
+        self.shiftSystem = shiftSystem
+        self.shiftsPerDay = shiftsPerDay
+    }
+    
+    public func generate() -> [ShiftRota] {
         var array = [ShiftRota]()
         
         
@@ -43,7 +49,7 @@ struct ShiftRotaGenerator {
                 shiftSequence.append(.free)
             }
             
-            let name = "\(shiftSystem.workDays):\(shiftSystem.freeDays) \(ShiftRota.format(from: shiftSequence))"
+            let name = "\(shiftSystem) \(ShiftRota.format(from: shiftSequence))"
             
             let rota = ShiftRota(name: name, workSequence: shiftSequence)
             array.append(rota)

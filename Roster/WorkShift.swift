@@ -27,9 +27,10 @@ public enum WorkShift: String{
     public static let freeShifts: [WorkShift] = [.free, .empty]
 }
 
-public extension NSArray {
-    public func ciruclarNextElement(_ element: Any) -> Any? {
-        let index = self.index(of: element)
+public extension Array {
+    public func ciruclarNextElement(_ element: WorkShift) -> WorkShift? {
+        let index = (self as NSArray).index(of: element)
+        
         
         if index == NSNotFound {
             return nil
@@ -37,6 +38,7 @@ public extension NSArray {
         
         let nextIndex = (index + 1) % count
         
-        return object(at: nextIndex)        
+        return (self as NSArray).object(at: nextIndex) as? WorkShift
+        
     }
 }

@@ -15,9 +15,40 @@ enum RotatingDirection {
     case counterclockwise(RotationSpeed)
 }
 
+extension RotatingDirection {
+    var rotationSpeed: RotationSpeed {
+        switch self {
+        case let .clockwise(speed):
+            return speed
+        case let .counterclockwise(speed):
+            return speed
+        }
+    }
+}
+
 enum ShiftworkType {
     case fixed
     case rotating(RotatingDirection)
+}
+
+extension ShiftworkType {
+    var isRotating: Bool {
+        switch self {
+        case .rotating(_):
+            return true
+        default:
+            return false
+        }
+    }
+    
+    var rotatingDirection: RotatingDirection? {
+        switch self {
+        case let .rotating(direction):
+                return direction
+        default:
+                return nil
+        }
+    }
 }
 
 struct ShiftRotaGenerator {
@@ -28,12 +59,16 @@ struct ShiftRotaGenerator {
     func generate() -> [ShiftRota] {
         var array = [ShiftRota]()
         
+        
         for shift in shiftsPerDay {
+            var currentShift = shift
             var shiftSequence = [WorkShift]()
-            // var previousShift: WorkShift?
             
             for _ in 1...shiftSystem.workDays {
-                shiftSequence.append(shift)
+                shiftSequence.append(currentShift)                
+                if shiftworkType.isRotating {
+                    currentShift = shiftsPerDay.ciruclarNextElement(currentShift)!
+                }
             }
             
             for _ in 1...shiftSystem.freeDays {

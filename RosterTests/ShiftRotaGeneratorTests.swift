@@ -42,7 +42,7 @@ class ShiftRotaGeneratorTests: XCTestCase {
                 
                 if WorkShift.threeShiftsPerDay.contains(shift) {
                     if previousShift != nil {
-                        let nextShift = (WorkShift.threeShiftsPerDay as NSArray).ciruclarNextElement(previousShift as Any) as! WorkShift
+                        let nextShift = WorkShift.threeShiftsPerDay.ciruclarNextElement(previousShift!)! as WorkShift
                         XCTAssert(shift == nextShift)
                     }
                     previousShift = shift

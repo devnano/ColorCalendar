@@ -63,6 +63,45 @@ public class ShiftRota: NSCoding {
         return ShiftSystem(workDays: workDays, freeDays: freeDays)
     }()
     
+    public lazy var shiftworkType: ShiftworkType? = {
+        guard let sequence = self.workShiftSequence else {
+            return nil
+        }
+        
+        var previousShift: WorkShift?
+        var type: ShiftworkType = .irregular
+        var rotating: RotatingDirection?
+        var rotatingSpeed: RotationSpeed?
+        var lastShiftChangeDistance: Int = 0
+        var anyRotation = false
+        
+        for shift in sequence {
+            if !shift.isWorkDay {
+                continue
+            }
+            
+            if(previousShift != nil) {
+                if shift != previousShift {
+                    rotatingSpeed = lastShiftChangeDistance
+                    lastShiftChangeDistance = 0
+                }
+            }
+            
+            previousShift = shift
+            lastShiftChangeDistance += 1
+        }
+        
+        if let speed = rotatingSpeed {
+            type = .rotating(.clockwise(rotatingSpeed!))
+        } else {
+            if !anyRotation {
+                type = .fixed
+            }
+        }
+        
+        return type
+    }()
+    
     public required init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: ShiftRota.nameKey) as! String
         format = aDecoder.decodeObject(forKey: ShiftRota.formatKey) as! String

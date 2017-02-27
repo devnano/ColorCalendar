@@ -35,19 +35,7 @@ class ShiftRotaGeneratorTests: XCTestCase {
         for rota in rotas {
             XCTAssert(rota.shiftSystem!.freeDays == 1)
             XCTAssert(rota.shiftSystem!.workDays == 3)
-            var previousShift: WorkShift?
-            
-            for shift in rota.workShiftSequence! {
-                XCTAssert(WorkShift.threeShiftsPerDay.contains(shift) || WorkShift.freeShifts.contains(shift))
-                
-                if WorkShift.threeShiftsPerDay.contains(shift) {
-                    if previousShift != nil {
-                        let nextShift = WorkShift.threeShiftsPerDay.ciruclarNextElement(previousShift!)! as WorkShift
-                        XCTAssert(shift == nextShift)
-                    }
-                    previousShift = shift
-                }
-            }
+            XCTAssert(rota.shiftworkType! == .rotating(.clockwise(1)))
         }
     }
     
@@ -61,18 +49,7 @@ class ShiftRotaGeneratorTests: XCTestCase {
         for rota in rotas {
             XCTAssert(rota.shiftSystem!.freeDays == 1)
             XCTAssert(rota.shiftSystem!.workDays == 3)
-            var previousShift: WorkShift?
-            
-            for shift in rota.workShiftSequence! {
-                XCTAssert(WorkShift.threeShiftsPerDay.contains(shift) || WorkShift.freeShifts.contains(shift))
-                
-                if WorkShift.threeShiftsPerDay.contains(shift) {
-                    if previousShift != nil {
-                        XCTAssert(shift == previousShift)
-                    }
-                    previousShift = shift
-                }
-            }
+            XCTAssert(rota.shiftworkType! == .fixed)
         }
     }
 }

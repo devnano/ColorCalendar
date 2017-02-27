@@ -80,6 +80,9 @@ public class ShiftRota: NSCoding {
             
             if(previousShift != nil) {
                 if shift != previousShift {
+                    let rotationDirection = previousShift!.rotationDirection(to: shift)
+                    lastShiftChangeDistance *= rotationDirection
+                    
                     if let speed = rotatingSpeed {
                         if speed != lastShiftChangeDistance {
                             return .irregular

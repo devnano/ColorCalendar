@@ -227,22 +227,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RosterTests/ShiftRotaGeneratorTests.swift"
-            timestampString = "509917726.873665"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "createGenerator()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "RosterTests/WorkSchemeTests.swift"
             timestampString = "509920287.678245"
             startingColumnNumber = "9223372036854775807"
@@ -315,54 +299,6 @@
             endingLineNumber = "87"
             landmarkName = "==(_:_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RosterTests/ShiftRotaGeneratorTests.swift"
-            timestampString = "509923097.210033"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "testGenerateCounterclockwise1DayRotating3by1System3ShiftsPerDay()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RosterTests.ShiftRotaGeneratorTests.testGenerateCounterclockwise1DayRotating3by1System3ShiftsPerDay () -&gt; ()"
-                  moduleName = "RosterTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marianoheredia/Kartjuba/ColorCalendar/RosterTests/ShiftRotaGeneratorTests.swift"
-                  timestampString = "509925431.904276"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "1217">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RosterTests.ShiftRotaGeneratorTests.(testGenerateCounterclockwise1DayRotating3by1System3ShiftsPerDay () -&gt; ()).(implicit closure #4)"
-                  moduleName = "RosterTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marianoheredia/Kartjuba/ColorCalendar/RosterTests/ShiftRotaGeneratorTests.swift"
-                  timestampString = "509925431.907586"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

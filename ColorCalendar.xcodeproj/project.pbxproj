@@ -33,7 +33,7 @@
 		DAB7CD931E0C200E00C94638 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DAB7CD941E0C202A00C94638 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
 		DAB7CD951E0C202A00C94638 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DADA93331E2528EB000C3693 /* WorkSchemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA93321E2528EB000C3693 /* WorkSchemeTests.swift */; };
+		DADA93331E2528EB000C3693 /* ShiftRotaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA93321E2528EB000C3693 /* ShiftRotaTests.swift */; };
 		DADA93381E252FDD000C3693 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADA93351E252FDD000C3693 /* Localizable.strings */; };
 		DADA933C1E253047000C3693 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADA933E1E253047000C3693 /* Localizable.strings */; };
 		DAEE47361E1D48F500086823 /* RosterCalendarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE47351E1D48F500086823 /* RosterCalendarColors.swift */; };
@@ -159,7 +159,7 @@
 		DAB7CD7A1E0C1DC800C94638 /* WorkRosterAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkRosterAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB7CD7E1E0C1DC800C94638 /* WorkRosterAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRosterAppUITests.swift; sourceTree = "<group>"; };
 		DAB7CD801E0C1DC800C94638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DADA93321E2528EB000C3693 /* WorkSchemeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkSchemeTests.swift; sourceTree = "<group>"; };
+		DADA93321E2528EB000C3693 /* ShiftRotaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRotaTests.swift; sourceTree = "<group>"; };
 		DADA93361E252FDD000C3693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DADA93371E252FDD000C3693 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DADA933D1E253047000C3693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 			children = (
 				DAEE474F1E1D722B00086823 /* RosterTests.swift */,
 				DAEE47511E1D722B00086823 /* Info.plist */,
-				DADA93321E2528EB000C3693 /* WorkSchemeTests.swift */,
+				DADA93321E2528EB000C3693 /* ShiftRotaTests.swift */,
 				DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */,
 				DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */,
 			);
@@ -783,7 +783,7 @@
 			files = (
 				DAEE47501E1D722B00086823 /* RosterTests.swift in Sources */,
 				DA8205AE1E631DD10096C949 /* ShiftRotaGeneratorTests.swift in Sources */,
-				DADA93331E2528EB000C3693 /* WorkSchemeTests.swift in Sources */,
+				DADA93331E2528EB000C3693 /* ShiftRotaTests.swift in Sources */,
 				DA8205B21E6327DC0096C949 /* WorkShiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

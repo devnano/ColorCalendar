@@ -38,6 +38,20 @@ class ShiftRotaGeneratorTests: XCTestCase {
         }
     }
     
+    func testGenerateCounterclockwise1DayRotating3by1System3ShiftsPerDay() {
+        shiftworkType = .rotating(-1)
+        createGenerator()
+        let rotas = generator.generate()
+        
+        XCTAssert(rotas.count > 0)
+        
+        for rota in rotas {
+            XCTAssert(rota.shiftSystem!.freeDays == 1)
+            XCTAssert(rota.shiftSystem!.workDays == 3)
+            XCTAssert(rota.shiftworkType! == .rotating(-1))
+        }
+    }
+    
     func testGenerateFixed3by1System3ShiftsPerDay() {
         shiftworkType = .fixed
         createGenerator()

@@ -23,23 +23,32 @@ public extension WorkShift {
         return !WorkShift.freeShifts.contains(self)
     }
     
-    public func rotationDirection(to workShift: WorkShift) -> Int {
+    public func rotationDirection(to workShift: WorkShift, prioritizedRotation: Int = 1) -> Int {
         var next: WorkShift = self
         var previous: WorkShift = self
         assert(WorkShift.allWorkShifts.contains(workShift))
         
         repeat {
             next = WorkShift.allWorkShifts.ciruclarNextElement(next)!
-            
-            if next == workShift {
-                return 1
-            }
-            
             previous = WorkShift.allWorkShifts.ciruclarPreviousElement(previous)!
             
-            if previous == workShift {
-                return -1
-            }
+            if prioritizedRotation == 1 {
+                if next == workShift {
+                    return 1
+                }
+                
+                if previous == workShift {
+                    return -1
+                }
+            } else {
+                if previous == workShift {
+                    return -1
+                }
+                
+                if next == workShift {
+                    return 1
+                }
+            }            
             
             // We are sure workShift is contained in allWorkShifts array.
         } while (true)
@@ -115,7 +124,8 @@ public extension Array {
         }
         
         let nextIndex = nextIndexStrategy(index)
+        let next = (self as NSArray).object(at: nextIndex) as? WorkShift
         
-        return (self as NSArray).object(at: nextIndex) as? WorkShift
+        return next
     }
 }

@@ -72,6 +72,7 @@ public class ShiftRota: NSCoding {
         var type: ShiftworkType?
         var rotatingSpeed: RotationSpeed?
         var lastShiftChangeDistance: Int = 0
+        var rotationDirection = 1
         
         for shift in sequence {
             if !shift.isWorkDay {
@@ -80,7 +81,7 @@ public class ShiftRota: NSCoding {
             
             if(previousShift != nil) {
                 if shift != previousShift {
-                    let rotationDirection = previousShift!.rotationDirection(to: shift)
+                    rotationDirection = previousShift!.rotationDirection(to: shift, prioritizedRotation: rotationDirection)
                     lastShiftChangeDistance *= rotationDirection
                     
                     if let speed = rotatingSpeed {

@@ -20,12 +20,23 @@ struct ShiftRotaGenerator {
         for shift in shiftsPerDay {
             var currentShift = shift
             var shiftSequence = [WorkShift]()
+            var currentShiftCount = 0
             
             for _ in 1...shiftSystem.workDays {
-                shiftSequence.append(currentShift)                
-                if shiftworkType.isRotating {
-                    currentShift = shiftsPerDay.ciruclarNextElement(currentShift)!
+                
+                if let speed = shiftworkType.rotatingSpeed {
+                    if abs(speed) == currentShiftCount {
+                        if speed < 0 {
+                            currentShift = shiftsPerDay.ciruclarPreviousElement(currentShift)!
+                        } else {
+                            currentShift = shiftsPerDay.ciruclarNextElement(currentShift)!
+                        }
+                        currentShiftCount = 0
+                    }
                 }
+                
+                shiftSequence.append(currentShift)
+                currentShiftCount += 1
             }
             
             for _ in 1...shiftSystem.freeDays {

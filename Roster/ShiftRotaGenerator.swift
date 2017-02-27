@@ -26,7 +26,24 @@ struct ShiftRotaGenerator {
     var shiftsPerDay: [WorkShift]
     
     func generate() -> [ShiftRota] {
-        let array = [ShiftRota]()
+        var array = [ShiftRota]()
+        
+        for shift in shiftsPerDay {
+            var shiftSequence = [WorkShift]()
+            // var previousShift: WorkShift?
+            
+            for _ in 1...shiftSystem.workDays {
+                shiftSequence.append(shift)
+            }
+            
+            for _ in 1...shiftSystem.freeDays {
+                shiftSequence.append(.free)
+            }
+            
+            // TODO: create names
+            let rota = ShiftRota(shiftSequence)
+            array.append(rota)
+        }
         
         return array
     }

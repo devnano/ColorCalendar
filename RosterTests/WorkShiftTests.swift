@@ -37,8 +37,9 @@ class WorkShiftTests: XCTestCase {
     func testRotationDirection() {
         XCTAssert(WorkShift.night.rotationDirection(to: .morning) == 1)
         XCTAssert(WorkShift.morning.rotationDirection(to: .night) == -1)
-        XCTAssert(WorkShift.day.rotationDirection(to: .night) == 1)
-        XCTAssert(WorkShift.night.rotationDirection(to: .day) == 1)
+        XCTAssert(WorkShift.day.rotationDirection(to: .night) == 0)
+        XCTAssert(WorkShift.night.rotationDirection(to: .day) == 0)
         XCTAssert(WorkShift.day.rotationDirection(to: .morning) == -1)
+        XCTAssert(WorkShift.morning.rotationDirection(to: .evening) == 0)
     }
 }

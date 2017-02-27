@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roster/WorkShift.swift"
-            timestampString = "509922782.334965"
+            timestampString = "509924821.278648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "circularAccess(_:nextIndexStrategy:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -308,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roster/WorkShift.swift"
-            timestampString = "509923023.828625"
+            timestampString = "509924821.278648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "==(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -320,7 +320,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RosterTests/ShiftRotaGeneratorTests.swift"
@@ -333,14 +333,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RosterTests.ShiftRotaGeneratorTests.testGenerateCounterclockwise1DayRotating3by1System3ShiftsPerDay () -&gt; ()"
                   moduleName = "RosterTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marianoheredia/Kartjuba/ColorCalendar/RosterTests/ShiftRotaGeneratorTests.swift"
-                  timestampString = "509923159.584389"
+                  timestampString = "509925431.904276"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
@@ -348,14 +348,14 @@
                   offsetFromSymbolStart = "1217">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RosterTests.ShiftRotaGeneratorTests.(testGenerateCounterclockwise1DayRotating3by1System3ShiftsPerDay () -&gt; ()).(implicit closure #4)"
                   moduleName = "RosterTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marianoheredia/Kartjuba/ColorCalendar/RosterTests/ShiftRotaGeneratorTests.swift"
-                  timestampString = "509923159.587412"
+                  timestampString = "509925431.907586"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
@@ -368,15 +368,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roster/WorkShift.swift"
-            timestampString = "509923202.806898"
+            timestampString = "509924821.278648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "==(_:_:)"
             landmarkType = "7">
          </BreakpointContent>

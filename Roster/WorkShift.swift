@@ -32,6 +32,11 @@ public extension WorkShift {
             next = WorkShift.allWorkShifts.ciruclarNextElement(next)!
             previous = WorkShift.allWorkShifts.ciruclarPreviousElement(previous)!
             
+            if next == workShift && previous == workShift {
+                // Undefined direction
+                return 0
+            }
+            
             if prioritizedRotation == 1 {
                 if next == workShift {
                     return 1

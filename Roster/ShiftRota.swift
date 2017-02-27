@@ -73,6 +73,7 @@ public class ShiftRota: NSCoding {
         var rotatingSpeed: RotationSpeed?
         var lastShiftChangeDistance: Int = 0
         var rotationDirection = 1
+        var previousRotationDirection = 0
         
         for shift in sequence {
             if !shift.isWorkDay {
@@ -82,15 +83,21 @@ public class ShiftRota: NSCoding {
             if(previousShift != nil) {
                 if shift != previousShift {
                     rotationDirection = previousShift!.rotationDirection(to: shift, prioritizedRotation: rotationDirection)
-                    lastShiftChangeDistance *= rotationDirection
+                    
+                    rotationDirection = rotationDirection == 0 ? previousRotationDirection : rotationDirection
+                    
+                    if rotationDirection != 0 {
+                        lastShiftChangeDistance *= rotationDirection
+                    }
                     
                     if let speed = rotatingSpeed {
-                        if speed != lastShiftChangeDistance {
+                        if previousRotationDirection != 0 && speed != lastShiftChangeDistance {
                             return .irregular
                         }
                     }
                     rotatingSpeed = lastShiftChangeDistance
                     lastShiftChangeDistance = 0
+                    previousRotationDirection = rotationDirection
                 }
             }
             

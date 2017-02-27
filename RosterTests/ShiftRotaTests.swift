@@ -86,6 +86,13 @@ class ShiftRotaTests: XCTestCase {
         XCTAssert(scheme.shiftworkType! == .rotating(-1))
     }
     
+    func testShiftworkType1DayRotatingCounterclockwise3() {
+        let format = "N,D,M,"
+        let scheme = ShiftRota(format)
+        
+        XCTAssert(scheme.shiftworkType! == .rotating(-1))
+    }
+    
     func testShiftworkType2DaysRotatingClockwise() {
         let format = "D,D,E,E,N,N,M,M,,"
         let scheme = ShiftRota(format)

@@ -43,8 +43,9 @@ struct ShiftRotaGenerator {
                 shiftSequence.append(.free)
             }
             
-            // TODO: create names
-            let rota = ShiftRota(shiftSequence)
+            let name = "\(shiftSystem.workDays):\(shiftSystem.freeDays) \(ShiftRota.format(from: shiftSequence))"
+            
+            let rota = ShiftRota(name: name, workSequence: shiftSequence)
             array.append(rota)
         }
         

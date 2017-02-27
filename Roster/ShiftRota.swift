@@ -132,7 +132,7 @@ public class ShiftRota: NSCoding {
     public init(name: String, workSequence: [WorkShift]) {
         self.name = name
         workShiftSequence = workSequence
-        format = workSequence.map({workShift in workShift.rawValue}).joined(separator: ",")
+        format = ShiftRota.format(from: workSequence)
     }
     
     public convenience init(_ sequence: [WorkShift]) {
@@ -174,5 +174,9 @@ public extension ShiftRota {
         }       
         
         return attributedString
+    }
+    
+    public static func format(from workShiftSequence: [WorkShift]) -> String {
+        return workShiftSequence.map({workShift in workShift.rawValue}).joined(separator: ",")
     }
 }

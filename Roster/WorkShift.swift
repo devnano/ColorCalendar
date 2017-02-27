@@ -45,6 +45,8 @@ extension ShiftworkType: Equatable {
         switch (lhs, rhs) {
         case (.fixed, .fixed):
             return true
+        case (.irregular, .irregular):
+            return true
         case (let .rotating(lhsSpeed), let .rotating(rhsSpeed)):
             return lhsSpeed == rhsSpeed
         default:

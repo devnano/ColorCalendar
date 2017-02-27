@@ -69,10 +69,9 @@ public class ShiftRota: NSCoding {
         }
         
         var previousShift: WorkShift?
-        var type: ShiftworkType = .irregular
+        var type: ShiftworkType?
         var rotatingSpeed: RotationSpeed?
         var lastShiftChangeDistance: Int = 0
-        var anyRotation = false
         
         for shift in sequence {
             if !shift.isWorkDay {
@@ -81,6 +80,11 @@ public class ShiftRota: NSCoding {
             
             if(previousShift != nil) {
                 if shift != previousShift {
+                    if let speed = rotatingSpeed {
+                        if speed != lastShiftChangeDistance {
+                            return .irregular
+                        }
+                    }
                     rotatingSpeed = lastShiftChangeDistance
                     lastShiftChangeDistance = 0
                 }
@@ -93,9 +97,8 @@ public class ShiftRota: NSCoding {
         if let speed = rotatingSpeed {
             type = .rotating(speed)
         } else {
-            if !anyRotation {
-                type = .fixed
-            }
+            type = .fixed
+            
         }
         
         return type

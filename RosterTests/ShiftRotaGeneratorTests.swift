@@ -13,13 +13,12 @@ class ShiftRotaGeneratorTests: XCTestCase {
     
     var system: ShiftSystem!
     var shiftworkType: ShiftworkType!
-    var rotatingDirection: RotatingDirection!
     var generator: ShiftRotaGenerator!    
     
     override func setUp() {
         super.setUp()
         system = ShiftSystem(workDays: 3, freeDays: 1)
-        shiftworkType = .rotating(.clockwise(1))
+        shiftworkType = .rotating(1)
         createGenerator()
     }
     
@@ -35,7 +34,7 @@ class ShiftRotaGeneratorTests: XCTestCase {
         for rota in rotas {
             XCTAssert(rota.shiftSystem!.freeDays == 1)
             XCTAssert(rota.shiftSystem!.workDays == 3)
-            XCTAssert(rota.shiftworkType! == .rotating(.clockwise(1)))
+            XCTAssert(rota.shiftworkType! == .rotating(1))
         }
     }
     

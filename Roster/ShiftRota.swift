@@ -70,7 +70,6 @@ public class ShiftRota: NSCoding {
         
         var previousShift: WorkShift?
         var type: ShiftworkType = .irregular
-        var rotating: RotatingDirection?
         var rotatingSpeed: RotationSpeed?
         var lastShiftChangeDistance: Int = 0
         var anyRotation = false
@@ -92,7 +91,7 @@ public class ShiftRota: NSCoding {
         }
         
         if let speed = rotatingSpeed {
-            type = .rotating(.clockwise(rotatingSpeed!))
+            type = .rotating(speed)
         } else {
             if !anyRotation {
                 type = .fixed

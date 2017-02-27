@@ -33,38 +33,10 @@ public extension WorkShift {
 
 public typealias RotationSpeed = Int
 
-public enum RotatingDirection {
-    case clockwise(RotationSpeed)
-    case counterclockwise(RotationSpeed)
-}
-
-public extension RotatingDirection {
-    var rotationSpeed: RotationSpeed {
-        switch self {
-        case let .clockwise(speed):
-            return speed
-        case let .counterclockwise(speed):
-            return speed
-        }
-    }
-}
-
-extension RotatingDirection {
-    public static func ==(lhs: RotatingDirection, rhs: RotatingDirection) -> Bool {
-        switch (lhs, rhs) {
-        case (let .clockwise(lhsSpeed), let .clockwise(rhsSpeed)):
-            return lhsSpeed == rhsSpeed
-        case (let .counterclockwise(lhsSpeed), let .counterclockwise(rhsSpeed)):
-            return lhsSpeed == rhsSpeed
-        default:
-            return false
-        }
-    }
-}
 
 public enum ShiftworkType {
     case fixed
-    case rotating(RotatingDirection)
+    case rotating(RotationSpeed)
     case irregular
 }
 
@@ -91,10 +63,10 @@ public extension ShiftworkType {
         }
     }
     
-    var rotatingDirection: RotatingDirection? {
+    var rotatingSpeed: RotationSpeed? {
         switch self {
-        case let .rotating(direction):
-            return direction
+        case let .rotating(speed):
+            return speed
         default:
             return nil
         }

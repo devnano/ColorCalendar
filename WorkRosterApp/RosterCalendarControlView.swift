@@ -19,6 +19,8 @@ class RosterCalendarControlView: UIView {
     
     // MARK: Properties
     
+    var allShiftRotas: [ShiftRota] = [ShiftRota]()
+    
     var shiftRota: ShiftRota {
         didSet {
             schemeName = shiftRota.name
@@ -30,16 +32,21 @@ class RosterCalendarControlView: UIView {
         }
     }
     
+    lazy var pickerView: UIPickerView = {
+        return UIPickerView()
+    }()
+    
     lazy var schemeNameTextField: UITextField = {
         let textField = UITextField()
-        let pickerView = UIPickerView()
+        
         let toolbar = self.createPickerToolbar(action: #selector(hideSchemeTextPicker))
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
         
-        textField.inputView = pickerView
+        textField.inputView = self.pickerView
         textField.inputAccessoryView = toolbar
+        textField.delegate = self
         
         return textField
     }()
@@ -174,10 +181,33 @@ class RosterCalendarControlView: UIView {
         
         return toolbar
     }
+    
+    fileprivate func change(shiftRota: ShiftRota) {
+        self.shiftRota = shiftRota
+        delegate?.controlView(self, didChangeShiftRota: shiftRota)
+        Data.currentShiftRota = shiftRota
+    }
 }
 
 extension RosterCalendarControlView {
     
+    func updateAllShiftRotas() {
+        let defaultShiftRotas = Data.allShiftRotas
+        let currentShiftRota = Data.currentShiftRota
+        
+        if defaultShiftRotas.contains(currentShiftRota) {
+            allShiftRotas = defaultShiftRotas
+            return
+        }
+        
+        var shiftRotas = [ShiftRota]()
+        shiftRotas.append(currentShiftRota)
+        shiftRotas.append(contentsOf: defaultShiftRotas)
+        
+        
+        allShiftRotas = shiftRotas
+    }
+
     func addApplicationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
@@ -253,8 +283,16 @@ extension RosterCalendarControlView: UITextFieldDelegate {
     }
     
     @objc fileprivate func schemeTextChanged() {
-        shiftRota = ShiftRota(name: "", format: schemeAttributedText.string)
-        delegate?.controlView(self, didChangeShiftRota: shiftRota)
+        change(shiftRota: ShiftRota(name: "", format: schemeAttributedText.string))
+    }
+    
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField != schemeNameTextField {
+            return
+        }
+        updateAllShiftRotas()
+        let selectedIndex = allShiftRotas.index(of: shiftRota) ?? 0
+        pickerView.selectRow(selectedIndex, inComponent: 0, animated: false)
     }
 }
 
@@ -269,13 +307,11 @@ extension RosterCalendarControlView: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return shiftRotaNameOrDefault(Data.allShiftRotas[row].name)
+        return shiftRotaNameOrDefault(allShiftRotas[row].name)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        shiftRota = Data.allShiftRotas[row]
-        
-        delegate?.controlView(self, didChangeShiftRota: shiftRota)
+        change(shiftRota: allShiftRotas[row])
     }
 }
 

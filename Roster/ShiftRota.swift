@@ -31,7 +31,7 @@ extension ShiftSystem: CustomStringConvertible {
     }
 }
 
-public class ShiftRota: NSCoding {
+public class ShiftRota: NSObject, NSCoding {
     private static let nameKey = "shiftRotaNameKey"
     private static let formatKey = "shiftRotaFormatKey"
     private (set) public var format: String = ""
@@ -51,7 +51,11 @@ public class ShiftRota: NSCoding {
             guard let workShift = WorkShift(rawValue:trimComponent) else {
                 return nil
             }
-            sequence.append(workShift)
+            
+            // Force uniform use of .empty and .free.
+            var shift = workShift == .empty ? .free : workShift
+            
+            sequence.append(shift)
         }
         
         return sequence
@@ -120,12 +124,13 @@ public class ShiftRota: NSCoding {
         return type
     }()
     
-    public required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {        
         name = aDecoder.decodeObject(forKey: ShiftRota.nameKey) as! String
         format = aDecoder.decodeObject(forKey: ShiftRota.formatKey) as! String
     }
     
     public init(name: String, format: String) {
+        super.init()
         self.name = name
         self.format = format.uppercased()
     }
@@ -135,6 +140,7 @@ public class ShiftRota: NSCoding {
     }
     
     public init(name: String, workSequence: [WorkShift]) {
+        super.init()
         self.name = name
         workShiftSequence = workSequence
         format = ShiftRota.format(from: workSequence)
@@ -146,8 +152,29 @@ public class ShiftRota: NSCoding {
     
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: ShiftRota.nameKey)
-        aCoder.encode(name, forKey: ShiftRota.formatKey)
+        aCoder.encode(format, forKey: ShiftRota.formatKey)
     }
+    
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard let other = object as? ShiftRota? else {
+            return false
+        }
+        
+        guard let otherSequence = other?.workShiftSequence else {
+            return false
+        }
+        
+        guard let sequence = workShiftSequence else {
+            return false
+        }
+        
+        return sequence == otherSequence
+    }
+    
+    public override var hash: Int {
+        return format.hash
+    }
+
 }
 
 typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColor: UIColor)

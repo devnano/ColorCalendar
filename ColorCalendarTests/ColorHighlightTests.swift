@@ -11,10 +11,13 @@ import XCTest
 
 class ColorHighlightTests: XCTestCase {
     
-   var calendarHighlights: CalendarHighlights!
+    var calendarHighlights: CalendarHighlights!
+    var locale: Locale!
+    
     
     override func setUp() {
         super.setUp()
+        locale = Locale(identifier: "EN_us")
         createCalendarHighlight(year: 2016, month: 12, day: 27)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -33,6 +36,7 @@ class ColorHighlightTests: XCTestCase {
         let date = calendar.date(from: dateComponents)!
         
         calendarHighlights = CalendarHighlights(date)
+        calendarHighlights.locale = locale
     }
     
     // MARK: - test methods
@@ -61,13 +65,37 @@ class ColorHighlightTests: XCTestCase {
         XCTAssert(calendarHighlights.weekdaySymbol(at: 0) == "S")
     }
     
+    func testWeekdaySymbolAtWithoutOffsetWithLocale() {
+        calendarHighlights.locale = Locale(identifier: "ES_ar")
+        XCTAssert(calendarHighlights.weekdaySymbol(at: 0) == "D")
+    }
+    
+    
     func testWeekdaySymbolAtWithOffset() {
         calendarHighlights.firstWeekdayDay = 2
         XCTAssert(calendarHighlights.weekdaySymbol(at: 0) == "M")
     }
     
+    func testWeekdaySymbolAtWithOffsetWithLocale() {
+        calendarHighlights.locale = Locale(identifier: "ES_ar")
+        calendarHighlights.firstWeekdayDay = 2
+        XCTAssert(calendarHighlights.weekdaySymbol(at: 0) == "L")
+    }
+    
+    func testDateComponentsWithOffset() {
+        createCalendarHighlight(year: 2017, month: 3, day: 2)
+        calendarHighlights.firstWeekdayDay = 2
+        let c = calendarHighlights.dateComponents(at: 0)
+        XCTAssert(c.components.day! == 27)
+    }
+    
     func testCurrentMonthName() {
         XCTAssert(calendarHighlights.currentMonthName == "December")
+    }
+    
+    func testCurrentMonthNameWithLocale() {
+        calendarHighlights.locale = Locale(identifier: "ES_ar")
+        XCTAssert(calendarHighlights.currentMonthName == "Diciembre")
     }
     
     func testCurrentYear() {

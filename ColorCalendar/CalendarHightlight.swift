@@ -10,10 +10,28 @@ import Foundation
 
 public class CalendarHighlights {
     
+    public var locale: Locale {
+        get {
+            return calendar.locale ?? Locale.current
+        }
+        set {
+            calendar.locale = newValue
+        }
+    }
+    
     // MARK: - private properties
     
     private var calendar:NSCalendar
     private var date:Date
+    
+    private var firstDayOfCurrentMonthDate: Date {
+        var components = calendar.components([.day, .month, .year], from: date)
+        components.day = 1
+        let firstDayOfCurrentMonthDate = calendar.date(from: components)!
+        
+        return firstDayOfCurrentMonthDate
+    }
+    
     
     // MARK: - initializers
     
@@ -23,17 +41,9 @@ public class CalendarHighlights {
     }
     
     // MARK: - private API
-    
-    private func firstDayOfCurrentMonthDate() -> Date {
-        var components = calendar.components([.day, .month, .year], from: date)
-        components.day = 1
-        let firstDayOfCurrentMonthDate = calendar.date(from: components)!
-        
-        return firstDayOfCurrentMonthDate
-    }
-    
+
     private func changeDate(monthOffset offset:Int) {
-        let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate()
+        let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
         var components = DateComponents()
         components.month = offset
         date = calendar.date(byAdding: components, to: firstDayOfCurrentMonthDate, options: NSCalendar.Options(rawValue: 0))!
@@ -79,6 +89,8 @@ public class CalendarHighlights {
     public var currentMonthName:String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
+        formatter.locale = locale
+        
         return formatter.string(from: date).capitalized
     }
     
@@ -89,11 +101,10 @@ public class CalendarHighlights {
     }
     
     public func dateComponents(at index:Int) -> (components:DateComponents, isCurrentMonth:Bool) {
-        let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate()
-        let firstDayOfCurrentMonthDateComponents = calendar.components(.weekday, from:firstDayOfCurrentMonthDate)
-        // - 1 since .day property starts at 1 but dayNumber first index is 0
-        let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday! - 1
-        let indexOffsetFromFirstDayInMonth = index - firstDayOfCurrentMonthDateWeekday
+        let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
+        let firstDayOfCurrentMonthDateComponents = calendar.components(.weekday, from:firstDayOfCurrentMonthDate)        
+        let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday!
+        let indexOffsetFromFirstDayInMonth = index - firstDayOfCurrentMonthDateWeekday + firstWeekdayDay
         
         var components = DateComponents()
         components.day = indexOffsetFromFirstDayInMonth

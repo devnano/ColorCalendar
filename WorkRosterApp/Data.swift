@@ -61,14 +61,17 @@ struct Data {
     }
     
     private static func object(forKey key:String) -> Any? {
-        return UserDefaults.standard.object(forKey: key)
+        let object = UserDefaults.standard.object(forKey: key)
+        
+        guard let data = object else {
+            return nil
+        }
+        
+        return NSKeyedUnarchiver.unarchiveObject(with: data as! Foundation.Data)
     }
     
-    private static func string(forKey key:String) -> String? {
-        return UserDefaults.standard.string(forKey: key)
-    }
-    
-    private static func set(_ value: Any?, forkey key:String) {
-        UserDefaults.standard.set(value, forKey: key)
+    private static func set(_ value: Any, forkey key:String) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: value)
+        UserDefaults.standard.set(data, forKey: key)
     }
 }

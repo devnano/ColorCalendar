@@ -177,7 +177,7 @@ public class ShiftRota: NSObject, NSCoding {
 
 }
 
-typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColor: UIColor)
+public typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColor: UIColor)
 
 
 public extension ShiftRota {

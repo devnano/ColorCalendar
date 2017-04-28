@@ -289,19 +289,19 @@ extension ViewController {
     }
     
     func animate(grow: Bool, withNotification notification: NSNotification) {
-        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-        let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey]  as! NSNumber
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey]  as! UInt
         if !grow {
             colorCalendar.isHidden = true
         } else {
             // Note: this should be ideally on completion block of below animation dispatch. Comletion (with finished == true) It being executed too prematurely and here's a work-around this:
-            let deadline = DispatchTime.now() + ((duration as Double) * 1.5)
+            let deadline = DispatchTime.now() + (duration * 1.5)
             DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
                 self.colorCalendar.isHidden = false
             })
         }
         
-        UIView.animate(withDuration: duration.doubleValue, delay: 0, options: UIViewAnimationOptions(rawValue: curve.uintValue), animations: { () -> Void in
+        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(rawValue: curve), animations: { () -> Void in
             self.view.layoutIfNeeded()
         })
         /*{ (finished) -> Void  in

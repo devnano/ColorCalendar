@@ -1,0 +1,21 @@
+{
+  "iOS" : [
+    {
+      "hash" : "1e3e1397064982319d580b77b8ad3ebd659834cff639e10fb48112515440d8e7",
+      "name" : "Rswift"
+    }
+  ],
+  "commitish" : "v3.0.2",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "hash" : "65e17356702a5bde466b560547e0787c77851c10f72ad25be0e5ec4d6a4919df",
+      "name" : "Rswift"
+    }
+  ],
+  "Mac" : [
+
+  ]
+}

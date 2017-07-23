@@ -16,24 +16,36 @@ class InfoButton: ColorCalendarDayView {
     fileprivate var tipView: PopTip?
     private var helpText: NSAttributedString
     private var tipViewWindowWidth: CGFloat?
+    private static var currentId: Int = 0;
+    private let id: Int
 
     init(helpText: NSAttributedString) {
         self.helpText = helpText
+        self.id = InfoButton.currentId
+        InfoButton.currentId += 1
+        
         super.init(frame: .zero)
         text = "i"
         dayColors = DayColors(textColor: CalendarColors.calendarColors.defaultTextColor, backgroundColor: RosterCalendarColors.palette.workRosterAppBackground())
 
         self.onTap { (infoButon) in
+            var show: Bool = true
+            
             if self.tipView != nil {
                 self.tipView!.hide()
-                return
+                show = false
+            } else {
+                self.showHelp()
             }
-            self.showHelp()
+            
+            Analytics.tapInfoButton(index: self.id, show: show)
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShowHide), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShowHide), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        
         
     }
     

@@ -48,6 +48,16 @@
                ReferencedContainer = "container:ColorCalendar.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3E1F34A31F202D2700132FDE"
+               BuildableName = "WorkRosterAppUIScreenshotsTests.xctest"
+               BlueprintName = "WorkRosterAppUIScreenshotsTests"
+               ReferencedContainer = "container:ColorCalendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

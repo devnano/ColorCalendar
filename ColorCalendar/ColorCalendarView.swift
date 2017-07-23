@@ -48,7 +48,13 @@ public class ColorCalendarView: UIView {
         return switcherView
     }()
     
-    lazy var currentMonthLabel = UILabel()
+    lazy var currentMonthTitleButton: UIButton = {
+        let button = UIButton()
+        
+        button.addTarget(self, action: #selector(onMonthTitleTap), for: .touchUpInside)
+        
+        return button
+    }()
     
     var rowHeight: CGFloat {
         // Weeks + weekdays header
@@ -64,7 +70,7 @@ public class ColorCalendarView: UIView {
     
     public var calendar: CalendarHighlights! {
         didSet {
-            updateCurrentMonthLabel()
+            updatecurrentMonthTitleButton()
         }
     }
     
@@ -99,7 +105,7 @@ public class ColorCalendarView: UIView {
     
     public func reloadCalendar() {
         calendarCollectionView.reloadData()
-        updateCurrentMonthLabel()
+        updatecurrentMonthTitleButton()
     }
     
     // MARK: - Private API
@@ -113,8 +119,8 @@ public class ColorCalendarView: UIView {
         let monthSwitcherView = UIView()
         let monthSwitcherColors = CalendarColors.calendarColors.monthSwitcherColor
         monthSwitcherView.backgroundColor = monthSwitcherColors.backgroundColor
-        currentMonthLabel.textColor = monthSwitcherColors.textColor
-        currentMonthLabel.font = CalendarFonts.calendarFonts.boldFont(size: 20)
+        currentMonthTitleButton.setTitleColor(monthSwitcherColors.textColor, for: .normal)
+        currentMonthTitleButton.titleLabel!.font = CalendarFonts.calendarFonts.boldFont(size: 20)
         
         func createButton(image:UIImage, accessibilityLabel:String, action:Selector) -> UIButton {
             let button = UIButton(type: .custom)
@@ -139,11 +145,11 @@ public class ColorCalendarView: UIView {
         
         
         
-        currentMonthLabel.accessibilityLabel = R.string.localizable.labelCurrentMonthAccessibilityLabel()
+        currentMonthTitleButton.accessibilityLabel = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         monthSwitcherView.addSubview(previousMonthButton)
         monthSwitcherView.addSubview(nextMonthButton)
-        monthSwitcherView.addSubview(currentMonthLabel)
+        monthSwitcherView.addSubview(currentMonthTitleButton)
         
         previousMonthButton.snp.makeConstraints{(make) in
             make.left.top.bottom.equalToSuperview()
@@ -153,18 +159,18 @@ public class ColorCalendarView: UIView {
             make.right.top.bottom.equalToSuperview()
         }
         
-        currentMonthLabel.snp.makeConstraints { (make) in
+        currentMonthTitleButton.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
         }
         
-        currentMonthLabel.minimumScaleFactor = 0.1
-        currentMonthLabel.adjustsFontSizeToFitWidth = true        
+        currentMonthTitleButton.titleLabel!.minimumScaleFactor = 0.1
+        currentMonthTitleButton.titleLabel!.adjustsFontSizeToFitWidth = true
         
         return monthSwitcherView
     }
     
-    private func updateCurrentMonthLabel() {
-         currentMonthLabel.text = "\(calendar.currentMonthName) \(calendar.currentYear)"
+    private func updatecurrentMonthTitleButton() {
+         currentMonthTitleButton.setTitle("\(calendar.currentMonthName) \(calendar.currentYear)", for: .normal)
     }
     
     @objc private func switchToNextMonth() {
@@ -178,11 +184,18 @@ public class ColorCalendarView: UIView {
         reloadCalendar()
         delegate?.colorCalendarDidSwitchBackwardOneMonth(self)
     }
+    
+    @objc private func onMonthTitleTap() {
+        delegate?.colorCalendarDidTapMonthName(self)
+    }
 }
 
 public protocol ColorCalendarViewDelegate {
     func colorCalendarDidSwitchForwardOneMonth(_ calendar: ColorCalendarView)
     func colorCalendarDidSwitchBackwardOneMonth(_ calendar: ColorCalendarView)
+    func colorCalendarDidTapMonthName(_ calendar: ColorCalendarView)
+    func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int)
+    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool)
 }
 
 extension ColorCalendarView: UICollectionViewDataSource {
@@ -209,19 +222,27 @@ extension ColorCalendarView: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
                                                       for: indexPath) as! BaseColorCalendarCollectionViewCell
         
+        let row = indexPath.row
+        
         switch CalendarSection(rawValue:indexPath.section)! {
         case .weekdaysNames:
-            cell.text = calendar.weekdaySymbol(at: indexPath.row)
+            
+            cell.text = calendar.weekdaySymbol(at: row)
             cell.set(dayColors: CalendarColors.calendarColors.weekdaySymbolColor, font: CalendarFonts.calendarFonts.weekdaysSymbolFont)
+            cell.onTap({ (cell) in
+                self.delegate?.colorCalendar(self, didTapWeekdaySymbolAtIndex: row)
+            })
         case .calendarDays:
             let dayCell = cell as! ColorCalendarCollectionViewCell
-            let dateComponents = calendar.dateComponents(at: indexPath.row)
+            let dateComponents = calendar.dateComponents(at: row)
             cell.text = "\(dateComponents.components.day!)"
             let dayColorsFunc = dateComponents.isCurrentMonth ? CalendarColors.calendarColors.currentMonthDayColors : CalendarColors.calendarColors.otherMonthsDayColors
             let date = NSCalendar.current.date(from: dateComponents.components)!
             let dayColors = dayColorsFunc(date)
             
-            
+            cell.onTap({ (cell) in
+                 self.delegate?.colorCalendar(self, didTapCalendarDay: date, isCurrentMonth: dateComponents.isCurrentMonth)
+            })            
             
             dayCell.set(dayColors: dayColors, font: CalendarFonts.calendarFonts.fontFor(date: date))
         }
@@ -249,6 +270,6 @@ extension ColorCalendarView:  UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return ColorCalendarView.calendarCellBorderWidth
-    }
+    }    
 
 }

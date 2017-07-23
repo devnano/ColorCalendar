@@ -59,15 +59,18 @@ class ViewController: UIViewController {
         return cView
     }()
     
-    lazy var firstWorkDay:Date = {
-        let date = Date()
-        
-        return date
-    }()
+    var firstWorkDay:Date {
+        get {
+            return Data.currentFirstWorkDay
+        }
+        set {
+            Data.currentFirstWorkDay = newValue
+        }
+    }
     
     lazy var calendarHighlight:CalendarHighlights = {
         
-        let highlight = CalendarHighlights(self.firstWorkDay)
+        let highlight = CalendarHighlights(Date())
         
         return highlight
     }()
@@ -198,21 +201,23 @@ extension ViewController: RosterCalendarControlViewDelegate {
     internal func controlView(_ controlView: RosterCalendarControlView, didChangeShiftRota shiftRota: ShiftRota) {
         self.shiftRota = shiftRota
         guard let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay) else {
-            // TODO: errors
+            Analytics.changeToInvalidShiftRota(format: shiftRota.format)
             return
         }
+        
+        Analytics.changeToValidShiftRota(format: shiftRota.format)
+        
         
         set(roster:roster, reloadCalendar: true)
     }
 
-    internal func controlView(_ controlView: RosterCalendarControlView, didChangeFirstWorkDay firstWorkDay: Date?) {
-        guard let firstWorkDay = firstWorkDay else {
-            // TODO: error messages
-            return
-        }        
+    internal func controlView(_ controlView: RosterCalendarControlView, didChangeFirstWorkDay firstWorkDay: Date) {
+        self.firstWorkDay = firstWorkDay
+        
+        Analytics.changeFirstWorkDay(date: firstWorkDay)
         
         guard let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay) else {
-            // TODO: error messages
+            Analytics.changeToInvalidShiftRota(format: shiftRota.format)
             return
         }
         
@@ -323,11 +328,25 @@ extension ViewController {
 }
 
 extension ViewController: ColorCalendarViewDelegate {
+    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool) {
+        Analytics.tapInCalendarDay(date, isCurrentMonth: isCurrentMonth)
+    }
+
+    func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int) {
+        Analytics.tapInWeekdaySymbolAtIndex(index)
+    }
+
+    func colorCalendarDidTapMonthName(_ calendar: ColorCalendarView) {
+        Analytics.tapOnMonthName()
+    }
+
     func colorCalendarDidSwitchForwardOneMonth(_ calendar: ColorCalendarView) {
         updateColorCalendarImageView()
+        Analytics.tapOnSwitchForwardOnMonth()
     }
     func colorCalendarDidSwitchBackwardOneMonth(_ calendar: ColorCalendarView) {
         updateColorCalendarImageView()
+        Analytics.tapOnSwitchBackwardOnMonth()
     }
 }
 

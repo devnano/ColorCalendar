@@ -24,7 +24,8 @@ import Roster
 
 class RosterCalendarColors: CalendarColors {
     var roster:Roster
-    public static let palette = R.color.rostaKartjubaPalette.self
+//    public static let palette = R.color.rostaKartjubaPalette.self
+    public static let palette = R.color.workRosterAppPalette.self
     
     public init(roster:Roster) {
         self.roster = roster
@@ -73,7 +74,7 @@ class RosterCalendarColors: CalendarColors {
     override public func otherMonthsDayColors(forDate date: Date) -> DayColors {
         let colors = currentMonthDayColors(forDate: date)
         
-        return colors.withAlphaComponent(0.2)
+        return colors.withAlphaComponent(0.05)
     }
     
     override public var weekdaySymbolColor: DayColors {

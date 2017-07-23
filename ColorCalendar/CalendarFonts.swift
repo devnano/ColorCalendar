@@ -22,16 +22,16 @@ open class CalendarFonts {
     }
     
     public func defaultFont(size: CGFloat) -> UIFont {
-        return UIFont(name: UIFont.systemFont(ofSize: 18).fontName, size: adjustSizeByScreenSize(size: size))!
+        return UIFont(name: "AppleSDGothicNeo-Regular", size: adjustSizeByScreenSize(size: size))!
     }
     
     public func boldFont(size: CGFloat) -> UIFont {
-        return UIFont(name: UIFont.boldSystemFont(ofSize: 18).fontName, size: adjustSizeByScreenSize(size: size))!
+        return UIFont(name: "AppleSDGothicNeo-Bold", size: adjustSizeByScreenSize(size: size))!
     }
     
     public func boldItalicFont(size: CGFloat) -> UIFont {
         
-        return UIFont(name: UIFont.italicSystemFont(ofSize: 18).fontName, size: adjustSizeByScreenSize(size: size))!
+        return UIFont(name: "AppleSDGothicNeo-SemiBold", size: adjustSizeByScreenSize(size: size))!
     }
     
     public var weekdaysSymbolFont: UIFont {

@@ -11,6 +11,8 @@ import SnapKit
 import Macaw
 
 class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
+    
+    var onTapFunc:((BaseColorCalendarCollectionViewCell) -> ())?
 
     
     fileprivate lazy var containerView: ColorCalendarDayView = {
@@ -31,6 +33,14 @@ class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
     func set(dayColors:DayColors, font: UIFont? = nil) {
         containerView.dayColors = dayColors
         containerView.font = font
+    }
+    
+    
+    func onTap(_ f: @escaping (BaseColorCalendarCollectionViewCell) -> ())  {
+        onTapFunc = f
+        self.containerView.onTap { (view) in
+            f(self)
+        }
     }
     
     var text:String? {

@@ -13,11 +13,18 @@ struct Data {
     // MARK: - Constants
     
     private static let currentShiftRotaKey = "currentShiftRotaKey"
+    private static let currentFirstWorkDayKey = "currentFirstWorkDayKey"
     
     // MARK: - Internal API
     
     static var currentShiftRota:ShiftRota {
         get {
+            let defaultWorkScheme = UserDefaults.standard.string(forKey: "defaultWorkScheme")
+            
+            if defaultWorkScheme != nil {
+                set(currentShiftRota: ShiftRota(defaultWorkScheme!))
+            }
+            
             if let shiftRota = shiftRota(forKey: currentShiftRotaKey) {
                 return shiftRota
             }
@@ -25,7 +32,7 @@ struct Data {
             return allShiftRotas.first!
         }
         set {
-            set(newValue, forkey: currentShiftRotaKey)
+            set(currentShiftRota: newValue)
         }
     }
     
@@ -54,6 +61,15 @@ struct Data {
         return allRotas
     }()
     
+    static var currentFirstWorkDay: Date {
+        get {
+            return object(forKey: currentFirstWorkDayKey) as! Date? ?? Date()
+        }
+        set {
+            set(newValue, forkey: currentFirstWorkDayKey)
+        }
+    }
+
     // MARK: - Private Methods
     
     private static func shiftRota(forKey key:String) -> ShiftRota? {
@@ -73,5 +89,9 @@ struct Data {
     private static func set(_ value: Any, forkey key:String) {
         let data = NSKeyedArchiver.archivedData(withRootObject: value)
         UserDefaults.standard.set(data, forKey: key)
+    }
+    
+    private static func set(currentShiftRota: ShiftRota) {
+        set(currentShiftRota, forkey: currentShiftRotaKey)
     }
 }

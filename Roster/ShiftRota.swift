@@ -203,7 +203,7 @@ public typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgro
 
 public extension ShiftRota {
     public func attributedFormat(getShiftRotaColor: GetWorkShiftColor) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: self.localizedFormat(locale: .current), attributes: [NSForegroundColorAttributeName: UIColor.white])
+        let attributedString = NSMutableAttributedString(string: self.localizedFormat(locale: .current))
         let wholeStringRange = NSRange(location: 0, length: format.characters.count)
         
         guard let sequence = workShiftSequence else {

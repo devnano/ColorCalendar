@@ -39,6 +39,10 @@ class RosterCalendarControlView: UIView {
         return UIPickerView()
     }()
     
+    lazy var datePicker: UIDatePicker = {
+        return UIDatePicker()
+    }()
+    
     lazy var schemeNameTextField: UITextField = {
         let textField = self.createTextField()
         
@@ -49,6 +53,7 @@ class RosterCalendarControlView: UIView {
         
         textField.inputView = self.pickerView
         textField.inputAccessoryView = toolbar
+        textField.tag = 0
         
         return textField
     }()
@@ -59,21 +64,23 @@ class RosterCalendarControlView: UIView {
         textField.autocorrectionType = .no
         textField.keyboardType = .asciiCapable
         textField.addTarget(self, action: #selector(schemeTextChanged), for: .editingChanged)
+        textField.tag = 1
         
         
         return textField
     }()
     
-    lazy var firstWorkDayTextField:UITextField = {
+    lazy var firstWorkDayTextField: UITextField = {
         let textField = self.createTextField()
         
         let toolbar = self.createPickerToolbar(action: #selector(hideDatePicker))
-        let datePickerView = UIDatePicker()
+        
 
-        datePickerView.datePickerMode = .date
-        textField.inputView = datePickerView
+        self.datePicker.datePickerMode = .date
+        textField.inputView = self.datePicker
         textField.inputAccessoryView = toolbar
-        datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        textField.tag = 2
+        self.datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         
         return textField
     }()
@@ -121,6 +128,7 @@ class RosterCalendarControlView: UIView {
             
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .none
+            self.datePicker.date = firstWorkDayDate!
             
             firstWorkDayTextField.text = dateFormatter.string(from: firstWorkDayDate!)
         }
@@ -173,7 +181,7 @@ class RosterCalendarControlView: UIView {
 
     @objc private func datePickerValueChanged(sender: UIDatePicker) {
         firstWorkDayDate = sender.date
-        delegate?.controlView(self, didChangeFirstWorkDay: firstWorkDayDate)
+        delegate?.controlView(self, didChangeFirstWorkDay: sender.date)
     }
     
     private func createPickerToolbar(action:Selector) -> UIToolbar {
@@ -316,7 +324,14 @@ extension RosterCalendarControlView {
         for shift in allShifts {
             let range = text.range(of: "\(shift.localizedRawValue())")!
             let colors = RosterCalendarColors.color(with: shift)
+            
+            let substr = text.substring(from: text.index(after: range.upperBound))
+            let nlRange = substr.range(of: "\n")!
+            let boldText = substr.substring(to: nlRange.lowerBound)
+            let boldTextRange = text.range(of: boldText)!
+            
             attributedString.swiftAddAttributes([NSForegroundColorAttributeName: colors.textColor, NSBackgroundColorAttributeName: colors.backgroundColor, NSFontAttributeName: CalendarFonts.calendarFonts.defaultFont(size: 20)], range: range)
+            attributedString.swiftAddAttributes([NSFontAttributeName: CalendarFonts.calendarFonts.boldFont(size: 15)], range: boldTextRange)
         }
         
         return attributedString
@@ -357,6 +372,7 @@ extension RosterCalendarControlView: UITextFieldDelegate {
     }
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
+        Analytics.startEditingTextField(index: textField.tag)
         if textField != schemeNameTextField {
             return
         }
@@ -387,5 +403,5 @@ extension RosterCalendarControlView: UIPickerViewDelegate, UIPickerViewDataSourc
 
 protocol RosterCalendarControlViewDelegate {
     func controlView(_ controlView: RosterCalendarControlView, didChangeShiftRota shiftRota: ShiftRota)
-    func controlView(_ controlView: RosterCalendarControlView, didChangeFirstWorkDay firstWorkDay: Date?)
+    func controlView(_ controlView: RosterCalendarControlView, didChangeFirstWorkDay firstWorkDay: Date)
 }

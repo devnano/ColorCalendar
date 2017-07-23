@@ -68,6 +68,16 @@
                ReferencedContainer = "container:ColorCalendar.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3E1F34A31F202D2700132FDE"
+               BuildableName = "WorkRosterAppUIScreenshotsTests.xctest"
+               BlueprintName = "WorkRosterAppUIScreenshotsTests"
+               ReferencedContainer = "container:ColorCalendar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -101,6 +111,16 @@
             ReferencedContainer = "container:ColorCalendar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "M,M,M,M,X,X,A,A,A,A,X,X"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "D,D,D,D,X,X,N,N,N,N,X,X"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

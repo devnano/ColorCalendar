@@ -7,7 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA5B27C31E0AC22A00E36CE9 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
+		3E2E57FE1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E57FD1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr */; };
+		3E2E58001F01E6CB00D2FEDD /* WorkRosterAppPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E57FF1F01E6CB00D2FEDD /* WorkRosterAppPalette.clr */; };
+		3E2E58181F03663A00D2FEDD /* Macaw.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E2E58151F03663A00D2FEDD /* Macaw.framework.dSYM */; };
+		3E2E58191F03663A00D2FEDD /* Rswift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E2E58161F03663A00D2FEDD /* Rswift.framework.dSYM */; };
+		3E2E581A1F03663A00D2FEDD /* SnapKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E2E58171F03663A00D2FEDD /* SnapKit.framework.dSYM */; };
+		3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */; };
+		3E4000711F00C52B00D5AB78 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4000701F00C52B00D5AB78 /* R.generated.swift */; };
+		3E4000731F00C53C00D5AB78 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4000721F00C53C00D5AB78 /* R.generated.swift */; };
+		3E91E11A1F05BA54001A0CF2 /* RosterCalendarControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91E1191F05BA54001A0CF2 /* RosterCalendarControlView.swift */; };
+		3E91E11C1F05BB32001A0CF2 /* ControlItemContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91E11B1F05BB32001A0CF2 /* ControlItemContainerView.swift */; };
+		3E91E11E1F05BDE8001A0CF2 /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91E11D1F05BDE8001A0CF2 /* InfoButton.swift */; };
+		3EEFB8841F16EA940064BA58 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EEFB8861F16EA940064BA58 /* Localizable.strings */; };
+		3EEFB88C1F16EB9F0064BA58 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFB88B1F16EB9F0064BA58 /* R.generated.swift */; };
+		3EEFB89D1F1C78740064BA58 /* AMPopTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEFB89C1F1C78740064BA58 /* AMPopTip.framework */; };
+		3EEFB89F1F1C789F0064BA58 /* AMPopTip.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3EEFB89E1F1C789F0064BA58 /* AMPopTip.framework.dSYM */; };
+		3EEFB8A01F1C7ACE0064BA58 /* AMPopTip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEFB89C1F1C78740064BA58 /* AMPopTip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EEFB8A41F1DCD360064BA58 /* RostaKartjubaPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = 3EEFB8A31F1DCD360064BA58 /* RostaKartjubaPalette.clr */; };
+		3EEFB8A61F1F14950064BA58 /* RosterCalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFB8A51F1F14950064BA58 /* RosterCalendarFonts.swift */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -15,7 +32,6 @@
 		DA8205AE1E631DD10096C949 /* ShiftRotaGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */; };
 		DA8205B21E6327DC0096C949 /* WorkShiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */; };
 		DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9195171E05C22300511224 /* ColorCalendarView.swift */; };
-		DAA2F5161E09DF0200CC6741 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; };
 		DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA2F5171E09E0A200CC6741 /* Assets.xcassets */; };
 		DAA702B91E145ED100911134 /* CalendarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA702B81E145ED100911134 /* CalendarColors.swift */; };
 		DAA7AD751E11B383005625E5 /* ColorCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */; };
@@ -29,10 +45,10 @@
 		DAB7CD7F1E0C1DC800C94638 /* WorkRosterAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD7E1E0C1DC800C94638 /* WorkRosterAppUITests.swift */; };
 		DAB7CD8D1E0C1FE600C94638 /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DAB7CD8E1E0C1FE600C94638 /* ColorCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DAB7CD921E0C200E00C94638 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; };
-		DAB7CD931E0C200E00C94638 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAA2F5151E09DF0200CC6741 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DAB7CD941E0C202A00C94638 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; };
-		DAB7CD951E0C202A00C94638 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DAD7B1901ECBE2DE00B75948 /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B18E1ECBE2DE00B75948 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DAD7B1911ECBE2DE00B75948 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B18F1ECBE2DE00B75948 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DAD7B1931ECBE2FB00B75948 /* Macaw.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B1921ECBE2FB00B75948 /* Macaw.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DAD7B1951ECC295900B75948 /* ColorCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7B1941ECC295900B75948 /* ColorCalendarDayView.swift */; };
 		DADA93331E2528EB000C3693 /* ShiftRotaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADA93321E2528EB000C3693 /* ShiftRotaTests.swift */; };
 		DADA93381E252FDD000C3693 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADA93351E252FDD000C3693 /* Localizable.strings */; };
 		DADA933C1E253047000C3693 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DADA933E1E253047000C3693 /* Localizable.strings */; };
@@ -44,13 +60,8 @@
 		DAEE47561E1D722B00086823 /* Roster.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAEE47401E1D722A00086823 /* Roster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DAEE475E1E1D725300086823 /* Roster.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE475D1E1D725300086823 /* Roster.swift */; };
 		DAEE47601E1D726D00086823 /* WorkShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE475F1E1D726D00086823 /* WorkShift.swift */; };
-		DAEE47641E1D823500086823 /* DefaultColorCalendarPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = DAEE47621E1D823500086823 /* DefaultColorCalendarPalette.clr */; };
-		DAEE47651E1D823500086823 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE47631E1D823500086823 /* R.generated.swift */; };
-		DAEE476A1E1D85CA00086823 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE47681E1D85CA00086823 /* R.generated.swift */; };
-		DAEE476B1E1D85CA00086823 /* WorkRosterAppPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = DAEE47691E1D85CA00086823 /* WorkRosterAppPalette.clr */; };
 		DAEE476D1E1EB6D200086823 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE476C1E1EB6D200086823 /* Data.swift */; };
 		DAEE476F1E1ED28100086823 /* ShiftRota.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE476E1E1ED28100086823 /* ShiftRota.swift */; };
-		DAEE47711E1EDE8500086823 /* RosterCalendarControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE47701E1EDE8500086823 /* RosterCalendarControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,16 +124,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3E2E58141F03662000D2FEDD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				3EEFB89F1F1C789F0064BA58 /* AMPopTip.framework.dSYM in CopyFiles */,
+				3E2E58181F03663A00D2FEDD /* Macaw.framework.dSYM in CopyFiles */,
+				3E2E58191F03663A00D2FEDD /* Rswift.framework.dSYM in CopyFiles */,
+				3E2E581A1F03663A00D2FEDD /* SnapKit.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAB7CD911E0C1FE600C94638 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3EEFB8A01F1C7ACE0064BA58 /* AMPopTip.framework in Embed Frameworks */,
 				DAB7CD8E1E0C1FE600C94638 /* ColorCalendar.framework in Embed Frameworks */,
-				DAB7CD951E0C202A00C94638 /* Rswift.framework in Embed Frameworks */,
-				DAB7CD931E0C200E00C94638 /* SnapKit.framework in Embed Frameworks */,
 				DAEE47561E1D722B00086823 /* Roster.framework in Embed Frameworks */,
+				DAD7B1901ECBE2DE00B75948 /* Rswift.framework in Embed Frameworks */,
+				DAD7B1931ECBE2FB00B75948 /* Macaw.framework in Embed Frameworks */,
+				DAD7B1911ECBE2DE00B75948 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,9 +156,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DA3297111EB2F0820029D7D3 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
-		DA3297121EB2F0820029D7D3 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
+		3E2E57FD1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = DefaultColorCalendarPalette.clr; sourceTree = "<group>"; };
+		3E2E57FF1F01E6CB00D2FEDD /* WorkRosterAppPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = WorkRosterAppPalette.clr; sourceTree = "<group>"; };
+		3E2E58151F03663A00D2FEDD /* Macaw.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Macaw.framework.dSYM; path = Carthage/Build/iOS/Macaw.framework.dSYM; sourceTree = "<group>"; };
+		3E2E58161F03663A00D2FEDD /* Rswift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Rswift.framework.dSYM; path = Carthage/Build/iOS/Rswift.framework.dSYM; sourceTree = "<group>"; };
+		3E2E58171F03663A00D2FEDD /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SnapKit.framework.dSYM; path = Carthage/Build/iOS/SnapKit.framework.dSYM; sourceTree = "<group>"; };
+		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
+		3E4000701F00C52B00D5AB78 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		3E4000721F00C53C00D5AB78 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		3E91E1191F05BA54001A0CF2 /* RosterCalendarControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarControlView.swift; sourceTree = "<group>"; };
+		3E91E11B1F05BB32001A0CF2 /* ControlItemContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlItemContainerView.swift; sourceTree = "<group>"; };
+		3E91E11D1F05BDE8001A0CF2 /* InfoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
+		3EEFB8871F16EAA10064BA58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3EEFB88B1F16EB9F0064BA58 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		3EEFB8951F1AF3120064BA58 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3EEFB89C1F1C78740064BA58 /* AMPopTip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMPopTip.framework; path = Carthage/Build/iOS/AMPopTip.framework; sourceTree = "<group>"; };
+		3EEFB89E1F1C789F0064BA58 /* AMPopTip.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AMPopTip.framework.dSYM; path = Carthage/Build/iOS/AMPopTip.framework.dSYM; sourceTree = "<group>"; };
+		3EEFB8A11F1D82D90064BA58 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3EEFB8A21F1D83200064BA58 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3EEFB8A31F1DCD360064BA58 /* RostaKartjubaPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = RostaKartjubaPalette.clr; sourceTree = "<group>"; };
+		3EEFB8A51F1F14950064BA58 /* RosterCalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarFonts.swift; sourceTree = "<group>"; };
 		DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A02731DFF638300FF2EAE /* ColorCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCalendar.h; sourceTree = "<group>"; };
 		DA7A02741DFF638300FF2EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,7 +186,6 @@
 		DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRotaGeneratorTests.swift; sourceTree = "<group>"; };
 		DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkShiftTests.swift; sourceTree = "<group>"; };
 		DA9195171E05C22300511224 /* ColorCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarView.swift; sourceTree = "<group>"; };
-		DAA2F5151E09DF0200CC6741 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		DAA2F5171E09E0A200CC6741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAA702B81E145ED100911134 /* CalendarColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarColors.swift; sourceTree = "<group>"; };
 		DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -161,11 +203,13 @@
 		DAB7CD7A1E0C1DC800C94638 /* WorkRosterAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkRosterAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB7CD7E1E0C1DC800C94638 /* WorkRosterAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRosterAppUITests.swift; sourceTree = "<group>"; };
 		DAB7CD801E0C1DC800C94638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAD7B18E1ECBE2DE00B75948 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
+		DAD7B18F1ECBE2DE00B75948 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		DAD7B1921ECBE2FB00B75948 /* Macaw.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Macaw.framework; path = Carthage/Build/iOS/Macaw.framework; sourceTree = "<group>"; };
+		DAD7B1941ECC295900B75948 /* ColorCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarDayView.swift; sourceTree = "<group>"; };
 		DADA93321E2528EB000C3693 /* ShiftRotaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRotaTests.swift; sourceTree = "<group>"; };
 		DADA93361E252FDD000C3693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DADA93371E252FDD000C3693 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DADA933D1E253047000C3693 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DADA933F1E25304A000C3693 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DAEE47351E1D48F500086823 /* RosterCalendarColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarColors.swift; sourceTree = "<group>"; };
 		DAEE47401E1D722A00086823 /* Roster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Roster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEE47421E1D722A00086823 /* Roster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Roster.h; sourceTree = "<group>"; };
@@ -175,13 +219,8 @@
 		DAEE47511E1D722B00086823 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEE475D1E1D725300086823 /* Roster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roster.swift; sourceTree = "<group>"; };
 		DAEE475F1E1D726D00086823 /* WorkShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkShift.swift; sourceTree = "<group>"; };
-		DAEE47621E1D823500086823 /* DefaultColorCalendarPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = DefaultColorCalendarPalette.clr; sourceTree = "<group>"; };
-		DAEE47631E1D823500086823 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		DAEE47681E1D85CA00086823 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
-		DAEE47691E1D85CA00086823 /* WorkRosterAppPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = WorkRosterAppPalette.clr; sourceTree = "<group>"; };
 		DAEE476C1E1EB6D200086823 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DAEE476E1E1ED28100086823 /* ShiftRota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRota.swift; sourceTree = "<group>"; };
-		DAEE47701E1EDE8500086823 /* RosterCalendarControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,8 +228,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA5B27C31E0AC22A00E36CE9 /* Rswift.framework in Frameworks */,
-				DAA2F5161E09DF0200CC6741 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,9 +243,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EEFB89D1F1C78740064BA58 /* AMPopTip.framework in Frameworks */,
 				DAB7CD8D1E0C1FE600C94638 /* ColorCalendar.framework in Frameworks */,
-				DAB7CD941E0C202A00C94638 /* Rswift.framework in Frameworks */,
-				DAB7CD921E0C200E00C94638 /* SnapKit.framework in Frameworks */,
 				DAEE47551E1D722B00086823 /* Roster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,11 +281,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E91E1181F05BA2B001A0CF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3E91E1191F05BA54001A0CF2 /* RosterCalendarControlView.swift */,
+				3E91E11B1F05BB32001A0CF2 /* ControlItemContainerView.swift */,
+				3E91E11D1F05BDE8001A0CF2 /* InfoButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3EEFB8811F16EA790064BA58 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				3EEFB8861F16EA940064BA58 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		3EEFB88A1F16EB9F0064BA58 /* R */ = {
+			isa = PBXGroup;
+			children = (
+				3EEFB88B1F16EB9F0064BA58 /* R.generated.swift */,
+			);
+			path = R;
+			sourceTree = "<group>";
+		};
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
-				DA3297111EB2F0820029D7D3 /* Rswift.framework */,
-				DA3297121EB2F0820029D7D3 /* SnapKit.framework */,
+				3EEFB89E1F1C789F0064BA58 /* AMPopTip.framework.dSYM */,
+				3E2E58151F03663A00D2FEDD /* Macaw.framework.dSYM */,
+				3E2E58161F03663A00D2FEDD /* Rswift.framework.dSYM */,
+				3E2E58171F03663A00D2FEDD /* SnapKit.framework.dSYM */,
+				3EEFB89C1F1C78740064BA58 /* AMPopTip.framework */,
+				DAD7B1921ECBE2FB00B75948 /* Macaw.framework */,
+				DAD7B18E1ECBE2DE00B75948 /* Rswift.framework */,
+				DAD7B18F1ECBE2DE00B75948 /* SnapKit.framework */,
 				DA7A02721DFF638300FF2EAE /* ColorCalendar */,
 				DA7A027D1DFF638300FF2EAE /* ColorCalendarTests */,
 				DAB7CD5D1E0C1DC800C94638 /* WorkRosterApp */,
@@ -258,8 +326,6 @@
 				DAEE47411E1D722A00086823 /* Roster */,
 				DAEE474E1E1D722B00086823 /* RosterTests */,
 				DA7A02711DFF638300FF2EAE /* Products */,
-				DAA2F5151E09DF0200CC6741 /* SnapKit.framework */,
-				DA5B27C21E0AC22A00E36CE9 /* Rswift.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,6 +355,8 @@
 				DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */,
 				DAA7AD761E11C2DB005625E5 /* CalendarHightlight.swift */,
 				DAA702B81E145ED100911134 /* CalendarColors.swift */,
+				DAD7B1941ECC295900B75948 /* ColorCalendarDayView.swift */,
+				3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */,
 			);
 			path = ColorCalendar;
 			sourceTree = "<group>";
@@ -305,6 +373,7 @@
 		DAB7CD5D1E0C1DC800C94638 /* WorkRosterApp */ = {
 			isa = PBXGroup;
 			children = (
+				3E91E1181F05BA2B001A0CF2 /* Views */,
 				DADA93391E25302E000C3693 /* Localization */,
 				DAEE47671E1D85CA00086823 /* R */,
 				DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */,
@@ -315,7 +384,7 @@
 				DAB7CD6A1E0C1DC800C94638 /* Info.plist */,
 				DAEE47351E1D48F500086823 /* RosterCalendarColors.swift */,
 				DAEE476C1E1EB6D200086823 /* Data.swift */,
-				DAEE47701E1EDE8500086823 /* RosterCalendarControlView.swift */,
+				3EEFB8A51F1F14950064BA58 /* RosterCalendarFonts.swift */,
 			);
 			path = WorkRosterApp;
 			sourceTree = "<group>";
@@ -357,6 +426,8 @@
 		DAEE47411E1D722A00086823 /* Roster */ = {
 			isa = PBXGroup;
 			children = (
+				3EEFB88A1F16EB9F0064BA58 /* R */,
+				3EEFB8811F16EA790064BA58 /* Localization */,
 				DAEE475F1E1D726D00086823 /* WorkShift.swift */,
 				DAEE475D1E1D725300086823 /* Roster.swift */,
 				DAEE47421E1D722A00086823 /* Roster.h */,
@@ -382,8 +453,8 @@
 		DAEE47611E1D823500086823 /* R */ = {
 			isa = PBXGroup;
 			children = (
-				DAEE47621E1D823500086823 /* DefaultColorCalendarPalette.clr */,
-				DAEE47631E1D823500086823 /* R.generated.swift */,
+				3E2E57FD1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr */,
+				3E4000701F00C52B00D5AB78 /* R.generated.swift */,
 			);
 			path = R;
 			sourceTree = "<group>";
@@ -391,8 +462,9 @@
 		DAEE47671E1D85CA00086823 /* R */ = {
 			isa = PBXGroup;
 			children = (
-				DAEE47681E1D85CA00086823 /* R.generated.swift */,
-				DAEE47691E1D85CA00086823 /* WorkRosterAppPalette.clr */,
+				3E2E57FF1F01E6CB00D2FEDD /* WorkRosterAppPalette.clr */,
+				3EEFB8A31F1DCD360064BA58 /* RostaKartjubaPalette.clr */,
+				3E4000721F00C53C00D5AB78 /* R.generated.swift */,
 			);
 			path = R;
 			sourceTree = "<group>";
@@ -466,6 +538,7 @@
 				DAB7CD591E0C1DC800C94638 /* Frameworks */,
 				DAB7CD5A1E0C1DC800C94638 /* Resources */,
 				DAB7CD911E0C1FE600C94638 /* Embed Frameworks */,
+				3E2E58141F03662000D2FEDD /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -518,6 +591,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAEE47571E1D722B00086823 /* Build configuration list for PBXNativeTarget "Roster" */;
 			buildPhases = (
+				3EEFB8891F16EB520064BA58 /* R swift */,
 				DAEE473B1E1D722A00086823 /* Sources */,
 				DAEE473C1E1D722A00086823 /* Frameworks */,
 				DAEE473D1E1D722A00086823 /* Headers */,
@@ -611,7 +685,7 @@
 			knownRegions = (
 				en,
 				Base,
-				"es-AR",
+				es,
 			);
 			mainGroup = DA7A02661DFF638300FF2EAE;
 			productRefGroup = DA7A02711DFF638300FF2EAE /* Products */;
@@ -636,7 +710,7 @@
 			files = (
 				DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */,
 				DADA93381E252FDD000C3693 /* Localizable.strings in Resources */,
-				DAEE47641E1D823500086823 /* DefaultColorCalendarPalette.clr in Resources */,
+				3E2E57FE1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,10 +726,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DADA933C1E253047000C3693 /* Localizable.strings in Resources */,
+				3EEFB8A41F1DCD360064BA58 /* RostaKartjubaPalette.clr in Resources */,
 				DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */,
-				DAEE476B1E1D85CA00086823 /* WorkRosterAppPalette.clr in Resources */,
 				DAB7CD661E0C1DC800C94638 /* Assets.xcassets in Resources */,
 				DAB7CD641E0C1DC800C94638 /* Main.storyboard in Resources */,
+				3E2E58001F01E6CB00D2FEDD /* WorkRosterAppPalette.clr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +752,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EEFB8841F16EA940064BA58 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +766,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3EEFB8891F16EB520064BA58 /* R swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "R swift";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "R_DIR=\"$SRCROOT/$PRODUCT_NAME/R\"\n\n\"$SRCROOT/rswift\" \"$R_DIR\"\n";
+		};
 		DA5B27D71E0ACC0C00E36CE9 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -716,7 +806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "R_DIR=\"$SRCROOT/$PRODUCT_NAME/R\"\n\necho \"$R_DIR\"\n\nrm \"$R_DIR/WorkRosterAppPalette.clr\" 2> /dev/null && ln ~/Library/Colors/WorkRosterAppPalette.clr \"$R_DIR/WorkRosterAppPalette.clr\"\n\n\"$SRCROOT/rswift\" \"$R_DIR\"";
+			shellScript = "R_DIR=\"$SRCROOT/$PRODUCT_NAME/R\"\n\necho \"$R_DIR\"\n\nrm \"$R_DIR/WorkRosterAppPalette.clr\" 2> /dev/null && ln ~/Library/Colors/WorkRosterAppPalette.clr \"$R_DIR/WorkRosterAppPalette.clr\"\nrm \"$R_DIR/RostaKartjubaPalette.clr\" 2> /dev/null && ln ~/Library/Colors/RostaKartjubaPalette.clr \"$R_DIR/RostaKartjubaPalette.clr\"\n\n\n\n\"$SRCROOT/rswift\" \"$R_DIR\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -727,9 +817,11 @@
 			files = (
 				DAA7AD751E11B383005625E5 /* ColorCalendarCollectionViewCell.swift in Sources */,
 				DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */,
-				DAEE47651E1D823500086823 /* R.generated.swift in Sources */,
+				DAD7B1951ECC295900B75948 /* ColorCalendarDayView.swift in Sources */,
 				DAA702B91E145ED100911134 /* CalendarColors.swift in Sources */,
 				DAA7AD771E11C2DB005625E5 /* CalendarHightlight.swift in Sources */,
+				3E4000711F00C52B00D5AB78 /* R.generated.swift in Sources */,
+				3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,12 +837,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E91E11C1F05BB32001A0CF2 /* ControlItemContainerView.swift in Sources */,
 				DAB7CD611E0C1DC800C94638 /* ViewController.swift in Sources */,
 				DAEE476D1E1EB6D200086823 /* Data.swift in Sources */,
+				3E91E11E1F05BDE8001A0CF2 /* InfoButton.swift in Sources */,
 				DAB7CD5F1E0C1DC800C94638 /* AppDelegate.swift in Sources */,
 				DAEE47361E1D48F500086823 /* RosterCalendarColors.swift in Sources */,
-				DAEE476A1E1D85CA00086823 /* R.generated.swift in Sources */,
-				DAEE47711E1EDE8500086823 /* RosterCalendarControlView.swift in Sources */,
+				3EEFB8A61F1F14950064BA58 /* RosterCalendarFonts.swift in Sources */,
+				3E4000731F00C53C00D5AB78 /* R.generated.swift in Sources */,
+				3E91E11A1F05BA54001A0CF2 /* RosterCalendarControlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +871,7 @@
 			files = (
 				DAEE475E1E1D725300086823 /* Roster.swift in Sources */,
 				DAEE476F1E1ED28100086823 /* ShiftRota.swift in Sources */,
+				3EEFB88C1F16EB9F0064BA58 /* R.generated.swift in Sources */,
 				DA8205AC1E631CB90096C949 /* ShiftRotaGenerator.swift in Sources */,
 				DAEE47601E1D726D00086823 /* WorkShift.swift in Sources */,
 			);
@@ -838,6 +934,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3EEFB8861F16EA940064BA58 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EEFB8871F16EAA10064BA58 /* en */,
+				3EEFB8951F1AF3120064BA58 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		DAB7CD621E0C1DC800C94638 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -858,7 +963,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DADA93361E252FDD000C3693 /* en */,
-				DADA93371E252FDD000C3693 /* es-AR */,
+				3EEFB8A21F1D83200064BA58 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -867,7 +972,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DADA933D1E253047000C3693 /* en */,
-				DADA933F1E25304A000C3693 /* es-AR */,
+				3EEFB8A11F1D82D90064BA58 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1074,7 +1179,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GXB2YASNT3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1085,6 +1191,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kartjuba.WorkRosterApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1095,7 +1203,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GXB2YASNT3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1106,6 +1215,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kartjuba.WorkRosterApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1183,6 +1293,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Roster/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1207,6 +1321,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Roster/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

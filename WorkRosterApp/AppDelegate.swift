@@ -15,7 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+//        // Override point for customization after application launch.
+//        // Print out all font families
+//        // Source: http://stackoverflow.com/questions/11083954/uifont-fontwithname-font-name
+        let familyNames = UIFont.familyNames
+        for familyName in familyNames {
+             let fontNames = UIFont.fontNames(forFamilyName: familyName)
+            for fontName in fontNames {
+                NSLog("%@", fontName)
+            }
+        }
         return true
     }
 

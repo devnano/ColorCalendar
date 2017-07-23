@@ -23,7 +23,7 @@ class RosterTests: XCTestCase {
         components.hour = 8
         firstWorkDay = Calendar.current.date(from: components)
         
-        roster = Roster(shiftRota: ShiftRota("M,D,D,D,X,E,N"), firstWorkDay: firstWorkDay)
+        roster = Roster(shiftRota: ShiftRota("M,D,D,D,X,A,N"), firstWorkDay: firstWorkDay)
     }
     
     override func tearDown() {
@@ -60,8 +60,8 @@ class RosterTests: XCTestCase {
         XCTAssert(roster.workShiftSequence[1] == .morning)
         XCTAssert(roster.workShiftSequence[2] == .day)
         XCTAssert(roster.workShiftSequence[3] == .free)
-        XCTAssert(roster.workShiftSequence[4] == .empty)
-        XCTAssert(roster.workShiftSequence[5] == .empty)
+        XCTAssert(roster.workShiftSequence[4] == .free)
+        XCTAssert(roster.workShiftSequence[5] == .free)
     }
     
     
@@ -100,7 +100,7 @@ class RosterTests: XCTestCase {
     }
     
     func testWorkShiftForSecondWorkDay() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         let date = NSCalendar.current.date(byAdding: .day, value: 2, to: roster.firstWorkDay)!
         let workShift = roster.workShift(forDate:date)
         
@@ -108,7 +108,7 @@ class RosterTests: XCTestCase {
     }
     
     func testWorkShiftForSecondWorkDayWhenThereIsLessThan24HoursOfDifference() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         var components = DateComponents()
         components.hour = 20
         let date = NSCalendar.current.date(byAdding: components, to: firstWorkDay)!        
@@ -118,7 +118,7 @@ class RosterTests: XCTestCase {
     }
     
     func testWorkShiftForLastWorkDay() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         let date = NSCalendar.current.date(byAdding: .day, value: 6, to: roster.firstWorkDay)!
         
         let workShift = roster.workShift(forDate:date)
@@ -127,7 +127,7 @@ class RosterTests: XCTestCase {
     }
     
     func testWorkShiftLastDayNextWeek() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         let date = NSCalendar.current.date(byAdding: .day, value: 13, to: roster.firstWorkDay)!
         
         let workShift = roster.workShift(forDate:date)
@@ -136,7 +136,7 @@ class RosterTests: XCTestCase {
     }
     
     func testWorkShiftPreviousDayToStartignWorkDay() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         let date = NSCalendar.current.date(byAdding: .day, value: -1, to: roster.firstWorkDay)!
         
         let workShift = roster.workShift(forDate:date)
@@ -145,12 +145,12 @@ class RosterTests: XCTestCase {
     }
     
     func testWorkShiftTwoWeeksBefore() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         let date = NSCalendar.current.date(byAdding: .day, value: -9, to: roster.firstWorkDay)!
         
         let workShift = roster.workShift(forDate:date)
         
-        XCTAssert(workShift == .evening)
+        XCTAssert(workShift == .afternoon)
     }
     
     func testisDateCurrentDay() {

@@ -32,6 +32,8 @@ public class ColorCalendarView: UIView {
             make.top.equalTo(self.monthSwitcherView.snp.bottom)
         }
         
+        collectionView.backgroundColor = CalendarColors.calendarColors.backgroundColor
+        
         return collectionView
     }()
     
@@ -103,20 +105,25 @@ public class ColorCalendarView: UIView {
     // MARK: - Private API
     
     private func createUI() {
+        self.backgroundColor = CalendarColors.calendarColors.backgroundColor
 
     }
     
     private func createMonthSwitcherView() -> UIView {
         let monthSwitcherView = UIView()
-        monthSwitcherView.backgroundColor = CalendarColors.calendarColors.monthSwitcherBackgroundColor
+        let monthSwitcherColors = CalendarColors.calendarColors.monthSwitcherColor
+        monthSwitcherView.backgroundColor = monthSwitcherColors.backgroundColor
+        currentMonthLabel.textColor = monthSwitcherColors.textColor
+        currentMonthLabel.font = CalendarFonts.calendarFonts.boldFont(size: 20)
         
         func createButton(image:UIImage, accessibilityLabel:String, action:Selector) -> UIButton {
             let button = UIButton(type: .custom)
             
-            button.setImage(image, for:.normal)
+            button.setImage(image.withRenderingMode(.alwaysTemplate), for:.normal)
             button.accessibilityLabel = accessibilityLabel
             button.addTarget(self, action: action, for: .touchUpInside)
-            button.imageView?.contentMode = .scaleAspectFit
+            button.imageView?.contentMode = .scaleAspectFit            
+            button.imageView?.tintColor = CalendarColors.calendarColors.defaultTextColor
             
             return button
         }
@@ -151,8 +158,7 @@ public class ColorCalendarView: UIView {
         }
         
         currentMonthLabel.minimumScaleFactor = 0.1
-        currentMonthLabel.adjustsFontSizeToFitWidth = true
-        currentMonthLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18);
+        currentMonthLabel.adjustsFontSizeToFitWidth = true        
         
         return monthSwitcherView
     }
@@ -205,16 +211,19 @@ extension ColorCalendarView: UICollectionViewDataSource {
         
         switch CalendarSection(rawValue:indexPath.section)! {
         case .weekdaysNames:
-            cell.text = calendar.weekdaySymbol(at: indexPath.row)            
+            cell.text = calendar.weekdaySymbol(at: indexPath.row)
+            cell.set(dayColors: CalendarColors.calendarColors.weekdaySymbolColor, font: CalendarFonts.calendarFonts.weekdaysSymbolFont)
         case .calendarDays:
             let dayCell = cell as! ColorCalendarCollectionViewCell
             let dateComponents = calendar.dateComponents(at: indexPath.row)
             cell.text = "\(dateComponents.components.day!)"
-            let dayColorsFunc = dateComponents.isCurrentMonth ? CalendarColors.calendarColors.currentMonthDayColors : CalendarColors.calendarColors.otherMonthsDayColors;
+            let dayColorsFunc = dateComponents.isCurrentMonth ? CalendarColors.calendarColors.currentMonthDayColors : CalendarColors.calendarColors.otherMonthsDayColors
             let date = NSCalendar.current.date(from: dateComponents.components)!
             let dayColors = dayColorsFunc(date)
             
-            dayCell.set(dayColors: dayColors)            
+            
+            
+            dayCell.set(dayColors: dayColors, font: CalendarFonts.calendarFonts.fontFor(date: date))
         }
         
         return cell

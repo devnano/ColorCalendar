@@ -13,7 +13,8 @@ import Roster
 class ViewController: UIViewController {
     
     
-    fileprivate static var minControlViewHeight: CGFloat = 40.0
+    // TODO: use real control view height after hidding some of the arrenged views
+    fileprivate static var minControlViewHeight: CGFloat = CalendarFonts.calendarFonts.adjustSizeByScreenSize(size: 70.0)
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -35,14 +36,13 @@ class ViewController: UIViewController {
         
         calendarView.delegate = self
         
-        
         return calendarView
     }()
     
     lazy var colorCalendarImageView: UIImageView = {
         let imageView = UIImageView()
         self.view.addSubview(imageView)
-        imageView.backgroundColor = UIColor.red
+        imageView.isHidden = true
         
         return imageView
     }()
@@ -88,6 +88,13 @@ class ViewController: UIViewController {
         
         addApplicationObservers()
         addKeyboardObservers()
+        
+        self.view.backgroundColor = RosterCalendarColors.palette.workRosterAppBackground()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        controlView.showHelp()
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,13 +130,10 @@ class ViewController: UIViewController {
     private func make(calendarView: UIView, constraintsWith size: CGSize) {
         func makeCalendarHorizontalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.topLayoutGuide.snp.bottom)
         }
         
         func makeCalendarVerticalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
             make.left.equalToSuperview()
-            make.top.equalTo(self.topLayoutGuide.snp.bottom)
-            //make.centerY.equalToSuperview()
         }
         
         calendarView.snp.remakeConstraints {(make) -> Void in
@@ -142,18 +146,20 @@ class ViewController: UIViewController {
 
             make.width.equalTo(calendarView.snp.height)
             make.width.height.lessThanOrEqualToSuperview()
+            make.top.equalTo(self.topLayoutGuide.snp.bottom)
             
             // Nice to have:
-            make.left.right.equalToSuperview().priority(mediumPriority)
+            make.left.equalToSuperview().offset(5).priority(mediumPriority)
+            make.right.equalToSuperview().offset(-5).priority(mediumPriority)
             make.bottom.equalToSuperview().priority(mediumPriority)
         }
     }
     
-    private func makeControlViewConstraints(with size: CGSize) {
+    private func makeControlViewConstraints(with size: CGSize) {        
         func makeCalendarHorizontalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
             make.top.equalTo(colorCalendarImageView.snp.bottom)
             controlBottomConstraint = make.bottom.equalToSuperview().constraint
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(5)
         }
         
         func makeCalendarVerticalCompactConstraints(_ make:SnapKit.ConstraintMaker) {
@@ -166,12 +172,13 @@ class ViewController: UIViewController {
             makeTraitsDependantConstraints(with: size,
                                            compactMaker: makeCalendarHorizontalCompactConstraints,
                                            regularMaker: makeCalendarVerticalCompactConstraints)(make)
-            make.right.equalToSuperview()
+            make.right.equalToSuperview().offset(-5)
         }
     }
     
     fileprivate func set(roster: Roster, reloadCalendar reload:Bool=false) {
-        CalendarColors.calendarColors = RosterCalendarColors(roster:roster)
+        CalendarColors.calendarColors = RosterCalendarColors(roster: roster)
+        CalendarFonts.calendarFonts = RosterCalendarFonts(roster: roster)
         if reload {
             colorCalendar.reloadCalendar()
         }
@@ -291,13 +298,16 @@ extension ViewController {
     func animate(grow: Bool, withNotification notification: NSNotification) {
         let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double
         let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey]  as! UInt
+        // TODO: check iPad issue when rotating and keyboard appears / dissapears   
         if !grow {
             colorCalendar.isHidden = true
+            colorCalendarImageView.isHidden = false
         } else {
             // Note: this should be ideally on completion block of below animation dispatch. Comletion (with finished == true) It being executed too prematurely and here's a work-around this:
             let deadline = DispatchTime.now() + (duration * 1.5)
             DispatchQueue.main.asyncAfter(deadline: deadline, execute: {
                 self.colorCalendar.isHidden = false
+                self.colorCalendarImageView.isHidden = true
             })
         }
         

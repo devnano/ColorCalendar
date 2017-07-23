@@ -27,6 +27,24 @@ class ShiftRotaTests: XCTestCase {
         XCTAssert(scheme.format == format)
     }
     
+    func testInitLocale() {
+        let format = "D,N,T,X"
+        let locale = Locale(identifier: "ES_ar")
+        let scheme = ShiftRota(name: "", format: format, locale: locale)
+        
+        XCTAssert(scheme.format == "D,N,A,X")
+        XCTAssert(scheme.localizedFormat(locale: locale) == "D,N,T,X")
+    }
+    
+    func testInitFailLocale() {
+        let format = "D,N,T,X,z"
+        let locale = Locale(identifier: "ES_ar")
+        let scheme = ShiftRota(name: "", format: format, locale: locale)
+        
+        XCTAssert(scheme.format == "D,N,A,X,Z")
+        XCTAssert(scheme.localizedFormat(locale: locale) == "D,N,T,X,Z")
+    }
+    
     func testLowercaseInit() {
         let format = "d,n,x"
         let scheme = ShiftRota(name: "", format: format)
@@ -66,14 +84,14 @@ class ShiftRotaTests: XCTestCase {
     }
     
     func testShiftworkType1DayRotatingClockwise() {
-        let format = "D,E,N,M,D,,"
+        let format = "D,A,N,M,D,,"
         let scheme = ShiftRota(format)
         
         XCTAssert(scheme.shiftworkType! == .rotating(1))
     }
     
     func testShiftworkType1DayRotatingCounterclockwise() {
-        let format = "D,M,N,E,D,,"
+        let format = "D,M,N,A,D,,"
         let scheme = ShiftRota(format)
         
         XCTAssert(scheme.shiftworkType! == .rotating(-1))
@@ -94,21 +112,21 @@ class ShiftRotaTests: XCTestCase {
     }
     
     func testShiftworkType2DaysRotatingClockwise() {
-        let format = "D,D,E,E,N,N,M,M,,"
+        let format = "D,D,A,A,N,N,M,M,,"
         let scheme = ShiftRota(format)
         
         XCTAssert(scheme.shiftworkType! == .rotating(2))
     }
     
     func testShiftworkType3DaysRotatingCounterclockwise() {
-        let format = "M,M,M,N,N,N,E,E,E,D,D,D,,,,"
+        let format = "M,M,M,N,N,N,A,A,A,D,D,D,,,,"
         let scheme = ShiftRota(format)
         
         XCTAssert(scheme.shiftworkType! == .rotating(-3))
     }
     
     func testShiftworkTypeIrregular() {
-        let format = "D,D,E,E,E,N,N,M,M,,"
+        let format = "D,D,A,A,A,N,N,M,M,,"
         let scheme = ShiftRota(format)
         
         XCTAssert(scheme.shiftworkType! == .irregular)

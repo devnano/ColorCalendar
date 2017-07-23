@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  ColorCalendar
+
+  Created by Mariano Heredia on 13/07/17.
+  Copyright © 2017 Kartjuba. All rights reserved.
+*/
+
+"workShift.D" = "D";
+"workShift.N" = "N";
+"workShift.M" = "M";
+"workShift.A" = "A";
+"workShift." = "";
+"workShift.X" = "X";

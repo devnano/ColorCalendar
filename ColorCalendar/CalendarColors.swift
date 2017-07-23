@@ -25,11 +25,11 @@ public struct DayColors {
 public protocol CalendarColorsProvider {
     func currentMonthDayColors(forDate date:Date) -> DayColors
     func otherMonthsDayColors(forDate date:Date) -> DayColors
-    var weekdaySymbolTextColor: UIColor { get }
-    var monthSwitcherBackgroundColor: UIColor { get }
+    var weekdaySymbolColor: DayColors { get }
+    var monthSwitcherColor: DayColors { get }
+    var backgroundColor: UIColor { get }
+    var defaultTextColor: UIColor { get }
 }
-
-
 
 open class CalendarColors: CalendarColorsProvider {
     public static var calendarColors:CalendarColors = CalendarColors()
@@ -48,13 +48,22 @@ open class CalendarColors: CalendarColorsProvider {
         return colors
     }
     
-    open var weekdaySymbolTextColor: UIColor {
-        return R.color.defaultColorCalendarPalette.weekdaySymbolTextColor()
+    open var weekdaySymbolColor: DayColors {
+        let colors = DayColors(textColor: R.color.defaultColorCalendarPalette.weekdaySymbolTextColor(), backgroundColor: R.color.defaultColorCalendarPalette.weekdaySymbolBackgroundColor())
         
+        return colors
     }
     
-    open var monthSwitcherBackgroundColor: UIColor {
-        return R.color.defaultColorCalendarPalette.monthSwitcherBackgroundColor()        
+    open var monthSwitcherColor: DayColors {
+        return DayColors(textColor: defaultTextColor, backgroundColor: R.color.defaultColorCalendarPalette.monthSwitcherBackgroundColor())
+    }
+    
+    open var backgroundColor: UIColor {
+        return R.color.defaultColorCalendarPalette.backgroundColor()
+    }
+    
+    open var defaultTextColor: UIColor {
+        return R.color.defaultColorCalendarPalette.defaultTextColor()
     }
 }
 

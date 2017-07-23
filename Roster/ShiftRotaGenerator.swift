@@ -49,7 +49,7 @@ public struct ShiftRotaGenerator {
                 shiftSequence.append(.free)
             }
             
-            let name = "\(shiftSystem) \(ShiftRota.format(from: shiftSequence))"
+            let name = "\(shiftSystem) \(ShiftRota.localizedFormat(from: shiftSequence))"
             
             let rota = ShiftRota(name: name, workSequence: shiftSequence)
             array.append(rota)

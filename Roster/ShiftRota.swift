@@ -31,6 +31,14 @@ extension ShiftSystem: CustomStringConvertible {
     }
 }
 
+extension String {
+    public var comaSeparatedComponents: [String] {
+        let cs = components(separatedBy: ",").map { component in component.trimmingCharacters(in: .whitespaces) }
+        
+        return cs;
+    }
+}
+
 public class ShiftRota: NSObject, NSCoding {
     private static let nameKey = "shiftRotaNameKey"
     private static let formatKey = "shiftRotaFormatKey"
@@ -38,17 +46,15 @@ public class ShiftRota: NSObject, NSCoding {
     private (set) public var name: String = ""
     
     public lazy var components: [String] = {
-        let cs = self.format.components(separatedBy: ",")
-        
-        return cs;
+        return self.format.comaSeparatedComponents
     }()
     
     public lazy var workShiftSequence: [WorkShift]? = {        
         var sequence: [WorkShift] = []
         
         for component in self.components {
-            let trimComponent = component.trimmingCharacters(in: .whitespaces)
-            guard let workShift = WorkShift(rawValue:trimComponent) else {
+            
+            guard let workShift = WorkShift(rawValue:component) else {
                 return nil
             }
             
@@ -129,10 +135,10 @@ public class ShiftRota: NSObject, NSCoding {
         format = aDecoder.decodeObject(forKey: ShiftRota.formatKey) as! String
     }
     
-    public init(name: String, format: String) {
+    public init(name: String, format: String, locale: Locale = Locale(identifier: "EN_us")) {
         super.init()
         self.name = name
-        self.format = format.uppercased()
+        self.format = self.localizedFormat(format: format, formatter: {workShift in workShift?.rawValue}, locale: locale)
     }
     
     public convenience init(_ format: String) {
@@ -143,7 +149,7 @@ public class ShiftRota: NSObject, NSCoding {
         super.init()
         self.name = name
         workShiftSequence = workSequence
-        format = ShiftRota.format(from: workSequence)
+        format = ShiftRota.localizedFormat(from: workSequence)
     }
     
     public convenience init(_ sequence: [WorkShift]) {
@@ -174,7 +180,22 @@ public class ShiftRota: NSObject, NSCoding {
     public override var hash: Int {
         return format.hash
     }
+    
+    public func localizedFormat(locale: Locale) -> String {
+        
+        let formatter: (WorkShift?) -> String? = {
+            workShift in workShift?.localizedRawValue(locale: locale)
+        }
+        return self.localizedFormat(format: self.format, formatter: formatter, locale: Locale(identifier: "en"))
+    }
+    
+    // MARK: Private API
+    
+    private func localizedFormat(format: String,formatter: (WorkShift?) -> String?, locale: Locale) -> String {
+        let result = format.uppercased().comaSeparatedComponents.map({component in (formatter(WorkShift.from(rawValue: component, locale: locale)) ?? component) }).joined(separator: ",")
 
+        return result        
+    }
 }
 
 public typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColor: UIColor)
@@ -182,17 +203,17 @@ public typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgro
 
 public extension ShiftRota {
     public func attributedFormat(getShiftRotaColor: GetWorkShiftColor) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: format)
+        let attributedString = NSMutableAttributedString(string: self.localizedFormat(locale: .current), attributes: [NSForegroundColorAttributeName: UIColor.white])
         let wholeStringRange = NSRange(location: 0, length: format.characters.count)
         
         guard let sequence = workShiftSequence else {
             // TODO: delegate error color too
             
-            attributedString.addAttribute(NSBackgroundColorAttributeName, value:  UIColor.red, range: wholeStringRange)
+            attributedString.addAttribute(NSBackgroundColorAttributeName, value: UIColor.red, range: wholeStringRange)
             return attributedString
         }
         var location = 0
-        attributedString.addAttribute(NSBackgroundColorAttributeName, value:  UIColor.white, range: wholeStringRange)
+        attributedString.addAttribute(NSBackgroundColorAttributeName, value: UIColor.clear, range: wholeStringRange)
         
         for (index, workShift) in sequence.enumerated() {
             let textColors = getShiftRotaColor(workShift)
@@ -202,13 +223,14 @@ public extension ShiftRota {
             
             location = range.location + length + 1 // adding 1 because seprator ,
             attributedString.addAttribute(NSBackgroundColorAttributeName, value: textColors.backgroundColor, range: range)
+            attributedString.addAttribute(NSForegroundColorAttributeName, value: textColors.textColor, range: range)
             
         }       
         
         return attributedString
     }
     
-    public static func format(from workShiftSequence: [WorkShift]) -> String {
+    public static func localizedFormat(from workShiftSequence: [WorkShift]) -> String {
         return workShiftSequence.map({workShift in workShift.rawValue}).joined(separator: ",")
     }
 }

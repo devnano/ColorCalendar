@@ -9,8 +9,22 @@
 import ColorCalendar
 import Roster
 
+//protocol RosterAppPalette {
+//    static func workShiftDayColor(_: Void) -> UIColor
+//    static func workShiftMorningColor(_: Void) -> UIColor
+//    static func workShiftEveningColor(_: Void) -> UIColor
+//    static func workShiftNightColor(_: Void) -> UIColor
+//    static func workShiftFreeColor(_: Void) -> UIColor
+//    static func weekdaySymbolTextColor(_: Void) -> UIColor
+//    static func currentDayTextColor(_: Void) -> UIColor
+//}
+//
+//extension R.color.workRosterAppPalette: RosterAppPalette {
+//}
+
 class RosterCalendarColors: CalendarColors {
     var roster:Roster
+    public static let palette = R.color.rostaKartjubaPalette.self
     
     public init(roster:Roster) {
         self.roster = roster
@@ -23,24 +37,24 @@ class RosterCalendarColors: CalendarColors {
         
         switch workShift {
         case .day:
-            backgroundColor = R.color.workRosterAppPalette.workShiftDayColor()
+            backgroundColor = palette.workShiftDayColor()
             break
         case .morning:
-            backgroundColor = R.color.workRosterAppPalette.workShiftMorningColor()
+            backgroundColor = palette.workShiftMorningColor()
             break
-        case .evening:
-            backgroundColor = R.color.workRosterAppPalette.workShiftEveningColor()
+        case .afternoon:
+            backgroundColor = palette.workShiftEveningColor()
             break
         case .night:
-            backgroundColor = R.color.workRosterAppPalette.workShiftNightColor()
+            backgroundColor = palette.workShiftNightColor()
             break
         case .free, .empty:
-            backgroundColor = R.color.workRosterAppPalette.workShiftFreeColor()
+            backgroundColor = palette.workShiftFreeColor()
             break
         }
         
         
-        dayColors = DayColors(textColor:R.color.workRosterAppPalette.weekdaySymbolTextColor(), backgroundColor: backgroundColor!)
+        dayColors = DayColors(textColor:RosterCalendarColors.palette.weekdaySymbolTextColor(), backgroundColor: backgroundColor!)
         
         return dayColors
     }
@@ -50,7 +64,7 @@ class RosterCalendarColors: CalendarColors {
         var dayColors = RosterCalendarColors.color(with: workShift)
         
         if roster.isDateCurrentDay(date) {
-            dayColors.textColor = R.color.workRosterAppPalette.currentDayTextColor()
+            dayColors.textColor = RosterCalendarColors.palette.currentDayTextColor()
         }
         
         return dayColors
@@ -60,5 +74,15 @@ class RosterCalendarColors: CalendarColors {
         let colors = currentMonthDayColors(forDate: date)
         
         return colors.withAlphaComponent(0.2)
+    }
+    
+    override public var weekdaySymbolColor: DayColors {
+        let colors = DayColors(textColor: RosterCalendarColors.palette.weekdaySymbolTextColor(), backgroundColor: RosterCalendarColors.palette.weekdaySymbolBackgroundColor())
+        
+        return colors
+    }
+    
+    override var defaultTextColor: UIColor {
+        return RosterCalendarColors.palette.defaultTextColor()
     }
 }

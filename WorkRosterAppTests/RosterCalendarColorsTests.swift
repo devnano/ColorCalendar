@@ -26,7 +26,7 @@ class RosterCalendarColorsTests: XCTestCase {
         components.year = 2017
         components.hour = 8
         firstWorkDay = Calendar.current.date(from: components)
-        let shiftRota = ShiftRota(name:"", format:"M,D,D,D,X,E,N")
+        let shiftRota = ShiftRota(name:"", format:"M,D,D,D,X,A,N")
         highlight = CalendarHighlights(firstWorkDay)
         roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay)
         rosterCalendarColors = RosterCalendarColors(roster: roster)
@@ -39,24 +39,24 @@ class RosterCalendarColorsTests: XCTestCase {
     
     func testRosterCalendarColorsFirstDayOfWork() {
         let resultColors = rosterCalendarColors.currentMonthDayColors(forDate: firstWorkDay)
-        XCTAssert(resultColors.backgroundColor == R.color.workRosterAppPalette.workShiftMorningColor())
+        XCTAssert(resultColors.backgroundColor == RosterCalendarColors.palette.workShiftMorningColor())
     }
     
     func testRosterCalendarColorsSecondDayOfWork() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         let date = NSCalendar.current.date(byAdding: .day, value: 1, to: firstWorkDay)!
         let resultColors = rosterCalendarColors.currentMonthDayColors(forDate: date)
-        XCTAssert(resultColors.backgroundColor == R.color.workRosterAppPalette.workShiftDayColor())
+        XCTAssert(resultColors.backgroundColor == RosterCalendarColors.palette.workShiftDayColor())
     }
     
     func testRosterCalendarColorsSecondDayOfWorkWhenThereIsLessThan24HoursOfDifference() {
-        // M,D,D,D,X,E,N
+        // M,D,D,D,X,A,N
         var components = DateComponents()
         components.hour = 20
         let date = NSCalendar.current.date(byAdding: components, to: firstWorkDay)!
         
         let resultColors = rosterCalendarColors.currentMonthDayColors(forDate: date)
-        XCTAssert(resultColors.backgroundColor == R.color.workRosterAppPalette.workShiftDayColor())
+        XCTAssert(resultColors.backgroundColor == RosterCalendarColors.palette.workShiftDayColor())
     }
     
     func testPerformanceExample() {

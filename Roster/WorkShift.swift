@@ -10,10 +10,10 @@ import Foundation
 
 public enum WorkShift: String{
     // TODO: analyze if this could be easily refactored to work / free cases with String associated types and use pattern matching in switches referencing it.
-    case night = "N"
     case morning = "M"
+    case afternoon = "A"
+    case night = "N"
     case day = "D"
-    case evening = "E"
     case free = "X"
     case empty = ""
 }
@@ -59,11 +59,49 @@ public extension WorkShift {
         } while (true)
     }
     
+    public func localizedRawValue(locale: Locale? = nil) -> String {
+        return WorkShift.workShiftString(mappingPrefix:"workShift.", rawValue: rawValue, locale: locale ?? .current) ?? rawValue
+    }
+    
+    public func localizedName() -> String {
+       return NSLocalizedString("shift.name.\(rawValue)", comment: "Shift Name")
+    }
+    
+    // MARK: static API
+    
     public static let threeShiftsPerDay: [WorkShift] = [.morning, .day, .night]
     public static let twoShiftsPerDay: [WorkShift] = [.day, .night]
-    public static let fourShiftsPerDay: [WorkShift] = [.morning, .day, .evening, .night]
+    public static let fourShiftsPerDay: [WorkShift] = [.morning, .day, .afternoon, .night]
     public static let freeShifts: [WorkShift] = [.free, .empty]
     public static let allWorkShifts = fourShiftsPerDay
+    
+    public static func from(rawValue: String, locale: Locale) -> WorkShift? {
+        guard let rawValue = WorkShift.workShiftString(mappingPrefix:"workShift.mapping.", rawValue: rawValue, locale: locale) else {
+            return nil
+        }        
+        
+        return WorkShift(rawValue: rawValue)
+    }
+    
+    private static func workShiftString(mappingPrefix: String, rawValue: String, locale: Locale) -> String? {
+        let lan = "\(locale.languageCode ?? "")"
+        
+//        if locale.regionCode != nil {
+//            lan = "\(lan)-\(locale.regionCode!)"
+//        }
+        
+        guard let path = Bundle(identifier: "com.kartjuba.Roster")!.path(forResource: lan, ofType: "lproj") else {
+            return nil
+        }
+        guard let bundle = Bundle(path: path) else {
+            return nil
+        }
+        
+        let stringKey = "\(mappingPrefix)\(rawValue)"
+        let shiftKey = bundle.localizedString(forKey: stringKey, value: rawValue, table: nil)
+        
+        return shiftKey
+    }
 }
 
 

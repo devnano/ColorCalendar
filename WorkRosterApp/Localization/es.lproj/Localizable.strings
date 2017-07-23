@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  ColorCalendar
+
+  Created by Mariano Heredia on 1/10/17.
+  Copyright © 2017 Kartjuba. All rights reserved.
+*/
+"controlView.button.ShiftRota.Title" = "Esquema de trabajo manual";
+"controlView.schemePicker.Label" = "Esquemas de trabajo por turnos";
+"controlView.schemeText.Label" = "Secuencia de turnos";
+"controlView.firstWorkDay.Label" = "Primer día de trabajo";
+"controlView.schemePicker.Help" = "Elige un esquema de trabajo por turnos predeterminado:\n(X:Y) X = días de trabajo, Y = días libres.\nToca en el nombre del esquema actual para cambiarlo.";
+"controlView.schemeText.Help" = "Esta es tu secuencia de turnos actual.\nLos colores de turnos son:\n%@\nToca en la secuencia para editarla.";
+"controlView.firstWorkDay.Help" = "Día en el que comienza la secuencia de trabajo por turnos.";
+"shift.name.D" = "Día";
+"shift.name.N" = "Noche";
+"shift.name.M" = "Mañana";
+"shift.name.A" = "Tarde";
+"shift.name.X" = "Libre";
+"shift.name." = "Libre";

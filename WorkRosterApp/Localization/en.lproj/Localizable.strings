@@ -6,3 +6,15 @@
   Copyright © 2017 Kartjuba. All rights reserved.
 */
 "controlView.button.ShiftRota.Title" = "Custom Work Scheme";
+"controlView.schemePicker.Label" = "Work shift scheme";
+"controlView.schemeText.Label" = "Work shift sequence";
+"controlView.firstWorkDay.Label" = "First work day";
+"controlView.schemePicker.Help" = "Pick a predefined work shift scheme\n(X:Y) X = working days, Y = free days.\nTap on the scheme name to change it.";
+"controlView.schemeText.Help" = "This is your current work shifts sequence.\nShifts color codes:\n%@\nTap to manually edit it.";
+"controlView.firstWorkDay.Help" = "Date when the work shift sequence starts.";
+"shift.name.D" = "Day";
+"shift.name.N" = "Night";
+"shift.name.M" = "Morning";
+"shift.name.A" = "Afternoon";
+"shift.name.X" = "Free";
+"shift.name." = "Free";

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     lazy var colorCalendar: ColorCalendarView = {
         let calendarView = ColorCalendarView(frame:CGRect())
-        let roster = Roster(shiftRota: self.shiftRota, firstWorkDay: self.firstWorkDay)!
+        let roster = Roster(shiftRota: self.shiftRota, firstWorkDay: self.firstWorkDay)
         
         self.calendarHighlight.firstWeekdayDay = 2
         
@@ -200,7 +200,9 @@ class ViewController: UIViewController {
 extension ViewController: RosterCalendarControlViewDelegate {
     internal func controlView(_ controlView: RosterCalendarControlView, didChangeShiftRota shiftRota: ShiftRota) {
         self.shiftRota = shiftRota
-        guard let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay) else {
+        let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay)
+        
+        if shiftRota.workShiftSequence == nil {
             Analytics.changeToInvalidShiftRota(format: shiftRota.format)
             return
         }
@@ -216,10 +218,12 @@ extension ViewController: RosterCalendarControlViewDelegate {
         
         Analytics.changeFirstWorkDay(date: firstWorkDay)
         
-        guard let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay) else {
+        if shiftRota.workShiftSequence == nil {
             Analytics.changeToInvalidShiftRota(format: shiftRota.format)
             return
         }
+        
+        let roster = Roster(shiftRota: shiftRota, firstWorkDay: firstWorkDay)
         
         set(roster:roster, reloadCalendar: true)
     }

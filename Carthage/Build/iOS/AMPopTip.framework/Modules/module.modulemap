@@ -1,5 +1,5 @@
 framework module AMPopTip {
-  umbrella header "AMPopTip-umbrella.h"
+  umbrella header "AMPopTip.h"
 
   export *
   module * { export * }

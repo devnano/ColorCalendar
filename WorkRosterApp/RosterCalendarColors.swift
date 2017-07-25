@@ -55,7 +55,7 @@ class RosterCalendarColors: CalendarColors {
         }
         
         
-        dayColors = DayColors(textColor:RosterCalendarColors.palette.weekdaySymbolTextColor(), backgroundColor: backgroundColor!)
+        dayColors = DayColors(textColor:RosterCalendarColors.palette.defaultTextColor(), backgroundColor: backgroundColor!)
         
         return dayColors
     }

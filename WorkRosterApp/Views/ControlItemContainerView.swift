@@ -47,8 +47,9 @@ class ControlItemContainerView: UIStackView {
         
         infoButton.insetsProportion = 0.1
         
-        infoButton.snp.makeConstraints { (make) in            
-            make.height.equalTo(label).offset(CalendarFonts.calendarFonts.adjustSizeByScreenSize(size: 10))
+        infoButton.snp.makeConstraints { (make) in
+            make.height.lessThanOrEqualTo(infoButton.superview!).priority(.high)
+            make.height.equalTo(label).offset(CalendarFonts.calendarFonts.adjustSizeByScreenSize(size: 10)).priority(.medium)
             make.width.equalTo(infoButton.snp.height)
         }        
     }

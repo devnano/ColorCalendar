@@ -68,11 +68,15 @@ class RosterTests: XCTestCase {
     func testInitializationWithValidBlankSpaces() {
         roster = Roster(shiftRota: ShiftRota("M ,M ,D ,X "), firstWorkDay: firstWorkDay)
         
-        XCTAssert(roster.workShiftSequence.count == 4)
+        XCTAssert(roster.workShiftSequence.count == 8)
         XCTAssert(roster.workShiftSequence[0] == .morning)
-        XCTAssert(roster.workShiftSequence[1] == .morning)
-        XCTAssert(roster.workShiftSequence[2] == .day)
+        XCTAssert(roster.workShiftSequence[1] == .free)
+        XCTAssert(roster.workShiftSequence[2] == .morning)
         XCTAssert(roster.workShiftSequence[3] == .free)
+        XCTAssert(roster.workShiftSequence[4] == .day)
+        XCTAssert(roster.workShiftSequence[5] == .free)
+        XCTAssert(roster.workShiftSequence[6] == .free)
+        XCTAssert(roster.workShiftSequence[7] == .free)
     }
     
     func testInitializationBadFormat() {

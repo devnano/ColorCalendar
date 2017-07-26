@@ -97,7 +97,8 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showOnboardingIfNeeded();
+        showOnboardingIfNeeded()
+        colorCalendar.generateIconsIfNeeded()        
     }
 
     override func didReceiveMemoryWarning() {
@@ -365,17 +366,3 @@ extension ViewController: ColorCalendarViewDelegate {
     }
 }
 
-extension UIView {
-    
-    var asImage: UIImage{
-        let wasHidden = self.isHidden
-        self.isHidden = false
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.main.scale)
-        self.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        self.isHidden = wasHidden
-        
-        return UIImage(cgImage: (image?.cgImage)!)
-    }
-}

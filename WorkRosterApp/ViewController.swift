@@ -246,6 +246,7 @@ extension ViewController {
     }
     
     func willResignActive(notification: NSNotification) {
+//        view.endEditing(true)
         removeKeyboardObservers()
     }
     

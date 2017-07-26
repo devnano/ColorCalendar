@@ -54,13 +54,13 @@ class RosterCalendarControlView: UIView {
         textField.inputView = self.pickerView
         textField.inputAccessoryView = toolbar
         textField.tag = 0
-        
+        textField.disableAllActions = true       
         
         return textField
     }()
     
     lazy var schemeTextField: UITextField = {
-        let textField = self.createTextField()
+        let textField: DisableActionsTextField = self.createTextField()
         
         textField.autocorrectionType = .no
         textField.keyboardType = .default
@@ -69,7 +69,6 @@ class RosterCalendarControlView: UIView {
         textField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.controlViewSchemeTextPlaceholder(), attributes: [NSFontAttributeName: CalendarFonts.calendarFonts.defaultFont(size: 16)])
         textField.contentVerticalAlignment = .center;
         textField.textAlignment = .center;
-        
         
         return textField
     }()
@@ -234,8 +233,8 @@ class RosterCalendarControlView: UIView {
     }
     
     
-    fileprivate func createTextField() -> UITextField {
-        let textField = UITextField()
+    fileprivate func createTextField() -> DisableActionsTextField {
+        let textField = DisableActionsTextField()
         
         textField.delegate = self
         textField.backgroundColor = .clear
@@ -413,6 +412,7 @@ extension RosterCalendarControlView: UITextFieldDelegate {
         if textField != schemeNameTextField {
             return
         }
+
         updateAllShiftRotas()
         let selectedIndex = allShiftRotas.index(of: shiftRota) ?? 0
         pickerView.selectRow(selectedIndex, inComponent: 0, animated: false)

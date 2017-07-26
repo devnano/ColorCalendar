@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public struct ShiftSystem {
     var workDays: Int
     var freeDays: Int
@@ -198,33 +197,35 @@ public class ShiftRota: NSObject, NSCoding {
     }
 }
 
-public typealias GetWorkShiftColor = (WorkShift) -> (textColor: UIColor, backgroundColor: UIColor)
+public typealias GetWorkShiftColor = (WorkShift?) -> (textColor: UIColor, backgroundColor: UIColor)
 
 
 public extension ShiftRota {
     public func attributedFormat(getShiftRotaColor: GetWorkShiftColor) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: self.localizedFormat(locale: .current))
         let wholeStringRange = NSRange(location: 0, length: format.characters.count)
-        
-        guard let sequence = workShiftSequence else {
-            // TODO: delegate error color too
-            
-            attributedString.addAttribute(NSBackgroundColorAttributeName, value: UIColor.red, range: wholeStringRange)
-            return attributedString
-        }
+
         var location = 0
         attributedString.addAttribute(NSBackgroundColorAttributeName, value: UIColor.clear, range: wholeStringRange)
-        
-        for (index, workShift) in sequence.enumerated() {
+                
+        for (index, component) in components.enumerated() {
+            let workShift = workShiftSequence?[index]
             let textColors = getShiftRotaColor(workShift)
-            let component = components[index]
+            let component = component
             let length = component.characters.count
-            let range = NSRange(location: location, length: length)
+            var range = NSRange(location: location, length: length)
+            
+            if workShift == nil {
+                range = wholeStringRange
+            }
             
             location = range.location + length + 1 // adding 1 because seprator ,
             attributedString.addAttribute(NSBackgroundColorAttributeName, value: textColors.backgroundColor, range: range)
             attributedString.addAttribute(NSForegroundColorAttributeName, value: textColors.textColor, range: range)
             
+            if workShift == nil {
+                break;
+            }            
         }       
         
         return attributedString

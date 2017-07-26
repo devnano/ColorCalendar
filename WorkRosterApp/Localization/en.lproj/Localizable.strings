@@ -8,6 +8,7 @@
 "controlView.button.ShiftRota.Title" = "Custom Work Scheme";
 "controlView.schemePicker.Label" = "Work shift scheme";
 "controlView.schemeText.Label" = "Work shift sequence";
+"controlView.schemeText.Placeholder" = "Type here your shift sequence";
 "controlView.firstWorkDay.Label" = "First work day";
 "controlView.schemePicker.Help" = "Pick a predefined Shift Work Scheme.\n(X:Y) X = working days, Y = free days.\nTap on the scheme name to change it.";
 "controlView.schemeText.Help" = "Below you can check your current work shifts sequence.\nShifts color codes are:\n%@\nTap it to edit.";

@@ -236,7 +236,7 @@ class RosterCalendarControlView: UIView {
     fileprivate func createTextField() -> DisableActionsTextField {
         let textField = DisableActionsTextField()
         
-        textField.isHidden = RostaCommandLine.generateLaunchScreen
+        textField.alpha = RostaCommandLine.generateLaunchScreen ? 0.0 : 1.0
         
         textField.delegate = self
         textField.backgroundColor = .clear

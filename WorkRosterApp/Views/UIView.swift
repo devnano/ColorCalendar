@@ -15,6 +15,16 @@ extension UIView {
         return generateImage(withSize: self.frame.size)
     }
     
+    func generateLaunchImagesIfNeeded() {
+        if !RostaCommandLine.generateLaunchScreen {
+            return
+        }
+        let pointsSize = self.frame.size
+//        let size = CGSize(width: pointsSize.width * UIScreen.main.scale, height: pointsSize.height * UIScreen.main.scale)
+        let image = generateImage(withSize: pointsSize, drawHierarchy: true)
+        save(image: image, path: launchImageName())
+    }
+    
     func generateIconsIfNeeded() {
         if !RostaCommandLine.generateIcons {
             return
@@ -24,21 +34,30 @@ extension UIView {
         }        
     }
     
+    private func launchImageName() -> String {
+        return "\(iconsDirectory())/LaunchImage.png"
+    }
+    
     private func generateIcon(_ dimension: Float) {
         for scale in 1...3 {
             let scaledDimension = dimension * Float(scale)
             let pointsSize = CGFloat(scaledDimension) / UIScreen.main.scale
             let size = CGSize(width: pointsSize, height: pointsSize)
             let image = generateImage(withSize: size, drawHierarchy: true)
-            if let data = UIImagePNGRepresentation(image) {
-                let filename = imagePath(withDimension: dimension, scale: scale)
-                let url = URL(fileURLWithPath: filename)
-                do {
-                    try data.write(to: url)
-                } catch let error as NSError {
-                    print(error.localizedDescription);
-                }
+            let filename = imagePath(withDimension: dimension, scale: scale)
+            save(image: image, path: filename)
+        }
+    }
+    
+    private func save(image: UIImage, path: String) {
+        if let data = UIImagePNGRepresentation(image) {
+            let url = URL(fileURLWithPath: path)
+            do {
+                try data.write(to: url)
+            } catch let error as NSError {
+                print(error.localizedDescription);
             }
+            NSLog("Saved file \(url)")
         }
     }
     

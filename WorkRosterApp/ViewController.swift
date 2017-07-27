@@ -106,6 +106,7 @@ class ViewController: UIViewController {
         colorCalendar.backgroundColor = self.view.backgroundColor
         colorCalendar.generateIconsIfNeeded()
         colorCalendar.backgroundColor = backgroundColor
+        self.view.generateLaunchImagesIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {

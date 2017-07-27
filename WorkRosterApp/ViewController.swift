@@ -98,7 +98,10 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showOnboardingIfNeeded()
-        colorCalendar.generateIconsIfNeeded()        
+        let backgroundColor = colorCalendar.backgroundColor
+        colorCalendar.backgroundColor = self.view.backgroundColor
+        colorCalendar.generateIconsIfNeeded()
+        colorCalendar.backgroundColor = backgroundColor
     }
 
     override func didReceiveMemoryWarning() {

@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "updateColorCalendarImageView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "viewWillTransition(to:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "makeCalendarConstraints(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "animate(grow:withNotification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1019,11 +1019,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "ViewController"
             landmarkType = "4">
          </BreakpointContent>
@@ -1146,11 +1146,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "keyboardDidHide(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1162,11 +1162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "keyboardDidHide(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1178,11 +1178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "keyboardDidShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1194,11 +1194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "keyboardDidShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1210,11 +1210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "keyboardDidShow(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1258,11 +1258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "controlView(_:didChangeShiftRota:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1434,11 +1434,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/ViewController.swift"
-            timestampString = "522802507.739664"
+            timestampString = "522806321.245835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "willResignActive(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1482,38 +1482,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/Views/UIView.swift"
-            timestampString = "522804850.601144"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "generateIcon(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WorkRosterApp/Views/UIView.swift"
-            timestampString = "522804850.601144"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "generateIcon(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WorkRosterApp/Views/UIView.swift"
             timestampString = "522802498.937336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -1546,11 +1514,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/Views/UIView.swift"
-            timestampString = "522804868.971565"
+            timestampString = "522806072.128208"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "generateIcon(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1562,13 +1530,109 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/Views/UIView.swift"
-            timestampString = "522804871.546618"
+            timestampString = "522806072.128208"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "generateIconsIfNeeded()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorkRosterApp/Views/UIView.swift"
+            timestampString = "522806072.128208"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "iconsDirectory()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorkRosterApp/Views/UIView.swift"
+            timestampString = "522806837.635923"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "generateIcon(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorkRosterApp/Views/UIView.swift"
+            timestampString = "522806860.617725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "generateIcon(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorkRosterApp/Views/UIView.swift"
+            timestampString = "522807016.157788"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "generateIcon(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in WorkRosterApp):__ObjC.UIView.(generateIcon in _1E281203D50401B52B24A11AB973B152) (Swift.Int) -&gt; ()"
+                  moduleName = "WorkRosterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Home/nano/Kartjuba/ColorCalendar/WorkRosterApp/Views/UIView.swift"
+                  timestampString = "522807115.571353"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "395">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in WorkRosterApp):__ObjC.UIView.(generateIcon in _1E281203D50401B52B24A11AB973B152) (Swift.Int) -&gt; ()"
+                  moduleName = "WorkRosterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Home/nano/Kartjuba/ColorCalendar/WorkRosterApp/Views/UIView.swift"
+                  timestampString = "522807115.574468"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "649">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

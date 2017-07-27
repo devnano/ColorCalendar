@@ -118,6 +118,10 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "D,D,D,D,X,X,N,N,N,N,X,X"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "M,M,,,A,A"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

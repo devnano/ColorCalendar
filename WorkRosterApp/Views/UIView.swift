@@ -19,20 +19,25 @@ extension UIView {
         if CommandLine.argc < 3 || !NSString(string: CommandLine.arguments[2]).boolValue {
             return
         }
-        generateIcon(57)
+        [20, 29, 40, 57, 60, 72, 76].forEach { (dimension) in
+            generateIcon(dimension)
+        }        
     }
     
     private func generateIcon(_ dimension: Int) {
-        let pointsSize = CGFloat(dimension) / UIScreen.main.scale
-        let size = CGSize(width: pointsSize, height: pointsSize)
-        let image = generateImage(withSize: size)
-        if let data = UIImagePNGRepresentation(image) {
-            let filename = imagePath(withDimension: dimension)
-            let url = URL(fileURLWithPath: filename)
-            do {
-                try data.write(to: url)
-            } catch let error as NSError {
-                print(error.localizedDescription);
+        for scale in 1...3 {
+            let scaledDimension = dimension * scale
+            let pointsSize = CGFloat(scaledDimension) / UIScreen.main.scale
+            let size = CGSize(width: pointsSize, height: pointsSize)
+            let image = generateImage(withSize: size, drawHierarchy: true)
+            if let data = UIImagePNGRepresentation(image) {
+                let filename = imagePath(withDimension: dimension, scale: scale)
+                let url = URL(fileURLWithPath: filename)
+                do {
+                    try data.write(to: url)
+                } catch let error as NSError {
+                    print(error.localizedDescription);
+                }
             }
         }
     }
@@ -52,16 +57,21 @@ extension UIView {
         return iconsDirectory
     }
     
-    private func imagePath(withDimension dimension: Int) -> String {
-        return "\(iconsDirectory())/icon_\(dimension)x\(dimension).png"
+    private func imagePath(withDimension dimension: Int, scale: Int) -> String {
+        return "\(iconsDirectory())/Icon-App-\(dimension)x\(dimension)@\(scale)x.png"
     }
     
-    private func generateImage(withSize size: CGSize) -> UIImage {
+    private func generateImage(withSize size: CGSize, drawHierarchy: Bool = false) -> UIImage {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         let wasHidden = self.isHidden
         self.isHidden = false
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        self.drawHierarchy(in: rect, afterScreenUpdates: true)
+        if drawHierarchy {
+            self.drawHierarchy(in: rect, afterScreenUpdates: true)
+        } else {
+            self.layer.render(in: UIGraphicsGetCurrentContext()!)
+        }
+        
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.isHidden = wasHidden

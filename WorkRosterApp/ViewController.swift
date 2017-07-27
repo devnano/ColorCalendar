@@ -92,6 +92,10 @@ class ViewController: UIViewController {
         addApplicationObservers()
         addKeyboardObservers()
         
+        if RostaCommandLine.generateLaunchScreen {
+            colorCalendar.hideMonthSwitcher()            
+        }
+        
         self.view.backgroundColor = RosterCalendarColors.palette.workRosterAppBackground()
     }
     

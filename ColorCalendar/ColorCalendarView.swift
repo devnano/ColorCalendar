@@ -75,7 +75,12 @@ public class ColorCalendarView: UIView {
     }
     
     public var delegate: ColorCalendarViewDelegate?
-
+    
+    // MARK: - Public API
+    
+    public func hideMonthSwitcher() {
+        monthSwitcherView.isHidden = true
+    }
     
     // MARK: - Enums
     

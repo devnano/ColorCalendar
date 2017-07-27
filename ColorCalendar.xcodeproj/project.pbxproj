@@ -32,6 +32,7 @@
 		3EEFB8A61F1F14950064BA58 /* RosterCalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFB8A51F1F14950064BA58 /* RosterCalendarFonts.swift */; };
 		3EF755871F28583D00EA41FA /* DisablePasteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF755861F28583D00EA41FA /* DisablePasteTextField.swift */; };
 		3EF7558C1F294B3400EA41FA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7558B1F294B3400EA41FA /* UIView.swift */; };
+		3EF7558F1F29B84900EA41FA /* RostaCommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7558E1F29B84900EA41FA /* RostaCommandLine.swift */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,7 +47,6 @@
 		DAB7CD5F1E0C1DC800C94638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */; };
 		DAB7CD611E0C1DC800C94638 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD601E0C1DC800C94638 /* ViewController.swift */; };
 		DAB7CD641E0C1DC800C94638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD621E0C1DC800C94638 /* Main.storyboard */; };
-		DAB7CD661E0C1DC800C94638 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD651E0C1DC800C94638 /* Assets.xcassets */; };
 		DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD671E0C1DC800C94638 /* LaunchScreen.storyboard */; };
 		DAB7CD741E0C1DC800C94638 /* RosterCalendarColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD731E0C1DC800C94638 /* RosterCalendarColorsTests.swift */; };
 		DAB7CD7F1E0C1DC800C94638 /* WorkRosterAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD7E1E0C1DC800C94638 /* WorkRosterAppUITests.swift */; };
@@ -190,6 +190,7 @@
 		3EEFB8A51F1F14950064BA58 /* RosterCalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarFonts.swift; sourceTree = "<group>"; };
 		3EF755861F28583D00EA41FA /* DisablePasteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisablePasteTextField.swift; sourceTree = "<group>"; };
 		3EF7558B1F294B3400EA41FA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3EF7558E1F29B84900EA41FA /* RostaCommandLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RostaCommandLine.swift; sourceTree = "<group>"; };
 		DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A02731DFF638300FF2EAE /* ColorCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCalendar.h; sourceTree = "<group>"; };
 		DA7A02741DFF638300FF2EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,7 +209,6 @@
 		DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB7CD601E0C1DC800C94638 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAB7CD631E0C1DC800C94638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DAB7CD651E0C1DC800C94638 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB7CD681E0C1DC800C94638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB7CD6A1E0C1DC800C94638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAB7CD6F1E0C1DC800C94638 /* WorkRosterAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkRosterAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,6 +326,14 @@
 			path = R;
 			sourceTree = "<group>";
 		};
+		3EF7558D1F29B81600EA41FA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3EF7558E1F29B84900EA41FA /* RostaCommandLine.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
@@ -395,13 +403,13 @@
 		DAB7CD5D1E0C1DC800C94638 /* WorkRosterApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EF7558D1F29B81600EA41FA /* Utils */,
 				3E91E1181F05BA2B001A0CF2 /* Views */,
 				DADA93391E25302E000C3693 /* Localization */,
 				DAEE47671E1D85CA00086823 /* R */,
 				DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */,
 				DAB7CD601E0C1DC800C94638 /* ViewController.swift */,
 				DAB7CD621E0C1DC800C94638 /* Main.storyboard */,
-				DAB7CD651E0C1DC800C94638 /* Assets.xcassets */,
 				DAB7CD671E0C1DC800C94638 /* LaunchScreen.storyboard */,
 				DAB7CD6A1E0C1DC800C94638 /* Info.plist */,
 				DAEE47351E1D48F500086823 /* RosterCalendarColors.swift */,
@@ -754,7 +762,6 @@
 				DADA933C1E253047000C3693 /* Localizable.strings in Resources */,
 				3EEFB8A41F1DCD360064BA58 /* RostaKartjubaPalette.clr in Resources */,
 				DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */,
-				DAB7CD661E0C1DC800C94638 /* Assets.xcassets in Resources */,
 				DAB7CD641E0C1DC800C94638 /* Main.storyboard in Resources */,
 				3E2E58001F01E6CB00D2FEDD /* WorkRosterAppPalette.clr in Resources */,
 			);
@@ -910,6 +917,7 @@
 				3E4000731F00C53C00D5AB78 /* R.generated.swift in Sources */,
 				3E1F34BA1F21A83300132FDE /* Analytics.swift in Sources */,
 				3EF7558C1F294B3400EA41FA /* UIView.swift in Sources */,
+				3EF7558F1F29B84900EA41FA /* RostaCommandLine.swift in Sources */,
 				3E91E11A1F05BA54001A0CF2 /* RosterCalendarControlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

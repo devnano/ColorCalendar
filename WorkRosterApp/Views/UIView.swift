@@ -29,7 +29,7 @@ extension UIView {
         if !RostaCommandLine.generateIcons {
             return
         }
-        [20, 29, 40, 50, 57, 60, 72, 76, 83.5].forEach { (dimension) in
+        [20, 29, 40, 50, 57, 60, 72, 76, 83.5, 1024].forEach { (dimension) in
             generateIcon(dimension)
         }        
     }

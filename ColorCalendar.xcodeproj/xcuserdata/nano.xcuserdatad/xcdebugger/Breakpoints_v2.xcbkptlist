@@ -983,7 +983,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WorkRosterApp/Analytics.swift"
@@ -1569,6 +1569,54 @@
             endingLineNumber = "23"
             landmarkName = "generateLaunchImagesIfNeeded()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorkRosterApp/Analytics.swift"
+            timestampString = "523166524.514329"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "logCustomEvent(withName:customAttributes:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static WorkRosterApp.Analytics.((logCustomEvent in _9B372DCF12E89378A95DEA54FC220469) (withName : Swift.String, customAttributes : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()).(default argument 1)"
+                  moduleName = "WorkRosterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Home/nano/Kartjuba/ColorCalendar/WorkRosterApp/Analytics.swift"
+                  timestampString = "523166525.768232"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static WorkRosterApp.Analytics.(logCustomEvent in _9B372DCF12E89378A95DEA54FC220469) (withName : Swift.String, customAttributes : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()"
+                  moduleName = "WorkRosterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Home/nano/Kartjuba/ColorCalendar/WorkRosterApp/Analytics.swift"
+                  timestampString = "523166525.770414"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "45">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

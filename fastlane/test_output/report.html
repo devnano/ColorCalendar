@@ -30,7 +30,8 @@
       .test.passing { background-color: #CAF59F;}
       .test.failing.odd { background-color: #EEC7CC;}
       .test.passing.odd { background-color: #E5FBCF;}
-      .details { background-color: #F4DDE0; border: 1px solid #C84F5E;}
+      .details.failing { background-color: #F4DDE0; border: 1px solid #C84F5E;}
+      .details.passing { background-color: #E5F4DC; border: 1px solid #A1D761;}
       .test .test-detail:last-child { padding-bottom: 8px;}
       .test .title { float: left; font-size: 0.9em; margin-top: 8px; font-family: Menlo, Monaco, monospace;}
       .test .time { float: left;margin: 4px 10px 0 20px;}
@@ -125,14 +126,13 @@
             <h3 class="title">ColorCalendarTests.ColorHighlightTests</h3>
           </section>
           <section class="tests">
-            
             <table>
             
               
               <tr class="test passing "  onclick="toggleDetails('testBackwardOneMonth');">
                 <td>
                   
-                    <h3 class="time">0.004s</h3>
+                    <h3 class="time">0.007s</h3>
                   
                 </td>
                 <td><h3 class="title">testBackwardOneMonth</h3></td>
@@ -154,7 +154,7 @@
               <tr class="test passing "  onclick="toggleDetails('testCurrentMonthNameWithLocale');">
                 <td>
                   
-                    <h3 class="time">0.005s</h3>
+                    <h3 class="time">0.010s</h3>
                   
                 </td>
                 <td><h3 class="title">testCurrentMonthNameWithLocale</h3></td>
@@ -165,7 +165,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testCurrentYear');">
                 <td>
                   
-                    <h3 class="time">0.002s</h3>
+                    <h3 class="time">0.001s</h3>
                   
                 </td>
                 <td><h3 class="title">testCurrentYear</h3></td>
@@ -187,7 +187,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testDateComponentsWithOffset');">
                 <td>
                   
-                    <h3 class="time">0.001s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testDateComponentsWithOffset</h3></td>
@@ -198,7 +198,7 @@
               <tr class="test passing "  onclick="toggleDetails('testFirstMonthDayNumberAtWithoutOffset');">
                 <td>
                   
-                    <h3 class="time">0.002s</h3>
+                    <h3 class="time">0.001s</h3>
                   
                 </td>
                 <td><h3 class="title">testFirstMonthDayNumberAtWithoutOffset</h3></td>
@@ -242,7 +242,7 @@
               <tr class="test passing "  onclick="toggleDetails('testPerformanceExample');">
                 <td>
                   
-                    <h3 class="time">0.325s</h3>
+                    <h3 class="time">0.364s</h3>
                   
                 </td>
                 <td><h3 class="title">testPerformanceExample</h3></td>
@@ -347,14 +347,13 @@
             <h3 class="title">RosterTests.RosterTests</h3>
           </section>
           <section class="tests">
-            
             <table>
             
               
               <tr class="test passing "  onclick="toggleDetails('testDateIsNotCurrentDay');">
                 <td>
                   
-                    <h3 class="time">0.014s</h3>
+                    <h3 class="time">0.004s</h3>
                   
                 </td>
                 <td><h3 class="title">testDateIsNotCurrentDay</h3></td>
@@ -365,7 +364,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testInitialization');">
                 <td>
                   
-                    <h3 class="time">0.004s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testInitialization</h3></td>
@@ -376,7 +375,7 @@
               <tr class="test passing "  onclick="toggleDetails('testInitializationBadFormat');">
                 <td>
                   
-                    <h3 class="time">0.010s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testInitializationBadFormat</h3></td>
@@ -387,7 +386,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testInitializationBadFormat2');">
                 <td>
                   
-                    <h3 class="time">0.005s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testInitializationBadFormat2</h3></td>
@@ -398,7 +397,7 @@
               <tr class="test passing "  onclick="toggleDetails('testInitializationBadFormat3');">
                 <td>
                   
-                    <h3 class="time">0.040s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testInitializationBadFormat3</h3></td>
@@ -409,7 +408,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testInitializationWithEmptyComponent');">
                 <td>
                   
-                    <h3 class="time">0.003s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testInitializationWithEmptyComponent</h3></td>
@@ -420,7 +419,7 @@
               <tr class="test passing "  onclick="toggleDetails('testInitializationWithValidBlankSpaces');">
                 <td>
                   
-                    <h3 class="time">0.005s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testInitializationWithValidBlankSpaces</h3></td>
@@ -431,7 +430,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testisDateCurrentDay');">
                 <td>
                   
-                    <h3 class="time">0.006s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testisDateCurrentDay</h3></td>
@@ -442,7 +441,7 @@
               <tr class="test passing "  onclick="toggleDetails('testLowercaseInitialization');">
                 <td>
                   
-                    <h3 class="time">0.006s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testLowercaseInitialization</h3></td>
@@ -453,7 +452,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testPerformanceExample');">
                 <td>
                   
-                    <h3 class="time">0.266s</h3>
+                    <h3 class="time">0.272s</h3>
                   
                 </td>
                 <td><h3 class="title">testPerformanceExample</h3></td>
@@ -464,7 +463,7 @@
               <tr class="test passing "  onclick="toggleDetails('testWorkShiftForFirstWorkDay');">
                 <td>
                   
-                    <h3 class="time">0.001s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testWorkShiftForFirstWorkDay</h3></td>
@@ -547,14 +546,13 @@
             <h3 class="title">RosterTests.ShiftRotaGeneratorTests</h3>
           </section>
           <section class="tests">
-            
             <table>
             
               
               <tr class="test passing "  onclick="toggleDetails('testGenerateClockwise1DayRotating3by1System3ShiftsPerDay');">
                 <td>
                   
-                    <h3 class="time">0.007s</h3>
+                    <h3 class="time">0.010s</h3>
                   
                 </td>
                 <td><h3 class="title">testGenerateClockwise1DayRotating3by1System3ShiftsPerDay</h3></td>
@@ -615,7 +613,6 @@
             <h3 class="title">RosterTests.ShiftRotaTests</h3>
           </section>
           <section class="tests">
-            
             <table>
             
               
@@ -677,7 +674,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testSequenceInit');">
                 <td>
                   
-                    <h3 class="time">0.001s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testSequenceInit</h3></td>
@@ -710,7 +707,7 @@
               <tr class="test passing "  onclick="toggleDetails('testShiftworkType1DayRotatingCounterclockwise');">
                 <td>
                   
-                    <h3 class="time">0.001s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testShiftworkType1DayRotatingCounterclockwise</h3></td>
@@ -721,7 +718,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testShiftworkType1DayRotatingCounterclockwise2');">
                 <td>
                   
-                    <h3 class="time">0.002s</h3>
+                    <h3 class="time">0.001s</h3>
                   
                 </td>
                 <td><h3 class="title">testShiftworkType1DayRotatingCounterclockwise2</h3></td>
@@ -732,7 +729,7 @@
               <tr class="test passing "  onclick="toggleDetails('testShiftworkType1DayRotatingCounterclockwise3');">
                 <td>
                   
-                    <h3 class="time">0.002s</h3>
+                    <h3 class="time">0.001s</h3>
                   
                 </td>
                 <td><h3 class="title">testShiftworkType1DayRotatingCounterclockwise3</h3></td>
@@ -776,7 +773,7 @@
               <tr class="test passing "  onclick="toggleDetails('testShiftworkTypeIrregular');">
                 <td>
                   
-                    <h3 class="time">0.002s</h3>
+                    <h3 class="time">0.031s</h3>
                   
                 </td>
                 <td><h3 class="title">testShiftworkTypeIrregular</h3></td>
@@ -793,7 +790,6 @@
             <h3 class="title">RosterTests.WorkShiftTests</h3>
           </section>
           <section class="tests">
-            
             <table>
             
               
@@ -855,7 +851,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testIsWorkDay');">
                 <td>
                   
-                    <h3 class="time">0.002s</h3>
+                    <h3 class="time">0.004s</h3>
                   
                 </td>
                 <td><h3 class="title">testIsWorkDay</h3></td>
@@ -894,14 +890,13 @@
             <h3 class="title">WorkRosterAppTests.RosterCalendarColorsTests</h3>
           </section>
           <section class="tests">
-            
             <table>
             
               
               <tr class="test passing "  onclick="toggleDetails('testPerformanceExample');">
                 <td>
                   
-                    <h3 class="time">0.259s</h3>
+                    <h3 class="time">0.267s</h3>
                   
                 </td>
                 <td><h3 class="title">testPerformanceExample</h3></td>
@@ -934,7 +929,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testRosterCalendarColorsSecondDayOfWorkWhenThereIsLessThan24HoursOfDifference');">
                 <td>
                   
-                    <h3 class="time">0.001s</h3>
+                    <h3 class="time">0.002s</h3>
                   
                 </td>
                 <td><h3 class="title">testRosterCalendarColorsSecondDayOfWorkWhenThereIsLessThan24HoursOfDifference</h3></td>
@@ -951,14 +946,13 @@
             <h3 class="title">WorkRosterAppUITests.WorkRosterAppUITests</h3>
           </section>
           <section class="tests">
-            
             <table>
             
               
               <tr class="test passing "  onclick="toggleDetails('testPreviousMonthExists');">
                 <td>
                   
-                    <h3 class="time">7.506s</h3>
+                    <h3 class="time">7.125s</h3>
                   
                 </td>
                 <td><h3 class="title">testPreviousMonthExists</h3></td>
@@ -969,7 +963,7 @@
               <tr class="test passing odd"  onclick="toggleDetails('testScreenshots');">
                 <td>
                   
-                    <h3 class="time">29.023s</h3>
+                    <h3 class="time">27.589s</h3>
                   
                 </td>
                 <td><h3 class="title">testScreenshots</h3></td>

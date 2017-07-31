@@ -2,18 +2,17 @@
 
 # A list of devices you want to take the screenshots from
  devices([
-   "iPhone 7",
-   "iPhone 7 Plus",
-   "iPhone SE",
-   "iPad Air 2",
-   "iPad 2",
+#   "iPhone 7",
+#   "iPhone 7 Plus",
+#   "iPhone SE",
+#  "iPad Air 2",
    "iPad Pro (12.9-inch)",
    "iPhone 4s",
  ])
 
 languages([
   "en-US",
-  "es",
+  "es-ES",
 ])
 
 # The name of the scheme which contains the UI Tests
@@ -34,4 +33,4 @@ launch_arguments(["-defaultWorkScheme M,M,M,M,X,X,A,A,A,A,X,X"])
 # For more information about all available options run
 # fastlane snapshot --help
 
-clear_previous_screenshots true
+#clear_previous_screenshots true

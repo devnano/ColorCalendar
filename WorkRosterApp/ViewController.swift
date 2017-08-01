@@ -117,6 +117,7 @@ class ViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         makeCalendarConstraints(with: size)
         makeControlViewConstraints(with: size)
+        updateColorCalendarImageView()
     }
     
     // MARK: - Private Methods

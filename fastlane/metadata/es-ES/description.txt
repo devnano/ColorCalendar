@@ -4,4 +4,3 @@ Simplemente tienes que:
 
 • Elegir un Esquema de Trabajo por Turnos predefinido o escribir la secuencia que se ajuste.
 • Establecer la fecha del primer día en que comenzó o comenzará la Secuencia de Turnos de Trabajo.
-

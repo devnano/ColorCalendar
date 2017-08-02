@@ -1,7 +1,7 @@
 {
   "iOS" : [
     {
-      "hash" : "745c098d123cfb5743722c148c4e333bb4ec3c15406d22dae72fcaa527066210",
+      "hash" : "37a570933bc097abf35effdf5c54a475d14f6f72d7bdc5a4226a4eb530db6971",
       "name" : "Rswift"
     }
   ],
@@ -11,7 +11,7 @@
   ],
   "tvOS" : [
     {
-      "hash" : "4fbde24bcaf73f83c28d94b08955589f0700ef241b27f8573605f723c64d04bf",
+      "hash" : "da0cd2c7b1a4363b82953c3d51774d95d986c9f3eac2dc3caf1f32f293a6c26d",
       "name" : "Rswift"
     }
   ],

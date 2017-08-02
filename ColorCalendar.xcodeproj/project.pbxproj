@@ -17,6 +17,12 @@
 		3EAC54A91F31A7D4008A3D8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAC54A71F31A7D4008A3D8A /* LaunchScreen.storyboard */; };
 		3EAC54B41F31A7D4008A3D8A /* ExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC54B31F31A7D4008A3D8A /* ExamplesTests.swift */; };
 		3EAC54BF1F31A7D4008A3D8A /* ExamplesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC54BE1F31A7D4008A3D8A /* ExamplesUITests.swift */; };
+		3EAC54CA1F31A991008A3D8A /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
+		3EAC54CB1F31A991008A3D8A /* ColorCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EAC54CF1F31A9D1008A3D8A /* Macaw.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B1921ECBE2FB00B75948 /* Macaw.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EAC54D01F31A9D1008A3D8A /* Rswift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B18E1ECBE2DE00B75948 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EAC54D11F31A9D1008A3D8A /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7B18F1ECBE2DE00B75948 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3EAC54D51F31B559008A3D8A /* ColorCalendarViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC54D41F31B559008A3D8A /* ColorCalendarViewTests.swift */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +50,20 @@
 			remoteGlobalIDString = 3EAC549B1F31A7D4008A3D8A;
 			remoteInfo = Examples;
 		};
+		3EAC54CC1F31A991008A3D8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA7A02671DFF638300FF2EAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA7A026F1DFF638300FF2EAE;
+			remoteInfo = ColorCalendar;
+		};
+		3EAC54D21F31B360008A3D8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA7A02671DFF638300FF2EAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EAC549B1F31A7D4008A3D8A;
+			remoteInfo = Examples;
+		};
 		DA7A027B1DFF638300FF2EAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DA7A02671DFF638300FF2EAE /* Project object */;
@@ -52,6 +72,23 @@
 			remoteInfo = ColorCalendar;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3EAC54CE1F31A991008A3D8A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3EAC54CF1F31A9D1008A3D8A /* Macaw.framework in Embed Frameworks */,
+				3EAC54D01F31A9D1008A3D8A /* Rswift.framework in Embed Frameworks */,
+				3EAC54D11F31A9D1008A3D8A /* SnapKit.framework in Embed Frameworks */,
+				3EAC54CB1F31A991008A3D8A /* ColorCalendar.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3E2E57FD1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = DefaultColorCalendarPalette.clr; sourceTree = "<group>"; };
@@ -73,6 +110,7 @@
 		3EAC54BA1F31A7D4008A3D8A /* ExamplesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExamplesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAC54BE1F31A7D4008A3D8A /* ExamplesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesUITests.swift; sourceTree = "<group>"; };
 		3EAC54C01F31A7D4008A3D8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EAC54D41F31B559008A3D8A /* ColorCalendarViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarViewTests.swift; sourceTree = "<group>"; };
 		3EEFB8A21F1D83200064BA58 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A02731DFF638300FF2EAE /* ColorCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCalendar.h; sourceTree = "<group>"; };
@@ -97,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EAC54CA1F31A991008A3D8A /* ColorCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +255,7 @@
 			children = (
 				DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */,
 				DA7A02801DFF638300FF2EAE /* Info.plist */,
+				3EAC54D41F31B559008A3D8A /* ColorCalendarViewTests.swift */,
 			);
 			path = ColorCalendarTests;
 			sourceTree = "<group>";
@@ -258,10 +298,12 @@
 				3EAC54981F31A7D4008A3D8A /* Sources */,
 				3EAC54991F31A7D4008A3D8A /* Frameworks */,
 				3EAC549A1F31A7D4008A3D8A /* Resources */,
+				3EAC54CE1F31A991008A3D8A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3EAC54CD1F31A991008A3D8A /* PBXTargetDependency */,
 			);
 			name = Examples;
 			productName = Examples;
@@ -335,6 +377,7 @@
 			);
 			dependencies = (
 				DA7A027C1DFF638300FF2EAE /* PBXTargetDependency */,
+				3EAC54D31F31B360008A3D8A /* PBXTargetDependency */,
 			);
 			name = ColorCalendarTests;
 			productName = ColorCalendarTests;
@@ -378,7 +421,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = GXB2YASNT3;
 						ProvisioningStyle = Automatic;
-						TestTargetID = DAB7CD5B1E0C1DC800C94638;
+						TestTargetID = 3EAC549B1F31A7D4008A3D8A;
 					};
 				};
 			};
@@ -510,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EAC54D51F31B559008A3D8A /* ColorCalendarViewTests.swift in Sources */,
 				DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +570,16 @@
 			isa = PBXTargetDependency;
 			target = 3EAC549B1F31A7D4008A3D8A /* Examples */;
 			targetProxy = 3EAC54BB1F31A7D4008A3D8A /* PBXContainerItemProxy */;
+		};
+		3EAC54CD1F31A991008A3D8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA7A026F1DFF638300FF2EAE /* ColorCalendar */;
+			targetProxy = 3EAC54CC1F31A991008A3D8A /* PBXContainerItemProxy */;
+		};
+		3EAC54D31F31B360008A3D8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EAC549B1F31A7D4008A3D8A /* Examples */;
+			targetProxy = 3EAC54D21F31B360008A3D8A /* PBXContainerItemProxy */;
 		};
 		DA7A027C1DFF638300FF2EAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -566,6 +620,7 @@
 		3EAC54C11F31A7D4008A3D8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = GXB2YASNT3;
@@ -581,6 +636,7 @@
 		3EAC54C21F31A7D4008A3D8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = GXB2YASNT3;
@@ -830,7 +886,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kartjuba.ColorCalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WorkRosterApp.app/WorkRosterApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Examples.app/Examples";
 			};
 			name = Debug;
 		};
@@ -847,7 +903,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kartjuba.ColorCalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WorkRosterApp.app/WorkRosterApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Examples.app/Examples";
 			};
 			name = Release;
 		};
@@ -861,6 +917,7 @@
 				3EAC54C21F31A7D4008A3D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3EAC54C81F31A7D4008A3D8A /* Build configuration list for PBXNativeTarget "ExamplesTests" */ = {
 			isa = XCConfigurationList;
@@ -869,6 +926,7 @@
 				3EAC54C41F31A7D4008A3D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3EAC54C91F31A7D4008A3D8A /* Build configuration list for PBXNativeTarget "ExamplesUITests" */ = {
 			isa = XCConfigurationList;
@@ -877,6 +935,7 @@
 				3EAC54C61F31A7D4008A3D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA7A026A1DFF638300FF2EAE /* Build configuration list for PBXProject "ColorCalendar" */ = {
 			isa = XCConfigurationList;

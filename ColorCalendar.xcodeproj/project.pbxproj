@@ -100,9 +100,6 @@
 
 /* Begin PBXFileReference section */
 		3E2E57FD1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = DefaultColorCalendarPalette.clr; sourceTree = "<group>"; };
-		3E2E58151F03663A00D2FEDD /* Macaw.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Macaw.framework.dSYM; path = Carthage/Build/iOS/Macaw.framework.dSYM; sourceTree = "<group>"; };
-		3E2E58161F03663A00D2FEDD /* Rswift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Rswift.framework.dSYM; path = Carthage/Build/iOS/Rswift.framework.dSYM; sourceTree = "<group>"; };
-		3E2E58171F03663A00D2FEDD /* SnapKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SnapKit.framework.dSYM; path = Carthage/Build/iOS/SnapKit.framework.dSYM; sourceTree = "<group>"; };
 		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
 		3E4000701F00C52B00D5AB78 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3EAC549C1F31A7D4008A3D8A /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,9 +229,6 @@
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
-				3E2E58151F03663A00D2FEDD /* Macaw.framework.dSYM */,
-				3E2E58161F03663A00D2FEDD /* Rswift.framework.dSYM */,
-				3E2E58171F03663A00D2FEDD /* SnapKit.framework.dSYM */,
 				DAD7B1921ECBE2FB00B75948 /* Macaw.framework */,
 				DAD7B18E1ECBE2DE00B75948 /* Rswift.framework */,
 				DAD7B18F1ECBE2DE00B75948 /* SnapKit.framework */,

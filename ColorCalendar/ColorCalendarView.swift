@@ -114,8 +114,8 @@ public class ColorCalendarView: UIView {
     
     private func createUI() {
         self.backgroundColor = CalendarColors.calendarColors.backgroundColor
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(switchToPreviousMonth))
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(switchToNextMonth))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(switchToNextMonth))
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(switchToPreviousMonth))
         
         swipeLeft.direction = .left
         swipeRight.direction = .right

@@ -10,8 +10,10 @@ import UIKit
 
 class ExamplesTableViewController: UITableViewController {
     
+    let examplesNames = ["ColorCalendarDayViewExample","ColorCalendarViewExample"]
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return examplesNames.count
     }
     
     
@@ -19,10 +21,20 @@ class ExamplesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExampleTableViewCell") as! ExampleTableViewCell
         
-        cell.label.text = "CalendarDayView"
+        
+        
+        cell.label.text = examplesNames[indexPath.row]
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "\(examplesNames[indexPath.row])Segue", sender: self)
+    }
+    
+//    ColorCalendarDayViewExampleSeguea
+    
+    
     
     override var prefersStatusBarHidden: Bool {
         return true

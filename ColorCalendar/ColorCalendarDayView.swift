@@ -14,16 +14,48 @@ open class ColorCalendarDayView: MacawView {
     
     // MARK: - Properties
     
+    private var onTapFunc:((ColorCalendarDayView) -> ())?
+    
+    @IBInspectable
     public var text: String?
     public var textSize: CGFloat?
     public var font: UIFont?
     public var insetsProportion: Double = 0.0
-    
-    private var onTapFunc:((ColorCalendarDayView) -> ())?
+   
     
     public var dayColors: DayColors? {
         didSet {
             setNeedsLayout()
+        }
+    }    
+
+    @IBInspectable
+    public var textColor: UIColor? {
+        get {
+            return dayColors?.textColor ?? nil
+        }
+        set {
+            let newColor = newValue ?? .clear
+            if dayColors == nil {
+                dayColors = DayColors(textColor: newColor, backgroundColor: .clear)
+            } else {
+                dayColors?.textColor = newColor
+            }
+        }
+    }
+    
+    @IBInspectable
+    public var textBackgroundColor: UIColor? {
+        get {
+            return dayColors?.backgroundColor ?? nil
+        }
+        set {
+            let newColor = newValue ?? .clear
+            if dayColors == nil {
+                dayColors = DayColors(textColor: .clear, backgroundColor: newColor)
+            } else {
+                dayColors?.backgroundColor = newColor
+            }
         }
     }
     
@@ -55,7 +87,7 @@ open class ColorCalendarDayView: MacawView {
         
         
         let backgroundFillShape = Shape(form: Rect(x: 0, y: 0, w: width, h: height), fill: macawColor(from: backgroundColor))
-        let round = Circle(cx: centerX, cy: Double(center.y), r: radius)
+        let round = Circle(cx: centerX, cy: centerY, r: radius)
         let backgroundShape = Shape(form: round, fill: macawColor(from: colors.backgroundColor), stroke: Stroke(fill: Color.black.with(a: 0.1)))
         let characterText = Text(text: theText, font: macawFont(from: createFont()), fill: tColor, align: .mid, baseline: .mid, place: Transform.move(dx: centerX, dy: centerY))
         

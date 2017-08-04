@@ -11,6 +11,8 @@
 		3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */; };
 		3E4000711F00C52B00D5AB78 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4000701F00C52B00D5AB78 /* R.generated.swift */; };
 		3E8B3DA91F33DCA9006E87E4 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */; };
+		3E8B3DAB1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
+		3E8B3DAC1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
 		3EAC549F1F31A7D4008A3D8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC549E1F31A7D4008A3D8A /* AppDelegate.swift */; };
 		3EAC54A11F31A7D4008A3D8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC54A01F31A7D4008A3D8A /* ViewController.swift */; };
 		3EAC54A41F31A7D4008A3D8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAC54A21F31A7D4008A3D8A /* Main.storyboard */; };
@@ -104,6 +106,7 @@
 		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
 		3E4000701F00C52B00D5AB78 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesTableViewController.swift; sourceTree = "<group>"; };
+		3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarDayViewTests.swift; sourceTree = "<group>"; };
 		3EAC549C1F31A7D4008A3D8A /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAC549E1F31A7D4008A3D8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAC54A01F31A7D4008A3D8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 			children = (
 				3EAC54DC1F328241008A3D8A /* ColorCalendarUITests.swift */,
 				3EAC54DE1F328241008A3D8A /* Info.plist */,
+				3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */,
 			);
 			path = ColorCalendarUITests;
 			sourceTree = "<group>";
@@ -616,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EAC54DD1F328241008A3D8A /* ColorCalendarUITests.swift in Sources */,
+				3E8B3DAC1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E8B3DAB1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */,
 				3EAC54D51F31B559008A3D8A /* ColorCalendarViewTests.swift in Sources */,
 				DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */,
 			);

@@ -9,10 +9,10 @@
 import Foundation
 
 public struct DayColors {
-    public var textColor:UIColor
-    public var backgroundColor:UIColor
+    public var textColor: UIColor
+    public var backgroundColor: UIColor
     
-    public init(textColor:UIColor, backgroundColor:UIColor) {
+    public init(textColor: UIColor, backgroundColor: UIColor) {
         self.textColor = textColor
         self.backgroundColor = backgroundColor
     }
@@ -23,8 +23,8 @@ public struct DayColors {
 }
 
 public protocol CalendarColorsProvider {
-    func currentMonthDayColors(forDate date:Date) -> DayColors
-    func otherMonthsDayColors(forDate date:Date) -> DayColors
+    func currentMonthDayColors(forDate date: Date) -> DayColors
+    func otherMonthsDayColors(forDate date: Date) -> DayColors
     var weekdaySymbolColor: DayColors { get }
     var monthSwitcherColor: DayColors { get }
     var backgroundColor: UIColor { get }
@@ -36,13 +36,13 @@ open class CalendarColors: CalendarColorsProvider {
     
     public init() { }
 
-    open func currentMonthDayColors(forDate date:Date)  -> DayColors {
+    open func currentMonthDayColors(forDate date: Date)  -> DayColors {
         let colors = DayColors(textColor:R.color.defaultColorCalendarPalette.currentMonthDayTextColor(), backgroundColor:R.color.defaultColorCalendarPalette.currentMonthDayBackgroundColor())
         
         return colors
     }
 
-    open func otherMonthsDayColors(forDate date:Date) -> DayColors {
+    open func otherMonthsDayColors(forDate date: Date) -> DayColors {
         let colors = DayColors(textColor:R.color.defaultColorCalendarPalette.otherMonthsDayTextColor(), backgroundColor:R.color.defaultColorCalendarPalette.otherMonthsDayBackgroundColor())
         
         return colors

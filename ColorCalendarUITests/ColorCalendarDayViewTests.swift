@@ -24,9 +24,9 @@ class ColorCalendarDayViewTests: XCTestCase {
         super.tearDown()
     }
     
-    func testColorCalendarExists()
-    {
-        app.tables.staticTexts["ColorCalendarDayViewExample"].tap()
-        XCTAssert(app.otherElements["1"].exists)
-    }
+//    func testColorCalendarExists()
+//    {
+//        app.tables.staticTexts["ColorCalendarDayViewExample"].tap()
+//        XCTAssert(app.otherElements["1"].exists)
+//    }
 }

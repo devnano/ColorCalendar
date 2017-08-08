@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		3E0B47EE1F398127004A53C3 /* ColorCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47ED1F398127004A53C3 /* ColorCalendarViewController.swift */; };
 		3E0B47F01F398C93004A53C3 /* ColorCalendarViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47EF1F398C93004A53C3 /* ColorCalendarViewDataSource.swift */; };
-		3E0B47F21F398E0D004A53C3 /* Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47F11F398E0D004A53C3 /* Lazy.swift */; };
 		3E0B47F41F398F39004A53C3 /* DefaultColorCalendarViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47F31F398F39004A53C3 /* DefaultColorCalendarViewDataSourceTests.swift */; };
+		3E0B47F71F3992FD004A53C3 /* Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47F61F3992FD004A53C3 /* Lazy.swift */; };
+		3E0B47F91F399342004A53C3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47F81F399342004A53C3 /* Date.swift */; };
+		3E0B47FB1F3993B6004A53C3 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47FA1F3993B6004A53C3 /* DateTests.swift */; };
 		3E2E57FE1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = 3E2E57FD1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr */; };
 		3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */; };
 		3E4000711F00C52B00D5AB78 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4000701F00C52B00D5AB78 /* R.generated.swift */; };
@@ -108,8 +110,10 @@
 /* Begin PBXFileReference section */
 		3E0B47ED1F398127004A53C3 /* ColorCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarViewController.swift; sourceTree = "<group>"; };
 		3E0B47EF1F398C93004A53C3 /* ColorCalendarViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarViewDataSource.swift; sourceTree = "<group>"; };
-		3E0B47F11F398E0D004A53C3 /* Lazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lazy.swift; sourceTree = "<group>"; };
 		3E0B47F31F398F39004A53C3 /* DefaultColorCalendarViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColorCalendarViewDataSourceTests.swift; sourceTree = "<group>"; };
+		3E0B47F61F3992FD004A53C3 /* Lazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lazy.swift; sourceTree = "<group>"; };
+		3E0B47F81F399342004A53C3 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3E0B47FA1F3993B6004A53C3 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		3E2E57FD1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = DefaultColorCalendarPalette.clr; sourceTree = "<group>"; };
 		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
 		3E4000701F00C52B00D5AB78 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -199,6 +203,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E0B47F51F3992D8004A53C3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3E0B47F61F3992FD004A53C3 /* Lazy.swift */,
+				3E0B47F81F399342004A53C3 /* Date.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		3EAC549D1F31A7D4008A3D8A /* Examples */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +287,7 @@
 		DA7A02721DFF638300FF2EAE /* ColorCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				3E0B47F51F3992D8004A53C3 /* Core */,
 				DADA93341E252FDD000C3693 /* Localization */,
 				DAEE47611E1D823500086823 /* R */,
 				DA7A02731DFF638300FF2EAE /* ColorCalendar.h */,
@@ -286,7 +300,6 @@
 				DAA702B81E145ED100911134 /* CalendarColors.swift */,
 				DAD7B1941ECC295900B75948 /* ColorCalendarDayView.swift */,
 				3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */,
-				3E0B47F11F398E0D004A53C3 /* Lazy.swift */,
 			);
 			path = ColorCalendar;
 			sourceTree = "<group>";
@@ -298,6 +311,7 @@
 				DA7A02801DFF638300FF2EAE /* Info.plist */,
 				3EAC54D41F31B559008A3D8A /* ColorCalendarViewTests.swift */,
 				3E0B47F31F398F39004A53C3 /* DefaultColorCalendarViewDataSourceTests.swift */,
+				3E0B47FA1F3993B6004A53C3 /* DateTests.swift */,
 			);
 			path = ColorCalendarTests;
 			sourceTree = "<group>";
@@ -642,13 +656,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAA7AD751E11B383005625E5 /* ColorCalendarCollectionViewCell.swift in Sources */,
+				3E0B47F91F399342004A53C3 /* Date.swift in Sources */,
 				DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */,
 				DAD7B1951ECC295900B75948 /* ColorCalendarDayView.swift in Sources */,
 				DAA702B91E145ED100911134 /* CalendarColors.swift in Sources */,
 				3E0B47F01F398C93004A53C3 /* ColorCalendarViewDataSource.swift in Sources */,
 				DAA7AD771E11C2DB005625E5 /* CalendarHighlight.swift in Sources */,
 				3E4000711F00C52B00D5AB78 /* R.generated.swift in Sources */,
-				3E0B47F21F398E0D004A53C3 /* Lazy.swift in Sources */,
+				3E0B47F71F3992FD004A53C3 /* Lazy.swift in Sources */,
 				3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,6 +676,7 @@
 				3EAC54D51F31B559008A3D8A /* ColorCalendarViewTests.swift in Sources */,
 				DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */,
 				3E0B47F41F398F39004A53C3 /* DefaultColorCalendarViewDataSourceTests.swift in Sources */,
+				3E0B47FB1F3993B6004A53C3 /* DateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

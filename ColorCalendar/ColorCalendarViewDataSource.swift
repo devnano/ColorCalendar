@@ -14,6 +14,6 @@ public protocol ColorCalendarViewDataSource {
 
 internal class DefaultColorCalendarViewDataSource: ColorCalendarViewDataSource {
     func colorCalendar(_ calendar: ColorCalendarView, accesibilityLabelForDate date: Date) -> String {
-        return "August the 8th, 2017"
+        return date.full(withLocale: Locale.current)
     }
 }

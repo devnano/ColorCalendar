@@ -5,7 +5,7 @@
 
 import Foundation
 
-class Lazy<T> {
+public class Lazy<T> {
     private let _initializer: () -> T
     private var _value: T?
     var value: T! {
@@ -20,7 +20,7 @@ class Lazy<T> {
         }
     }
     
-    required init(initializer: @escaping () -> T) {
+    public required init(_ initializer: @escaping () -> T) {
         self._initializer = initializer
     }
 }

@@ -28,16 +28,27 @@ class DefaultColorCalendarViewDataSourceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testAugustThe8th2017() {
-        XCTAssert(dataSource.colorCalendar(colorCalendarView, accesibilityLabelForDate: date) == "August the 8th, 2017")
+        
+    func testAugustThe8th2016() {
+        XCTAssertEqual(dataSource.colorCalendar(colorCalendarView, accesibilityLabelForDate: date), "Monday, August 8, 2016")
     }
     
-    func testAugustThe9th2017() {
+    func testAugustThe9th2016() {
         createDate(day: 9)
-        XCTAssert(dataSource.colorCalendar(colorCalendarView, accesibilityLabelForDate: date) == "August the 9th, 2017")
+        XCTAssertEqual(dataSource.colorCalendar(colorCalendarView, accesibilityLabelForDate: date), "Tuesday, August 9, 2016")
     }
     
-    private func createDate(year: Int = 2017, month: Int = 8, day: Int = 8) {
+    func testToday() {
+        date = Date()
+        XCTAssertEqual(dataSource.colorCalendar(colorCalendarView, accesibilityLabelForDate: date), "Today")
+    }
+    
+//    func testTodaySpanish() {
+//        date = Date()
+//        XCTAssertEqual(dataSource.colorCalendar(colorCalendarView, accesibilityLabelForDate: date), "Hoy")
+//    }
+    
+    private func createDate(year: Int = 2016, month: Int = 8, day: Int = 8) {
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)
         date = calendar.date(from: dateComponents)!

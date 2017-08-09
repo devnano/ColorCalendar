@@ -257,6 +257,8 @@ extension ColorCalendarView: UICollectionViewDataSource {
             })            
             
             dayCell.set(dayColors: dayColors, font: CalendarFonts.calendarFonts.fontFor(date: date))
+            
+            cell.accessibilityLabel = dataSource.value.colorCalendar(self, accesibilityLabelForDate: date)
         }
         
         return cell

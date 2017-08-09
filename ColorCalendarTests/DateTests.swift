@@ -39,7 +39,7 @@ class DateTests: XCTestCase {
     }
     
     func testYear() {
-        XCTAssert(date.year(withCalendar: calendar) == 2017)
+        XCTAssert(date.year(withCalendar: calendar) == 2016)
     }
     
     func testDayOrdinal() {
@@ -48,7 +48,7 @@ class DateTests: XCTestCase {
     
     func testFull() {
         createDate(day: 10)
-        XCTAssertEqual(date.full(withLocale: locale), "Thursday, August 10, 2017")
+        XCTAssertEqual(date.full(withLocale: locale), "Wednesday, August 10, 2016")
     }
     
     func testFullSpanish() {
@@ -56,10 +56,10 @@ class DateTests: XCTestCase {
         date = calendar.date(byAdding: components, to: Date())!
         
         
-        XCTAssertEqual(date.full(withLocale: Locale(identifier: "ES_es")), "pasado mañana")
+        XCTAssertEqual(date.full(withLocale: Locale(identifier: "ES_es")), "Pasado Mañana")
     }
     
-    private func createDate(year: Int = 2017, month: Int = 8, day: Int = 8) {
+    private func createDate(year: Int = 2016, month: Int = 8, day: Int = 8) {
         
         let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)
         date = calendar.date(from: dateComponents)!

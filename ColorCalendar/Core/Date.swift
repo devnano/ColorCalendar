@@ -37,6 +37,6 @@ extension Date {
         dateFormatter.doesRelativeDateFormatting = true
         dateFormatter.locale = locale
         
-        return dateFormatter.string(from: self)
+        return dateFormatter.string(from: self).capitalized
     }
 }

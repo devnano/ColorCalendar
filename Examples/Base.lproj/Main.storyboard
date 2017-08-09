@@ -164,9 +164,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8P-y4-1jv" customClass="ColorCalendarView" customModule="ColorCalendar">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" label="ColorCalendarView">
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
+                                <accessibility key="accessibilityConfiguration" label="ColorCalendarView"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z8P-y4-1jv" secondAttribute="height" multiplier="1:1" id="1Yn-jU-sqn"/>
                                 </constraints>

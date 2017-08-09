@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xfl-FX-m1U">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -32,15 +32,15 @@
             <objects>
                 <tableViewController id="gPt-0i-l0b" customClass="ExamplesTableViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TKX-Us-ktW">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="44" width="768" height="980"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExampleTableViewCell" id="4Db-XS-o4J" customClass="ExampleTableViewCell" customModule="Examples" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Db-XS-o4J" id="Y1y-b8-639">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar Day View Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyn-vn-M6v">
@@ -86,7 +86,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3SZ-9f-MzM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Fx-xN-wFA">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="44" width="768" height="980"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f5k-S1-H4Q" customClass="ColorCalendarDayView" customModule="ColorCalendar">
@@ -158,26 +158,37 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="44" width="768" height="980"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8P-y4-1jv" customClass="ColorCalendarView" customModule="ColorCalendar">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
+                                <rect key="frame" x="170.5" y="0.0" width="427" height="426.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="ColorCalendarView"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z8P-y4-1jv" secondAttribute="height" multiplier="1:1" id="1Yn-jU-sqn"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sBs-4b-fNf">
-                                <rect key="frame" x="166.5" y="374.5" width="42" height="248.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="sBs-4b-fNf">
+                                <rect key="frame" x="322.5" y="426.5" width="123" height="553.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD4-QG-zNW">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="248.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQb-ne-od5">
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Add random text"/>
+                                        <state key="normal" title="Add random text"/>
+                                        <connections>
+                                            <action selector="onAddRandomTextTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gj5-Pg-jOx"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Output" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD4-QG-zNW">
+                                        <rect key="frame" x="0.0" y="505.5" width="123" height="48"/>
                                         <accessibility key="accessibilityConfiguration" label="Output"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                             </stackView>
@@ -188,8 +199,10 @@
                         </accessibility>
                         <constraints>
                             <constraint firstItem="z8P-y4-1jv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0Az-FB-yR1"/>
+                            <constraint firstItem="sBs-4b-fNf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9XS-yY-VuJ"/>
                             <constraint firstItem="z8P-y4-1jv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LIQ-4w-iSF"/>
                             <constraint firstItem="sBs-4b-fNf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MGC-sb-UvX"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="sBs-4b-fNf" secondAttribute="trailing" priority="250" id="YUM-2t-5bO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sBs-4b-fNf" secondAttribute="bottom" id="cXC-yt-hEl"/>
                             <constraint firstItem="sBs-4b-fNf" firstAttribute="top" secondItem="z8P-y4-1jv" secondAttribute="bottom" id="dR4-eX-Qau"/>
                             <constraint firstItem="z8P-y4-1jv" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ecz-If-d6j"/>

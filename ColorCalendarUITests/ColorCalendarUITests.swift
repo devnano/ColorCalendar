@@ -57,11 +57,13 @@ class ColorCalendarUITests: XCTestCase {
         XCTAssert(app.cells["Today"].exists)
     }
     
-    func testOutputLabelChanging() {
+    func testOutputLabelChangingOnDayViewTap() {
 //        app.staticTexts["Output"]
+        XCTAssert(!app.staticTexts["Today"].exists)
         
-         XCTAssert(false)
+        app.cells["Today"].tap()
         
+        XCTAssert(app.staticTexts["Today"].exists)
     }
     
 }

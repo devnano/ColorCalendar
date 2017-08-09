@@ -11,22 +11,29 @@ import ColorCalendar
 
 
 class ColorCalendarViewController: UIViewController {
-    @IBOutlet weak var colorCalendarView: ColorCalendarView!
-    @IBOutlet weak var outputLabel: UILabel!
+    @IBOutlet fileprivate weak var colorCalendarView: ColorCalendarView!
+    @IBOutlet fileprivate weak var outputLabel: UILabel!
+    private var delegate: ColorCalendarViewDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorCalendarView.delegate = createColorCalendarViewDelegate()
+        delegate = createColorCalendarViewDelegate()
+        colorCalendarView.delegate = delegate
     }
 }
 
 extension ColorCalendarViewController {
     func createColorCalendarViewDelegate() -> ColorCalendarViewDelegate {
-        return TestColorCalendarViewDelegate()
+        return TestColorCalendarViewDelegate(self)
     }
 }
 
 class TestColorCalendarViewDelegate: ColorCalendarViewDelegate {
+    unowned let colorCalendarViewController: ColorCalendarViewController
+    
+    required init(_ colorCalendarViewController: ColorCalendarViewController) {
+        self.colorCalendarViewController = colorCalendarViewController
+    }
     func colorCalendarDidSwitchForwardOneMonth(_ calendar: ColorCalendarView) {
     }
     func colorCalendarDidSwitchBackwardOneMonth(_ calendar: ColorCalendarView) {
@@ -36,6 +43,9 @@ class TestColorCalendarViewDelegate: ColorCalendarViewDelegate {
     func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int) {
     }
     func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool) {
+        let text = date.full(withLocale: Locale.current)
+        colorCalendarViewController.outputLabel.text = text
+        colorCalendarViewController.outputLabel.accessibilityLabel = text
     }
 }
 

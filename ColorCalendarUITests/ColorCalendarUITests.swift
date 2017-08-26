@@ -21,7 +21,9 @@ class ColorCalendarUITests: XCTestCase {
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app = XCUIApplication()
+        app.launchArguments.append("-UITesting")
         app.launch()
+        app.tables.staticTexts["ColorCalendarViewExample"].tap()
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
@@ -30,32 +32,64 @@ class ColorCalendarUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testPreviousMonthExists() {
+    func testColorCalendarExists()
+    {
         app.tables.staticTexts["ColorCalendarViewExample"].tap()
+        XCTAssert(app.otherElements["ColorCalendarView"].exists)
+    }
+//    func testMonthTextIsNotEmpty()
+//    {
+//        let colorCalendarView = app.otherElements["ColorCalendarView"]
+//        XCTAssert(colorCalendarView.exists)
+//    }
+    
+    
+    func testPreviousMonthExists() {
         XCTAssert(app.buttons["Previous month"].exists)
     }
     
     func testNextMonthExists() {
-        app.tables.staticTexts["ColorCalendarViewExample"].tap()
         XCTAssert(app.buttons["Next month"].exists)
     }
     
     func testCurrentMonthExists() {
-        app.tables.staticTexts["ColorCalendarViewExample"].tap()
         XCTAssert(app.buttons["Current month"].exists)
     }
-//    
-//    func testCurrentMonthNotEmpty() {
-//        app.tables.staticTexts["ColorCalendarViewExample"].tap()
-//        let currentMonthButton = app.buttons["Current month"]
-//        XCTAssert(currentMonthButton.label != "")
+    
+    func testOutputLabelExists() {
+        XCTAssert(app.staticTexts["Output"].exists)
+    }
+    
+    func testCalendarDayViewAccesibility() {
+        XCTAssert(app.otherElements["August the 8th, 2017"].exists)        
+    }
+    
+    func testOutputLabelGrowing() {
+//        app.staticTexts["Output"]
+        
+         XCTAssert(false)
+        
+    }
+    
+    //    func testGenerateLaunchScreen() {
+    //        let app = XCUIApplication()
+    //        setupSnapshot(app)
+    //        app.launch()
+    //        // Use recording to get started writing UI tests.
+    //        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    //        snapshot("LaunchImage")
+    //        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
+    //        snapshot("LaunchImageLandscape")
+    //
+    //    }
+
+    
+//    func testColorCalendarExists()
+//    {
+//        let colorCalendarView = app.otherElements["ColorCalendarView"]
+//        XCTAssert(colorCalendarView.exists)
 //    }
 //    
-//    func testCurrentMonthNotEmptyAfterNExtMonthTaop() {
-//        app.tables.staticTexts["ColorCalendarViewExample"].tap()
-//        app.buttons["Next month"].tap()
-//        let currentMonthButton = app.buttons["Current month"]
-//        
-//        XCTAssert(currentMonthButton.label != "")
-//    }
+//     colorCalendarView.frame.size
+    
 }

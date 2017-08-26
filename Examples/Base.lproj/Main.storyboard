@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -148,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="-974" y="-734"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Calendar View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ColorCalendarViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -161,12 +162,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8P-y4-1jv" customClass="ColorCalendarView" customModule="ColorCalendar">
-                                <rect key="frame" x="16" y="0.0" width="343" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="374.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="ColorCalendarView">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="z8P-y4-1jv" secondAttribute="height" multiplier="1:1" id="1Yn-jU-sqn"/>
+                                </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sBs-4b-fNf">
+                                <rect key="frame" x="166.5" y="374.5" width="42" height="248.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD4-QG-zNW">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="248.5"/>
+                                        <accessibility key="accessibilityConfiguration" label="Output"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" label="root">
@@ -174,12 +190,18 @@
                         </accessibility>
                         <constraints>
                             <constraint firstItem="z8P-y4-1jv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0Az-FB-yR1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z8P-y4-1jv" secondAttribute="trailing" id="als-9b-n4H"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="z8P-y4-1jv" secondAttribute="leading" id="iGf-uV-lyw"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="z8P-y4-1jv" secondAttribute="bottom" id="lxQ-7k-x5n"/>
+                            <constraint firstItem="z8P-y4-1jv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LIQ-4w-iSF"/>
+                            <constraint firstItem="sBs-4b-fNf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MGC-sb-UvX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sBs-4b-fNf" secondAttribute="bottom" id="cXC-yt-hEl"/>
+                            <constraint firstItem="sBs-4b-fNf" firstAttribute="top" secondItem="z8P-y4-1jv" secondAttribute="bottom" id="dR4-eX-Qau"/>
+                            <constraint firstItem="z8P-y4-1jv" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ecz-If-d6j"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="colorCalendarView" destination="z8P-y4-1jv" id="zWH-8K-w23"/>
+                        <outlet property="outputLabel" destination="UD4-QG-zNW" id="IL4-Gc-THz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

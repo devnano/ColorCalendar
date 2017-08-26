@@ -35,6 +35,39 @@ class ColorCalendarUITests: XCTestCase {
         let colorCalendarView = app.otherElements["ColorCalendarView"]
         XCTAssert(colorCalendarView.exists)
     }
+//    func testMonthTextIsNotEmpty()
+//    {
+//        let colorCalendarView = app.otherElements["ColorCalendarView"]
+//        XCTAssert(colorCalendarView.exists)
+//    }
+    
+    
+    func testPreviousMonthExists() {
+        let colorCalendarView = app.otherElements["ColorCalendarView"]
+        XCTAssert(colorCalendarView.buttons["Previous month"].exists)
+    }
+    
+    func testNextMonthExists() {
+        
+        XCTAssert(app.buttons["Next month"].exists)
+    }
+    func testCurrentMonthExists() {
+        
+        XCTAssert(app.buttons["Current month"].exists)
+    }
+    
+    //    func testGenerateLaunchScreen() {
+    //        let app = XCUIApplication()
+    //        setupSnapshot(app)
+    //        app.launch()
+    //        // Use recording to get started writing UI tests.
+    //        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    //        snapshot("LaunchImage")
+    //        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
+    //        snapshot("LaunchImageLandscape")
+    //
+    //    }
+
     
 //    func testColorCalendarExists()
 //    {

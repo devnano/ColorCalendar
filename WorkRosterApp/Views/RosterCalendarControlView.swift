@@ -271,6 +271,7 @@ extension RosterCalendarControlView {
     }
     
     func willResignActive(notification: NSNotification) {
+//        endEditing(true)
         removeKeyboardObservers()
     }
     
@@ -279,6 +280,7 @@ extension RosterCalendarControlView {
     }
    
     func addKeyboardObservers() {
+        removeKeyboardObservers()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: .UIKeyboardWillHide, object: nil)
     }
@@ -290,6 +292,12 @@ extension RosterCalendarControlView {
     
     func keyboardDidShow(notification: Notification) {
         var firstResponder: UIView!
+        
+        for view in stackView.arrangedSubviews {
+            if view.isHidden {
+                return   
+            }
+        }
         
         if schemeTextField.isFirstResponder {
             firstResponder = schemeTextField

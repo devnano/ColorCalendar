@@ -120,6 +120,10 @@
             argument = "D,D,D,D,X,X,N,N,N,N,X,X"
             isEnabled = "YES">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "true"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>

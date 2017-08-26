@@ -34,7 +34,7 @@ class WorkRosterAppUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssert(app.buttons["Previous month"].exists)
         XCTAssert(app.buttons["Next month"].exists)
-        XCTAssert(app.staticTexts["Current month"].exists)        
+        XCTAssert(app.buttons["Current month"].exists)        
     }
 
     func testScreenshots() {

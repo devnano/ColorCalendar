@@ -52,7 +52,10 @@ class DateTests: XCTestCase {
     }
     
     func testFullSpanish() {
-        createDate(day: 10)
+        let components = DateComponents(calendar: calendar, day: 2)
+        date = calendar.date(byAdding: components, to: Date())!
+        
+        
         XCTAssertEqual(date.full(withLocale: Locale(identifier: "ES_es")), "pasado mañana")
     }
     

@@ -34,7 +34,6 @@ class ColorCalendarUITests: XCTestCase {
     
     func testColorCalendarExists()
     {
-        app.tables.staticTexts["ColorCalendarViewExample"].tap()
         XCTAssert(app.otherElements["ColorCalendarView"].exists)
     }
 //    func testMonthTextIsNotEmpty()
@@ -61,7 +60,7 @@ class ColorCalendarUITests: XCTestCase {
     }
     
     func testCalendarDayViewAccesibility() {
-        XCTAssert(app.otherElements["August the 8th, 2017"].exists)        
+        XCTAssert(app.otherElements["Today"].exists)        
     }
     
     func testOutputLabelGrowing() {

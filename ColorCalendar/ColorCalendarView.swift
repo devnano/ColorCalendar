@@ -73,6 +73,8 @@ public class ColorCalendarView: UIView {
     
     public var delegate: ColorCalendarViewDelegate?
     
+    public var dataSource: Lazy<ColorCalendarViewDataSource> = Lazy({return DefaultColorCalendarViewDataSource()})
+    
     // MARK: - Public API
     
     public func hideMonthSwitcher() {

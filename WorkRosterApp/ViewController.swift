@@ -254,6 +254,7 @@ extension ViewController {
     }    
     
     func addKeyboardObservers() {
+        removeKeyboardObservers()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: .UIKeyboardWillHide, object: nil)
     }

@@ -14,14 +14,10 @@ class ExamplesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return examplesNames.count
-    }
-    
-    
+    }   
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExampleTableViewCell") as! ExampleTableViewCell
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExampleTableViewCell") as! ExampleTableViewCell       
         
         cell.label.text = examplesNames[indexPath.row]
         
@@ -32,10 +28,6 @@ class ExamplesTableViewController: UITableViewController {
         performSegue(withIdentifier: "\(examplesNames[indexPath.row])Segue", sender: self)
     }
     
-//    ColorCalendarDayViewExampleSeguea
-    
-    
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -45,5 +37,6 @@ class ExamplesTableViewController: UITableViewController {
 class ExampleTableViewCell: UITableViewCell {
     @IBOutlet var label: UILabel!
 }
+
 
 

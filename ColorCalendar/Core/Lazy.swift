@@ -7,6 +7,7 @@ import Foundation
 
 public class Lazy<T> {
     private let _initializer: () -> T
+    // TODO: this should be weak
     private var _value: T?
     var value: T! {
         get {

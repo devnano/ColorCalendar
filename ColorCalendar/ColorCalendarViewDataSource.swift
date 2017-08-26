@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ColorCalendarViewDataSource {
+public protocol ColorCalendarViewDataSource: class {
     func colorCalendar(_ calendar: ColorCalendarView, accesibilityLabelForDate date: Date) -> String    
 }
 

@@ -44,9 +44,6 @@ class InfoButton: ColorCalendarDayView {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShowHide), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShowHide), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
-        
-        
     }
     
     public func showHelp() {
@@ -83,8 +80,6 @@ class InfoButton: ColorCalendarDayView {
         frame = tempFrame
         super.layoutSubviews()
     }
-    
-    
     
     @objc private func keyboardDidShowHide() {
         self.tipView?.hide()

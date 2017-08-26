@@ -14,6 +14,7 @@ struct Data {
     
     private static let currentShiftRotaKey = "currentShiftRotaKey"
     private static let currentFirstWorkDayKey = "currentFirstWorkDayKey"
+    private static let onboardingShownKey = "onboardingShownKey"
     
     // MARK: - Internal API
     
@@ -67,6 +68,19 @@ struct Data {
         }
         set {
             set(newValue, forkey: currentFirstWorkDayKey)
+        }
+    }
+    
+    static var onboardingShown: Bool {
+        get {
+            guard let shown = object(forKey: onboardingShownKey) as! NSNumber? else {
+                return false
+            }
+            
+            return shown.boolValue
+        }
+        set {            
+            set(NSNumber(booleanLiteral: newValue) , forkey: onboardingShownKey)
         }
     }
 

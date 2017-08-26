@@ -342,7 +342,7 @@ extension RosterCalendarControlView {
     }
     
     func mutableAttributedHelpString(fromText text: String) -> NSMutableAttributedString {
-        let attributedString = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName : CalendarFonts.calendarFonts.defaultFont(size: 15), NSForegroundColorAttributeName: CalendarColors.calendarColors.defaultTextColor])
+        let attributedString = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName : CalendarFonts.calendarFonts.defaultFont(size: 15), NSForegroundColorAttributeName: CalendarColors.calendarColors.weekdaySymbolColor.textColor])
         
         return attributedString
     }

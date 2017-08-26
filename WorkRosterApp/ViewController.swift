@@ -97,7 +97,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        controlView.showHelp()
+        showOnboardingIfNeeded();
     }
 
     override func didReceiveMemoryWarning() {
@@ -113,6 +113,15 @@ class ViewController: UIViewController {
     // MARK: - Private Methods
     
     typealias ConstraintMaker = (SnapKit.ConstraintMaker) -> Void
+    
+    private func showOnboardingIfNeeded() {
+        if Data.onboardingShown {
+            return
+        }
+        
+        controlView.showHelp()
+        Data.onboardingShown = true
+    }
     
     private func makeTraitsDependantConstraints(with size: CGSize, compactMaker: @escaping ConstraintMaker, regularMaker: @escaping ConstraintMaker) -> ConstraintMaker {
         if isCompactWidth(size) {

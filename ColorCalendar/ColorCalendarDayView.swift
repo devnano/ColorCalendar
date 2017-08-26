@@ -9,6 +9,7 @@
 import UIKit
 import Macaw
 
+@IBDesignable
 open class ColorCalendarDayView: MacawView {
     
     // MARK: - Properties

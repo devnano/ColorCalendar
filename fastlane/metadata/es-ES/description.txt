@@ -1,1 +1,7 @@
+¿Trabajas por turnos? Verifica rápidamente cuándo cambias de turno. Planea tu agenda de acuerdo a los días libres anticipadamente.
+
+Simplemente tienes que:
+
+• Elegir un Esquema de Trabajo por Turnos predefinido o escribir la secuencia que se ajuste.
+• Establecer la fecha del primer día en que comenzó o comenzará la Secuencia de Turnos de Trabajo.
 

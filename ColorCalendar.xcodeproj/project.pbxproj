@@ -23,6 +23,7 @@
 		3E91E11A1F05BA54001A0CF2 /* RosterCalendarControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91E1191F05BA54001A0CF2 /* RosterCalendarControlView.swift */; };
 		3E91E11C1F05BB32001A0CF2 /* ControlItemContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91E11B1F05BB32001A0CF2 /* ControlItemContainerView.swift */; };
 		3E91E11E1F05BDE8001A0CF2 /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E91E11D1F05BDE8001A0CF2 /* InfoButton.swift */; };
+		3EB4357A1F2A8F850057196B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EB435791F2A8F850057196B /* Assets.xcassets */; };
 		3EEFB8841F16EA940064BA58 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EEFB8861F16EA940064BA58 /* Localizable.strings */; };
 		3EEFB88C1F16EB9F0064BA58 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFB88B1F16EB9F0064BA58 /* R.generated.swift */; };
 		3EEFB89D1F1C78740064BA58 /* AMPopTip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEFB89C1F1C78740064BA58 /* AMPopTip.framework */; };
@@ -40,7 +41,7 @@
 		DA8205AE1E631DD10096C949 /* ShiftRotaGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */; };
 		DA8205B21E6327DC0096C949 /* WorkShiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */; };
 		DA9195181E05C22300511224 /* ColorCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9195171E05C22300511224 /* ColorCalendarView.swift */; };
-		DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA2F5171E09E0A200CC6741 /* Assets.xcassets */; };
+		DAA2F5181E09E0A200CC6741 /* ColorCalendarAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA2F5171E09E0A200CC6741 /* ColorCalendarAssets.xcassets */; };
 		DAA702B91E145ED100911134 /* CalendarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA702B81E145ED100911134 /* CalendarColors.swift */; };
 		DAA7AD751E11B383005625E5 /* ColorCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */; };
 		DAA7AD771E11C2DB005625E5 /* CalendarHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7AD761E11C2DB005625E5 /* CalendarHighlight.swift */; };
@@ -179,6 +180,7 @@
 		3E91E1191F05BA54001A0CF2 /* RosterCalendarControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarControlView.swift; sourceTree = "<group>"; };
 		3E91E11B1F05BB32001A0CF2 /* ControlItemContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlItemContainerView.swift; sourceTree = "<group>"; };
 		3E91E11D1F05BDE8001A0CF2 /* InfoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
+		3EB435791F2A8F850057196B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EEFB8871F16EAA10064BA58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EEFB88B1F16EB9F0064BA58 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		3EEFB8951F1AF3120064BA58 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		DA8205AD1E631DD10096C949 /* ShiftRotaGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftRotaGeneratorTests.swift; sourceTree = "<group>"; };
 		DA8205B11E6327DC0096C949 /* WorkShiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkShiftTests.swift; sourceTree = "<group>"; };
 		DA9195171E05C22300511224 /* ColorCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarView.swift; sourceTree = "<group>"; };
-		DAA2F5171E09E0A200CC6741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAA2F5171E09E0A200CC6741 /* ColorCalendarAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorCalendarAssets.xcassets; sourceTree = "<group>"; };
 		DAA702B81E145ED100911134 /* CalendarColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarColors.swift; sourceTree = "<group>"; };
 		DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAA7AD761E11C2DB005625E5 /* CalendarHighlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHighlight.swift; sourceTree = "<group>"; };
@@ -381,7 +383,7 @@
 				DA7A02731DFF638300FF2EAE /* ColorCalendar.h */,
 				DA7A02741DFF638300FF2EAE /* Info.plist */,
 				DA9195171E05C22300511224 /* ColorCalendarView.swift */,
-				DAA2F5171E09E0A200CC6741 /* Assets.xcassets */,
+				DAA2F5171E09E0A200CC6741 /* ColorCalendarAssets.xcassets */,
 				DAA7AD741E11B383005625E5 /* ColorCalendarCollectionViewCell.swift */,
 				DAA7AD761E11C2DB005625E5 /* CalendarHighlight.swift */,
 				DAA702B81E145ED100911134 /* CalendarColors.swift */,
@@ -403,6 +405,7 @@
 		DAB7CD5D1E0C1DC800C94638 /* WorkRosterApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EB435791F2A8F850057196B /* Assets.xcassets */,
 				3EF7558D1F29B81600EA41FA /* Utils */,
 				3E91E1181F05BA2B001A0CF2 /* Views */,
 				DADA93391E25302E000C3693 /* Localization */,
@@ -571,8 +574,8 @@
 				DAB7CD5A1E0C1DC800C94638 /* Resources */,
 				DAB7CD911E0C1FE600C94638 /* Embed Frameworks */,
 				3E2E58141F03662000D2FEDD /* CopyFiles */,
-				3E1F34B61F219FB500132FDE /* Crashlytics */,
 				3E1F34C11F26AF8400132FDE /* Carthage Copy Frameworks */,
+				3E1F34B61F219FB500132FDE /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -742,7 +745,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAA2F5181E09E0A200CC6741 /* Assets.xcassets in Resources */,
+				DAA2F5181E09E0A200CC6741 /* ColorCalendarAssets.xcassets in Resources */,
 				DADA93381E252FDD000C3693 /* Localizable.strings in Resources */,
 				3E2E57FE1F01E69300D2FEDD /* DefaultColorCalendarPalette.clr in Resources */,
 			);
@@ -763,6 +766,7 @@
 				3EEFB8A41F1DCD360064BA58 /* RostaKartjubaPalette.clr in Resources */,
 				DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */,
 				DAB7CD641E0C1DC800C94638 /* Main.storyboard in Resources */,
+				3EB4357A1F2A8F850057196B /* Assets.xcassets in Resources */,
 				3E2E58001F01E6CB00D2FEDD /* WorkRosterAppPalette.clr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1253,6 +1257,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GXB2YASNT3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1278,6 +1283,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = GXB2YASNT3;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -37,38 +37,38 @@ class WorkRosterAppUITests: XCTestCase {
         XCTAssert(app.buttons["Current month"].exists)        
     }
     
-    func testGenerateLaunchScreen() {
-        let app = XCUIApplication()
-        setupSnapshot(app)
-        app.launch()
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        snapshot("LaunchImage")
-        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
-        snapshot("LaunchImageLandscape")
-
-    }
-
-//    func testScreenshots() {
+//    func testGenerateLaunchScreen() {
 //        let app = XCUIApplication()
 //        setupSnapshot(app)
 //        app.launch()
 //        // Use recording to get started writing UI tests.
 //        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//        snapshot("0LaunchHelpPortrait")
+//        snapshot("LaunchImage")
 //        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
-//        snapshot("0LaunchLandscape")
-//        // Edit Work Sequence TextField
-//        XCUIApplication().textFields.element(boundBy: 1).tap()
-//        snapshot("1EditSequenceLandscape")
-//        XCUIDevice().orientation = UIDeviceOrientation.portrait
-//        snapshot("1EditSequencePortrait")
-//        app.buttons["Return"].tap()
-//        snapshot("0LaunchPortrait")
-//        // Next Month button
-//        XCUIApplication().buttons.element(boundBy:1).tap()
-//        snapshot("0NextMonthPortrait")
-//        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
-//        snapshot("0NextMonthLandscape")
+//        snapshot("LaunchImageLandscape")
+//
 //    }
+
+    func testScreenshots() {
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
+        // Use recording to get started writing UI tests.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        snapshot("0LaunchHelpPortrait")
+        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
+        snapshot("0LaunchLandscape")
+        // Edit Work Sequence TextField
+        XCUIApplication().textFields.element(boundBy: 1).tap()
+        snapshot("1EditSequenceLandscape")
+        XCUIDevice().orientation = UIDeviceOrientation.portrait
+        snapshot("1EditSequencePortrait")
+        app.buttons["Return"].tap()
+        snapshot("0LaunchPortrait")
+        // Next Month button
+        XCUIApplication().buttons.element(boundBy:1).tap()
+        snapshot("0NextMonthPortrait")
+        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
+        snapshot("0NextMonthLandscape")
+    }
 }

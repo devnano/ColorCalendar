@@ -66,7 +66,9 @@ class RosterCalendarControlView: UIView {
         textField.keyboardType = .default
         textField.addTarget(self, action: #selector(schemeTextChanged), for: .editingChanged)
         textField.tag = 1
-//        textField.placeholder = "esta"
+        textField.attributedPlaceholder = NSAttributedString(string: R.string.localizable.controlViewSchemeTextPlaceholder(), attributes: [NSFontAttributeName: CalendarFonts.calendarFonts.defaultFont(size: 16)])
+        textField.contentVerticalAlignment = .center;
+        textField.textAlignment = .center;
         
         
         return textField
@@ -105,6 +107,7 @@ class RosterCalendarControlView: UIView {
     
     fileprivate var schemeAttributedText: NSAttributedString {
         set {
+            
             let selectedTextRange = schemeTextField.selectedTextRange
             let attributedString = NSMutableAttributedString(attributedString: newValue)
             attributedString.addAttributes([NSFontAttributeName: schemeTextField.font!], range: NSRange(location: 0, length: attributedString.length))
@@ -112,20 +115,26 @@ class RosterCalendarControlView: UIView {
             schemeTextField.attributedText = attributedString
             schemeTextField.selectedTextRange = selectedTextRange
             
-            // XXX: this is a workaround to avoid having the text cut or not centered. It happens when there is only a single character on the attributed string or it has just a single attribute for background.
-            schemeTextField.setNeedsLayout()
-            schemeTextField.layoutIfNeeded()
-            
-            let maxFrame = CGSize(width: self.frame.size.width, height: schemeTextField.frame.size.height)
-            let resultingFrame = attributedString.boundingRect(with: maxFrame, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], context: nil)
-            let currentFrame = schemeTextField.frame
-            if abs(resultingFrame.size.width - currentFrame.size.width) > 5 {
-                // Manuall adjust the frame if has not grown / shrinked enough after chaning the string.
-                let center = schemeTextField.center
-                schemeTextField.frame = CGRect(origin: currentFrame.origin, size: CGSize(width: resultingFrame.width, height: currentFrame.height))
-                schemeTextField.center = center
-            }
-            // END of XXXX
+// TODO: Review this workaround for coming version. By now, just rely on the width of the placeholder
+//        let oldValue = schemeTextField.attributedText!
+//            NSLog("oldValue: %@, newValue: %@", oldValue.string, newValue.string)
+//
+//            // XXX: this is a workaround to avoid having the text cut or not centered. It happens when there is only a single character on the attributed string or it has just a single attribute for background.
+//            schemeTextField.setNeedsLayout()
+//            schemeTextField.layoutIfNeeded()
+//            
+//            let maxFrame = CGSize(width: self.frame.size.width, height: schemeTextField.frame.size.height)
+//            let resultingFrame = attributedString.boundingRect(with: maxFrame, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], context: nil)
+//            let currentFrame = schemeTextField.frame
+//            if (newValue.length > oldValue.length && resultingFrame.size.width > currentFrame.size.width) || (newValue.length < oldValue.length && resultingFrame.size.width  < currentFrame.size.width){
+//                // Manuall adjust the frame if has not grown / shrinked enough after chaning the string.
+//                let center = schemeTextField.center
+//                schemeTextField.frame = CGRect(origin: currentFrame.origin, size: CGSize(width: resultingFrame.width, height: currentFrame.height))
+//                schemeTextField.center = center
+//                stackView.setNeedsLayout()
+//                stackView.layoutIfNeeded()
+//            }
+//            // END of XXXX
         }
         get {
             return schemeTextField.attributedText ?? NSAttributedString(string: "")

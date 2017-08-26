@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <testsuites name='WorkRosterAppUITests.xctest' tests='70' failures='0'>
   <testsuite name='ColorCalendarTests.ColorHighlightTests' tests='19' failures='0'>
-    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testBackwardOneMonth' time='0.004'/>
+    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testBackwardOneMonth' time='0.007'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testCurrentMonthName' time='0.002'/>
-    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testCurrentMonthNameWithLocale' time='0.005'/>
-    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testCurrentYear' time='0.002'/>
+    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testCurrentMonthNameWithLocale' time='0.010'/>
+    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testCurrentYear' time='0.001'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testCurrentYearAfterForwardMonth' time='0.001'/>
-    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testDateComponentsWithOffset' time='0.001'/>
-    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testFirstMonthDayNumberAtWithoutOffset' time='0.002'/>
+    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testDateComponentsWithOffset' time='0.002'/>
+    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testFirstMonthDayNumberAtWithoutOffset' time='0.001'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testForwardOneMonth' time='0.001'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testForwardOneMonthOnLastDayOfTheMonth' time='0.001'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testLastMonthDayNumberAtWithoutOffset' time='0.001'/>
-    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testPerformanceExample' time='0.325'/>
+    <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testPerformanceExample' time='0.364'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testWeekdaysCount' time='0.001'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testWeekdaysCountWhenCurrentWeekHasLessThan7DaysInMonth' time='0.001'/>
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testWeekdaySymbolAtWithOffset' time='0.001'/>
@@ -22,17 +22,17 @@
     <testcase classname='ColorCalendarTests.ColorHighlightTests' name='testWeeksCount6WeeksWithMondayAsFirstWeekDay' time='0.001'/>
   </testsuite>
   <testsuite name='RosterTests.RosterTests' tests='17' failures='0'>
-    <testcase classname='RosterTests.RosterTests' name='testDateIsNotCurrentDay' time='0.014'/>
-    <testcase classname='RosterTests.RosterTests' name='testInitialization' time='0.004'/>
-    <testcase classname='RosterTests.RosterTests' name='testInitializationBadFormat' time='0.010'/>
-    <testcase classname='RosterTests.RosterTests' name='testInitializationBadFormat2' time='0.005'/>
-    <testcase classname='RosterTests.RosterTests' name='testInitializationBadFormat3' time='0.040'/>
-    <testcase classname='RosterTests.RosterTests' name='testInitializationWithEmptyComponent' time='0.003'/>
-    <testcase classname='RosterTests.RosterTests' name='testInitializationWithValidBlankSpaces' time='0.005'/>
-    <testcase classname='RosterTests.RosterTests' name='testisDateCurrentDay' time='0.006'/>
-    <testcase classname='RosterTests.RosterTests' name='testLowercaseInitialization' time='0.006'/>
-    <testcase classname='RosterTests.RosterTests' name='testPerformanceExample' time='0.266'/>
-    <testcase classname='RosterTests.RosterTests' name='testWorkShiftForFirstWorkDay' time='0.001'/>
+    <testcase classname='RosterTests.RosterTests' name='testDateIsNotCurrentDay' time='0.004'/>
+    <testcase classname='RosterTests.RosterTests' name='testInitialization' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testInitializationBadFormat' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testInitializationBadFormat2' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testInitializationBadFormat3' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testInitializationWithEmptyComponent' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testInitializationWithValidBlankSpaces' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testisDateCurrentDay' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testLowercaseInitialization' time='0.002'/>
+    <testcase classname='RosterTests.RosterTests' name='testPerformanceExample' time='0.272'/>
+    <testcase classname='RosterTests.RosterTests' name='testWorkShiftForFirstWorkDay' time='0.002'/>
     <testcase classname='RosterTests.RosterTests' name='testWorkShiftForLastWorkDay' time='0.001'/>
     <testcase classname='RosterTests.RosterTests' name='testWorkShiftForSecondWorkDay' time='0.001'/>
     <testcase classname='RosterTests.RosterTests' name='testWorkShiftForSecondWorkDayWhenThereIsLessThan24HoursOfDifference' time='0.001'/>
@@ -41,7 +41,7 @@
     <testcase classname='RosterTests.RosterTests' name='testWorkShiftTwoWeeksBefore' time='0.001'/>
   </testsuite>
   <testsuite name='RosterTests.ShiftRotaGeneratorTests' tests='5' failures='0'>
-    <testcase classname='RosterTests.ShiftRotaGeneratorTests' name='testGenerateClockwise1DayRotating3by1System3ShiftsPerDay' time='0.007'/>
+    <testcase classname='RosterTests.ShiftRotaGeneratorTests' name='testGenerateClockwise1DayRotating3by1System3ShiftsPerDay' time='0.010'/>
     <testcase classname='RosterTests.ShiftRotaGeneratorTests' name='testGenerateClockwiseFixed5by2System2ShiftsPerDay' time='0.001'/>
     <testcase classname='RosterTests.ShiftRotaGeneratorTests' name='testGenerateClockwiseFixed7by7System2ShiftsPerDay' time='0.001'/>
     <testcase classname='RosterTests.ShiftRotaGeneratorTests' name='testGenerateCounterclockwise1DayRotating3by1System3ShiftsPerDay' time='0.001'/>
@@ -53,16 +53,16 @@
     <testcase classname='RosterTests.ShiftRotaTests' name='testInitFailLocale' time='0.002'/>
     <testcase classname='RosterTests.ShiftRotaTests' name='testInitLocale' time='0.001'/>
     <testcase classname='RosterTests.ShiftRotaTests' name='testLowercaseInit' time='0.001'/>
-    <testcase classname='RosterTests.ShiftRotaTests' name='testSequenceInit' time='0.001'/>
+    <testcase classname='RosterTests.ShiftRotaTests' name='testSequenceInit' time='0.002'/>
     <testcase classname='RosterTests.ShiftRotaTests' name='testShiftSystemMultiplier' time='0.001'/>
     <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType1DayRotatingClockwise' time='0.001'/>
-    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType1DayRotatingCounterclockwise' time='0.001'/>
-    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType1DayRotatingCounterclockwise2' time='0.002'/>
-    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType1DayRotatingCounterclockwise3' time='0.002'/>
+    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType1DayRotatingCounterclockwise' time='0.002'/>
+    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType1DayRotatingCounterclockwise2' time='0.001'/>
+    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType1DayRotatingCounterclockwise3' time='0.001'/>
     <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType2DaysRotatingClockwise' time='0.001'/>
     <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkType3DaysRotatingCounterclockwise' time='0.002'/>
     <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkTypeFixed' time='0.001'/>
-    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkTypeIrregular' time='0.002'/>
+    <testcase classname='RosterTests.ShiftRotaTests' name='testShiftworkTypeIrregular' time='0.031'/>
   </testsuite>
   <testsuite name='RosterTests.WorkShiftTests' tests='8' failures='0'>
     <testcase classname='RosterTests.WorkShiftTests' name='testArrayNextCircular' time='0.001'/>
@@ -70,18 +70,18 @@
     <testcase classname='RosterTests.WorkShiftTests' name='testFromRawValueWithLocaleAfternoon' time='0.001'/>
     <testcase classname='RosterTests.WorkShiftTests' name='testFromRawValueWithLocaleDay' time='0.001'/>
     <testcase classname='RosterTests.WorkShiftTests' name='testFromRawValueWithLocaleFree' time='0.001'/>
-    <testcase classname='RosterTests.WorkShiftTests' name='testIsWorkDay' time='0.002'/>
+    <testcase classname='RosterTests.WorkShiftTests' name='testIsWorkDay' time='0.004'/>
     <testcase classname='RosterTests.WorkShiftTests' name='testLocalizedRawValueWithLocale' time='0.001'/>
     <testcase classname='RosterTests.WorkShiftTests' name='testRotationDirection' time='0.001'/>
   </testsuite>
   <testsuite name='WorkRosterAppTests.RosterCalendarColorsTests' tests='4' failures='0'>
-    <testcase classname='WorkRosterAppTests.RosterCalendarColorsTests' name='testPerformanceExample' time='0.259'/>
+    <testcase classname='WorkRosterAppTests.RosterCalendarColorsTests' name='testPerformanceExample' time='0.267'/>
     <testcase classname='WorkRosterAppTests.RosterCalendarColorsTests' name='testRosterCalendarColorsFirstDayOfWork' time='0.002'/>
     <testcase classname='WorkRosterAppTests.RosterCalendarColorsTests' name='testRosterCalendarColorsSecondDayOfWork' time='0.002'/>
-    <testcase classname='WorkRosterAppTests.RosterCalendarColorsTests' name='testRosterCalendarColorsSecondDayOfWorkWhenThereIsLessThan24HoursOfDifference' time='0.001'/>
+    <testcase classname='WorkRosterAppTests.RosterCalendarColorsTests' name='testRosterCalendarColorsSecondDayOfWorkWhenThereIsLessThan24HoursOfDifference' time='0.002'/>
   </testsuite>
   <testsuite name='WorkRosterAppUITests.WorkRosterAppUITests' tests='2' failures='0'>
-    <testcase classname='WorkRosterAppUITests.WorkRosterAppUITests' name='testPreviousMonthExists' time='7.506'/>
-    <testcase classname='WorkRosterAppUITests.WorkRosterAppUITests' name='testScreenshots' time='29.023'/>
+    <testcase classname='WorkRosterAppUITests.WorkRosterAppUITests' name='testPreviousMonthExists' time='7.125'/>
+    <testcase classname='WorkRosterAppUITests.WorkRosterAppUITests' name='testScreenshots' time='27.589'/>
   </testsuite>
 </testsuites>

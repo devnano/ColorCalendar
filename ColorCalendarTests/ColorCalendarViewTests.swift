@@ -24,7 +24,14 @@ class ColorCalendarViewTests: XCTestCase {
     
     func testDefaultCalendarHighlightRowHeightZero() {
         let colorCalendar = ColorCalendarView()
+        
         XCTAssert(colorCalendar.rowHeight == 0)
+    }
+    
+    func testDefaultCalendarHighlightCurrentDate() {
+        let colorCalendar = ColorCalendarView()
+        
+        XCTAssert(colorCalendar.calendar.locale == .current)
     }
 
 }

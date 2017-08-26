@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 
+//@IBDesignable
 public class ColorCalendarView: UIView {
     // MARK: - Static constants
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier",

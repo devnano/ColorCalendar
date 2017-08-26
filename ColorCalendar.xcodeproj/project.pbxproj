@@ -48,7 +48,6 @@
 		DAB7CD5F1E0C1DC800C94638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */; };
 		DAB7CD611E0C1DC800C94638 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD601E0C1DC800C94638 /* ViewController.swift */; };
 		DAB7CD641E0C1DC800C94638 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD621E0C1DC800C94638 /* Main.storyboard */; };
-		DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB7CD671E0C1DC800C94638 /* LaunchScreen.storyboard */; };
 		DAB7CD741E0C1DC800C94638 /* RosterCalendarColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD731E0C1DC800C94638 /* RosterCalendarColorsTests.swift */; };
 		DAB7CD7F1E0C1DC800C94638 /* WorkRosterAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB7CD7E1E0C1DC800C94638 /* WorkRosterAppUITests.swift */; };
 		DAB7CD8D1E0C1FE600C94638 /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
@@ -211,7 +210,6 @@
 		DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB7CD601E0C1DC800C94638 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAB7CD631E0C1DC800C94638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DAB7CD681E0C1DC800C94638 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB7CD6A1E0C1DC800C94638 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAB7CD6F1E0C1DC800C94638 /* WorkRosterAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkRosterAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB7CD731E0C1DC800C94638 /* RosterCalendarColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterCalendarColorsTests.swift; sourceTree = "<group>"; };
@@ -413,7 +411,6 @@
 				DAB7CD5E1E0C1DC800C94638 /* AppDelegate.swift */,
 				DAB7CD601E0C1DC800C94638 /* ViewController.swift */,
 				DAB7CD621E0C1DC800C94638 /* Main.storyboard */,
-				DAB7CD671E0C1DC800C94638 /* LaunchScreen.storyboard */,
 				DAB7CD6A1E0C1DC800C94638 /* Info.plist */,
 				DAEE47351E1D48F500086823 /* RosterCalendarColors.swift */,
 				DAEE476C1E1EB6D200086823 /* Data.swift */,
@@ -764,7 +761,6 @@
 			files = (
 				DADA933C1E253047000C3693 /* Localizable.strings in Resources */,
 				3EEFB8A41F1DCD360064BA58 /* RostaKartjubaPalette.clr in Resources */,
-				DAB7CD691E0C1DC800C94638 /* LaunchScreen.storyboard in Resources */,
 				DAB7CD641E0C1DC800C94638 /* Main.storyboard in Resources */,
 				3EB4357A1F2A8F850057196B /* Assets.xcassets in Resources */,
 				3E2E58001F01E6CB00D2FEDD /* WorkRosterAppPalette.clr in Resources */,
@@ -1029,14 +1025,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		DAB7CD671E0C1DC800C94638 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DAB7CD681E0C1DC800C94638 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		DADA93351E252FDD000C3693 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1257,7 +1245,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GXB2YASNT3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1283,7 +1270,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = GXB2YASNT3;
 				FRAMEWORK_SEARCH_PATHS = (

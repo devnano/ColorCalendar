@@ -213,10 +213,10 @@ extension ViewController: RosterCalendarControlViewDelegate {
         
         if shiftRota.workShiftSequence == nil {
             Analytics.changeToInvalidShiftRota(format: shiftRota.format)
-            return
+            
+        } else {        
+            Analytics.changeToValidShiftRota(format: shiftRota.format)
         }
-        
-        Analytics.changeToValidShiftRota(format: shiftRota.format)
         
         
         set(roster:roster, reloadCalendar: true)

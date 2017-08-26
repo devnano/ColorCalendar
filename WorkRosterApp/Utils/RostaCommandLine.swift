@@ -11,7 +11,7 @@ import UIKit
 class RostaCommandLine {
     
     class var defaultWorkScheme: String? {
-        return UserDefaults.standard.string(forKey: "defaultWorkScheme") ?? (CommandLine.argc < 2 ? nil : CommandLine.arguments[1])
+        return UserDefaults.standard.string(forKey: "defaultWorkScheme")// ?? (CommandLine.argc < 2 ? nil : CommandLine.arguments[1])
     }
     
     class var generateIcons: Bool {
@@ -24,5 +24,9 @@ class RostaCommandLine {
         }
         
         return NSString(string: generateLaunchScreen).boolValue
+    }
+    
+    class var displayHelpOnLaunch: Bool {
+        return UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT")
     }
 }

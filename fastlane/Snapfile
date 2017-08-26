@@ -28,7 +28,7 @@ scheme "WorkRosterApp"
 # workspace "./Project.xcworkspace"
 
 # Arguments to pass to the app on launch. See https://github.com/fastlane/fastlane/tree/master/snapshot#launch-arguments
-launch_arguments(["-defaultWorkScheme D,D,D,D,X,X,N,N,N,N,X,X"])
+launch_arguments(["-defaultWorkScheme M,M,M,M,X,X,A,A,A,A,X,X"])
 
 # For more information about all available options run
 # fastlane snapshot --help

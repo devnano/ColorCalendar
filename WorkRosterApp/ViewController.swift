@@ -124,7 +124,7 @@ class ViewController: UIViewController {
     typealias ConstraintMaker = (SnapKit.ConstraintMaker) -> Void
     
     private func showOnboardingIfNeeded() {
-        if Data.onboardingShown {
+        if Data.onboardingShown && !RostaCommandLine.displayHelpOnLaunch{
             return
         }
         

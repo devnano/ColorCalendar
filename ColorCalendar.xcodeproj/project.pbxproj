@@ -30,6 +30,7 @@
 		3EEFB8A01F1C7ACE0064BA58 /* AMPopTip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EEFB89C1F1C78740064BA58 /* AMPopTip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3EEFB8A41F1DCD360064BA58 /* RostaKartjubaPalette.clr in Resources */ = {isa = PBXBuildFile; fileRef = 3EEFB8A31F1DCD360064BA58 /* RostaKartjubaPalette.clr */; };
 		3EEFB8A61F1F14950064BA58 /* RosterCalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEFB8A51F1F14950064BA58 /* RosterCalendarFonts.swift */; };
+		3EF755871F28583D00EA41FA /* DisablePasteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF755861F28583D00EA41FA /* DisablePasteTextField.swift */; };
 		DA7A027A1DFF638300FF2EAE /* ColorCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */; };
 		DA7A027F1DFF638300FF2EAE /* ColorHighlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A027E1DFF638300FF2EAE /* ColorHighlightTests.swift */; };
 		DA7A02811DFF638300FF2EAE /* ColorCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = DA7A02731DFF638300FF2EAE /* ColorCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -186,6 +187,7 @@
 		3EEFB8A21F1D83200064BA58 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EEFB8A31F1DCD360064BA58 /* RostaKartjubaPalette.clr */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = RostaKartjubaPalette.clr; sourceTree = "<group>"; };
 		3EEFB8A51F1F14950064BA58 /* RosterCalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterCalendarFonts.swift; sourceTree = "<group>"; };
+		3EF755861F28583D00EA41FA /* DisablePasteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisablePasteTextField.swift; sourceTree = "<group>"; };
 		DA7A02701DFF638300FF2EAE /* ColorCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7A02731DFF638300FF2EAE /* ColorCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorCalendar.h; sourceTree = "<group>"; };
 		DA7A02741DFF638300FF2EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				3E91E1191F05BA54001A0CF2 /* RosterCalendarControlView.swift */,
 				3E91E11B1F05BB32001A0CF2 /* ControlItemContainerView.swift */,
 				3E91E11D1F05BDE8001A0CF2 /* InfoButton.swift */,
+				3EF755861F28583D00EA41FA /* DisablePasteTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				DAB7CD611E0C1DC800C94638 /* ViewController.swift in Sources */,
 				DAEE476D1E1EB6D200086823 /* Data.swift in Sources */,
 				3E91E11E1F05BDE8001A0CF2 /* InfoButton.swift in Sources */,
+				3EF755871F28583D00EA41FA /* DisablePasteTextField.swift in Sources */,
 				DAB7CD5F1E0C1DC800C94638 /* AppDelegate.swift in Sources */,
 				DAEE47361E1D48F500086823 /* RosterCalendarColors.swift in Sources */,
 				3EEFB8A61F1F14950064BA58 /* RosterCalendarFonts.swift in Sources */,

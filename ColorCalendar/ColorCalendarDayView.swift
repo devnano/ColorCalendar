@@ -135,7 +135,9 @@ open class ColorCalendarDayView: MacawView {
         if font != nil {
             return font!
         }
-        let theTextSize = textSize ?? 20
+        var theTextSize = textSize ?? 20
+        theTextSize = min(theTextSize, min(frame.size.width, frame.size.height))
+        
         
         return CalendarFonts.calendarFonts.defaultFont(size: theTextSize)
     }

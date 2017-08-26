@@ -68,11 +68,7 @@ public class ColorCalendarView: UIView {
     
     // MARK: - Public Properties
     
-    public var calendar: CalendarHighlights! {
-        didSet {
-            updatecurrentMonthTitleButton()
-        }
-    }
+    public var calendar: CalendarHighlights = CalendarHighlights(Date())
     
     public var delegate: ColorCalendarViewDelegate?
     

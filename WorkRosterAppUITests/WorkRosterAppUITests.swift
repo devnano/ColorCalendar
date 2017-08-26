@@ -64,11 +64,11 @@ class WorkRosterAppUITests: XCTestCase {
         XCUIDevice().orientation = UIDeviceOrientation.portrait
         snapshot("1EditSequencePortrait")
         app.buttons["Return"].tap()
-        snapshot("0LaunchPortrait")
+//        snapshot("0LaunchPortrait")
         // Next Month button
         XCUIApplication().buttons.element(boundBy:1).tap()
-        snapshot("0NextMonthPortrait")
-        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
-        snapshot("0NextMonthLandscape")
+        snapshot("2NextMonthPortrait")
+//        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
+//        snapshot("0NextMonthLandscape")
     }
 }

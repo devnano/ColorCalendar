@@ -6,3 +6,4 @@ Carthage/Build/Mac
 Carthage/Build/tvOS
 Carthage/Checkouts
 *.generated.swift
+fastlane/screenshots

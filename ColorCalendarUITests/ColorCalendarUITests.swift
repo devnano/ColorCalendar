@@ -15,16 +15,11 @@ class ColorCalendarUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app = XCUIApplication()
         app.launchArguments.append("-UITesting")
-        app.launch()
+        app.launch()    
         app.tables.staticTexts["ColorCalendarViewExample"].tap()
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
@@ -58,12 +53,18 @@ class ColorCalendarUITests: XCTestCase {
     }
     
     func testOutputLabelChangingOnDayViewTap() {
-//        app.staticTexts["Output"]
         XCTAssert(!app.staticTexts["Today"].exists)
-        
         app.cells["Today"].tap()
-        
         XCTAssert(app.staticTexts["Today"].exists)
+    }
+    
+    func testBelowViewIncreasingHeight() {
+        //        app.staticTexts["Output"]
+        let outputView = app.staticTexts["Output"]
+        let oldOutputViewHeight = outputView.frame.height
+        app.buttons["Add random text"].tap()
+        XCTAssertLessThan(oldOutputViewHeight, outputView.frame.height)
+        
     }
     
 }

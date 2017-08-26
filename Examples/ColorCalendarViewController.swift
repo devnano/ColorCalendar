@@ -20,6 +20,9 @@ class ColorCalendarViewController: UIViewController {
         delegate = createColorCalendarViewDelegate()
         colorCalendarView.delegate = delegate
     }
+    @IBAction func onAddRandomTextTap(_ sender: Any) {
+        outputLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium imperdiet neque sed pretium. Etiam id elit porttitor, dapibus magna a, eleifend felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis ornare sollicitudin lacus in pretium. Ut pellentesque orci ac elit mollis efficitur."
+    }
 }
 
 extension ColorCalendarViewController {

@@ -122,6 +122,7 @@ public class ColorCalendarView: UIView {
         
         addGestureRecognizer(swipeLeft)
         addGestureRecognizer(swipeRight)
+        reloadCalendar()
     }
     
     private func createMonthSwitcherView() -> UIView {

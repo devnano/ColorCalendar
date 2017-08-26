@@ -30,51 +30,32 @@ class ColorCalendarUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testColorCalendarExists()
-    {
-        app.tables.staticTexts["ColorCalendarViewExample"].tap()
-        XCTAssert(app.otherElements["ColorCalendarView"].exists)
-    }
-//    func testMonthTextIsNotEmpty()
-//    {
-//        let colorCalendarView = app.otherElements["ColorCalendarView"]
-//        XCTAssert(colorCalendarView.exists)
-//    }
-    
-    
     func testPreviousMonthExists() {
-//        let colorCalendarView = app.otherElements["ColorCalendarView"]
-//        XCTAssert(colorCalendarView.buttons["Previous month"].exists)
+        app.tables.staticTexts["ColorCalendarViewExample"].tap()
+        XCTAssert(app.buttons["Previous month"].exists)
     }
     
     func testNextMonthExists() {
-        
-//        XCTAssert(app.buttons["Next month"].exists)
+        app.tables.staticTexts["ColorCalendarViewExample"].tap()
+        XCTAssert(app.buttons["Next month"].exists)
     }
+    
     func testCurrentMonthExists() {
-        
-//        XCTAssert(app.buttons["Current month"].exists)
+        app.tables.staticTexts["ColorCalendarViewExample"].tap()
+        XCTAssert(app.buttons["Current month"].exists)
     }
-    
-    //    func testGenerateLaunchScreen() {
-    //        let app = XCUIApplication()
-    //        setupSnapshot(app)
-    //        app.launch()
-    //        // Use recording to get started writing UI tests.
-    //        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    //        snapshot("LaunchImage")
-    //        XCUIDevice().orientation = UIDeviceOrientation.landscapeRight
-    //        snapshot("LaunchImageLandscape")
-    //
-    //    }
-
-    
-//    func testColorCalendarExists()
-//    {
-//        let colorCalendarView = app.otherElements["ColorCalendarView"]
-//        XCTAssert(colorCalendarView.exists)
+//    
+//    func testCurrentMonthNotEmpty() {
+//        app.tables.staticTexts["ColorCalendarViewExample"].tap()
+//        let currentMonthButton = app.buttons["Current month"]
+//        XCTAssert(currentMonthButton.label != "")
 //    }
 //    
-//     colorCalendarView.frame.size
-    
+//    func testCurrentMonthNotEmptyAfterNExtMonthTaop() {
+//        app.tables.staticTexts["ColorCalendarViewExample"].tap()
+//        app.buttons["Next month"].tap()
+//        let currentMonthButton = app.buttons["Current month"]
+//        
+//        XCTAssert(currentMonthButton.label != "")
+//    }
 }

@@ -33,5 +33,10 @@ class ColorCalendarViewTests: XCTestCase {
         
         XCTAssert(colorCalendar.calendar.locale == .current)
     }
-
+    
+    func testCurrentMonthNotNil() {
+        let colorCalendar = ColorCalendarView()
+        
+        XCTAssert(colorCalendar.currentMonthTitleButton.titleLabel?.text != nil)
+    }
 }

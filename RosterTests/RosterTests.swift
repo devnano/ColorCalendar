@@ -33,7 +33,7 @@ class RosterTests: XCTestCase {
     
     
     func testInitialization() {
-        roster = Roster(shiftRota: ShiftRota("M,M,D,X"), firstWorkDay: firstWorkDay)!
+        roster = Roster(shiftRota: ShiftRota("M,M,D,X"), firstWorkDay: firstWorkDay)
         
         XCTAssert(roster.workShiftSequence.count == 4)
         XCTAssert(roster.workShiftSequence[0] == .morning)
@@ -43,7 +43,7 @@ class RosterTests: XCTestCase {
     }
     
     func testLowercaseInitialization() {
-        roster = Roster(shiftRota: ShiftRota("m,m,d,x"), firstWorkDay: firstWorkDay)!
+        roster = Roster(shiftRota: ShiftRota("m,m,d,x"), firstWorkDay: firstWorkDay)
         
         XCTAssert(roster.workShiftSequence.count == 4)
         XCTAssert(roster.workShiftSequence[0] == .morning)
@@ -53,7 +53,7 @@ class RosterTests: XCTestCase {
     }
     
     func testInitializationWithEmptyComponent() {
-        roster = Roster(shiftRota: ShiftRota("M,M,D,X,,"), firstWorkDay: firstWorkDay)!
+        roster = Roster(shiftRota: ShiftRota("M,M,D,X,,"), firstWorkDay: firstWorkDay)
         
         XCTAssert(roster.workShiftSequence.count == 6)
         XCTAssert(roster.workShiftSequence[0] == .morning)
@@ -66,7 +66,7 @@ class RosterTests: XCTestCase {
     
     
     func testInitializationWithValidBlankSpaces() {
-        roster = Roster(shiftRota: ShiftRota("M ,M ,D ,X "), firstWorkDay: firstWorkDay)!
+        roster = Roster(shiftRota: ShiftRota("M ,M ,D ,X "), firstWorkDay: firstWorkDay)
         
         XCTAssert(roster.workShiftSequence.count == 4)
         XCTAssert(roster.workShiftSequence[0] == .morning)
@@ -78,19 +78,19 @@ class RosterTests: XCTestCase {
     func testInitializationBadFormat() {
         roster = Roster(shiftRota: ShiftRota("esta"), firstWorkDay: firstWorkDay)
         
-        XCTAssert(roster == nil)
+        XCTAssert(roster.workShiftSequence.isEmpty)
     }
     
     func testInitializationBadFormat2() {
         roster = Roster(shiftRota: ShiftRota("esta,esta,esta,,esta"), firstWorkDay: firstWorkDay)
         
-        XCTAssert(roster == nil)
+        XCTAssert(roster.workShiftSequence.isEmpty)
     }
     
     func testInitializationBadFormat3() {
         roster = Roster(shiftRota: ShiftRota("M,,esta,,D,"), firstWorkDay: firstWorkDay)
         
-        XCTAssert(roster == nil)
+        XCTAssert(roster.workShiftSequence.isEmpty)
     }
     
     func testWorkShiftForFirstWorkDay() {

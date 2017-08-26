@@ -132,11 +132,13 @@ open class ColorCalendarDayView: MacawView {
     }
     
     open func createFont() -> UIFont {
-        if font != nil {
-            return font!
-        }
         var theTextSize = textSize ?? 20
         theTextSize = min(theTextSize, min(frame.size.width, frame.size.height))
+        
+        if font != nil {
+            return UIFont(name: font!.fontName, size: theTextSize)!
+        }
+       
         
         
         return CalendarFonts.calendarFonts.defaultFont(size: theTextSize)

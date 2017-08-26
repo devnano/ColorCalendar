@@ -138,7 +138,7 @@ public class ShiftRota: NSObject, NSCoding {
     public init(name: String, format: String, locale: Locale = Locale(identifier: "EN_us")) {
         super.init()
         self.name = name
-        self.format = self.localizedFormat(format: format, formatter: {workShift in workShift?.rawValue}, locale: locale)
+        self.format = self.localizedFormat(format: format.replacingOccurrences(of: " ", with: ","), formatter: {workShift in workShift?.rawValue}, locale: locale)
     }
     
     public convenience init(_ format: String) {

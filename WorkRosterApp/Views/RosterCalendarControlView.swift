@@ -62,7 +62,7 @@ class RosterCalendarControlView: UIView {
         let textField = self.createTextField()
         
         textField.autocorrectionType = .no
-        textField.keyboardType = .asciiCapable
+        textField.keyboardType = .default
         textField.addTarget(self, action: #selector(schemeTextChanged), for: .editingChanged)
         textField.tag = 1
         

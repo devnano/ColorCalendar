@@ -33,11 +33,14 @@ class RosterCalendarColors: CalendarColors {
     }
     
     static func color(with workShiftOrNil: WorkShift?) -> DayColors {
+        if RostaCommandLine.generateLaunchScreen {
+            return DayColors(textColor: UIColor.white, backgroundColor: UIColor.white)
+        }
         var dayColors:DayColors!
         var backgroundColor:UIColor?
         
         guard let workShift = workShiftOrNil else {
-            return DayColors(textColor:RosterCalendarColors.palette.defaultTextColor(), backgroundColor: UIColor.red)
+            return DayColors(textColor: RosterCalendarColors.palette.defaultTextColor(), backgroundColor: UIColor.red)
         }
         
         switch workShift {
@@ -65,6 +68,10 @@ class RosterCalendarColors: CalendarColors {
     }
     
     override public func currentMonthDayColors(forDate date:Date) -> DayColors {
+        if RostaCommandLine.generateLaunchScreen {
+            return DayColors(textColor: UIColor.white, backgroundColor: UIColor.white)
+        }
+        
         let workShift = roster.workShift(forDate: date)
         var dayColors = RosterCalendarColors.color(with: workShift)
         

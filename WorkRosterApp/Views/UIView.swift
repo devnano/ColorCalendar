@@ -16,17 +16,17 @@ extension UIView {
     }
     
     func generateIconsIfNeeded() {
-        if CommandLine.argc < 3 || !NSString(string: CommandLine.arguments[2]).boolValue {
+        if !RostaCommandLine.generateIcons {
             return
         }
-        [20, 29, 40, 57, 60, 72, 76].forEach { (dimension) in
+        [20, 29, 40, 50, 57, 60, 72, 76, 83.5].forEach { (dimension) in
             generateIcon(dimension)
         }        
     }
     
-    private func generateIcon(_ dimension: Int) {
+    private func generateIcon(_ dimension: Float) {
         for scale in 1...3 {
-            let scaledDimension = dimension * scale
+            let scaledDimension = dimension * Float(scale)
             let pointsSize = CGFloat(scaledDimension) / UIScreen.main.scale
             let size = CGSize(width: pointsSize, height: pointsSize)
             let image = generateImage(withSize: size, drawHierarchy: true)
@@ -57,8 +57,9 @@ extension UIView {
         return iconsDirectory
     }
     
-    private func imagePath(withDimension dimension: Int, scale: Int) -> String {
-        return "\(iconsDirectory())/Icon-App-\(dimension)x\(dimension)@\(scale)x.png"
+    private func imagePath(withDimension dimension: Float, scale: Int) -> String {
+        let dimensionString = dimension.truncatingRemainder(dividingBy: 1)  == 0 ? String(format: "%.0f", dimension) : String(dimension)
+        return "\(iconsDirectory())/Icon-App-\(dimensionString)x\(dimensionString)@\(scale)x.png"
     }
     
     private func generateImage(withSize size: CGSize, drawHierarchy: Bool = false) -> UIImage {

@@ -20,7 +20,7 @@ struct Data {
     
     static var currentShiftRota:ShiftRota {
         get {
-            let defaultWorkScheme = UserDefaults.standard.string(forKey: "defaultWorkScheme") ?? (CommandLine.argc < 1 ? nil : CommandLine.arguments[1])
+            let defaultWorkScheme = RostaCommandLine.defaultWorkScheme
             
             if defaultWorkScheme != nil {
                 set(currentShiftRota: ShiftRota(defaultWorkScheme!))

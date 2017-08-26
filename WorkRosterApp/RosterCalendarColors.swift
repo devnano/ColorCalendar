@@ -32,9 +32,13 @@ class RosterCalendarColors: CalendarColors {
         super.init()        
     }
     
-    static func color(with workShift: WorkShift) -> DayColors {
+    static func color(with workShiftOrNil: WorkShift?) -> DayColors {
         var dayColors:DayColors!
         var backgroundColor:UIColor?
+        
+        guard let workShift = workShiftOrNil else {
+            return DayColors(textColor:RosterCalendarColors.palette.defaultTextColor(), backgroundColor: UIColor.red)
+        }
         
         switch workShift {
         case .day:

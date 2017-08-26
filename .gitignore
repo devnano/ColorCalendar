@@ -7,3 +7,4 @@ Carthage/Build/tvOS
 Carthage/Checkouts
 *.generated.swift
 fastlane/screenshots
+*xcuserdata

@@ -1,3 +1,4 @@
-github "SnapKit/SnapKit" ~> 3.0.2
+github "Exyte/Macaw" "master"
+github "SnapKit/SnapKit"
 github "mac-cain13/R.swift.Library"
-github "Exyte/Macaw" ~> 0.8.2
+

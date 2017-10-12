@@ -1,21 +1,21 @@
 {
-  "iOS" : [
-    {
-      "hash" : "37a570933bc097abf35effdf5c54a475d14f6f72d7bdc5a4226a4eb530db6971",
-      "name" : "Rswift"
-    }
+  "Mac" : [
+
   ],
-  "commitish" : "v3.0.2",
   "watchOS" : [
 
   ],
   "tvOS" : [
     {
-      "hash" : "da0cd2c7b1a4363b82953c3d51774d95d986c9f3eac2dc3caf1f32f293a6c26d",
-      "name" : "Rswift"
+      "name" : "Rswift",
+      "hash" : "a9d3f9974f2bb6f7896b9499867db0ccdd8e567d8896ebc4eb43891db568cd5c"
     }
   ],
-  "Mac" : [
-
+  "commitish" : "v4.0.0",
+  "iOS" : [
+    {
+      "name" : "Rswift",
+      "hash" : "eb9ce2e2e5f059486efc1bf2f0156bc5852d67a0d8d7b65fa523a124e7a8e7d9"
+    }
   ]
 }

@@ -1,18 +1,18 @@
 {
-  "iOS" : [
-    {
-      "hash" : "199aed985de9d35991c4bab1c862ee058a3d20b6a4de7f0606ffca56d75313f0",
-      "name" : "Macaw"
-    }
+  "Mac" : [
+
   ],
-  "commitish" : "0.8.2",
   "watchOS" : [
 
   ],
   "tvOS" : [
 
   ],
-  "Mac" : [
-
+  "commitish" : "aa1d3c9163974ae2f2878387a9300f5abb9e12a7",
+  "iOS" : [
+    {
+      "name" : "Macaw",
+      "hash" : "8872126fffa1c2cae958010e48c556eaaa943adde5e9844c1f495f7bb8a86140"
+    }
   ]
 }

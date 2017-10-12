@@ -37,33 +37,33 @@ open class CalendarColors: CalendarColorsProvider {
     public init() { }
 
     open func currentMonthDayColors(forDate date: Date)  -> DayColors {
-        let colors = DayColors(textColor:R.color.defaultColorCalendarPalette.currentMonthDayTextColor(), backgroundColor:R.color.defaultColorCalendarPalette.currentMonthDayBackgroundColor())
+        let colors = DayColors(textColor:R.clr.defaultColorCalendarPalette.currentMonthDayTextColor(), backgroundColor:R.clr.defaultColorCalendarPalette.currentMonthDayBackgroundColor())
         
         return colors
     }
 
     open func otherMonthsDayColors(forDate date: Date) -> DayColors {
-        let colors = DayColors(textColor:R.color.defaultColorCalendarPalette.otherMonthsDayTextColor(), backgroundColor:R.color.defaultColorCalendarPalette.otherMonthsDayBackgroundColor())
+        let colors = DayColors(textColor:R.clr.defaultColorCalendarPalette.otherMonthsDayTextColor(), backgroundColor:R.clr.defaultColorCalendarPalette.otherMonthsDayBackgroundColor())
         
         return colors
     }
     
     open var weekdaySymbolColor: DayColors {
-        let colors = DayColors(textColor: R.color.defaultColorCalendarPalette.weekdaySymbolTextColor(), backgroundColor: R.color.defaultColorCalendarPalette.weekdaySymbolBackgroundColor())
+        let colors = DayColors(textColor: R.clr.defaultColorCalendarPalette.weekdaySymbolTextColor(), backgroundColor: R.clr.defaultColorCalendarPalette.weekdaySymbolBackgroundColor())
         
         return colors
     }
     
     open var monthSwitcherColor: DayColors {
-        return DayColors(textColor: defaultTextColor, backgroundColor: R.color.defaultColorCalendarPalette.monthSwitcherBackgroundColor())
+        return DayColors(textColor: defaultTextColor, backgroundColor: R.clr.defaultColorCalendarPalette.monthSwitcherBackgroundColor())
     }
     
     open var backgroundColor: UIColor {
-        return R.color.defaultColorCalendarPalette.backgroundColor()
+        return R.clr.defaultColorCalendarPalette.backgroundColor()
     }
     
     open var defaultTextColor: UIColor {
-        return R.color.defaultColorCalendarPalette.defaultTextColor()
+        return R.clr.defaultColorCalendarPalette.defaultTextColor()
     }
 }
 

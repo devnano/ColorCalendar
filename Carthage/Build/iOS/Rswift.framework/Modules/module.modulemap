@@ -7,4 +7,5 @@ framework module Rswift {
 
 module Rswift.Swift {
     header "Rswift-Swift.h"
+    requires objc
 }

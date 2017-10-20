@@ -207,7 +207,7 @@ public protocol ColorCalendarViewDelegate: class {
     func colorCalendarDidSwitchBackwardOneMonth(_ calendar: ColorCalendarView)
     func colorCalendarDidTapMonthName(_ calendar: ColorCalendarView)
     func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int)
-    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool)
+    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool, in window: UIWindow, from frame: CGRect)
 }
 
 extension ColorCalendarView: UICollectionViewDataSource {
@@ -253,7 +253,9 @@ extension ColorCalendarView: UICollectionViewDataSource {
             let dayColors = dayColorsFunc(date)
             
             cell.onTap({ (cell) in
-                 self.delegate?.colorCalendar(self, didTapCalendarDay: date, isCurrentMonth: dateComponents.isCurrentMonth)
+                let window = self.window!
+                let frame = window.convert(cell.frame, from: cell.superview!)
+                self.delegate?.colorCalendar(self, didTapCalendarDay: date, isCurrentMonth: dateComponents.isCurrentMonth, in: window, from: frame)
             })            
             
             dayCell.set(dayColors: dayColors, font: CalendarFonts.calendarFonts.fontFor(date: date))

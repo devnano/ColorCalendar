@@ -23,14 +23,14 @@ extension Date {
         return year
     }
     
-    public func dayOrdinal(withCalendar calendar: Calendar) -> String {
-        let formatter = NumberFormatter()
-        let day = calendar.component(.day, from: self)
-        formatter.numberStyle = .ordinal        
-        
-        return formatter.string(from: day as NSNumber)!
-    }
-    
+//    public func dayOrdinal(withCalendar calendar: Calendar) -> String {
+//        let formatter = NumberFormatter()
+//        let day = calendar.component(.day, from: self)
+//        formatter.numberStyle = .ordinal        
+//        
+//        return formatter.string(from: day as NSNumber)!
+//    }
+//    
     public func full(withLocale locale: Locale) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full

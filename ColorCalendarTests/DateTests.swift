@@ -42,9 +42,9 @@ class DateTests: XCTestCase {
         XCTAssert(date.year(withCalendar: calendar) == 2016)
     }
     
-    func testDayOrdinal() {
-        XCTAssert(date.dayOrdinal(withCalendar: calendar) == "8th")
-    }
+//    func testDayOrdinal() {
+//        XCTAssert(date.dayOrdinal(withCalendar: calendar) == "8th")
+//    }
     
     func testFull() {
         createDate(day: 10)

@@ -120,6 +120,16 @@ class ColorHighlightTests: XCTestCase {
         XCTAssert(c.components.day! == 31)
         XCTAssert(c.isCurrentMonth)
     }
+
+    // TODO: uncomment and fix this functionlity
+//    func testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday() {
+//        createCalendarHighlight(year: 2017, month: 10, day: 24)
+//        calendarHighlights.firstWeekdayDay = 2
+//        let c = calendarHighlights.dateComponents(at: 0)
+//
+//        XCTAssert(c.components.day! == 25)
+//        XCTAssert(!c.isCurrentMonth)
+//    }
     
     func testForwardOneMonth() {
         calendarHighlights.forwardOneMonth()

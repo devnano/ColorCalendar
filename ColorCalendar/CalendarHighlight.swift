@@ -98,6 +98,8 @@ public class CalendarHighlights {
         let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
         let firstDayOfCurrentMonthDateComponents = calendar.dateComponents([.weekday], from:firstDayOfCurrentMonthDate)
         let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday!
+        // TODO: logic below is only working if firstWeekdayDay is == 1 – default English and Spanish calendar
+        // A generic way of calculating the index should be implemente: to reproduce the issue set firstWeekdayDay to 2 and then go to October 2017 -> 1st day is not shown on the calendar. See and Uncomment test testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday
         let indexOffsetFromFirstDayInMonth = index - firstDayOfCurrentMonthDateWeekday + firstWeekdayDay
         
         var components = DateComponents()

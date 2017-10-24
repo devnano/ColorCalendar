@@ -113,11 +113,11 @@ public class CalendarLayout {
         return (components, month == currentMonth)
     }
     
-    public func forwardOneMonth() {
+    public func moveCalendarForward() {
         changeDate(monthOffset: 1)
     }
     
-    public func backwardOneMonth() {
+    public func moveCalendarBackward() {
         changeDate(monthOffset: -1)
     }
 }

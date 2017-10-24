@@ -186,15 +186,15 @@ public class ColorCalendarView: UIView {
     }
     
     @objc private func switchToNextMonth() {
-        calendar.forwardOneMonth()
+        calendar.moveCalendarForward()
         reloadCalendar()
-        delegate?.colorCalendarDidSwitchForwardOneMonth(self)
+        delegate?.colorCalendarDidSwitchmoveCalendarForward(self)
     }
     
     @objc private func switchToPreviousMonth() {
-        calendar.backwardOneMonth()
+        calendar.moveCalendarBackward()
         reloadCalendar()
-        delegate?.colorCalendarDidSwitchBackwardOneMonth(self)
+        delegate?.colorCalendarDidSwitchmoveCalendarBackward(self)
     }
     
     @objc private func onMonthTitleTap() {
@@ -203,8 +203,8 @@ public class ColorCalendarView: UIView {
 }
 
 public protocol ColorCalendarViewDelegate: class {
-    func colorCalendarDidSwitchForwardOneMonth(_ calendar: ColorCalendarView)
-    func colorCalendarDidSwitchBackwardOneMonth(_ calendar: ColorCalendarView)
+    func colorCalendarDidSwitchmoveCalendarForward(_ calendar: ColorCalendarView)
+    func colorCalendarDidSwitchmoveCalendarBackward(_ calendar: ColorCalendarView)
     func colorCalendarDidTapMonthName(_ calendar: ColorCalendarView)
     func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int)
     func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool, in window: UIWindow, from frame: CGRect)

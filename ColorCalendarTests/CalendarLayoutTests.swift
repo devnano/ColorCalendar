@@ -103,7 +103,7 @@ class CalendarLayoutTests: XCTestCase {
     }
     
     func testCurrentYearAfterForwardMonth() {
-        calendarLayout.forwardOneMonth()
+        calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.currentYear == 2017)
     }
     
@@ -131,19 +131,19 @@ class CalendarLayoutTests: XCTestCase {
 //        XCTAssert(!c.isCurrentMonth)
 //    }
     
-    func testForwardOneMonth() {
-        calendarLayout.forwardOneMonth()
+    func testmoveCalendarForward() {
+        calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.currentMonthName == "January")
     }
     
-    func testForwardOneMonthOnLastDayOfTheMonth() {
+    func testmoveCalendarForwardOnLastDayOfTheMonth() {
         createCalendarHighlight(year: 2016, month: 12, day: 31)
-        calendarLayout.forwardOneMonth()
+        calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.currentMonthName == "January")
     }
     
-    func testBackwardOneMonth() {
-        calendarLayout.backwardOneMonth()
+    func testmoveCalendarBackward() {
+        calendarLayout.moveCalendarBackward()
         XCTAssert(calendarLayout.currentMonthName == "November")
     }
     

@@ -46,7 +46,7 @@ class CalendarLayoutTests: XCTestCase {
         XCTAssert(calendarLayout.numberOfWeeks == 6)
     }
     
-    func testWeeksCount6WeeksWithMondayAsFirstWeekDay() {
+    func testWeeksCount6WeeksWithMondayAsFirstWeekday() {
         createCalendarHighlight(year: 2017, month: 4, day: 1)
         calendarLayout.firstWeekdayDay = 2
         XCTAssert(calendarLayout.numberOfWeeks == 6)
@@ -56,33 +56,33 @@ class CalendarLayoutTests: XCTestCase {
         XCTAssert(calendarLayout.daysPerWeek == 7)
     }
     
-    func testWeekdaysCountWhenCurrentWeekHasLessThan7DaysInMonth() {
+    func testWeekdaysCountWhenCurrentWeekHasLessThan7DaysInCurrentMonth() {
         createCalendarHighlight(year: 2016, month: 11, day: 1)
         XCTAssert(calendarLayout.daysPerWeek == 7)
     }
     
-    func testWeekdaySymbolAtWithoutOffset() {
+    func testWeekdaySymbolAtWithDefaultFirstWeekday() {
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "S")
     }
     
-    func testWeekdaySymbolAtWithoutOffsetWithLocale() {
+    func testWeekdaySymbolAtDefaultFirstWeekdayAndSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "D")
     }
     
     
-    func testWeekdaySymbolAtWithOffset() {
+    func testWeekdaySymbolAtWithMondayAsFirstWeekday() {
         calendarLayout.firstWeekdayDay = 2
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "M")
     }
     
-    func testWeekdaySymbolAtWithOffsetWithLocale() {
+    func testWeekdaySymbolAtWithMondayAsFirstWeekdayAndSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
         calendarLayout.firstWeekdayDay = 2
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "L")
     }
     
-    func testDateComponentsWithOffset() {
+    func testDateComponentsWithMondayAsFirstWeekday() {
         createCalendarHighlight(year: 2017, month: 3, day: 2)
         calendarLayout.firstWeekdayDay = 2
         let c = calendarLayout.dateComponents(at: 0)
@@ -93,7 +93,7 @@ class CalendarLayoutTests: XCTestCase {
         XCTAssert(calendarLayout.currentMonthName == "December")
     }
     
-    func testCurrentMonthNameWithLocale() {
+    func testCurrentMonthNameWithSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
         XCTAssert(calendarLayout.currentMonthName == "Diciembre")
     }
@@ -102,19 +102,19 @@ class CalendarLayoutTests: XCTestCase {
         XCTAssert(calendarLayout.currentYear == 2016)
     }
     
-    func testCurrentYearAfterForwardMonth() {
+    func testCurrentYearAfterMoveCalendarForward() {
         calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.currentYear == 2017)
     }
     
-    func testFirstMonthDayNumberAtWithoutOffset() {
+    func testFirstCalendarDayNumberWithDefaultFirstWeekday() {
         let c = calendarLayout.dateComponents(at: 0)
         
         XCTAssert(c.components.day! == 27)
         XCTAssert(!c.isCurrentMonth)
     }
     
-    func testLastMonthDayNumberAtWithoutOffset() {
+    func testLastMonthDayNumberAtWithDefaultFirstWeekday() {
         let c = calendarLayout.dateComponents(at: 34)
         
         XCTAssert(c.components.day! == 31)
@@ -131,27 +131,20 @@ class CalendarLayoutTests: XCTestCase {
 //        XCTAssert(!c.isCurrentMonth)
 //    }
     
-    func testmoveCalendarForward() {
+    func testMoveCalendarForward() {
         calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.currentMonthName == "January")
     }
     
-    func testmoveCalendarForwardOnLastDayOfTheMonth() {
+    func testMoveCalendarForwardOnLastDayOfTheMonth() {
         createCalendarHighlight(year: 2016, month: 12, day: 31)
         calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.currentMonthName == "January")
     }
     
-    func testmoveCalendarBackward() {
+    func testmMoveCalendarBackward() {
         calendarLayout.moveCalendarBackward()
         XCTAssert(calendarLayout.currentMonthName == "November")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
     
 }

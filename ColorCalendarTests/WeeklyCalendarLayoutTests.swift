@@ -40,7 +40,7 @@ class WeeklyCalendarLayoutTests: XCTestCase {
     
     // MARK: - test methods
     
-    func testWeeksCount6Weeks() {
+    func testWeeksCount1Week() {
         createCalendarHighlight(year: 2017, month: 4, day: 1)
         XCTAssert(calendarLayout.numberOfWeeks == 1)
     }

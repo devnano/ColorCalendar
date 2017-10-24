@@ -9,7 +9,7 @@
 import XCTest
 @testable import ColorCalendar
 
-class ColorHighlightTests: XCTestCase {
+class ColorLayoutTests: XCTestCase {
     
     var calendarLayout: CalendarLayout!
     var locale: Locale!

@@ -9,7 +9,7 @@
 import XCTest
 @testable import ColorCalendar
 
-class ColorLayoutTests: XCTestCase {
+class CalendarLayoutTests: XCTestCase {
     
     var calendarLayout: CalendarLayout!
     var locale: Locale!
@@ -43,13 +43,13 @@ class ColorLayoutTests: XCTestCase {
     
     func testWeeksCount6Weeks() {
         createCalendarHighlight(year: 2017, month: 4, day: 1)
-        XCTAssert(calendarLayout.weeksPerMonth == 6)
+        XCTAssert(calendarLayout.numberOfWeeks == 6)
     }
     
     func testWeeksCount6WeeksWithMondayAsFirstWeekDay() {
         createCalendarHighlight(year: 2017, month: 4, day: 1)
         calendarLayout.firstWeekdayDay = 2
-        XCTAssert(calendarLayout.weeksPerMonth == 6)
+        XCTAssert(calendarLayout.numberOfWeeks == 6)
     }
     
     func testWeekdaysCount() {

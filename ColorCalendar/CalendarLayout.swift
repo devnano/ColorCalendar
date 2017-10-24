@@ -60,7 +60,7 @@ public class CalendarLayout {
         
     }
     
-    var weeksPerMonth:Int {
+    var numberOfWeeks:Int {
 //            let range = calendar.range(of: .weekOfMonth, in: .month, for: date)
 //            return range.length
             // NOTE: Just hardcoded by now. Our aim is 6 weeks per mont – Like Mac Dashboard Calendar
@@ -120,4 +120,8 @@ public class CalendarLayout {
     public func backwardOneMonth() {
         changeDate(monthOffset: -1)
     }
+}
+
+public class WeeklyCalendarLayout: CalendarLayout {
+    
 }

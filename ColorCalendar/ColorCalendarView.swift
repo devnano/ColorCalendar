@@ -59,12 +59,12 @@ public class ColorCalendarView: UIView {
     
     var rowHeight: CGFloat {
         // Weeks + weekdays header
-        let totalRow = calendar.weeksPerMonth + 1
+        let totalRow = calendar.numberOfWeeks + 1
         return (calendarCollectionView.frame.height -  (CGFloat(totalRow - 1) * ColorCalendarView.calendarCellBorderWidth)) / CGFloat(totalRow)
     }
     
     var nOfDayCells: Int {
-        return calendar.daysPerWeek * calendar.weeksPerMonth        
+        return calendar.daysPerWeek * calendar.numberOfWeeks        
     }
     
     // MARK: - Public Properties

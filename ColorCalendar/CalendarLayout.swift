@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class CalendarHighlights {
+public class CalendarLayout {
     
     public var locale: Locale {
         get {

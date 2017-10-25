@@ -18,11 +18,9 @@ class MontlyCalendarLayoutTests: XCTestCase {
         super.setUp()
         locale = Locale(identifier: "EN_us")
         createMontlyCalendarLayout(year: 2016, month: 12, day: 27)
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {        
         super.tearDown()
         calendarLayout = nil
     }

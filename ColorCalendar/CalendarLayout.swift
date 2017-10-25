@@ -8,8 +8,7 @@
 
 import Foundation
 
-public class MonthlyCalendarLayout {
-    
+public class CalendarLayout {
     public var locale: Locale {
         get {
             return calendar.locale ?? Locale.current
@@ -21,57 +20,36 @@ public class MonthlyCalendarLayout {
     
     // MARK: - private properties
     
-    private var calendar:Calendar
-    private var date:Date
-    
-    private var firstDayOfCurrentMonthDate: Date {
-        var components = calendar.dateComponents([.day, .month, .year], from: date)
-        components.day = 1
-        let firstDayOfCurrentMonthDate = calendar.date(from: components)!
-        
-        return firstDayOfCurrentMonthDate
-    }
+    var calendar:Calendar
+    var date:Date
     
     
     // MARK: - initializers
     
     required public init(_ date:Date) {
         self.calendar = Calendar.current as Calendar
-        self.date = date        
-    }
-    
-    // MARK: - private API
-
-    private func changeDate(monthOffset offset:Int) {
-        let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
-        var components = DateComponents()
-        components.month = offset
-        date = calendar.date(byAdding: components, to: firstDayOfCurrentMonthDate)!
+        self.date = date
     }
     
     // MARK: - module internal API
     
     var daysPerWeek:Int {
-//            let range = calendar.range(of: .day, in: .weekOfYear, for: date)
-//            assert(range.location != NSNotFound)
-//            return range.length
-            // NOTE: Just hardcoded by now. Our aim is 7 days per week calendar – Gregorian.
+        //            let range = calendar.range(of: .day, in: .weekOfYear, for: date)
+        //            assert(range.location != NSNotFound)
+        //            return range.length
+        // NOTE: Just hardcoded by now. Our aim is 7 days per week calendar – Gregorian.
         return 7
         
     }
     
     var numberOfWeeks:Int {
-//            let range = calendar.range(of: .weekOfMonth, in: .month, for: date)
-//            return range.length
-            // NOTE: Just hardcoded by now. Our aim is 6 weeks per mont – Like Mac Dashboard Calendar
-        return 6
-        
+        fatalError(notImplementedMessage(functionName: #function))
     }
     
-    func weekdaySymbol(at index: Int) -> String {
-        assert(index < daysPerWeek, "Weekday index out of range")
-        // - 1 since .day property starts at 1 but dayNumber first index is 0
-        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayDay - 1) % daysPerWeek]
+    // MARK: - Private API
+    
+    func notImplementedMessage(functionName: String) -> String {
+        return "Subclasses need to implement the \(functionName) method."
     }
     
     // MARK: - public API
@@ -95,6 +73,55 @@ public class MonthlyCalendarLayout {
     }
     
     public func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
+         fatalError(notImplementedMessage(functionName: #function))
+    }
+    
+    public func moveCalendarForward() {
+        fatalError(notImplementedMessage(functionName: #function))
+    }
+    
+    public func moveCalendarBackward() {
+        fatalError(notImplementedMessage(functionName: #function))
+    }
+}
+
+public class MonthlyCalendarLayout: CalendarLayout {
+    
+    // MARK: - private API
+    
+    private func changeDate(monthOffset offset:Int) {
+        let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
+        var components = DateComponents()
+        components.month = offset
+        date = calendar.date(byAdding: components, to: firstDayOfCurrentMonthDate)!
+    }
+    
+    func weekdaySymbol(at index: Int) -> String {
+        assert(index < daysPerWeek, "Weekday index out of range")
+        // - 1 since .day property starts at 1 but dayNumber first index is 0
+        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayDay - 1) % daysPerWeek]
+    }
+    
+    // MARK: - module internal API
+    
+    override var numberOfWeeks:Int {
+        //            let range = calendar.range(of: .weekOfMonth, in: .month, for: date)
+        //            return range.length
+        // NOTE: Just hardcoded by now. Our aim is 6 weeks per mont – Like Mac Dashboard Calendar
+        return 6
+    }
+    
+    private var firstDayOfCurrentMonthDate: Date {
+        var components = calendar.dateComponents([.day, .month, .year], from: date)
+        components.day = 1
+        let firstDayOfCurrentMonthDate = calendar.date(from: components)!
+        
+        return firstDayOfCurrentMonthDate
+    }
+    
+    // MARK: - public API
+    
+    override public func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
         let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
         let firstDayOfCurrentMonthDateComponents = calendar.dateComponents([.weekday], from:firstDayOfCurrentMonthDate)
         let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday!
@@ -113,11 +140,11 @@ public class MonthlyCalendarLayout {
         return (components, month == currentMonth)
     }
     
-    public func moveCalendarForward() {
+    override public func moveCalendarForward() {
         changeDate(monthOffset: 1)
     }
     
-    public func moveCalendarBackward() {
+    override public func moveCalendarBackward() {
         changeDate(monthOffset: -1)
     }
 }

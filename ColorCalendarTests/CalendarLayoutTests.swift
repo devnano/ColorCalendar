@@ -9,16 +9,15 @@
 import XCTest
 @testable import ColorCalendar
 
-class CalendarLayoutTests: XCTestCase {
+class MontlyCalendarLayoutTests: XCTestCase {
     
-    var calendarLayout: CalendarLayout!
-    var locale: Locale!
-    
+    var calendarLayout: MontlyCalendarLayout!
+    var locale: Locale!    
     
     override func setUp() {
         super.setUp()
         locale = Locale(identifier: "EN_us")
-        createCalendarLayout(year: 2016, month: 12, day: 27)
+        createMontlyCalendarLayout(year: 2016, month: 12, day: 27)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -30,24 +29,24 @@ class CalendarLayoutTests: XCTestCase {
     
     // MARK: - private methods
     
-    private func createCalendarLayout(year:Int, month:Int, day:Int) {
+    private func createMontlyCalendarLayout(year:Int, month:Int, day:Int) {
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)
         let date = calendar.date(from: dateComponents)!
         
-        calendarLayout = CalendarLayout(date)
+        calendarLayout = MontlyCalendarLayout(date)
         calendarLayout.locale = locale
     }
     
     // MARK: - test methods
     
     func testWeeksCount6Weeks() {
-        createCalendarLayout(year: 2017, month: 4, day: 1)
+        createMontlyCalendarLayout(year: 2017, month: 4, day: 1)
         XCTAssert(calendarLayout.numberOfWeeks == 6)
     }
     
     func testWeeksCount6WeeksWithMondayAsFirstWeekday() {
-        createCalendarLayout(year: 2017, month: 4, day: 1)
+        createMontlyCalendarLayout(year: 2017, month: 4, day: 1)
         calendarLayout.firstWeekdayDay = 2
         XCTAssert(calendarLayout.numberOfWeeks == 6)
     }
@@ -57,7 +56,7 @@ class CalendarLayoutTests: XCTestCase {
     }
     
     func testWeekdaysCountWhenCurrentWeekHasLessThan7DaysInCurrentMonth() {
-        createCalendarLayout(year: 2016, month: 11, day: 1)
+        createMontlyCalendarLayout(year: 2016, month: 11, day: 1)
         XCTAssert(calendarLayout.daysPerWeek == 7)
     }
     
@@ -83,7 +82,7 @@ class CalendarLayoutTests: XCTestCase {
     }
     
     func testDateComponentsWithMondayAsFirstWeekday() {
-        createCalendarLayout(year: 2017, month: 3, day: 2)
+        createMontlyCalendarLayout(year: 2017, month: 3, day: 2)
         calendarLayout.firstWeekdayDay = 2
         let c = calendarLayout.dateComponents(at: 0)
         XCTAssert(c.components.day! == 27)
@@ -123,7 +122,7 @@ class CalendarLayoutTests: XCTestCase {
 
     // TODO: uncomment and fix this functionlity
 //    func testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday() {
-//        createCalendarLayout(year: 2017, month: 10, day: 24)
+//        createMontlyCalendarLayout(year: 2017, month: 10, day: 24)
 //        calendarLayout.firstWeekdayDay = 2
 //        let c = calendarLayout.dateComponents(at: 0)
 //
@@ -137,7 +136,7 @@ class CalendarLayoutTests: XCTestCase {
     }
     
     func testMoveCalendarForwardOnLastDayOfTheMonth() {
-        createCalendarLayout(year: 2016, month: 12, day: 31)
+        createMontlyCalendarLayout(year: 2016, month: 12, day: 31)
         calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.title == "January")
     }

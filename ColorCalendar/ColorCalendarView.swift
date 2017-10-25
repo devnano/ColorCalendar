@@ -69,7 +69,7 @@ public class ColorCalendarView: UIView {
     
     // MARK: - Public Properties
     
-    public var calendar: CalendarLayout = CalendarLayout(Date())
+    public var calendar: MontlyCalendarLayout = MontlyCalendarLayout(Date())
     
     public weak var delegate: ColorCalendarViewDelegate?
     

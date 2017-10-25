@@ -58,7 +58,7 @@ class WeeklyMonthlyCalendarLayoutTests: XCTestCase {
     }
     
     func testDateInNextWeek() {
-        let c = calendarLayout.dateComponents(at: 8)
+        let c = calendarLayout.dateComponents(at: 7)
         
         XCTAssert(c.components.day! == 29)
         XCTAssert(!c.isWithinCurrentCalendarPeriod)

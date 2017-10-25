@@ -46,6 +46,21 @@ public class CalendarLayout {
         fatalError(notImplementedMessage(functionName: #function))
     }
     
+    func dateComponents(at index: Int, referenceDate: Date) -> DateComponents {
+        let referenceDateComponents = calendar.dateComponents([.weekday], from:referenceDate)
+        let referenceDateWeekday = referenceDateComponents.weekday!
+        // TODO: logic below is only working if firstWeekdayDay is == 1 – default English and Spanish calendar
+        // A generic way of calculating the index should be implemente: to reproduce the issue set firstWeekdayDay to 2 and then go to October 2017 -> 1st day is not shown on the calendar. See and Uncomment test testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday
+        let indexOffsetFromReferenceDate = index - referenceDateWeekday + firstWeekdayDay
+        var components = DateComponents()
+        components.day = indexOffsetFromReferenceDate
+        let dateWithOffset = calendar.date(byAdding: components, to: referenceDate)!
+        
+        components = calendar.dateComponents([.day, .month, .year], from: dateWithOffset)
+        
+        return components
+    }
+    
     // MARK: - Private API
     
     func notImplementedMessage(functionName: String) -> String {
@@ -122,18 +137,7 @@ public class MonthlyCalendarLayout: CalendarLayout {
     // MARK: - public API
     
     override public func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
-        let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
-        let firstDayOfCurrentMonthDateComponents = calendar.dateComponents([.weekday], from:firstDayOfCurrentMonthDate)
-        let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday!
-        // TODO: logic below is only working if firstWeekdayDay is == 1 – default English and Spanish calendar
-        // A generic way of calculating the index should be implemente: to reproduce the issue set firstWeekdayDay to 2 and then go to October 2017 -> 1st day is not shown on the calendar. See and Uncomment test testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday
-        let indexOffsetFromFirstDayInMonth = index - firstDayOfCurrentMonthDateWeekday + firstWeekdayDay
-        
-        var components = DateComponents()
-        components.day = indexOffsetFromFirstDayInMonth
-        let dateWithOffset = calendar.date(byAdding: components, to: firstDayOfCurrentMonthDate)!
-        
-        components = calendar.dateComponents([.day, .month, .year], from: dateWithOffset)        
+        let components = dateComponents(at: index, referenceDate: self.firstDayOfCurrentMonthDate)
         let month:Int = components.month!
         let currentMonth:Int = calendar.component(.month, from: date)
         
@@ -150,5 +154,15 @@ public class MonthlyCalendarLayout: CalendarLayout {
 }
 
 public class WeeklyMonthlyCalendarLayout: MonthlyCalendarLayout {
+    // MARK: - module internal API
     
+    override var numberOfWeeks:Int {        
+        return 1
+    }
+    
+    override public func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
+        let components = dateComponents(at: index, referenceDate: date)
+        
+        return (components, index >= 0 && index < daysPerWeek)        
+    }
 }

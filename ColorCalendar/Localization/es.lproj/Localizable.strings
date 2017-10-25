@@ -8,3 +8,4 @@
 "button.PreviousMonth.AccessibilityLabel" = "Mes anterior";
 "button.NextMonth.AccessibilityLabel" = "Mes siguiente";
 "label.CurrentMonth.AccessibilityLabel" = "Mes actual";
+"weekly.calendar.TitleFormat" = "Semana del %@";

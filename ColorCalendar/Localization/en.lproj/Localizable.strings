@@ -8,3 +8,4 @@
 "button.PreviousMonth.AccessibilityLabel" = "Previous month";
 "button.NextMonth.AccessibilityLabel" = "Next month";
 "label.CurrentMonth.AccessibilityLabel" = "Current month";
+"weekly.calendar.TitleFormat" = "Week of %@";

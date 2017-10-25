@@ -136,7 +136,7 @@ public class MonthlyCalendarLayout: CalendarLayout {
     
     // MARK: - public API
     
-    override public func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
+    public override func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
         let components = dateComponents(at: index, referenceDate: self.firstDayOfCurrentMonthDate)
         let month:Int = components.month!
         let currentMonth:Int = calendar.component(.month, from: date)
@@ -144,25 +144,51 @@ public class MonthlyCalendarLayout: CalendarLayout {
         return (components, month == currentMonth)
     }
     
-    override public func moveCalendarForward() {
+    public override func moveCalendarForward() {
         changeDate(monthOffset: 1)
     }
     
-    override public func moveCalendarBackward() {
+    public override func moveCalendarBackward() {
         changeDate(monthOffset: -1)
     }
 }
 
 public class WeeklyMonthlyCalendarLayout: MonthlyCalendarLayout {
+    
+    // MARK: - Private API
+    
+    private func changeDate(weeksOffset offset:Int) {
+        var components = DateComponents()
+        components.day = offset * daysPerWeek
+        date = calendar.date(byAdding: components, to: date)!
+    }
+    
     // MARK: - module internal API
     
-    override var numberOfWeeks:Int {        
+    override var numberOfWeeks:Int {
         return 1
     }
     
-    override public func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
+    public override func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
         let components = dateComponents(at: index, referenceDate: date)
         
         return (components, index >= 0 && index < daysPerWeek)        
     }
+    
+    public override var title: String {
+        let components = dateComponents(at: 0).components
+        let date = calendar.date(from: components)!
+        
+        let dateString = date.short(withLocale: locale)
+        return R.string.localizable.weeklyCalendarTitleFormat(dateString)
+    }
+    
+    public override func moveCalendarForward() {
+        changeDate(weeksOffset: 1)
+    }
+    
+    public override func moveCalendarBackward() {
+        changeDate(weeksOffset: -1)
+    }
 }
+

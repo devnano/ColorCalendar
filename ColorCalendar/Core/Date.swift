@@ -39,4 +39,12 @@ extension Date {
         
         return dateFormatter.string(from: self).capitalized
     }
+    
+    public func short(withLocale locale: Locale) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.locale = locale
+        
+        return dateFormatter.string(from: self).capitalized
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  WeeklyMontlyCalendarLayoutTests.swift
+//  WeeklyMonthlyCalendarLayoutTests.swift
 //  ColorCalendarTests
 //
 //  Created by Mariano Heredia on 25/10/17.
@@ -9,15 +9,15 @@
 import XCTest
 @testable import ColorCalendar
 
-class WeeklyMontlyCalendarLayoutTests: XCTestCase {
+class WeeklyMonthlyCalendarLayoutTests: XCTestCase {
     
-    var calendarLayout: WeeklyMontlyCalendarLayout!
+    var calendarLayout: WeeklyMonthlyCalendarLayout!
     var locale: Locale!
     
     override func setUp() {
         super.setUp()
         locale = Locale(identifier: "EN_us")
-        createMontlyCalendarLayout(year: 2017, month: 10, day: 25)
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 25)
     }
     
     override func tearDown() {
@@ -27,19 +27,19 @@ class WeeklyMontlyCalendarLayoutTests: XCTestCase {
     
     // MARK: - private methods
     
-    private func createMontlyCalendarLayout(year:Int, month:Int, day:Int) {
+    private func createMonthlyCalendarLayout(year:Int, month:Int, day:Int) {
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)
         let date = calendar.date(from: dateComponents)!
         
-        calendarLayout = WeeklyMontlyCalendarLayout(date)
+        calendarLayout = WeeklyMonthlyCalendarLayout(date)
         calendarLayout.locale = locale
     }
     
     // MARK: - test methods
     
     func testWeeksCount1Week() {
-        createMontlyCalendarLayout(year: 2017, month: 4, day: 1)
+        createMonthlyCalendarLayout(year: 2017, month: 4, day: 1)
         XCTAssert(calendarLayout.numberOfWeeks == 1)
     }
     
@@ -65,7 +65,7 @@ class WeeklyMontlyCalendarLayoutTests: XCTestCase {
     }
     
     func testFirstCalendarDayNumberOnTheFirstMonthWeekWithDefaultFirstWeekday() {
-        createMontlyCalendarLayout(year: 2017, month: 11, day: 1)
+        createMonthlyCalendarLayout(year: 2017, month: 11, day: 1)
 
         let c = calendarLayout.dateComponents(at: 0)
         
@@ -90,7 +90,7 @@ class WeeklyMontlyCalendarLayoutTests: XCTestCase {
     }
     
     func testMoveCalendarForwardFirstCalendarDayNumberOnMonthLastWeekWithDefaultFirstWeekday() {
-        createMontlyCalendarLayout(year: 2017, month: 10, day: 29)
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 29)
         calendarLayout.moveCalendarForward()
         let c = calendarLayout.dateComponents(at: 0)
         XCTAssert(c.components.day! == 5)
@@ -99,7 +99,7 @@ class WeeklyMontlyCalendarLayoutTests: XCTestCase {
     }
     
     func testMoveCalendarBackwardFirstCalendarDayNumberOnMonthFirstWeekWithDefaultFirstWeekday() {
-        createMontlyCalendarLayout(year: 2017, month: 10, day: 1)
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 1)
         calendarLayout.moveCalendarBackward()
         let c = calendarLayout.dateComponents(at: 0)
         XCTAssert(c.components.day! == 24)
@@ -126,13 +126,13 @@ class WeeklyMontlyCalendarLayoutTests: XCTestCase {
     }
     
     func testEnglishTitleAfterMoveCalendarBackwardOnMonthFirstWeekWithDefaultFirstWeekday() {
-        createMontlyCalendarLayout(year: 2017, month: 10, day: 1)
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 1)
         calendarLayout.moveCalendarBackward()
         XCTAssert(calendarLayout.title == "Week of 9/24/2017")
     }
     
     func testSpanishTitleAfterMoveCalendarBackwardOnMonthFirstWeekWithDefaultFirstWeekday() {
-        createMontlyCalendarLayout(year: 2017, month: 10, day: 1)
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 1)
         calendarLayout.locale = Locale(identifier: "ES_ar")
         calendarLayout.moveCalendarBackward()
         XCTAssert(calendarLayout.title == "Semana del 24/10/2017")
@@ -150,13 +150,13 @@ class WeeklyMontlyCalendarLayoutTests: XCTestCase {
     }
     
     func testEnglishTitleAfterMoveCalendarForwardOnMonthLastWeekWithDefaultFirstWeekday() {
-        createMontlyCalendarLayout(year: 2017, month: 10, day: 29)
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 29)
         calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.title == "Week of 11/5/2017")
     }
     
     func testSpanishTitleAfterMoveCalendarForwardOnMonthLastWeekWithDefaultFirstWeekday() {
-        createMontlyCalendarLayout(year: 2017, month: 10, day: 29)
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 29)
         calendarLayout.locale = Locale(identifier: "ES_ar")
         calendarLayout.moveCalendarForward()
         XCTAssert(calendarLayout.title == "Semana del 5/11/2017")

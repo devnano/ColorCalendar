@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MontlyCalendarLayout {
+public class MonthlyCalendarLayout {
     
     public var locale: Locale {
         get {
@@ -122,6 +122,6 @@ public class MontlyCalendarLayout {
     }
 }
 
-public class WeeklyMontlyCalendarLayout: MontlyCalendarLayout {
+public class WeeklyMonthlyCalendarLayout: MonthlyCalendarLayout {
     
 }

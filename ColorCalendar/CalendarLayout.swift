@@ -86,7 +86,7 @@ public class CalendarLayout {
         }
     }
     
-    public var currentMonthName: String {
+    public var title: String {
         return date.monthName(withLocale: locale)
     }
     
@@ -94,7 +94,7 @@ public class CalendarLayout {
         return date.year(withCalendar: calendar)
     }
     
-    public func dateComponents(at index: Int) -> (components:DateComponents, isCurrentMonth:Bool) {
+    public func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
         let firstDayOfCurrentMonthDate = self.firstDayOfCurrentMonthDate
         let firstDayOfCurrentMonthDateComponents = calendar.dateComponents([.weekday], from:firstDayOfCurrentMonthDate)
         let firstDayOfCurrentMonthDateWeekday = firstDayOfCurrentMonthDateComponents.weekday!

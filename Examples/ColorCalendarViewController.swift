@@ -45,7 +45,7 @@ class TestColorCalendarViewDelegate: ColorCalendarViewDelegate {
     }
     func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int) {
     }
-    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool, in window: UIWindow, from frame: CGRect) {
+    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isWithinCurrentCalendarPeriod: Bool, in window: UIWindow, from frame: CGRect) {
         let text = date.full(withLocale: Locale.current)
         colorCalendarViewController.outputLabel.text = text
         colorCalendarViewController.outputLabel.accessibilityLabel = text

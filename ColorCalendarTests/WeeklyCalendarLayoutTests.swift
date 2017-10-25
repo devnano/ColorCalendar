@@ -17,7 +17,7 @@ class WeeklyCalendarLayoutTests: XCTestCase {
     override func setUp() {
         super.setUp()
         locale = Locale(identifier: "EN_us")
-        createCalendarHighlight(year: 2016, month: 12, day: 27)
+        createCalendarLayout(year: 2017, month: 10, day: 25)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -29,7 +29,7 @@ class WeeklyCalendarLayoutTests: XCTestCase {
     
     // MARK: - private methods
     
-    private func createCalendarHighlight(year:Int, month:Int, day:Int) {
+    private func createCalendarLayout(year:Int, month:Int, day:Int) {
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)
         let date = calendar.date(from: dateComponents)!
@@ -41,9 +41,126 @@ class WeeklyCalendarLayoutTests: XCTestCase {
     // MARK: - test methods
     
     func testWeeksCount1Week() {
-        createCalendarHighlight(year: 2017, month: 4, day: 1)
+        createCalendarLayout(year: 2017, month: 4, day: 1)
         XCTAssert(calendarLayout.numberOfWeeks == 1)
     }
     
+    func testFirstCalendarDayNumberOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        let c = calendarLayout.dateComponents(at: 0)
+        
+        XCTAssert(c.components.day! == 22)
+        XCTAssert(c.isWithinCurrentCalendarPeriod)
+    }
     
+    func testDateInPreviousWeek() {
+        let c = calendarLayout.dateComponents(at: -1)
+        
+        XCTAssert(c.components.day! == 21)
+        XCTAssert(!c.isWithinCurrentCalendarPeriod)
+    }
+    
+    func testDateInNextWeek() {
+        let c = calendarLayout.dateComponents(at: 8)
+        
+        XCTAssert(c.components.day! == 29)
+        XCTAssert(!c.isWithinCurrentCalendarPeriod)
+    }
+    
+    func testFirstCalendarDayNumberOnTheFirstMonthWeekWithDefaultFirstWeekday() {
+        createCalendarLayout(year: 2017, month: 11, day: 1)
+
+        let c = calendarLayout.dateComponents(at: 0)
+        
+        XCTAssert(c.components.day! == 29)
+        XCTAssert(c.isWithinCurrentCalendarPeriod)
+    }
+    
+    func testEnglishTitleOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        XCTAssert(calendarLayout.title == "Week of 10/22/2017")
+    }
+    
+    func testSpanishTitleOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        calendarLayout.locale = Locale(identifier: "ES_ar")
+        XCTAssert(calendarLayout.title == "Semana del 22/10/2017")
+    }
+    
+    func testMoveCalendarForwardFirstCalendarDayNumberOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        calendarLayout.moveCalendarForward()
+        let c = calendarLayout.dateComponents(at: 0)
+        XCTAssert(c.components.day! == 29)
+        XCTAssert(c.isWithinCurrentCalendarPeriod)
+    }
+    
+    func testMoveCalendarForwardFirstCalendarDayNumberOnMonthLastWeekWithDefaultFirstWeekday() {
+        createCalendarLayout(year: 2017, month: 10, day: 29)
+        calendarLayout.moveCalendarForward()
+        let c = calendarLayout.dateComponents(at: 0)
+        XCTAssert(c.components.day! == 5)
+        XCTAssert(c.components.month! == 11)
+        XCTAssert(c.isWithinCurrentCalendarPeriod)
+    }
+    
+    func testMoveCalendarBackwardFirstCalendarDayNumberOnMonthFirstWeekWithDefaultFirstWeekday() {
+        createCalendarLayout(year: 2017, month: 10, day: 1)
+        calendarLayout.moveCalendarBackward()
+        let c = calendarLayout.dateComponents(at: 0)
+        XCTAssert(c.components.day! == 24)
+        XCTAssert(c.components.month! == 9)
+    }
+    
+    func testMoveCalendarBackwardFirstCalendarDayNumberOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        calendarLayout.moveCalendarBackward()
+        let c = calendarLayout.dateComponents(at: 0)
+        XCTAssert(c.components.day! == 15)
+        XCTAssert(c.components.month! == 10)
+        XCTAssert(c.isWithinCurrentCalendarPeriod)
+    }
+    
+    func testEnglishTitleAfterMoveCalendarBackwardOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        calendarLayout.moveCalendarBackward()
+        XCTAssert(calendarLayout.title == "Week of 10/15/2017")
+    }
+    
+    func testSpanishTitleAfterMoveCalendarBackwardOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        calendarLayout.locale = Locale(identifier: "ES_ar")
+        calendarLayout.moveCalendarBackward()
+        XCTAssert(calendarLayout.title == "Semana del 15/10/2017")
+    }
+    
+    func testEnglishTitleAfterMoveCalendarBackwardOnMonthFirstWeekWithDefaultFirstWeekday() {
+        createCalendarLayout(year: 2017, month: 10, day: 1)
+        calendarLayout.moveCalendarBackward()
+        XCTAssert(calendarLayout.title == "Week of 9/24/2017")
+    }
+    
+    func testSpanishTitleAfterMoveCalendarBackwardOnMonthFirstWeekWithDefaultFirstWeekday() {
+        createCalendarLayout(year: 2017, month: 10, day: 1)
+        calendarLayout.locale = Locale(identifier: "ES_ar")
+        calendarLayout.moveCalendarBackward()
+        XCTAssert(calendarLayout.title == "Semana del 24/10/2017")
+    }
+    
+    func testEnglishTitleAfterMoveCalendarForwardOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        calendarLayout.moveCalendarForward()
+        XCTAssert(calendarLayout.title == "Week of 10/29/2017")
+    }
+    
+    func testSpanishTitleAfterMoveCalendarForwardOnMonthMiddleWeekWithDefaultFirstWeekday() {
+        calendarLayout.locale = Locale(identifier: "ES_ar")
+        calendarLayout.moveCalendarForward()
+        XCTAssert(calendarLayout.title == "Semana del 29/10/2017")
+    }
+    
+    func testEnglishTitleAfterMoveCalendarForwardOnMonthLastWeekWithDefaultFirstWeekday() {
+        createCalendarLayout(year: 2017, month: 10, day: 29)
+        calendarLayout.moveCalendarForward()
+        XCTAssert(calendarLayout.title == "Week of 11/5/2017")
+    }
+    
+    func testSpanishTitleAfterMoveCalendarForwardOnMonthLastWeekWithDefaultFirstWeekday() {
+        createCalendarLayout(year: 2017, month: 10, day: 29)
+        calendarLayout.locale = Locale(identifier: "ES_ar")
+        calendarLayout.moveCalendarForward()
+        XCTAssert(calendarLayout.title == "Semana del 5/11/2017")
+    }
 }

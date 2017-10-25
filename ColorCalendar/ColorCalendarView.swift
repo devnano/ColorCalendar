@@ -182,7 +182,7 @@ public class ColorCalendarView: UIView {
     }
     
     private func updatecurrentMonthTitleButton() {
-         currentMonthTitleButton.setTitle("\(calendar.currentMonthName) \(calendar.currentYear)", for: .normal)
+         currentMonthTitleButton.setTitle("\(calendar.title) \(calendar.currentYear)", for: .normal)
     }
     
     @objc private func switchToNextMonth() {
@@ -207,7 +207,7 @@ public protocol ColorCalendarViewDelegate: class {
     func colorCalendarDidSwitchmoveCalendarBackward(_ calendar: ColorCalendarView)
     func colorCalendarDidTapMonthName(_ calendar: ColorCalendarView)
     func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int)
-    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isCurrentMonth: Bool, in window: UIWindow, from frame: CGRect)
+    func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isWithinCurrentCalendarPeriod: Bool, in window: UIWindow, from frame: CGRect)
 }
 
 extension ColorCalendarView: UICollectionViewDataSource {
@@ -248,14 +248,14 @@ extension ColorCalendarView: UICollectionViewDataSource {
             let dayCell = cell as! ColorCalendarCollectionViewCell
             let dateComponents = calendar.dateComponents(at: row)
             cell.text = "\(dateComponents.components.day!)"
-            let dayColorsFunc = dateComponents.isCurrentMonth ? CalendarColors.calendarColors.currentMonthDayColors : CalendarColors.calendarColors.otherMonthsDayColors
+            let dayColorsFunc = dateComponents.isWithinCurrentCalendarPeriod ? CalendarColors.calendarColors.currentMonthDayColors : CalendarColors.calendarColors.otherMonthsDayColors
             let date = NSCalendar.current.date(from: dateComponents.components)!
             let dayColors = dayColorsFunc(date)
             
             cell.onTap({ (cell) in
                 let window = self.window!
                 let frame = window.convert(cell.frame, from: cell.superview!)
-                self.delegate?.colorCalendar(self, didTapCalendarDay: date, isCurrentMonth: dateComponents.isCurrentMonth, in: window, from: frame)
+                self.delegate?.colorCalendar(self, didTapCalendarDay: date, isWithinCurrentCalendarPeriod: dateComponents.isWithinCurrentCalendarPeriod, in: window, from: frame)
             })            
             
             dayCell.set(dayColors: dayColors, font: CalendarFonts.calendarFonts.fontFor(date: date))

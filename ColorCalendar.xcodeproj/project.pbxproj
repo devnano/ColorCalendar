@@ -20,6 +20,8 @@
 		3E8B3DAB1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
 		3E8B3DAC1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
 		3EABE2AF1F9FF6F1006BAA04 /* WeeklyCalendarLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABE2AE1F9FF6F1006BAA04 /* WeeklyCalendarLayoutTests.swift */; };
+		3EABE2B11FA15EC9006BAA04 /* WeeklyColorCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABE2B01FA15EC9006BAA04 /* WeeklyColorCalendarViewController.swift */; };
+		3EABE2B31FA15F14006BAA04 /* MonthlyColorCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABE2B21FA15F14006BAA04 /* MonthlyColorCalendarViewController.swift */; };
 		3EAC549F1F31A7D4008A3D8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC549E1F31A7D4008A3D8A /* AppDelegate.swift */; };
 		3EAC54A11F31A7D4008A3D8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAC54A01F31A7D4008A3D8A /* ViewController.swift */; };
 		3EAC54A41F31A7D4008A3D8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EAC54A21F31A7D4008A3D8A /* Main.storyboard */; };
@@ -121,6 +123,8 @@
 		3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesTableViewController.swift; sourceTree = "<group>"; };
 		3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarDayViewTests.swift; sourceTree = "<group>"; };
 		3EABE2AE1F9FF6F1006BAA04 /* WeeklyCalendarLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarLayoutTests.swift; sourceTree = "<group>"; };
+		3EABE2B01FA15EC9006BAA04 /* WeeklyColorCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyColorCalendarViewController.swift; sourceTree = "<group>"; };
+		3EABE2B21FA15F14006BAA04 /* MonthlyColorCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyColorCalendarViewController.swift; sourceTree = "<group>"; };
 		3EAC549C1F31A7D4008A3D8A /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAC549E1F31A7D4008A3D8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EAC54A01F31A7D4008A3D8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				3EAC54A01F31A7D4008A3D8A /* ViewController.swift */,
 				3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */,
 				3E0B47ED1F398127004A53C3 /* ColorCalendarViewController.swift */,
+				3EABE2B21FA15F14006BAA04 /* MonthlyColorCalendarViewController.swift */,
+				3EABE2B01FA15EC9006BAA04 /* WeeklyColorCalendarViewController.swift */,
 				3EAC54A21F31A7D4008A3D8A /* Main.storyboard */,
 				3EAC54A51F31A7D4008A3D8A /* Assets.xcassets */,
 				3EAC54A71F31A7D4008A3D8A /* LaunchScreen.storyboard */,
@@ -622,7 +628,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EABE2B31FA15F14006BAA04 /* MonthlyColorCalendarViewController.swift in Sources */,
 				3E0B47EE1F398127004A53C3 /* ColorCalendarViewController.swift in Sources */,
+				3EABE2B11FA15EC9006BAA04 /* WeeklyColorCalendarViewController.swift in Sources */,
 				3EAC54A11F31A7D4008A3D8A /* ViewController.swift in Sources */,
 				3EAC549F1F31A7D4008A3D8A /* AppDelegate.swift in Sources */,
 				3E8B3DA91F33DCA9006E87E4 /* ExamplesTableViewController.swift in Sources */,

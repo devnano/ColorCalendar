@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xfl-FX-m1U">
-    <device id="ipad9_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +16,7 @@
             <objects>
                 <navigationController id="xfl-FX-m1U" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fao-q4-jWb">
-                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -32,15 +32,15 @@
             <objects>
                 <tableViewController id="gPt-0i-l0b" customClass="ExamplesTableViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TKX-Us-ktW">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExampleTableViewCell" id="4Db-XS-o4J" customClass="ExampleTableViewCell" customModule="Examples" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Db-XS-o4J" id="Y1y-b8-639">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar Day View Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyn-vn-M6v">
@@ -51,12 +51,14 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jyn-vn-M6v" firstAttribute="leading" secondItem="Y1y-b8-639" secondAttribute="leadingMargin" constant="24" id="C7k-mT-Ko6"/>
+                                        <constraint firstAttribute="trailing" secondItem="jyn-vn-M6v" secondAttribute="trailingMargin" constant="209" id="6Gk-za-oIE"/>
+                                        <constraint firstItem="jyn-vn-M6v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y1y-b8-639" secondAttribute="leadingMargin" id="C7k-mT-Ko6"/>
                                         <constraint firstItem="jyn-vn-M6v" firstAttribute="centerY" secondItem="Y1y-b8-639" secondAttribute="centerY" id="wHo-84-Kx5"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="label" destination="jyn-vn-M6v" id="ZQ6-nK-WNt"/>
+                                    <segue destination="Jeo-cC-iil" kind="show" identifier="WeeklyColorCalendarViewExampleSegue" trigger="accessoryAction" id="4Qb-ow-PXP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,7 +72,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <segue destination="fVY-oT-FOl" kind="show" identifier="ColorCalendarDayViewExampleSegue" id="G2B-vm-i9J"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="ColorCalendarViewExampleSegue" id="yfi-Cg-AyI"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="MonthlyColorCalendarViewExampleSegue" id="yfi-Cg-AyI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sb-62-LQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,7 +88,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3SZ-9f-MzM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Fx-xN-wFA">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f5k-S1-H4Q" customClass="ColorCalendarDayView" customModule="ColorCalendar">
@@ -149,20 +151,20 @@
             </objects>
             <point key="canvasLocation" x="-974" y="-734"/>
         </scene>
-        <!--Color Calendar View Controller-->
+        <!--Monthly Color Calendar View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ColorCalendarViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MonthlyColorCalendarViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8P-y4-1jv" customClass="ColorCalendarView" customModule="ColorCalendar">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="767.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="413.66666666666669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="ColorCalendarView"/>
                                 <constraints>
@@ -170,10 +172,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="sBs-4b-fNf">
-                                <rect key="frame" x="324" y="767.5" width="120" height="192.5"/>
+                                <rect key="frame" x="0.0" y="413.66666666666674" width="0.0" height="258.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQb-ne-od5">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                         <accessibility key="accessibilityConfiguration" label="Add random text"/>
                                         <state key="normal" title="Add random text"/>
                                         <connections>
@@ -181,7 +183,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Output" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD4-QG-zNW">
-                                        <rect key="frame" x="0.0" y="144.5" width="120" height="48"/>
+                                        <rect key="frame" x="0.0" y="237.99999999999994" width="0.0" height="20.333333333333314"/>
                                         <accessibility key="accessibilityConfiguration" label="Output"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -218,6 +220,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-465" y="126"/>
+        </scene>
+        <!--Weekly Color Calendar View Controller-->
+        <scene sceneID="oQW-kK-7IX">
+            <objects>
+                <viewController id="Jeo-cC-iil" customClass="WeeklyColorCalendarViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u82-cC-6LB"/>
+                        <viewControllerLayoutGuide type="bottom" id="sfN-om-W0W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gZt-pu-HJ1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFs-lv-JW9" customClass="ColorCalendarView" customModule="ColorCalendar">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="413.66666666666669"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label="ColorCalendarView"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cFs-lv-JW9" secondAttribute="height" multiplier="1:1" id="M5M-FA-tjr"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="gv3-c4-6Sy">
+                                <rect key="frame" x="0.0" y="413.66666666666674" width="0.0" height="258.33333333333326"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-CE-BN7">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Add random text"/>
+                                        <state key="normal" title="Add random text"/>
+                                        <connections>
+                                            <action selector="onAddRandomTextTap:" destination="Jeo-cC-iil" eventType="touchUpInside" id="NUS-nJ-BGX"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Output" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEG-3P-INa">
+                                        <rect key="frame" x="0.0" y="237.99999999999994" width="0.0" height="20.333333333333314"/>
+                                        <accessibility key="accessibilityConfiguration" label="Output"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <accessibility key="accessibilityConfiguration" label="root">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstItem="cFs-lv-JW9" firstAttribute="width" relation="lessThanOrEqual" secondItem="gZt-pu-HJ1" secondAttribute="width" id="Cv0-Zw-0vp"/>
+                            <constraint firstItem="gv3-c4-6Sy" firstAttribute="top" secondItem="cFs-lv-JW9" secondAttribute="bottom" id="Iaq-sB-cgQ"/>
+                            <constraint firstItem="sfN-om-W0W" firstAttribute="top" secondItem="gv3-c4-6Sy" secondAttribute="bottom" id="KTg-8T-RVJ"/>
+                            <constraint firstItem="cFs-lv-JW9" firstAttribute="centerX" secondItem="gZt-pu-HJ1" secondAttribute="centerX" id="OgQ-K4-lIe"/>
+                            <constraint firstItem="cFs-lv-JW9" firstAttribute="top" secondItem="u82-cC-6LB" secondAttribute="bottom" id="WFn-g1-e96"/>
+                            <constraint firstItem="gv3-c4-6Sy" firstAttribute="centerX" secondItem="gZt-pu-HJ1" secondAttribute="centerX" id="dlz-cp-AKP"/>
+                            <constraint firstItem="gv3-c4-6Sy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gZt-pu-HJ1" secondAttribute="leadingMargin" id="pyI-Fz-KLr"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="gv3-c4-6Sy" secondAttribute="trailing" priority="250" id="wNp-A2-ObR"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="colorCalendarView" destination="cFs-lv-JW9" id="1L6-Tc-KqG"/>
+                        <outlet property="outputLabel" destination="YEG-3P-INa" id="DhM-JN-EkE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QjW-0u-4eE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1899" y="867"/>
         </scene>
     </scenes>
 </document>

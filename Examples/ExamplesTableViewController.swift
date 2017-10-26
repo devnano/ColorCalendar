@@ -10,7 +10,7 @@ import UIKit
 
 class ExamplesTableViewController: UITableViewController {
     
-    let examplesNames = ["ColorCalendarDayViewExample","ColorCalendarViewExample"]
+    let examplesNames = ["ColorCalendarDayViewExample","MonthlyColorCalendarViewExample","WeeklyColorCalendarViewExample"]
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return examplesNames.count

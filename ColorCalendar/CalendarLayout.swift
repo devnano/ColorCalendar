@@ -67,7 +67,13 @@ public class CalendarLayout {
         return "Subclasses need to implement the \(functionName) method."
     }
     
-    // MARK: - public API
+    // MARK: - public API   
+    
+    func weekdaySymbol(at index: Int) -> String {
+        assert(index < daysPerWeek, "Weekday index out of range")
+        // - 1 since .day property starts at 1 but dayNumber first index is 0
+        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayDay - 1) % daysPerWeek]
+    }
     
     public var firstWeekdayDay: Int {
         set {
@@ -80,7 +86,7 @@ public class CalendarLayout {
     }
     
     public var title: String {
-        return date.monthName(withLocale: locale)
+        return "\(date.monthName(withLocale: locale)) \(currentYear)"
     }
     
     public var currentYear: Int {
@@ -109,12 +115,6 @@ public class MonthlyCalendarLayout: CalendarLayout {
         var components = DateComponents()
         components.month = offset
         date = calendar.date(byAdding: components, to: firstDayOfCurrentMonthDate)!
-    }
-    
-    func weekdaySymbol(at index: Int) -> String {
-        assert(index < daysPerWeek, "Weekday index out of range")
-        // - 1 since .day property starts at 1 but dayNumber first index is 0
-        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayDay - 1) % daysPerWeek]
     }
     
     // MARK: - module internal API
@@ -153,7 +153,7 @@ public class MonthlyCalendarLayout: CalendarLayout {
     }
 }
 
-public class WeeklyMonthlyCalendarLayout: MonthlyCalendarLayout {
+public class WeeklyCalendarLayout: CalendarLayout {
     
     // MARK: - Private API
     

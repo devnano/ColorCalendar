@@ -11,7 +11,7 @@ import ColorCalendar
 
 
 class ColorCalendarViewController: UIViewController {
-    @IBOutlet fileprivate weak var colorCalendarView: ColorCalendarView!
+    @IBOutlet weak var colorCalendarView: ColorCalendarView!
     @IBOutlet fileprivate weak var outputLabel: UILabel!
     private var delegate: ColorCalendarViewDelegate!
     

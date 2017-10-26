@@ -44,16 +44,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar Day View Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyn-vn-M6v">
-                                            <rect key="frame" x="32" y="11" width="181" height="21"/>
+                                            <rect key="frame" x="5" y="0.0" width="409" height="43.666666666666664"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="jyn-vn-M6v" secondAttribute="trailingMargin" constant="209" id="6Gk-za-oIE"/>
-                                        <constraint firstItem="jyn-vn-M6v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y1y-b8-639" secondAttribute="leadingMargin" id="C7k-mT-Ko6"/>
-                                        <constraint firstItem="jyn-vn-M6v" firstAttribute="centerY" secondItem="Y1y-b8-639" secondAttribute="centerY" id="wHo-84-Kx5"/>
+                                        <constraint firstAttribute="bottom" secondItem="jyn-vn-M6v" secondAttribute="bottom" id="2t5-na-jZF"/>
+                                        <constraint firstItem="jyn-vn-M6v" firstAttribute="top" secondItem="Y1y-b8-639" secondAttribute="top" id="iTL-c2-JvH"/>
+                                        <constraint firstAttribute="trailing" secondItem="jyn-vn-M6v" secondAttribute="trailing" id="sdD-Is-Dx2"/>
+                                        <constraint firstItem="jyn-vn-M6v" firstAttribute="leading" secondItem="Y1y-b8-639" secondAttribute="leading" constant="5" id="wRk-Tq-pXk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -238,7 +239,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" label="ColorCalendarView"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="cFs-lv-JW9" secondAttribute="height" multiplier="1:1" id="M5M-FA-tjr"/>
+                                    <constraint firstAttribute="width" secondItem="cFs-lv-JW9" secondAttribute="height" multiplier="3:1" id="M5M-FA-tjr"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="gv3-c4-6Sy">

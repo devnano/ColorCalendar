@@ -11,4 +11,8 @@ import ColorCalendar
 
 class WeeklyColorCalendarViewController: ColorCalendarViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        colorCalendarView.calendar = WeeklyCalendarLayout(Date())
+    }
+    
 }

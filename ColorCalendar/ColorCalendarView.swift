@@ -69,7 +69,12 @@ public class ColorCalendarView: UIView {
     
     // MARK: - Public Properties
     
-    public var calendar: MonthlyCalendarLayout = MonthlyCalendarLayout(Date())
+    public var calendar: CalendarLayout = MonthlyCalendarLayout(Date())  {
+        didSet {
+            updatecurrentMonthTitleButton()
+            setNeedsLayout()
+        }
+    }    
     
     public weak var delegate: ColorCalendarViewDelegate?
     
@@ -182,7 +187,7 @@ public class ColorCalendarView: UIView {
     }
     
     private func updatecurrentMonthTitleButton() {
-         currentMonthTitleButton.setTitle("\(calendar.title) \(calendar.currentYear)", for: .normal)
+         currentMonthTitleButton.setTitle(calendar.title, for: .normal)
     }
     
     @objc private func switchToNextMonth() {

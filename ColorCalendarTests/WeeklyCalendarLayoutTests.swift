@@ -1,5 +1,5 @@
 //
-//  WeeklyMonthlyCalendarLayoutTests.swift
+//  WeeklyCalendarLayoutTests.swift
 //  ColorCalendarTests
 //
 //  Created by Mariano Heredia on 25/10/17.
@@ -9,9 +9,9 @@
 import XCTest
 @testable import ColorCalendar
 
-class WeeklyMonthlyCalendarLayoutTests: XCTestCase {
+class WeeklyCalendarLayoutTests: XCTestCase {
     
-    var calendarLayout: WeeklyMonthlyCalendarLayout!
+    var calendarLayout: WeeklyCalendarLayout!
     var locale: Locale!
     
     override func setUp() {
@@ -32,7 +32,7 @@ class WeeklyMonthlyCalendarLayoutTests: XCTestCase {
         let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)
         let date = calendar.date(from: dateComponents)!
         
-        calendarLayout = WeeklyMonthlyCalendarLayout(date)
+        calendarLayout = WeeklyCalendarLayout(date)
         calendarLayout.locale = locale
     }
     

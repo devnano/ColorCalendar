@@ -37,9 +37,9 @@ class TestColorCalendarViewDelegate: ColorCalendarViewDelegate {
     required init(_ colorCalendarViewController: ColorCalendarViewController) {
         self.colorCalendarViewController = colorCalendarViewController
     }
-    func colorCalendarDidSwitchmoveCalendarForward(_ calendar: ColorCalendarView) {
+    func colorCalendarDidMoveCalendarForward(_ calendar: ColorCalendarView) {
     }
-    func colorCalendarDidSwitchmoveCalendarBackward(_ calendar: ColorCalendarView) {
+    func colorCalendarDidMoveCalendarBackward(_ calendar: ColorCalendarView) {
     }
     func colorCalendarDidTapMonthName(_ calendar: ColorCalendarView) {
     }

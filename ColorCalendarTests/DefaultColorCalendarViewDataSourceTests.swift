@@ -21,6 +21,7 @@ class DefaultColorCalendarViewDataSourceTests: XCTestCase {
         createDate()
         dataSource = DefaultColorCalendarViewDataSource()
         colorCalendarView = ColorCalendarView()
+        colorCalendarView.calendar = MonthlyCalendarLayout(Date())
     }
     
     override func tearDown() {

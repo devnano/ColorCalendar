@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 
-@IBDesignable
+//@IBDesignable
 public class ColorCalendarView: UIView {
     // MARK: - Static constants
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier",
@@ -69,7 +69,7 @@ public class ColorCalendarView: UIView {
     
     // MARK: - Public Properties
     
-    public var calendar: CalendarLayout = MonthlyCalendarLayout(Date())  {
+    public var calendar: CalendarLayout! {
         didSet {
             updatecurrentMonthTitleButton()
             setNeedsLayout()
@@ -107,7 +107,8 @@ public class ColorCalendarView: UIView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        calendarCollectionView.performBatchUpdates(nil, completion: nil)
+        reloadCalendar()
+//        calendarCollectionView.performBatchUpdates(nil, completion: nil)
     }
     
     // MARK: - Public Methods    
@@ -129,7 +130,6 @@ public class ColorCalendarView: UIView {
         
         addGestureRecognizer(swipeLeft)
         addGestureRecognizer(swipeRight)
-        reloadCalendar()
     }
     
     private func createMonthSwitcherView() -> UIView {

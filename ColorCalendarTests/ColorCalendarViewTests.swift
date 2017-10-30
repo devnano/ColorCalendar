@@ -12,31 +12,27 @@ import XCTest
 @testable import ColorCalendar
 
 class ColorCalendarViewTests: XCTestCase {
+    var colorCalendar: ColorCalendarView!
     
     override func setUp() {
         super.setUp()
+        colorCalendar = ColorCalendarView()
+        colorCalendar.calendar = MonthlyCalendarLayout(Date())
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
     func testDefaultCalendarHighlightRowHeightZero() {
-        let colorCalendar = ColorCalendarView()
-        
         XCTAssert(colorCalendar.rowHeight == 0)
     }
     
     func testDefaultCalendarHighlightCurrentDate() {
-        let colorCalendar = ColorCalendarView()
-        
         XCTAssert(colorCalendar.calendar.locale == .current)
     }
     
     func testCurrentMonthNotNil() {
-        let colorCalendar = ColorCalendarView()
-        
         XCTAssert(colorCalendar.currentMonthTitleButton.titleLabel?.text != nil)
     }
 }

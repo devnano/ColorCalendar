@@ -123,7 +123,7 @@ public class ColorCalendarView: UIView {
         }
         
         reloadCalendar()
-//        calendarCollectionView.performBatchUpdates(nil, completion: nil)
+        calendarCollectionView.performBatchUpdates(nil, completion: nil)
     }
     
     

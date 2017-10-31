@@ -10,6 +10,8 @@ import UIKit
 import ColorCalendar
 
 class MonthlyColorCalendarViewController: ColorCalendarViewController {
-    
+    override func viewWillAppear(_ animated: Bool) {
+        colorCalendarView.calendar = MonthlyCalendarLayout(Date())
+    }
 }
 

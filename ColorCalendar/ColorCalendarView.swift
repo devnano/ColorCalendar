@@ -16,9 +16,11 @@ public class ColorCalendarView: UIView {
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier",
                            calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
     fileprivate static let calendarCellBorderWidth:CGFloat = 0.0
-    static let minMonthSwitcherHeight: CGFloat = 20.0
+    
     
     // MARK: - Properties
+    
+    public var monthSwitcherHeightProportion: CGFloat = 0.15
     
     lazy var calendarCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame:.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -44,7 +46,7 @@ public class ColorCalendarView: UIView {
         self.addSubview(switcherView)
         switcherView.snp.makeConstraints { (make) in
             make.left.top.right.equalToSuperview()
-            monthSwitcherHeightConstraint = make.height.equalToSuperview().multipliedBy(0.15).constraint
+            make.height.equalToSuperview().multipliedBy(monthSwitcherHeightProportion)
         }
         
         return switcherView
@@ -67,8 +69,6 @@ public class ColorCalendarView: UIView {
     var nOfDayCells: Int {
         return calendar.daysPerWeek * calendar.numberOfWeeks        
     }
-    
-    var monthSwitcherHeightConstraint: Constraint?
     
     // MARK: - Public Properties
     
@@ -110,18 +110,6 @@ public class ColorCalendarView: UIView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        
-        let monthSwitcherFrame = monthSwitcherView.frame
-        if monthSwitcherFrame.height != 0.0 && monthSwitcherFrame.height < ColorCalendarView.minMonthSwitcherHeight {
-            monthSwitcherHeightConstraint?.deactivate()
-            monthSwitcherView.snp.makeConstraints({ (make) in
-                monthSwitcherHeightConstraint = make.height.equalTo(ColorCalendarView.minMonthSwitcherHeight).constraint
-            })
-            self.setNeedsLayout()
-            self.layoutIfNeeded()
-            return
-        }
-        
         reloadCalendar()
         calendarCollectionView.performBatchUpdates(nil, completion: nil)
     }

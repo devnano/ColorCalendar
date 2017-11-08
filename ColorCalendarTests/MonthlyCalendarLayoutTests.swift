@@ -87,12 +87,12 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     }
     
     func testCurrentMonthName() {
-        XCTAssert(calendarLayout.title == "December")
+        XCTAssert(calendarLayout.title == "December 2016")
     }
     
     func testCurrentMonthNameWithSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
-        XCTAssert(calendarLayout.title == "Diciembre")
+        XCTAssert(calendarLayout.title == "Diciembre 2016")
     }
     
     func testCurrentYear() {
@@ -119,29 +119,30 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     }
 
     // TODO: uncomment and fix this functionlity
-//    func testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday() {
-//        createMonthlyCalendarLayout(year: 2017, month: 10, day: 24)
-//        calendarLayout.firstWeekdayDay = 2
-//        let c = calendarLayout.dateComponents(at: 0)
-//
-//        XCTAssert(c.components.day! == 25)
-//        XCTAssert(!c.isWithinCurrentCalendarPeriod)
-//    }
+    func testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday() {
+        createMonthlyCalendarLayout(year: 2017, month: 10, day: 24)
+        calendarLayout.firstWeekdayDay = 2
+        let c = calendarLayout.dateComponents(at: 0)
+
+        XCTAssert(c.components.day! == 25)
+        XCTAssert(c.components.month! == 9)
+        XCTAssert(!c.isWithinCurrentCalendarPeriod)
+    }
     
     func testMoveCalendarForward() {
         calendarLayout.moveCalendarForward()
-        XCTAssert(calendarLayout.title == "January")
+        XCTAssert(calendarLayout.title == "January 2017")
     }
     
     func testMoveCalendarForwardOnLastDayOfTheMonth() {
         createMonthlyCalendarLayout(year: 2016, month: 12, day: 31)
         calendarLayout.moveCalendarForward()
-        XCTAssert(calendarLayout.title == "January")
+        XCTAssert(calendarLayout.title == "January 2017")
     }
     
     func testmMoveCalendarBackward() {
         calendarLayout.moveCalendarBackward()
-        XCTAssert(calendarLayout.title == "November")
+        XCTAssert(calendarLayout.title == "November 2016")
     }
     
 }

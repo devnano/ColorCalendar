@@ -46,11 +46,9 @@ public class CalendarLayout {
         fatalError(notImplementedMessage(functionName: #function))
     }
     
-    func dateComponents(at index: Int, referenceDate: Date) -> DateComponents {
+    fileprivate func dateComponents(at index: Int, referenceDate: Date) -> DateComponents {
         let referenceDateComponents = calendar.dateComponents([.weekday], from:referenceDate)
         let referenceDateWeekday = referenceDateComponents.weekday!
-        // TODO: logic below is only working if firstWeekdayDay is == 1 – default English and Spanish calendar
-        // A generic way of calculating the index should be implemente: to reproduce the issue set firstWeekdayDay to 2 and then go to October 2017 -> 1st day is not shown on the calendar. See and Uncomment test testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday
         let indexOffsetFromReferenceDate = index - referenceDateWeekday + firstWeekdayDay
         var components = DateComponents()
         components.day = indexOffsetFromReferenceDate
@@ -137,7 +135,16 @@ public class MonthlyCalendarLayout: CalendarLayout {
     // MARK: - public API
     
     public override func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
-        let components = dateComponents(at: index, referenceDate: self.firstDayOfCurrentMonthDate)
+        var adjustedIndex: Int = index
+        if firstWeekdayDay != 1 {
+            // Since first weekday doesn't match the default one (1), we have to check if we need some adjustements on the offset to fit all the current month days in the calendar:
+            let currentDateMonth = calendar.dateComponents([.month], from: date).month!
+            let firstCalendarDay = dateComponents(at: 0, referenceDate: self.firstDayOfCurrentMonthDate)
+            if firstCalendarDay.month == currentDateMonth && firstCalendarDay.day != 1 {
+                adjustedIndex -= daysPerWeek
+            }
+        }
+        let components = dateComponents(at: adjustedIndex, referenceDate: self.firstDayOfCurrentMonthDate)
         let month:Int = components.month!
         let currentMonth:Int = calendar.component(.month, from: date)
         

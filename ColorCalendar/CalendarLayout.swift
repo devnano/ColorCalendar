@@ -49,7 +49,7 @@ public class CalendarLayout {
     fileprivate func dateComponents(at index: Int, referenceDate: Date) -> DateComponents {
         let referenceDateComponents = calendar.dateComponents([.weekday], from:referenceDate)
         let referenceDateWeekday = referenceDateComponents.weekday!
-        let indexOffsetFromReferenceDate = index - referenceDateWeekday + firstWeekdayDay
+        let indexOffsetFromReferenceDate = index - referenceDateWeekday + firstWeekday
         var components = DateComponents()
         components.day = indexOffsetFromReferenceDate
         let dateWithOffset = calendar.date(byAdding: components, to: referenceDate)!
@@ -70,10 +70,10 @@ public class CalendarLayout {
     func weekdaySymbol(at index: Int) -> String {
         assert(index < daysPerWeek, "Weekday index out of range")
         // - 1 since .day property starts at 1 but dayNumber first index is 0
-        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekdayDay - 1) % daysPerWeek]
+        return calendar.veryShortStandaloneWeekdaySymbols[(index + firstWeekday - 1) % daysPerWeek]
     }
     
-    public var firstWeekdayDay: Int {
+    public var firstWeekday: Int {
         set {
             calendar.firstWeekday = newValue
         }
@@ -136,7 +136,7 @@ public class MonthlyCalendarLayout: CalendarLayout {
     
     public override func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
         var adjustedIndex: Int = index
-        if firstWeekdayDay != 1 {
+        if firstWeekday != 1 {
             // Since first weekday doesn't match the default one (1), we have to check if we need some adjustements on the offset to fit all the current month days in the calendar:
             let currentDateMonth = calendar.dateComponents([.month], from: date).month!
             let firstCalendarDay = dateComponents(at: 0, referenceDate: self.firstDayOfCurrentMonthDate)

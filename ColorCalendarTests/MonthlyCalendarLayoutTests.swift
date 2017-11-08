@@ -45,7 +45,7 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     
     func testWeeksCount6WeeksWithMondayAsFirstWeekday() {
         createMonthlyCalendarLayout(year: 2017, month: 4, day: 1)
-        calendarLayout.firstWeekdayDay = 2
+        calendarLayout.firstWeekday = 2
         XCTAssert(calendarLayout.numberOfWeeks == 6)
     }
     
@@ -69,19 +69,19 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     
     
     func testWeekdaySymbolAtWithMondayAsFirstWeekday() {
-        calendarLayout.firstWeekdayDay = 2
+        calendarLayout.firstWeekday = 2
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "M")
     }
     
     func testWeekdaySymbolAtWithMondayAsFirstWeekdayAndSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
-        calendarLayout.firstWeekdayDay = 2
+        calendarLayout.firstWeekday = 2
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "L")
     }
     
     func testDateComponentsWithMondayAsFirstWeekday() {
         createMonthlyCalendarLayout(year: 2017, month: 3, day: 2)
-        calendarLayout.firstWeekdayDay = 2
+        calendarLayout.firstWeekday = 2
         let c = calendarLayout.dateComponents(at: 0)
         XCTAssert(c.components.day! == 27)
     }
@@ -121,7 +121,7 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     // TODO: uncomment and fix this functionlity
     func testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday() {
         createMonthlyCalendarLayout(year: 2017, month: 10, day: 24)
-        calendarLayout.firstWeekdayDay = 2
+        calendarLayout.firstWeekday = 2
         let c = calendarLayout.dateComponents(at: 0)
 
         XCTAssert(c.components.day! == 25)

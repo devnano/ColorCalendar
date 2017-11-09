@@ -126,8 +126,8 @@ public class ColorCalendarView: UIView {
     
     private func createUI() {
         self.backgroundColor = CalendarColors.calendarColors.backgroundColor
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(switchToNextMonth))
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(switchToPreviousMonth))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeCalendarForward))
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeCalendarBackward))
         
         swipeLeft.direction = .left
         swipeRight.direction = .right
@@ -194,6 +194,16 @@ public class ColorCalendarView: UIView {
          currentMonthTitleButton.setTitle(calendar.title, for: .normal)
     }
     
+    @objc private func swipeCalendarForward() {
+        switchToNextMonth()
+        delegate?.colorCalendarDidSwipeCalendarForward(self)
+    }
+    
+    @objc private func swipeCalendarBackward() {
+        switchToPreviousMonth()
+        delegate?.colorCalendarDidSwipeCalendarBackward(self)
+    }
+    
     @objc private func switchToNextMonth() {
         calendar.moveCalendarForward()
         reloadCalendar()
@@ -214,6 +224,8 @@ public class ColorCalendarView: UIView {
 public protocol ColorCalendarViewDelegate: class {
     func colorCalendarDidMoveCalendarForward(_ calendar: ColorCalendarView)
     func colorCalendarDidMoveCalendarBackward(_ calendar: ColorCalendarView)
+    func colorCalendarDidSwipeCalendarForward(_ calendar: ColorCalendarView)
+    func colorCalendarDidSwipeCalendarBackward(_ calendar: ColorCalendarView)
     func colorCalendarDidTapMonthName(_ calendar: ColorCalendarView)
     func colorCalendar(_ calendar: ColorCalendarView, didTapWeekdaySymbolAtIndex index: Int)
     func colorCalendar(_ calendar: ColorCalendarView, didTapCalendarDay date: Date, isWithinCurrentCalendarPeriod: Bool, in window: UIWindow, from frame: CGRect)

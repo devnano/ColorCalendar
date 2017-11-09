@@ -32,6 +32,10 @@ extension ColorCalendarViewController {
 }
 
 class TestColorCalendarViewDelegate: ColorCalendarViewDelegate {
+    func colorCalendarDidSwipeCalendarForward(_ calendar: ColorCalendarView) {
+    }
+    func colorCalendarDidSwipeCalendarBackward(_ calendar: ColorCalendarView) {
+    }    
     unowned let colorCalendarViewController: ColorCalendarViewController
     
     required init(_ colorCalendarViewController: ColorCalendarViewController) {

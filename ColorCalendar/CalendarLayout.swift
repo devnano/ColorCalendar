@@ -177,7 +177,17 @@ public class WeeklyCalendarLayout: CalendarLayout {
     }
     
     public override func dateComponents(at index: Int) -> (components:DateComponents, isWithinCurrentCalendarPeriod:Bool) {
-        let components = dateComponents(at: index, referenceDate: date)
+        
+        var adjustedIndex: Int = index
+        if firstWeekday != 1 {            
+            let currentWeekday = calendar.dateComponents([.weekday], from: date).weekday!
+           
+            if currentWeekday == 1 {
+                adjustedIndex -= daysPerWeek
+            }
+        }
+        
+        let components = dateComponents(at: adjustedIndex, referenceDate: date)
         
         return (components, index >= 0 && index < daysPerWeek)        
     }

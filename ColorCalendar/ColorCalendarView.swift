@@ -21,6 +21,7 @@ public class ColorCalendarView: UIView {
     // MARK: - Properties
     
     public var monthSwitcherHeightProportion: CGFloat = 0.15
+    public var calendarTitle: String?
     
     lazy var calendarCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame:.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -191,7 +192,8 @@ public class ColorCalendarView: UIView {
     }
     
     private func updatecurrentMonthTitleButton() {
-         currentMonthTitleButton.setTitle(calendar.title, for: .normal)
+        let title = calendarTitle ?? calendar.title
+        currentMonthTitleButton.setTitle(title, for: .normal)
     }
     
     @objc private func swipeCalendarForward() {

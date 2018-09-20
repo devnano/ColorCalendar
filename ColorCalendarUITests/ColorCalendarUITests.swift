@@ -19,7 +19,9 @@ class ColorCalendarUITests: XCTestCase {
         app = XCUIApplication()
         app.launchArguments.append("-UITesting")
         app.launch()    
-        app.tables.staticTexts["ColorCalendarViewExample"].tap()
+        app.tables.staticTexts["MonthlyColorCalendarViewExample"].tap()
+        
+        
     }
     
     override func tearDown() {

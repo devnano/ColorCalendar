@@ -1,4 +1,4 @@
 framework module Macaw {
-    header "Macaw-Swift.h"
-    requires objc
+  header "Macaw-Swift.h"
+  requires objc
 }

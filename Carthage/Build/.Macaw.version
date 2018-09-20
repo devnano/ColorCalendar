@@ -1,9 +1,9 @@
 {
-  "commitish" : "b4d271c8d08f7a18a9370a92a3bd615a38752fca",
+  "commitish" : "f1951eb288d162e4264f6e1393e492f01376a768",
   "iOS" : [
     {
       "name" : "Macaw",
-      "hash" : "6ee394f5d7ca8c55fd71ed3e4e6662d05c4a2b25ab109e579469f3e5ea6ba8f4"
+      "hash" : "e34b578ee89e85136ce578dca1c608e810ea677d0c9af4d8ac46978539913b39"
     }
   ]
 }

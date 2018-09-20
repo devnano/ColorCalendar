@@ -37,33 +37,33 @@ open class CalendarColors: CalendarColorsProvider {
     public init() { }
 
     open func currentMonthDayColors(forDate date: Date)  -> DayColors {
-        let colors = DayColors(textColor:R.clr.defaultColorCalendarPalette.currentMonthDayTextColor(), backgroundColor:R.clr.defaultColorCalendarPalette.currentMonthDayBackgroundColor())
+        let colors = DayColors(textColor:DefaultColorCalendarPalette.currentMonthDayTextColor, backgroundColor:DefaultColorCalendarPalette.currentMonthDayBackgroundColor)
         
         return colors
     }
 
     open func otherMonthsDayColors(forDate date: Date) -> DayColors {
-        let colors = DayColors(textColor:R.clr.defaultColorCalendarPalette.otherMonthsDayTextColor(), backgroundColor:R.clr.defaultColorCalendarPalette.otherMonthsDayBackgroundColor())
+        let colors = DayColors(textColor:DefaultColorCalendarPalette.otherMonthsDayTextColor, backgroundColor:DefaultColorCalendarPalette.otherMonthsDayBackgroundColor)
         
         return colors
     }
     
     open var weekdaySymbolColor: DayColors {
-        let colors = DayColors(textColor: R.clr.defaultColorCalendarPalette.weekdaySymbolTextColor(), backgroundColor: R.clr.defaultColorCalendarPalette.weekdaySymbolBackgroundColor())
+        let colors = DayColors(textColor: DefaultColorCalendarPalette.weekdaySymbolTextColor, backgroundColor: DefaultColorCalendarPalette.weekdaySymbolBackgroundColor)
         
         return colors
     }
     
     open var monthSwitcherColor: DayColors {
-        return DayColors(textColor: defaultTextColor, backgroundColor: R.clr.defaultColorCalendarPalette.monthSwitcherBackgroundColor())
+        return DayColors(textColor: defaultTextColor, backgroundColor: DefaultColorCalendarPalette.monthSwitcherBackgroundColor)
     }
     
     open var backgroundColor: UIColor {
-        return R.clr.defaultColorCalendarPalette.backgroundColor()
+        return DefaultColorCalendarPalette.backgroundColor
     }
     
     open var defaultTextColor: UIColor {
-        return R.clr.defaultColorCalendarPalette.defaultTextColor()
+        return DefaultColorCalendarPalette.defaultTextColor
     }
 }
 

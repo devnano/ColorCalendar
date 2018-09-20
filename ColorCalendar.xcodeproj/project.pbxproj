@@ -14,6 +14,7 @@
 		3E0B47F91F399342004A53C3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47F81F399342004A53C3 /* Date.swift */; };
 		3E0B47FB1F3993B6004A53C3 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47FA1F3993B6004A53C3 /* DateTests.swift */; };
 		3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */; };
+		3E4596C12153D329001E637B /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4596C02153D329001E637B /* UIColor+Hex.swift */; };
 		3E8B3DA91F33DCA9006E87E4 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */; };
 		3E8B3DAB1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
 		3E8B3DAC1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
@@ -118,6 +119,7 @@
 		3E0B47F81F399342004A53C3 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3E0B47FA1F3993B6004A53C3 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
+		3E4596C02153D329001E637B /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesTableViewController.swift; sourceTree = "<group>"; };
 		3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarDayViewTests.swift; sourceTree = "<group>"; };
 		3EAAFE712153B7C500B7198F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			children = (
 				3EAAFE712153B7C500B7198F /* R.generated.swift */,
 				3EAAFE732153BA1500B7198F /* DefaultColorCalendarPalette.swift */,
+				3E4596C02153D329001E637B /* UIColor+Hex.swift */,
 			);
 			path = R;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				3E0B47F01F398C93004A53C3 /* ColorCalendarViewDataSource.swift in Sources */,
 				DAA7AD771E11C2DB005625E5 /* CalendarLayout.swift in Sources */,
 				3EAAFE722153B7C500B7198F /* R.generated.swift in Sources */,
+				3E4596C12153D329001E637B /* UIColor+Hex.swift in Sources */,
 				3E0B47F71F3992FD004A53C3 /* Lazy.swift in Sources */,
 				3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */,
 			);

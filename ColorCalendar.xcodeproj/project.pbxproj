@@ -15,6 +15,8 @@
 		3E0B47FB1F3993B6004A53C3 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47FA1F3993B6004A53C3 /* DateTests.swift */; };
 		3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */; };
 		3E4596C12153D329001E637B /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4596C02153D329001E637B /* UIColor+Hex.swift */; };
+		3E73334422873C6B00D678D5 /* Macaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E73334322873C6B00D678D5 /* Macaw.framework */; };
+		3E73334522873C7000D678D5 /* Macaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E73334322873C6B00D678D5 /* Macaw.framework */; };
 		3E8B3DA91F33DCA9006E87E4 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */; };
 		3E8B3DAB1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
 		3E8B3DAC1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
@@ -120,6 +122,7 @@
 		3E0B47FA1F3993B6004A53C3 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
 		3E4596C02153D329001E637B /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		3E73334322873C6B00D678D5 /* Macaw.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Macaw.framework; path = Carthage/Build/iOS/Macaw.framework; sourceTree = "<group>"; };
 		3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesTableViewController.swift; sourceTree = "<group>"; };
 		3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarDayViewTests.swift; sourceTree = "<group>"; };
 		3EAAFE712153B7C500B7198F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -167,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E73334522873C7000D678D5 /* Macaw.framework in Frameworks */,
 				3EAC54CA1F31A991008A3D8A /* ColorCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ECF35A71F9019270050CB98 /* Rswift.framework in Frameworks */,
+				3E73334422873C6B00D678D5 /* Macaw.framework in Frameworks */,
 				3ECF35AA1F901E350050CB98 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +274,7 @@
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
+				3E73334322873C6B00D678D5 /* Macaw.framework */,
 				3ECF35A91F901E350050CB98 /* SnapKit.framework */,
 				3ECF35A61F9019270050CB98 /* Rswift.framework */,
 				DA7A02721DFF638300FF2EAE /* ColorCalendar */,
@@ -523,6 +529,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				es,
@@ -767,6 +774,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = GXB2YASNT3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -783,6 +794,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				DEVELOPMENT_TEAM = GXB2YASNT3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Examples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1027,7 +1042,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1054,7 +1069,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

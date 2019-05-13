@@ -1,9 +1,10 @@
 {
-  "commitish" : "f1951eb288d162e4264f6e1393e492f01376a768",
+  "commitish" : "916240f118690cfdab278095c7f606358a6a000e",
   "iOS" : [
     {
       "name" : "Macaw",
-      "hash" : "e34b578ee89e85136ce578dca1c608e810ea677d0c9af4d8ac46978539913b39"
+      "hash" : "8a4070f1e4f460c49f0908151a78778fd311cda80ee0176371f6d634a9e0325b",
+      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ]
 }

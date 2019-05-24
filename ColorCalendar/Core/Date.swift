@@ -9,6 +9,14 @@
 import Foundation
 
 extension Date {
+    public var yyyymmdd: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
+        return formatter.string(from: self)
+    }
+    
     public func monthName(withLocale locale: Locale) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
@@ -39,6 +47,7 @@ extension Date {
         
         return dateFormatter.string(from: self).capitalized
     }
+    
     
     public func short(withLocale locale: Locale) -> String {
         let dateFormatter = DateFormatter()

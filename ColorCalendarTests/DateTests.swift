@@ -59,6 +59,16 @@ class DateTests: XCTestCase {
         XCTAssertEqual(date.full(withLocale: Locale(identifier: "ES_es")), "Pasado Mañana")
     }
     
+    func testYyyymmdd() {
+        XCTAssertEqual(date.yyyymmdd, "20160808")
+    }
+    
+    func testYyyymmdd2() {
+        createDate(day: 10)
+        
+        XCTAssertEqual(date.yyyymmdd, "20160810")
+    }
+    
     private func createDate(year: Int = 2016, month: Int = 8, day: Int = 8) {
         
         let dateComponents = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: year, month: month, day: day)

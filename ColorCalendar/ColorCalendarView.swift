@@ -165,8 +165,6 @@ public class ColorCalendarView: UIView {
         let previousMonthButton = createButtonConstant(R.image.leftArrow()!, R.string.localizable.buttonPreviousMonthAccessibilityLabel(), #selector(switchToPreviousMonth))
         let nextMonthButton = createButtonConstant(R.image.rightArrow()!, R.string.localizable.buttonNextMonthAccessibilityLabel(), #selector(switchToNextMonth))
         
-        
-        
         currentMonthTitleButton.accessibilityLabel = R.string.localizable.labelCurrentMonthAccessibilityLabel()
         
         monthSwitcherView.addSubview(previousMonthButton)

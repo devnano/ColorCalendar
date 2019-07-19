@@ -20,8 +20,6 @@ class ColorCalendarUITests: XCTestCase {
         app.launchArguments.append("-UITesting")
         app.launch()    
         app.tables.staticTexts["MonthlyColorCalendarViewExample"].tap()
-        
-        
     }
     
     override func tearDown() {

@@ -1,4 +1,5 @@
-github "Exyte/Macaw" "master"
+# Use the latest release
+#github "Exyte/Macaw" "master"
+github "Exyte/Macaw"
 github "SnapKit/SnapKit"
 github "mac-cain13/R.swift.Library"
-

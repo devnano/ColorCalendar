@@ -3,7 +3,7 @@
   "iOS" : [
     {
       "name" : "Rswift",
-      "hash" : "0c52ba9b660a8b1d6beb80251b08500f5afbb8fa4a7aa58a504ccb824b9638a1",
+      "hash" : "c8d471fcc5af7a4fe3853d2c95bf2ed04000b58573ba50a3d426bcd38bfbfc3c",
       "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
     }
   ]

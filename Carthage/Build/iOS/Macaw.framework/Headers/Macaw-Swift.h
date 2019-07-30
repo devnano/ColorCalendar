@@ -317,8 +317,6 @@ SWIFT_CLASS("_TtC5Macaw9MacawView")
 
 
 
-
-
 SWIFT_CLASS("_TtC5Macaw9SVGCanvas")
 @interface SVGCanvas : Group
 @end
@@ -681,8 +679,6 @@ SWIFT_CLASS("_TtC5Macaw9MacawView")
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 
@@ -1063,8 +1059,6 @@ SWIFT_CLASS("_TtC5Macaw9MacawView")
 
 
 
-
-
 SWIFT_CLASS("_TtC5Macaw9SVGCanvas")
 @interface SVGCanvas : Group
 @end
@@ -1427,8 +1421,6 @@ SWIFT_CLASS("_TtC5Macaw9MacawView")
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 @end
-
-
 
 
 

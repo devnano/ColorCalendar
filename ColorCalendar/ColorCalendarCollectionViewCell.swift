@@ -14,7 +14,6 @@ class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
     
     var onTapFunc:((BaseColorCalendarCollectionViewCell) -> ())?
 
-    
     fileprivate lazy var containerView: ColorCalendarDayView = {
         let view = ColorCalendarDayView(frame: .zero)
         
@@ -64,13 +63,11 @@ class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
         createUI()
     }
     
-    
     // MARK: - Private API
     
     fileprivate func createUI() {
         self.backgroundColor = CalendarColors.calendarColors.backgroundColor
     }
-
 }
 
 class ColorCalendarCollectionViewCell: BaseColorCalendarCollectionViewCell {

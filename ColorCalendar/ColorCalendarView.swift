@@ -15,7 +15,8 @@ public class ColorCalendarView: UIView {
     // MARK: - Static constants
     fileprivate static let calendarCellReuseIdentifier = "calendarCellReuseIdentifier",
                            calendarWeekDaysHeaderCellReuseIdentifier = "calendarWeekDaysHeaderCellReuseIdentifier"
-    fileprivate static let calendarCellBorderWidth:CGFloat = 0.0
+    fileprivate static let calendarCellBorderWidth: CGFloat = 0.0
+    fileprivate static let overlayViewTag: Int = 982982892
     
     
     // MARK: - Properties
@@ -282,6 +283,15 @@ extension ColorCalendarView: UICollectionViewDataSource {
             dayCell.set(dayColors: dayColors, font: CalendarFonts.calendarFonts.fontFor(date: date))
             
             cell.accessibilityLabel = dataSource.value.colorCalendar(self, accesibilityLabelForDate: date)
+            if let overlayView = dataSource.value.colorCalendar?(self, overlayViewFor: date) {
+                overlayView.tag = ColorCalendarView.overlayViewTag
+                cell.addSubview(overlayView)
+                overlayView.snp.makeConstraints { make in
+                    make.edges.equalToSuperview()
+                }
+            } else {
+                cell.viewWithTag(ColorCalendarView.overlayViewTag)?.removeFromSuperview()
+            }
         }
         
         return cell

@@ -8,12 +8,17 @@
 
 import Foundation
 
-public protocol ColorCalendarViewDataSource: class {
-    func colorCalendar(_ calendar: ColorCalendarView, accesibilityLabelForDate date: Date) -> String    
+@objc public protocol ColorCalendarViewDataSource: class {
+    func colorCalendar(_ calendar: ColorCalendarView, accesibilityLabelForDate date: Date) -> String
+    @objc optional func colorCalendar(_ calendar: ColorCalendarView, overlayViewFor date: Date) -> UIView?
 }
 
-internal class DefaultColorCalendarViewDataSource: ColorCalendarViewDataSource {
-    func colorCalendar(_ calendar: ColorCalendarView, accesibilityLabelForDate date: Date) -> String {
+open class DefaultColorCalendarViewDataSource: ColorCalendarViewDataSource {
+    
+    public init() {
+        
+    }
+    public func colorCalendar(_ calendar: ColorCalendarView, accesibilityLabelForDate date: Date) -> String {
         return date.full(withLocale: Locale.current)
     }
 }

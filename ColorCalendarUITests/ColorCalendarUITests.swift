@@ -67,4 +67,30 @@ class ColorCalendarUITests: XCTestCase {
         
     }
     
+    // Day cell overlay view test
+    
+    func testCalendarDayOverlayView() {
+        let overlay = app.staticTexts["Today Overlay View"]
+        XCTAssert(!overlay.exists)
+        app.cells["Today"].tap()
+        XCTAssert(overlay.exists)
+    }
+    
+    func testCalendarDaySecondOverlayView() {
+        let todayOverlay = app.staticTexts["Today Overlay View"]
+        XCTAssert(!todayOverlay.exists)
+        app.cells["Today"].tap()
+        XCTAssert(todayOverlay.exists)
+        app.cells["Yesterday"].tap()
+        XCTAssert(app.staticTexts["Yesterday Overlay View"].exists)
+    }
+    
+    func testCalendarDayOverlayIsRemovedView() {
+        let todayOverlay = app.staticTexts["Today Overlay View"]
+        XCTAssert(!todayOverlay.exists)
+        app.cells["Today"].tap()
+        XCTAssert(todayOverlay.exists)
+        app.cells["Yesterday"].tap()
+        XCTAssert(!todayOverlay.exists)
+    }
 }

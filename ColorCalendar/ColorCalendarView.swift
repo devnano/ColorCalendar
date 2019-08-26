@@ -127,7 +127,13 @@ public class ColorCalendarView: UIView {
     // MARK: - Private API
     
     private func createUI() {
-        self.backgroundColor = CalendarColors.calendarColors.backgroundColor
+        // ROSTA-1: Not sure why this is not working. It shows white color instead
+        // of the one set...
+        // Keep it translucent and set the colors on the other view components
+        // i.e. month switcher, calendar day colors, week day symbols, etc
+        // and the parent background view
+//        self.backgroundColor = CalendarColors.calendarColors.backgroundColor
+        self.backgroundColor = .clear
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeCalendarForward))
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeCalendarBackward))
         

@@ -59,6 +59,9 @@ open class ColorCalendarDayView: MacawView {
         }
     }
     
+    @IBInspectable
+    public var borderColor: UIColor = .clear
+
     // MARK: - UIView
     
     override open func layoutSubviews() {
@@ -88,7 +91,9 @@ open class ColorCalendarDayView: MacawView {
         
         let backgroundFillShape = Shape(form: Rect(x: 0, y: 0, w: width, h: height), fill: macawColor(from: backgroundColor))
         let round = Circle(cx: centerX, cy: centerY, r: radius)
-        let backgroundShape = Shape(form: round, fill: macawColor(from: colors.backgroundColor), stroke: Stroke(fill: Color.black.with(a: 0.1)))
+        let backgroundShape = Shape(form: round,
+                                    fill: macawColor(from: colors.backgroundColor),
+                                    stroke: Stroke(fill: macawColor(from : self.borderColor)!))
         let characterText = Text(text: theText, font: macawFont(from: createFont()), fill: tColor, align: .mid, baseline: .mid, place: Transform.move(dx: centerX, dy: centerY))
         
         let group = Group(

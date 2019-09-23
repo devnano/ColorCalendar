@@ -29,6 +29,15 @@ class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
     
     // MARK: - internal API
     
+    var borderColor: UIColor {
+        set {
+            containerView.borderColor = newValue
+        }
+        get {
+            return containerView.borderColor
+        }
+    }
+
     func set(dayColors:DayColors, font: UIFont? = nil) {
         containerView.dayColors = dayColors
         containerView.font = font

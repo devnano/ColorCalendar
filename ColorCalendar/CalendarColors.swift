@@ -25,6 +25,8 @@ public struct DayColors {
 public protocol CalendarColorsProvider {
     func currentMonthDayColors(forDate date: Date) -> DayColors
     func otherMonthsDayColors(forDate date: Date) -> DayColors
+    // support calendar day view border color iOS 13 dark mode – related to ROSTA-20
+    var calendaryDayViewBorderColor: UIColor { get }
     var weekdaySymbolColor: DayColors { get }
     var monthSwitcherColor: DayColors { get }
     var backgroundColor: UIColor { get }
@@ -48,6 +50,11 @@ open class CalendarColors: CalendarColorsProvider {
         return colors
     }
     
+    // support calendar day view border color iOS 13 dark mode – related to ROSTA-20
+    open var calendaryDayViewBorderColor: UIColor {
+        return DefaultColorCalendarPalette.calendaryDayViewBorderColor
+    }
+
     open var weekdaySymbolColor: DayColors {
         let colors = DayColors(textColor: DefaultColorCalendarPalette.weekdaySymbolTextColor, backgroundColor: DefaultColorCalendarPalette.weekdaySymbolBackgroundColor)
         

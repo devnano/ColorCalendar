@@ -261,7 +261,7 @@ extension ColorCalendarView: UICollectionViewDataSource {
         let identifier = CalendarSection(rawValue:indexPath.section) == .weekdaysNames ? ColorCalendarView.calendarWeekDaysHeaderCellReuseIdentifier : ColorCalendarView.calendarCellReuseIdentifier
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
                                                       for: indexPath) as! BaseColorCalendarCollectionViewCell
-        
+        cell.borderColor = CalendarColors.calendarColors.calendaryDayViewBorderColor
         let row = indexPath.row
         
         switch CalendarSection(rawValue:indexPath.section)! {

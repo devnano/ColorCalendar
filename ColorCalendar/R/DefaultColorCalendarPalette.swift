@@ -9,6 +9,7 @@
 // Workaround: r.swift only supports colors from iOS 11 on – Assets Catalog Colors
 struct DefaultColorCalendarPalette {
     static let backgroundColor = UIColor(hex:"#FFFFFF")
+    static let calendaryDayViewBorderColor = UIColor.black.withAlphaComponent(0.1)
     static let currentMonthDayBackgroundColor = UIColor(hex:"#FFFFFF")
     static let currentMonthDayTextColor = UIColor(hex:"#000000")
     static let defaultTextColor = UIColor(hex:"#000000")

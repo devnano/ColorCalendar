@@ -93,8 +93,11 @@ open class ColorCalendarDayView: MacawView {
         let round = Circle(cx: centerX, cy: centerY, r: radius)
         let backgroundShape = Shape(form: round,
                                     fill: macawColor(from: colors.backgroundColor),
-                                    stroke: Stroke(fill: macawColor(from : self.borderColor)!))
+                                    stroke: Stroke(fill: macawColor(from: self.borderColor)!))
         let characterText = Text(text: theText, font: macawFont(from: createFont()), fill: tColor, align: .mid, baseline: .mid, place: Transform.move(dx: centerX, dy: centerY))
+        
+        // TODO: make hard-coded shadow color to be set on the CalendarColors ROSTA-20.
+        characterText.effect = Effect.dropShadow(dx: 1, dy: 1, r: 1, color: Color.black.with(a: 0.8))
         
         let group = Group(
             contents: [

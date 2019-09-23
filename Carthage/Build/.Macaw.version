@@ -3,8 +3,8 @@
   "iOS" : [
     {
       "name" : "Macaw",
-      "hash" : "b929425aeac3299f92c93ff53b096cf700ddfdbf5074580e62d251657ba95d33",
-      "swiftToolchainVersion" : "5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+      "hash" : "984231f6f876394f27158367f3ec55d254936bbe15fac6d181ae0868c3366d77",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
     }
   ]
 }

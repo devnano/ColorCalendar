@@ -67,7 +67,12 @@ class MonthlyCalendarLayoutTests: XCTestCase {
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "D")
     }
     
-    
+    func testWeekdaySymbolAtDefaultFirstWeekdayAndBrazilPortugueseLocale() {
+        calendarLayout.locale = Locale(identifier: "PT_br")
+        // Segunda
+        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "S")
+    }
+
     func testWeekdaySymbolAtWithMondayAsFirstWeekday() {
         calendarLayout.firstWeekday = 2
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "M")
@@ -78,6 +83,13 @@ class MonthlyCalendarLayoutTests: XCTestCase {
         calendarLayout.firstWeekday = 2
         XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "L")
     }
+    
+    func testWeekdaySymbolAtWithSundayAsFirstWeekdayBrazilPortugueseLocale() {
+        calendarLayout.locale = Locale(identifier: "PT_br")
+        calendarLayout.firstWeekday = 1
+        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "D")
+    }
+    
     
     func testDateComponentsWithMondayAsFirstWeekday() {
         createMonthlyCalendarLayout(year: 2017, month: 3, day: 2)
@@ -93,6 +105,11 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     func testCurrentMonthNameWithSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
         XCTAssert(calendarLayout.title == "Diciembre 2016")
+    }
+    
+    func testCurrentMonthNameWithPortugueseBrazilLocale() {
+        calendarLayout.locale = Locale(identifier: "PT_br")
+        XCTAssert(calendarLayout.title == "Dezembro 2016")
     }
     
     func testCurrentYear() {

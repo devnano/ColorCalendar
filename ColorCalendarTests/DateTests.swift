@@ -38,6 +38,10 @@ class DateTests: XCTestCase {
         XCTAssert(date.monthName(withLocale: Locale(identifier: "ES_es")) == "Agosto")
     }
     
+    func testMonthNamePtBr() {
+        XCTAssert(date.monthName(withLocale: Locale(identifier: "PT_br")) == "Agosto")
+    }
+    
     func testYear() {
         XCTAssert(date.year(withCalendar: calendar) == 2016)
     }
@@ -57,6 +61,14 @@ class DateTests: XCTestCase {
         
         
         XCTAssertEqual(date.full(withLocale: Locale(identifier: "ES_es")), "Pasado Mañana")
+    }
+    
+    func testFullPortugueseBrazil() {
+        let components = DateComponents(calendar: calendar, day: 2)
+        date = calendar.date(byAdding: components, to: Date())!
+        
+        
+        XCTAssertEqual(date.full(withLocale: Locale(identifier: "PT_br")), "Depois De Amanhã")
     }
     
     func testYyyymmdd() {

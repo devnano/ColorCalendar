@@ -123,6 +123,7 @@
 		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
 		3E4596C02153D329001E637B /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		3E73334322873C6B00D678D5 /* Macaw.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Macaw.framework; path = Carthage/Build/iOS/Macaw.framework; sourceTree = "<group>"; };
+		3E77FC7F234BA5DD00DD728D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesTableViewController.swift; sourceTree = "<group>"; };
 		3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarDayViewTests.swift; sourceTree = "<group>"; };
 		3EAAFE712153B7C500B7198F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -537,6 +538,7 @@
 				en,
 				Base,
 				es,
+				"pt-BR",
 			);
 			mainGroup = DA7A02661DFF638300FF2EAE;
 			productRefGroup = DA7A02711DFF638300FF2EAE /* Products */;
@@ -764,6 +766,7 @@
 			children = (
 				DADA93361E252FDD000C3693 /* en */,
 				3EEFB8A21F1D83200064BA58 /* es */,
+				3E77FC7F234BA5DD00DD728D /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

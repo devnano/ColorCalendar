@@ -68,8 +68,9 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     }
     
     func testWeekdaySymbolAtDefaultFirstWeekdayAndBrazilPortugueseLocale() {
-        calendarLayout.locale = Locale(identifier: "PT_br")
         // Domingo
+        calendarLayout.locale = Locale(identifier: "PT_br")
+        calendarLayout.firstWeekday = 1
         XCTAssertEqual(calendarLayout.weekdaySymbol(at: 0), "D")
     }
     

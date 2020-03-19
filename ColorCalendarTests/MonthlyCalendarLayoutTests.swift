@@ -143,7 +143,6 @@ class MonthlyCalendarLayoutTests: XCTestCase {
         XCTAssert(c.isWithinCurrentCalendarPeriod)
     }
 
-    // TODO: uncomment and fix this functionlity
     func testFirstCalendarDayWhen2FirstWeekdayAndCurrentMonthFirstDayIsSunday() {
         createMonthlyCalendarLayout(year: 2017, month: 10, day: 24)
         calendarLayout.firstWeekday = 2

@@ -3,8 +3,8 @@
   "iOS" : [
     {
       "name" : "SWXMLHash",
-      "hash" : "6aa1e0526b871e47704eabe7872baf5527a8f45e58703804f8189540e3bcb078",
-      "swiftToolchainVersion" : "5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+      "hash" : "1b9a44c89701152f7d979580c10b9e04ef801252e2ccc02f94cd8c0934a5e5c0",
+      "swiftToolchainVersion" : "5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)"
     }
   ]
 }

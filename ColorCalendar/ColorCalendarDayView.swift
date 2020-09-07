@@ -7,20 +7,22 @@
 //
 
 import UIKit
-import Macaw
 
 @IBDesignable
-open class ColorCalendarDayView: MacawView {
+open class ColorCalendarDayView: UIButton {
     
     // MARK: - Properties
     
     private var onTapFunc:((ColorCalendarDayView) -> ())?
+    private var circleLayer: CAShapeLayer!
+    private var textLayer: CATextLayer!
     
     @IBInspectable
     public var text: String?
     public var textSize: CGFloat?
-    public var font: UIFont?
-    public var insetsProportion: Double = 0.0
+    public var textFont: UIFont?
+    public var insetsProportion: CGFloat = 0.0
+    
    
     
     public var dayColors: DayColors? {
@@ -64,89 +66,74 @@ open class ColorCalendarDayView: MacawView {
 
     // MARK: - UIView
     
-    override open func layoutSubviews() {
-        super.layoutSubviews()
+    open override func draw(_ rect: CGRect) {
+        super.draw(rect)
         guard let colors = dayColors else {
             return
         }
         
         let size = frame.size
-        let width = Double(size.width)
-        let height = Double(size.height)
+        let width = CGFloat(size.width)
+        let height = CGFloat(size.height)
         if size.width == 0 || size.height == 0 {
-            return          
+            return
         }
-        
+
         let theText = text ?? ""
         
         backgroundColor = .clear
+
         
-        let tColor = macawColor(from: colors.textColor)!
-        
-        let radiusProportion: Double = 0.45 - insetsProportion
-        let radius = Double(min(width * radiusProportion, height * radiusProportion))
-        let centerX = Double(width / 2)
-        let centerY = Double(height / 2)
-        
-        
-        let backgroundFillShape = Shape(form: Rect(x: 0, y: 0, w: width, h: height), fill: macawColor(from: backgroundColor))
-        let round = Circle(cx: centerX, cy: centerY, r: radius)
-        let backgroundShape = Shape(form: round,
-                                    fill: macawColor(from: colors.backgroundColor),
-                                    stroke: Stroke(fill: macawColor(from : self.borderColor)!))
-        let characterText = Text(text: theText, font: macawFont(from: createFont()), fill: tColor, align: .mid, baseline: .mid, place: Transform.move(dx: centerX, dy: centerY))
-        
-        let group = Group(
-            contents: [
-                backgroundFillShape,
-                backgroundShape,
-                characterText
-            ]
-        )
-        
-        self.node = group
-        if onTapFunc != nil {
-            onTap(onTapFunc!)
+        let radiusProportion: CGFloat = 0.4 - insetsProportion
+        let radius = CGFloat(min(width * radiusProportion, height * radiusProportion))
+        let shapeSide = CGFloat(2.0 * radius)
+        let circleFrame = CGRect(x: (width - shapeSide)/2, y: (height - shapeSide)/2, width: shapeSide, height: shapeSide).integral
+        if circleLayer == nil {
+            circleLayer = CAShapeLayer()
+            circleLayer.path = UIBezierPath(roundedRect: circleFrame, cornerRadius: radius).cgPath
+            circleLayer.fillColor = colors.backgroundColor.cgColor
+            circleLayer.strokeColor = self.borderColor.cgColor
+            self.layer.addSublayer(circleLayer)
         }
+        
+        if textLayer == nil {
+            let font = createFont()
+            textLayer = CATextLayer()
+            textLayer.font = font
+            textLayer.fontSize = font.pointSize
+            textLayer.frame = circleFrame.offsetBy(dx: 0, dy: (circleFrame.height - font.pointSize) / 2)
+            
+            textLayer.alignmentMode = .center
+            
+            layer.addSublayer(textLayer)
+        }
+        textLayer.foregroundColor = colors.textColor.cgColor
+        textLayer.string = theText
     }
     
     // MARK: - Public API
     
     public func onTap(_ f: @escaping (ColorCalendarDayView) -> ())  {
         onTapFunc = f
-        self.node.onTap { (event) in
-            f(self)
-        }
+        addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     
     
     // MARK: - Private API
     
-    private func macawColor(from uiColor: UIColor?) -> Color? {
-        guard let color = uiColor else {
-            return nil
-        }
-        
-        let ciColor = CIColor(color: color)
-        
-        return Color.rgba(r: Int(ciColor.red*255), g: Int(ciColor.green*255), b: Int(ciColor.blue*255), a: Double(ciColor.alpha))
-    }
-    
-    private func macawFont(from uiFont: UIFont) -> Font {
-        return Font(name: uiFont.fontName, size: Int(uiFont.pointSize))
-    }
-    
     open func createFont() -> UIFont {
         var theTextSize = textSize ?? 20
         theTextSize = min(theTextSize, min(frame.size.width, frame.size.height))
         
-        if font != nil {
-            return UIFont(name: font!.fontName, size: theTextSize)!
+        if textFont != nil {
+            return UIFont(name: textFont!.fontName, size: theTextSize)!
         }
-       
-        
         
         return CalendarFonts.calendarFonts.defaultFont(size: theTextSize)
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        onTapFunc!(self)
     }
 }
 

@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import Macaw
 
 class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
     
@@ -40,7 +39,7 @@ class BaseColorCalendarCollectionViewCell: UICollectionViewCell {
 
     func set(dayColors:DayColors, font: UIFont? = nil) {
         containerView.dayColors = dayColors
-        containerView.font = font
+        containerView.textFont = font!
     }
     
     

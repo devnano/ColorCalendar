@@ -15,8 +15,6 @@
 		3E0B47FB1F3993B6004A53C3 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0B47FA1F3993B6004A53C3 /* DateTests.swift */; };
 		3E2E581C1F0485D800D2FEDD /* CalendarFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */; };
 		3E4596C12153D329001E637B /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4596C02153D329001E637B /* UIColor+Hex.swift */; };
-		3E73334422873C6B00D678D5 /* Macaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E73334322873C6B00D678D5 /* Macaw.framework */; };
-		3E73334522873C7000D678D5 /* Macaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E73334322873C6B00D678D5 /* Macaw.framework */; };
 		3E8B3DA91F33DCA9006E87E4 /* ExamplesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */; };
 		3E8B3DAB1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
 		3E8B3DAC1F33E792006E87E4 /* ColorCalendarDayViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */; };
@@ -122,7 +120,6 @@
 		3E0B47FA1F3993B6004A53C3 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		3E2E581B1F0485D800D2FEDD /* CalendarFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFonts.swift; sourceTree = "<group>"; };
 		3E4596C02153D329001E637B /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		3E73334322873C6B00D678D5 /* Macaw.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Macaw.framework; path = Carthage/Build/iOS/Macaw.framework; sourceTree = "<group>"; };
 		3E77FC7F234BA5DD00DD728D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3E8B3DA81F33DCA9006E87E4 /* ExamplesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesTableViewController.swift; sourceTree = "<group>"; };
 		3E8B3DAA1F33E792006E87E4 /* ColorCalendarDayViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCalendarDayViewTests.swift; sourceTree = "<group>"; };
@@ -171,7 +168,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E73334522873C7000D678D5 /* Macaw.framework in Frameworks */,
 				3EAC54CA1F31A991008A3D8A /* ColorCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +198,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ECF35A71F9019270050CB98 /* Rswift.framework in Frameworks */,
-				3E73334422873C6B00D678D5 /* Macaw.framework in Frameworks */,
 				3ECF35AA1F901E350050CB98 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +270,6 @@
 		DA7A02661DFF638300FF2EAE = {
 			isa = PBXGroup;
 			children = (
-				3E73334322873C6B00D678D5 /* Macaw.framework */,
 				3ECF35A91F901E350050CB98 /* SnapKit.framework */,
 				3ECF35A61F9019270050CB98 /* Rswift.framework */,
 				DA7A02721DFF638300FF2EAE /* ColorCalendar */,
@@ -612,7 +606,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Macaw.framework",
 			);
 			name = "Carthage copy-frameworks";
 			outputPaths = (
@@ -620,7 +613,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		DA5B27D71E0ACC0C00E36CE9 /* R.swift */ = {
 			isa = PBXShellScriptBuildPhase;

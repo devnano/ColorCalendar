@@ -27,11 +27,6 @@ class ExamplesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "\(examplesNames[indexPath.row])Segue", sender: self)
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
 }
 
 class ExampleTableViewCell: UITableViewCell {

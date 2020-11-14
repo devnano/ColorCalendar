@@ -8,3 +8,4 @@ Carthage/Checkouts
 *.generated.swift
 fastlane/screenshots
 *xcuserdata
+Build

@@ -40,31 +40,31 @@ class MonthlyCalendarLayoutTests: XCTestCase {
     
     func testWeeksCount6Weeks() {
         createMonthlyCalendarLayout(year: 2017, month: 4, day: 1)
-        XCTAssert(calendarLayout.numberOfWeeks == 6)
+        XCTAssertEqual(calendarLayout.numberOfWeeks, 6)
     }
     
     func testWeeksCount6WeeksWithMondayAsFirstWeekday() {
         createMonthlyCalendarLayout(year: 2017, month: 4, day: 1)
         calendarLayout.firstWeekday = 2
-        XCTAssert(calendarLayout.numberOfWeeks == 6)
+        XCTAssertEqual(calendarLayout.numberOfWeeks, 6)
     }
     
     func testWeekdaysCount() {
-        XCTAssert(calendarLayout.daysPerWeek == 7)
+        XCTAssertEqual(calendarLayout.daysPerWeek, 7)
     }
     
     func testWeekdaysCountWhenCurrentWeekHasLessThan7DaysInCurrentMonth() {
         createMonthlyCalendarLayout(year: 2016, month: 11, day: 1)
-        XCTAssert(calendarLayout.daysPerWeek == 7)
+        XCTAssertEqual(calendarLayout.daysPerWeek, 7)
     }
     
     func testWeekdaySymbolAtWithDefaultFirstWeekday() {
-        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "S")
+        XCTAssertEqual(calendarLayout.weekdaySymbol(at: 0), "S")
     }
     
     func testWeekdaySymbolAtDefaultFirstWeekdayAndSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
-        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "D")
+        XCTAssertEqual(calendarLayout.weekdaySymbol(at: 0), "D")
     }
     
     func testWeekdaySymbolAtDefaultFirstWeekdayAndBrazilPortugueseLocale() {
@@ -78,24 +78,24 @@ class MonthlyCalendarLayoutTests: XCTestCase {
         calendarLayout.locale = Locale(identifier: "PT_br")
         calendarLayout.firstWeekday = 2
         // Segunda
-        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "S")
+        XCTAssertEqual(calendarLayout.weekdaySymbol(at: 0), "S")
     }
 
     func testWeekdaySymbolAtWithMondayAsFirstWeekday() {
         calendarLayout.firstWeekday = 2
-        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "M")
+        XCTAssertEqual(calendarLayout.weekdaySymbol(at: 0), "M")
     }
     
     func testWeekdaySymbolAtWithMondayAsFirstWeekdayAndSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
         calendarLayout.firstWeekday = 2
-        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "L")
+        XCTAssertEqual(calendarLayout.weekdaySymbol(at: 0), "L")
     }
     
     func testWeekdaySymbolAtWithSundayAsFirstWeekdayBrazilPortugueseLocale() {
         calendarLayout.locale = Locale(identifier: "PT_br")
         calendarLayout.firstWeekday = 1
-        XCTAssert(calendarLayout.weekdaySymbol(at: 0) == "D")
+        XCTAssertEqual(calendarLayout.weekdaySymbol(at: 0), "D")
     }
     
     
@@ -103,43 +103,43 @@ class MonthlyCalendarLayoutTests: XCTestCase {
         createMonthlyCalendarLayout(year: 2017, month: 3, day: 2)
         calendarLayout.firstWeekday = 2
         let c = calendarLayout.dateComponents(at: 0)
-        XCTAssert(c.components.day! == 27)
+        XCTAssertEqual(c.components.day!, 27)
     }
     
     func testCurrentMonthName() {
-        XCTAssert(calendarLayout.title == "December 2016")
+        XCTAssertEqual(calendarLayout.title, "December 2016")
     }
     
     func testCurrentMonthNameWithSpanishLocale() {
         calendarLayout.locale = Locale(identifier: "ES_ar")
-        XCTAssert(calendarLayout.title == "Diciembre 2016")
+        XCTAssertEqual(calendarLayout.title, "Diciembre 2016")
     }
     
     func testCurrentMonthNameWithPortugueseBrazilLocale() {
         calendarLayout.locale = Locale(identifier: "PT_br")
-        XCTAssert(calendarLayout.title == "Dezembro 2016")
+        XCTAssertEqual(calendarLayout.title, "Dezembro 2016")
     }
     
     func testCurrentYear() {
-        XCTAssert(calendarLayout.currentYear == 2016)
+        XCTAssertEqual(calendarLayout.currentYear, 2016)
     }
     
     func testCurrentYearAfterMoveCalendarForward() {
         calendarLayout.moveCalendarForward()
-        XCTAssert(calendarLayout.currentYear == 2017)
+        XCTAssertEqual(calendarLayout.currentYear, 2017)
     }
     
     func testFirstCalendarDayNumberWithDefaultFirstWeekday() {
         let c = calendarLayout.dateComponents(at: 0)
         
-        XCTAssert(c.components.day! == 27)
+        XCTAssertEqual(c.components.day!, 27)
         XCTAssert(!c.isWithinCurrentCalendarPeriod)
     }
     
     func testLastMonthDayNumberAtWithDefaultFirstWeekday() {
         let c = calendarLayout.dateComponents(at: 34)
         
-        XCTAssert(c.components.day! == 31)
+        XCTAssertEqual(c.components.day!, 31)
         XCTAssert(c.isWithinCurrentCalendarPeriod)
     }
 
@@ -148,25 +148,25 @@ class MonthlyCalendarLayoutTests: XCTestCase {
         calendarLayout.firstWeekday = 2
         let c = calendarLayout.dateComponents(at: 0)
 
-        XCTAssert(c.components.day! == 25)
-        XCTAssert(c.components.month! == 9)
+        XCTAssertEqual(c.components.day!, 25)
+        XCTAssertEqual(c.components.month!, 9)
         XCTAssert(!c.isWithinCurrentCalendarPeriod)
     }
     
     func testMoveCalendarForward() {
         calendarLayout.moveCalendarForward()
-        XCTAssert(calendarLayout.title == "January 2017")
+        XCTAssertEqual(calendarLayout.title, "January 2017")
     }
     
     func testMoveCalendarForwardOnLastDayOfTheMonth() {
         createMonthlyCalendarLayout(year: 2016, month: 12, day: 31)
         calendarLayout.moveCalendarForward()
-        XCTAssert(calendarLayout.title == "January 2017")
+        XCTAssertEqual(calendarLayout.title, "January 2017")
     }
     
     func testmMoveCalendarBackward() {
         calendarLayout.moveCalendarBackward()
-        XCTAssert(calendarLayout.title == "November 2016")
+        XCTAssertEqual(calendarLayout.title, "November 2016")
     }
     
 }
